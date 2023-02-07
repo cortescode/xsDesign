@@ -11,7 +11,7 @@ def signup_user(username, email, password) -> bool:
         add_user_to_db(user)
     except:
         print("Error creating and saving user: ")
-        return false
+        return False
     
     # if user have been added successfully to database add info to session and return true
     session['user_id'] = user.user_id

@@ -15,26 +15,25 @@ app = create_app(__name__)
 db = create_db(app)
 
 
+
+#---------------------------------------------------------------
+# Defining Routes
+
 @app.route("/")
 def base():
     return send_from_directory('client/public', 'index.html')
-
 
 @app.route("/home")
 def home():
     return send_from_directory('client/public', 'index.html')
 
-
 @app.route("/dashboard")
 def dashboard():
     return send_from_directory('client/public', 'index.html')
 
-
-
 @app.route("/pricing")
 def pricing():
     return send_from_directory('client/public', 'index.html')
-
 
 @app.route("/<path:path>")
 def routes(path):
@@ -42,6 +41,10 @@ def routes(path):
     return send_from_directory('client/public', 'index.html')
 
 
+
+
+#---------------------------------------------------------------
+# Starting app
 
 if __name__ == "__main__":
     app.run(debug=True)
