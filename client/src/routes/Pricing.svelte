@@ -1,3 +1,6 @@
+
+<!-- ------------------------------------------ J S ------------------------------------------ -->
+
 <script>
 	
 	import Header from "../components/Header.svelte"
@@ -6,10 +9,7 @@
 </script>
 
 
+<!-- ------------------------------------------ H T M L ------------------------------------------ -->
+
 <Header></Header>
 <PricingComponent></PricingComponent>
-
-
-<style>
-
-</style>

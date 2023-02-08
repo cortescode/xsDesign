@@ -1,63 +1,61 @@
+
+<!-- ------------------------------------------ J S ------------------------------------------ -->
+
 <script>
     import Header from "../components/Header.svelte"
  
+    // Variable to swith 
     let signedUp = true;
 
     let form_submitted_successfully = false
     let form_submitted_memssage = ""
 
-    function toggle() {
+    // Provisional toggle to switch between signup and login form
+    function changeForm() {
         if(signedUp == true) signedUp = false;
         else signedUp = true
     }
 
 
-    let login_form = {
-        email: "",
-        password: ""
-    }
 
-    function handleLoginForm(event) {
-        let formData = new FormData()
-        console.log(email, password)
-        formData.append("email", login_form.email)
-        formData.append("password", login_form.password)
-        fetch('/auth/login', {
-            method: 'POST',
-            body: formData
-        }).then((response) => {
-                if(response.status != 200) {
-
-                }
-                return response.json()
-            }
-        ).then((data) => {
-            if(data['status'] == 'error'){
-                form_submitted_memssage = 'Ha habido un error con los datos introducidos, por favor vuelve a introducirlos'
-            } else if(data['status'] == 'successful'){
-                form_submitted_successfully = true;
-                window.location = "/home";
-            }
-        })
-    }
-
-
-    let signup_form = {
+    let form = {
         username: "",
         email: "",
         password: "",
     }
 
-    function handleSignupForm(event) {
+
+    // ------------- LOGIN FORM ----------------
+    function LoginForm(event) {
         let formData = new FormData()
         
-        formData.append("username", signup_form.username)
-        formData.append("email", signup_form.email)
-        formData.append("password", signup_form.password)
+        formData.append("email", form.email)
+        formData.append("password", form.password)
+        
+        handleForm('login', formData)
+    }
 
-        fetch('/auth/signup', {
+
+    // ------------- SIGNUP FORM ----------------
+    function SignupForm(event) {
+        let formData = new FormData()
+        
+        formData.append("username", form.username)
+        formData.append("email", form.email)
+        formData.append("password", form.password)
+
+        handleForm('signup', formData)
+    }
+
+
+
+    // ------------- GENERAL FORM ----------------
+    // This
+    function handleForm(type, form) {
+
+        fetch(`/auth/${ type }`, {
             method: 'POST',
-            body: formData
+            body: form
         }).then((response) => {
                 if(response.status != 200) {
 
@@ -75,62 +73,82 @@
             console.log("An error occurred during request")
             console.log(error)
         })
+
     }
 
 </script>
+
+
+<!-- ------------------------------------------ H T M L ------------------------------------------ -->
+
 
 <Header></Header>
 <section class="login-form-container">
 
     {#if form_submitted_successfully}
-        <h2>{form_submitted_memssage}</h2>
-        <a href="/dashboard">Ir al dashboard</a>
+
+        <div>
+            <h2>{form_submitted_memssage}</h2>
+            <a href="/dashboard">Ir al dashboard</a>
+        </div>
         
     {/if}
 
-    <p>{form_submitted_memssage}</p>
+
+     <!-- LOGIN -->
+
     {#if (!form_submitted_successfully && signedUp)}
-        <!-- LOGIN -->
-        <form method="POST" class="login-form" on:submit|preventDefault={handleLoginForm}>
+       
+        <form method="POST" class="login-form" on:submit|preventDefault={LoginForm}>
+
+            <p style="color: red">{form_submitted_memssage}</p>
+
             <h2 class="welcome-message">Nos alegra verte de vuelta.</h2>
             
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" bind:value={login_form.email}>
+            <input type="text" name="email" id="email" bind:value={form.email}>
             
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" bind:value={login_form.password}>
+            <input type="password" name="password" id="password" bind:value={form.password}>
             
             <button class="login-button" type="submit"><b>Login </b></button>
             <span>¿Aún no estás registrado? <a href="/signup">Regístrate</a></span>
         </form>
+
     {/if}
 
+
+    <!-- SIGNUP -->
+
     {#if (!form_submitted_successfully && !signedUp)}
-        <!-- SIGNUP -->
-        <form method="POST" class="login-form" on:submit|preventDefault={handleSignupForm}>
+
+        <form method="POST" class="login-form" on:submit|preventDefault={SignupForm}>
+
+            <p style="color: red">{form_submitted_memssage}</p>
             <h2 class="welcome-message">Gracias por elegirnos.</h2>
 
             <label for="username">Username</label>
-            <input type="text" name="username" id="name" bind:value={signup_form.username}>
+            <input type="text" name="username" id="name" bind:value={form.username}>
             
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" bind:value={signup_form.email}>
+            <input type="text" name="email" id="email" bind:value={form.email}>
             
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" bind:value={signup_form.password}>
+            <input type="password" name="password" id="password" bind:value={form.password}>
 
             <button class="login-button" type="submit"><b>Signup </b></button>
             <span>¿Ya estás registrado? <a href="/login">Inicia sesión</a></span>
         </form>
+
     {/if}
 
+    <button on:click={changeForm} style="margin: 20px;">change</button>
 
-
-
-    <button on:click={toggle} style="margin: 20px;">change</button>
-
-    
 </section>
+
+
+
+<!-- ------------------------------------------ C S S ------------------------------------------ -->
 
 <style>
     .login-form-container {
@@ -183,4 +201,4 @@
         width: 100%;
         margin: 28px 0 0 0;
     }
- </style>
+</style>

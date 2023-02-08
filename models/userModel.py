@@ -1,8 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
-from server import db
+from models import db
 
-db = SQLAlchemy()
+import sqlite3
 
+
+#---------------------------------------------------------------
+# User Class
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -20,6 +23,10 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.username}>'
     
+
+
+#---------------------------------------------------------------
+# Database User related functions
 
 def add_user_to_db(user: User):
     db.session.add(user)

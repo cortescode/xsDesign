@@ -3,10 +3,9 @@ from flask import session
 
 def signup_user(username, email, password) -> bool:
     
-    # trying to add user to database and returnf false if error
-    from models.userModel import User, add_user_to_db
-    
     try:
+        # trying to add user to database and returnf false if error
+        from models.userModel import User, add_user_to_db
         user = User(username=username, email=email, password = password)
         add_user_to_db(user)
     except:
@@ -17,4 +16,4 @@ def signup_user(username, email, password) -> bool:
     session['user_id'] = user.user_id
     session['username'] = user.username
     
-    return true
+    return True

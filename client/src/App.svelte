@@ -1,47 +1,47 @@
+
+<!-- ------------------------------------------ J S ------------------------------------------ -->
+
 <script>
     import { onMount } from 'svelte';
     
     import routes from "./routes/routes.js";
 
+	// Defining variables to handle content status
 	let errorOnLoadContent = false;
 	let contentIsReady = false;
-	
+
+	// This variable will save the page object
     let currentPage;
 
-    function setPage(page) {
+    // Set the page object once component is mounted
+    onMount(() => {
+		try {
+			setPage(window.location.pathname)
 
-        currentPage = routes[page];
-
+		} catch {
+			setPage('404')
+		}
 		
+	});
+
+	// Set currentPage object and show it on html
+	function setPage(page) {
+		currentPage = routes[page];
 		if(currentPage == undefined) {
 			errorOnLoadContent = true;
 			return;
 		}
 		contentIsReady = true
-    }
-
-    function addInput(event) {
-        console.log('addInput', event.detail.numberInput);
-    }
-    
-    onMount(() => {
-		setPage(window.location.pathname)
-		
-
-		/* if(window.location.pathname == "/"){
-			setPage('home')
 		}
-		if(window.location.pathname == "/home"){
-			setPage('home')
-		}
-		if(window.location.pathname == "/pricing"){
-			setPage('pricing')
-		} */
-	});
+
+		function addInput(event) {
+		console.log('addInput', event.detail.numberInput);
+	}
 
 </script>
 
 
+<!-- ------------------------------------------ H T M L ------------------------------------------ -->
 
 <div class = "app">
 	{#if contentIsReady}

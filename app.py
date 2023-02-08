@@ -1,19 +1,26 @@
 from flask import Flask, send_from_directory, session
-from flask_sqlalchemy import SQLAlchemy
-
-""" from flask import Blueprint
-from flask_sqlalchemy import SQLAlchemy
+from models import start_db
 from server.auth import auth_blueprint
-from models import * """
-
-from server import create_app
-from models.userModel import create_db
-
-app = create_app(__name__)
 
 
-db = create_db(app)
+DB_NAME = 'database.db'
 
+
+#---------------------------------------------------------------
+# Starting app 
+app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///databases/{DB_NAME}'
+
+
+#---------------------------------------------------------------
+# Starting Database
+start_db(app)
+
+
+#---------------------------------------------------------------
+# Registring blueprints
+app.register_blueprint(auth_blueprint, url_prefix ='/auth')
 
 
 #---------------------------------------------------------------
@@ -44,7 +51,7 @@ def routes(path):
 
 
 #---------------------------------------------------------------
-# Starting app
+# Run App
 
 if __name__ == "__main__":
     app.run(debug=True)
