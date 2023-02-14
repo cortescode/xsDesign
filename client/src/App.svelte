@@ -4,39 +4,48 @@
 <script>
     import { onMount } from 'svelte';
     
-    import routes from "./routes/routes.js";
+    import routes from './routes/routes.js';
+
+	import { getSessionUserData, user } from './session.js'
+
+	
 
 	// Defining variables to handle content status
 	let errorOnLoadContent = false;
 	let contentIsReady = false;
 
+
 	// This variable will save the page object
     let currentPage;
 
+
     // Set the page object once component is mounted
     onMount(() => {
-		try {
+		getSessionUserData().then(_user => {
+			user.set(_user)
 			setPage(window.location.pathname)
-
-		} catch {
-			setPage('404')
-		}
+		});
+		setPage(window.location.pathname)
 		
 	});
 
 	// Set currentPage object and show it on html
 	function setPage(page) {
+
+		if(!(window.location.pathname in routes))
+			setPage('/404')
+
 		currentPage = routes[page];
+		
 		if(currentPage == undefined) {
 			errorOnLoadContent = true;
 			return;
-		}
-		contentIsReady = true
+		} else {
+			contentIsReady = true;
 		}
 
-		function addInput(event) {
-		console.log('addInput', event.detail.numberInput);
 	}
+
 
 </script>
 
@@ -45,7 +54,7 @@
 
 <div class = "app">
 	{#if contentIsReady}
-    	<svelte:component this={currentPage.body} params={currentPage.params} on:inputForm="{addInput}" />
+    	<svelte:component this={currentPage.body} params={currentPage.params} />
 	{/if}
 
 	{#if errorOnLoadContent}

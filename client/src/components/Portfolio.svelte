@@ -24,7 +24,7 @@
 
     <PortfolioWeb name= "Transportes Frio Antakira" 
         description= "hola" 
-        imageUrl= "/media/frioantakira/home_page.png" 
+        imageUrl= "/media/elbuscadordeagua/home_page.png" 
         statistics= {{
             "conversion": 324,
             "visitedPages": 21,

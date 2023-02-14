@@ -100,9 +100,10 @@
     {#if (!form_submitted_successfully && signedUp)}
        
         <form method="POST" class="login-form" on:submit|preventDefault={LoginForm}>
-
-            <p style="color: red">{form_submitted_memssage}</p>
-
+            {#if form_submitted_memssage != ''}
+                <p style="color: red">{form_submitted_memssage}</p>
+            {/if}
+            
             <h2 class="welcome-message">Nos alegra verte de vuelta.</h2>
             
             <label for="email">Email</label>
@@ -123,8 +124,9 @@
     {#if (!form_submitted_successfully && !signedUp)}
 
         <form method="POST" class="login-form" on:submit|preventDefault={SignupForm}>
-
-            <p style="color: red">{form_submitted_memssage}</p>
+            {#if form_submitted_memssage != ''}
+                <p style="color: red">{form_submitted_memssage}</p>
+            {/if}
             <h2 class="welcome-message">Gracias por elegirnos.</h2>
 
             <label for="username">Username</label>

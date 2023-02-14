@@ -1,7 +1,5 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import { user } from '../session.js'
-
     let links = [
       { name: 'home', link: '/' },
       { name: 'how we work', link: '/how-we-work' },
@@ -14,7 +12,7 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<header id="header">
+<header cid="header">
     <div class="logo-container">
       <h1 class="logo logo-header">XS Design</h1>
     </div>
@@ -25,13 +23,7 @@
         {/each}
     </nav>
     <div class="button-container">
-        {#if user == {} }
-            <a href="/auth" class="login-link">Login</a>
-            <button onclick="location.href='/pricing'">Pricing</button>
-        {:else }
-            <a href="/auth" class="login-link">Account</a>
-            <button onclick="location.href='/dashboard'">Dashboard</button>
-        {/if}
+        <a href="/">Config</a>
     </div>
     
 </header>
@@ -47,6 +39,7 @@
         align-items: center;
         justify-items: center;
         background-color: rgb(255, 255, 255);
+        height: auto;
 
         position: sticky;
         inset: 0 0 auto 0;
@@ -56,8 +49,8 @@
     }
 
     .logo-header {
-        font-size: 1.8vw;
-        margin: 4px 10px;
+        font-size: 1.4vw;
+        margin: 10px 18px;
         width: auto;
         align-items: center;
     }
@@ -69,9 +62,10 @@
     }
 
     a {
-        margin: 4px 10px;
+        margin: 10px 14px;
         text-decoration: none;
         color: #333;
+        font-size: 16px;
     }
     a:hover {
         background: linear-gradient(to right, #764ba2, #667eea);
@@ -81,11 +75,6 @@
         text-decoration: underline;
     }
 
-    .login-link {
-        padding-right: 10px;
-        margin-right: 10px;
-        border-right: 1px solid rgb(0, 8, 73);
-    }
 
 
     /* BUTTONS STYLES */

@@ -37,7 +37,6 @@
         text-align: center;
         height: 84vh;
         position: relative;
-        margin-top: 50px;
     }
 
     #background-video {

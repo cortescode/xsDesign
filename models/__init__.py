@@ -1,8 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
+import sqlite3
 
+from models.userModel import create_user_table
 
-db = SQLAlchemy()
-
-def start_db(app) -> SQLAlchemy:
-    db.init_app(app)
-    return SQLAlchemy
+def create_tables(db):
+    create_user_table(db)
+    
