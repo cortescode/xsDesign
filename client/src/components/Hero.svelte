@@ -7,13 +7,16 @@
 <section class="hero">
     <div class="hero-content">
         <h1>
-            Diseño web efectivo para aumentar tus ventas y fidelizar a tus clientes
+            Crea tu web profesional en cuestión de minutos
         </h1>
         <p>
             Creamos páginas web personalizadas de calidad, con sistema de administración
             de clientes, además inteligencia artificial integrada para la creación de artículos
             y mejora del posicionamiento web.
         </p>
+        <button class="white-button">
+            Obtener acceso anticipado
+        </button>
 
         <video id="background-video" class="hero-media-asset is-visible" autoplay="" muted="" loop="" playsinline="" data-hero-video="" data-src-lg="/media/herobg.mp4" data-src-sm="/media/herobg.mp4">
             <source src="/media/herobg.mp4" type="video/mp4">
@@ -35,8 +38,8 @@
         background-position: center;
         color: white;
         text-align: center;
-        height: 84vh;
         position: relative;
+        padding: 100px;
     }
 
     #background-video {
@@ -60,5 +63,6 @@
     }
     .hero-content p {
         max-width: 600px;
+        margin-bottom: 40px;
     }
 </style>

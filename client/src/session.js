@@ -29,7 +29,6 @@ export async function getSessionUserData() {
         });
 }
 
-user = writable({
-});
+user = writable({});
 
 export let user

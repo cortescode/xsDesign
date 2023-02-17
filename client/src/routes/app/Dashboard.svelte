@@ -11,7 +11,7 @@
         'overview': Overview,
         'analytics': Analytics,
         'Werbpage': Webpage,
-        'Emails': Emails
+        'Emails': Emails,
     }
 
     let active_service = services['overview']
@@ -20,39 +20,42 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<Header></Header>
-<section>
+
+<section class="dashboard">
+    <Header></Header>
     <div class="left-menu">
         <nav>
             <ul>
                 <li>
-                    <button class="left-menu-button">
-                        Overview
+                    <button class="left-menu-button active-button">
+                        <img class="left-svg" src="/media/assets/icons/home.svg" alt=" " srcset="/media/assets/icons/home.svg"> Overview
                     </button>
                 </li>
                 <li>
                     <button class="left-menu-button">
-                        Emails
+                        <img class="left-svg" src="/media/assets/icons/graph-file.svg" alt=" " srcset="/media/assets/icons/graph-file.svg"> Webpapge
                     </button>
                 </li>
                 <li>
                     <button class="left-menu-button">
-                        Webpapge
+                        <img class="left-svg" src="/media/assets/icons/email.svg" alt=" " srcset="/media/assets/icons/email.svg"> Emails
                     </button>
                 </li>
                 <li>
                      <button class="left-menu-button">
-                        Analytics
+                        <img class="left-svg" src="/media/assets/icons/data.svg" alt=" " srcset="/media/assets/icons/data.svg"> Clients
+                     </button>
+                </li>
+                <li>
+                     <button class="left-menu-button">
+                        <img class="left-svg" src="/media/assets/icons/data.svg" alt=" " srcset="/media/assets/icons/data.svg"> Analytics
                      </button>
                 </li>
             </ul>
-            <button class="left-menu-button">
-                + Add service
-            </button>
         </nav>
     </div>
     <div class="service">
-    	<svelte:component this={active_service} />
+    	<svelte:component this={active_service}/>
     </div>
     <div>
         
@@ -62,36 +65,39 @@
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
-    section {
+    .dashboard {
         display: grid;
-        grid-template-columns: 1fr 5fr 1fr;
-        grid-template-rows: 1fr;
-        max-width: 100%;
-        background-color: white;
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        margin: 0;
+        grid-template-columns: 10;
+        grid-template-rows: 10;
         padding: 0;
-        max-height: 98vh;
+        margin: 0;
+
+        max-height: 100vh;
+        max-width: 100vw;
+
         overflow: hidden;
     }
+
     .left-menu {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 9;
+
         width: 100%;
         max-height: 100vh;
+        
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 5fr 1fr;
-        justify-content: center;
-        justify-items: center;
         align-items: center;
+        background-color: white;
+        border-right: 1px solid rgba(21, 10, 93, 0.1);
     }
 
     .left-menu ul {
         list-style: none;
-        justify-self: center;
         align-items: center;
-        margin: 0;
+        width: 100%;
+        margin: 80px 0 20px 0;
         padding: 0;
     }
     .left-menu li {
@@ -100,22 +106,52 @@
         padding: 0;
     }
     .left-menu-button {
-        background-color: white;
-        border-radius: 0;
-        width: 100%;
+        font-size: 16px;
+        padding: 20px 40px;
+        border: none;
         color: rgb(0, 4, 37);
+        background-color: white;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        transition: .2s;
     }
+
     .left-menu-button:hover {
+        font-size: 18px;
         background-color: aliceblue;
+        cursor: pointer;
+        background: linear-gradient(to right, #764ba2, #667eea);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: underline;
+    }
+
+    .active-button {
+        font-size: 18px;
+        background-color: aliceblue;
+        cursor: pointer;
+        background: linear-gradient(to right, #764ba2, #667eea);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: underline;
+
     }
 
     .service {
+        grid-column-start: 2;
+        grid-column-end: 10;
+        grid-row-start: 2;
+        grid-row-end: 10;
+
+        padding: 10px 20px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
         width: 100%;
         height: 100%;
-        display: grid;
-        justify-content: center;
-        justify-items: center;
-        margin: 0;
     }
 
 </style>

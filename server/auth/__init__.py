@@ -1,5 +1,5 @@
 from flask import Blueprint, send_from_directory, request, redirect, url_for, jsonify
-from flask import session
+from flask import session, make_response
 from server.auth.login import login_user
 from server.auth.signup import signup_user
 
@@ -55,6 +55,36 @@ def signup():
     data = jsonify(data)
         
     return data
+
+
+@auth_blueprint.get('/logout')
+def logout():
+    data: dict
+    
+    try:
+        # Remove the variables that you want to delete from the session
+        session.pop('user_id', None)
+        session.pop('username', None)
+
+        # Clear the session data
+        session.clear()
+        print(session)
+        
+        response = make_response(redirect('/'))
+        response.set_cookie('session', expires=0)
+        
+        data =  {
+            "status": "successful",
+            "message": "User logged out successfully",
+        }
+    except:
+        data =  {
+            "status": "error",
+            "message": "Some error occour while logging out the user",
+        }
+    
+    return data
+
 
 
 

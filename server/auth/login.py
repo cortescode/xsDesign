@@ -19,16 +19,13 @@ def login_user(email, password) -> bool:
         to session dict.
     """
     
-    user: User = User.load_user_from_db(email, password)
+    user = User.load_from_db(username = None, email = email, password = password)
     
     if user != None:
-        if(user.password == password):
-            session["user_id"] = user.user_id
-            session["username"] = user.username
-            return True
-        else:
-            return False
+        session["user_id"] = user.user_id
+        session["username"] = user.username
+        return True
+        
     else:
-        print("The email or password introduced aren't correct")
         return False
         

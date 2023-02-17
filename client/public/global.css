@@ -32,12 +32,23 @@ h1 {
 	font-weight: 400;
 }
 
+h2 {
+    color: rgb(20, 0, 80);
+	font-family: Ultra;
+	font-weight: 400;
+}
+
+h3 {
+    color: rgb(20, 0, 80);
+}
+
 p {
 	line-height: 1.5em;
 }
 
 
-button {
+
+.gradient-button {
 	background: linear-gradient(to right, #667eea, #764ba2);
 	border-radius: 24px;
 	border: none;
@@ -49,13 +60,33 @@ button {
 	font-weight: 900;
 	cursor: pointer;
 }
-button:hover {
+.gradient-button:hover {
 	background: rgb(0, 5, 47);
 }
-button:active {
+.gradient-button:active {
 	transform: scale(.6);
 }
 
+.white-button {
+	border-radius: 24px;
+	border: none;
+	color: rgb(0, 5, 47);
+	height: min-content;
+	padding: 12px 20px;
+	float: right;
+	font-size: 16px;
+	font-weight: 900;
+	cursor: pointer;
+	background-color: white;
+}
+.white-button:hover {
+	background: rgb(0, 5, 47);
+	box-shadow: white 0px 0px 20px;
+	color: white;
+}
+.white-button:active {
+	transform: scale(.6);
+}
 
 
 .logo {
@@ -66,4 +97,27 @@ button:active {
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+
+.gradient-text {
+    background: linear-gradient(to right, #764ba2, #667eea);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.right-svg {
+	width: 28px;
+	fill: blue;
+	stroke: blue;
+	margin-left: 8px;
+}
+
+.left-svg {
+	width: 28px;
+	fill: blue;
+	stroke: blue;
+	margin-right: 8px;
 }

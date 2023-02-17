@@ -1,3 +1,4 @@
+<!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
 
     import PortfolioWeb from "./PortfolioWeb.svelte"
@@ -8,8 +9,9 @@
 
 </script>
 
+<!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <section class="portfolio">
-    <h3>Webs we have created</h3>
+    <h2>Páginas webs que confían en nuestra plataforma:</h2>
     
     <PortfolioWeb name= "Transportes Frio Antakira" 
         description= "hola" 
@@ -45,6 +47,7 @@
     </PortfolioWeb>
 </section>
 
+<!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
     .portfolio {
         max-width: 1150px;

@@ -1,6 +1,7 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import { user } from '../session.js'
+    import { user } from '../session.js';
+    import { onMount } from 'svelte';
 
     let links = [
       { name: 'home', link: '/' },
@@ -8,6 +9,8 @@
       { name: 'testimonials', link: '/testimonials' },
       { name: 'contact', link: '/contact' }
     ];
+
+    console.log($user)
 
 </script>
   
@@ -25,12 +28,12 @@
         {/each}
     </nav>
     <div class="button-container">
-        {#if user == {} }
+        {#if ($user == null) || !("username" in $user) }
             <a href="/auth" class="login-link">Login</a>
-            <button onclick="location.href='/pricing'">Pricing</button>
+            <button onclick="location.href='/pricing'" class="gradient-button">Pricing</button>
         {:else }
-            <a href="/auth" class="login-link">Account</a>
-            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <a href="/auth/logout" class="login-link">Logout</a>
+            <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
         {/if}
     </div>
     
@@ -47,19 +50,21 @@
         align-items: center;
         justify-items: center;
         background-color: rgb(255, 255, 255);
+        padding: 0 40px;
+        width: calc(100% - 80px);
 
         position: sticky;
         inset: 0 0 auto 0;
         z-index: 10;
 
-        box-shadow: rgba(4, 0, 80, 0.2) -10px 2px 20px;
+        box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
     }
 
     .logo-header {
         font-size: 1.8vw;
-        margin: 4px 10px;
         width: auto;
         align-items: center;
+        justify-self: flex-start;
     }
 
     .links-list{

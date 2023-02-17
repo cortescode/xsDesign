@@ -1,10 +1,8 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
     let links = [
-      { name: 'home', link: '/' },
-      { name: 'how we work', link: '/how-we-work' },
-      { name: 'testimonials', link: '/testimonials' },
-      { name: 'contact', link: '/contact' }
+      { name: 'support', link: '/' },
+      { name: 'tips', link: '/tips' },
     ];
 
 </script>
@@ -23,7 +21,7 @@
         {/each}
     </nav>
     <div class="button-container">
-        <a href="/">Config</a>
+        <a href="/">Config <img class="right-svg" src="/media/assets/icons/config.svg" alt=" " srcset="/media/assets/icons/config.svg"></a>
     </div>
     
 </header>
@@ -34,6 +32,11 @@
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
     header {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-column-end: 10;
+
+
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
         align-items: center;
@@ -45,7 +48,7 @@
         inset: 0 0 auto 0;
         z-index: 10;
 
-        box-shadow: rgba(4, 0, 80, 0.2) -10px 2px 20px;
+        box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 20px;
     }
 
     .logo-header {
@@ -80,6 +83,12 @@
     /* BUTTONS STYLES */
 
     .button-container {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .button-container a {
         display: flex;
         justify-content: right;
         align-items: center;

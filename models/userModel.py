@@ -6,11 +6,18 @@ from globals import _db_name
 
 import sqlite3
 
+from .model import Model
+
 
 #---------------------------------------------------------------
 # User Class
 
-class User():
+class User(Model):
+    """
+    Params defined by
+
+    """
+    
     __tablename__ = 'Users'
     
     id: int
@@ -20,45 +27,45 @@ class User():
     
     
     def __init__(self, username, email, password):
-        self.username = username
-        self.email = email
-        self.password = password
-
+        try:
+            self = self.load_from_db(username, email, password)
+        except:
+            self.username = username
+            self.email = email
+            self.password = password
+            try:
+                self.add_to_db()
+            except:
+                print("an error occouorred during adding user to db")
 
     def __repr__(self) -> str:
         return f'<User {self.username}>'
     
     
     # Adding user to db
+    @super.require_db
     def add_to_db(self) -> bool:
-        """Try to add user to db and return True if it is added successfully and False if it isn't"""
+        """
+        Try to add user to db and return True if it is added successfully and False if it isn't
+        Require the use of "@require_db" decorator
+        """
         
-        if(self.username == "" or None):
+        if((self.username == "" or None) or (self.email == "" or None) or (self.password == "" or None)):
             print("Set all params before add user to db")
             return False
         
-        if(self.email == "" or None):
-            print("Set all params before add user to db")
-            return False
-        
-        if(self.password == "" or None):
-            print("Set all params before add user to db")
-            return False
         
         try:
-            db = sqlite3.connect(f'databases/{ _db_name }')
-            cursor = db.cursor()
+            cursor = super.db.cursor()
             statement:str = 'INSERT INTO users(username, email, password) VALUES(?, ?, ?)'
+            
             values = [self.username, self.email, self.password]
             cursor.execute(statement, values)
                 
-            db.commit()
-            
             statement = 'SELECT id FROM Users WHERE email = ?'
             user_id = cursor.execute(statement, [self.email]).fetchone()
             
             self.id = user_id
-            db.close()
             
         except:
             return False
@@ -67,6 +74,7 @@ class User():
     
     
     # Loading user from email (or username) if password is True
+    @super.require_db
     def load_from_db(self, email, username, password) -> object:
         
         # If params aren't introduced returns None
@@ -74,47 +82,46 @@ class User():
             print("Needed parameters don't introduced (password and user or email)")
             return None
         
-        
         # Connecting to tb and getting cursor to execute statements
-        db = sqlite3.connect(f'/databases/{ _db_name }')
-        cursor = db.cursor()
-        
+        cursor = super.db.cursor()
         
         # Set statement and value variables depends on params introduced (whether email or username)
-        statement: str
-        value: str 
+        statement: list[str]
+        value: list[str]
         
-        if(email != None):
-            statement = 'SELECT user FROM Users WHERE email = ?'
-            value = email
-        elif(username != None):
-            statement = 'SELECT user FROM Users WHERE username = ?'
-            value = username
+        if(email != None and email != ""):
+            statement = 'SELECT * FROM Users WHERE email == ?'
+            value = [email]
+        elif(username != None and email != ""):
+            statement = 'SELECT * FROM Users WHERE username == ?'
+            value = [username]
+        else:
+            print("No username or email introduced")
         
+        print(f'value{value}')
         
         # Obtaining user once statement and value are setted
         obtained_user = cursor.execute(statement, value).fetchone()
+        
         print(obtained_user)
         if(obtained_user == None):
             print("Introduced params are incorrect")
-            db.close()
             return None
         user_password = obtained_user[3]
         
         # Checking user credentials
         if(password == user_password):
-            self.id = obtained_user[3]
+            self.id = obtained_user[0]
             self.username = username
             self.email = email
             self.password = password
         else:
-            db.close()
             return None
             
-        # Closing the cursor
-        db.close()
         
         return User
+    
+    
         
 
 

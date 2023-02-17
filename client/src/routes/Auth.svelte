@@ -112,7 +112,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" bind:value={form.password}>
             
-            <button class="login-button" type="submit"><b>Login </b></button>
+            <button class="gradient-button login-button" type="submit"><b>Login </b></button>
             <span>¿Aún no estás registrado? <a href="/signup">Regístrate</a></span>
         </form>
 
@@ -138,13 +138,13 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" bind:value={form.password}>
 
-            <button class="login-button" type="submit"><b>Signup </b></button>
+            <button class="gradient-button login-button" type="submit"><b>Signup </b></button>
             <span>¿Ya estás registrado? <a href="/login">Inicia sesión</a></span>
         </form>
 
     {/if}
 
-    <button on:click={changeForm} style="margin: 20px;">change</button>
+    <button class="gradient-button" on:click={changeForm} style="margin: 20px;">change</button>
 
 </section>
 

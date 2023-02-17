@@ -40,7 +40,7 @@ onMount(() => {
 })
 
 // Checking if the portfolio web is visible every 500 miliseconds
-setInterval(() => handleVisible(), 500)
+// setInterval(() => handleVisible(), 500)
 
 
 // boolean to chek if the element is visible
