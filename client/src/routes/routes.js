@@ -1,5 +1,12 @@
 import Home from "./Home.svelte";
 import Page404 from "./Page404.svelte"
+
+// Agency
+import Contact from "./Contact.svelte"
+
+
+// App
+import App from "./app/App.svelte"
 import Pricing from "./Pricing.svelte";
 import Auth from "./Auth.svelte";
 import Dashboard from "./app/Dashboard.svelte"
@@ -17,16 +24,28 @@ export default {
         title:"Home | XS Design",
         body: Home,
     }, 
+    "/app": {
+        title:"App | XS Design",
+        body: App,
+    }, 
+    "/contact": {
+        title:"Contact | XS Design",
+        body: Contact,
+    }, 
     "/pricing": {
         title:"Pricing | XS Design",
         body: Pricing,
     },
-    "/auth/": {
-        title:"Login/Signin | XS Design",
+    "/auth/login": {
+        title:"Login| XS Design",
+        body: Auth,
+    },
+    "/auth/signup": {
+        title:"Signup | XS Design",
         body: Auth,
     },
     "/dashboard": {
-        title:"Login/Signin | XS Design",
+        title:"Dashboard | XS Design",
         body: Dashboard,
     }
 }

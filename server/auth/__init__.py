@@ -13,77 +13,81 @@ def auth():
     return send_from_directory('client/public', 'index.html')
 
 
-@auth_blueprint.post('/login')
+
+
+@auth_blueprint.route('/login', methods = ["GET", "POST"])
 def login():
-    
-    # Get email and password from post form
-    email = request.form["email"]
-    print(email)
-    password = request.form["password"]
-    print(password)
-    
-    # Loggin user. Get true or false depends of if login made successfully
-    logged_in: bool = login_user(email, password)
-    
-    # Create status dict and return data depends of logged in 
-    status: dict
-    if(logged_in):
-        status =  {"status": "successful"}
-    else:
-        status = {"status": "error"}
+    if(request.method == "POST"):
+        # Get email and password from post form
+        email = request.form["email"]
+        password = request.form["password"]
         
-    status = jsonify(status)
+        # Loggin user. Get true or false depending on whether login is made successfully
+        logged_in: bool = login_user(email, password)
         
-    return status
+        # Create status dict and return data depends of logged_in boolean
+        status: dict
+        if(logged_in):
+            status = {
+                "status": "OK",
+                "Message": "User logged in in successfully"
+            }
+        else:
+            status = {
+                "status": "ERROR",
+                "message": "Data introduced isn't correct"
+            }
+        status = jsonify(status)
+            
+        return status
+    
+    return send_from_directory('client/public', 'index.html')
 
 
 
-@auth_blueprint.post('/signup')
+@auth_blueprint.route('/signup', methods = ["GET", "POST"])
 def signup():
-    username = request.form["username"]
-    email = request.form["email"]
-    password = request.form["password"]
+    if(request.method == "POST"):
+        # Getting user data from request form
+        username = request.form["username"]
+        email = request.form["email"]
+        password = request.form["password"]
         
-    signed_up = signup_user(username, email, password)
+        signed_up = signup_user(username, email, password)
 
-    data: dict
-    if(signed_up):
-        data =  {"status": "successful"}
-    else:
-        data = {"status": "error"}
-        
-    data = jsonify(data)
-        
-    return data
+        # Create status dict and return data depends of logged_in boolean
+        status: dict
+        if(signed_up):
+            status = {
+                "status": "OK",
+                "message": "User signed up in successfully"
+            }
+        else:
+            status = {
+                "status": "ERROR",
+                "message": "Data introduced isn't correct"
+            }
+        status = jsonify(status)
+            
+        return status
+    
+    return send_from_directory('client/public', 'index.html')
 
 
 @auth_blueprint.get('/logout')
 def logout():
-    data: dict
-    
-    try:
-        # Remove the variables that you want to delete from the session
-        session.pop('user_id', None)
-        session.pop('username', None)
+    # Remove the variables that you want to delete from the session
+    session.pop('user_id', None)
+    session.pop('username', None)
 
-        # Clear the session data
-        session.clear()
-        print(session)
+    # Clear the session data
+    session.clear()
+    print(session)
         
-        response = make_response(redirect('/'))
-        response.set_cookie('session', expires=0)
-        
-        data =  {
-            "status": "successful",
-            "message": "User logged out successfully",
-        }
-    except:
-        data =  {
-            "status": "error",
-            "message": "Some error occour while logging out the user",
-        }
+    response = make_response(redirect('/'))
+    response.set_cookie('session', expires=0)
     
-    return data
+    return redirect('/')
 
 
 

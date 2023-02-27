@@ -6,7 +6,7 @@
     
     import routes from './routes/routes.js';
 
-	import { getSessionUserData, user } from './session.js'
+	import { getSessionUserData, user } from './services/session.js'
 
 	
 
@@ -31,19 +31,12 @@
 
 	// Set currentPage object and show it on html
 	function setPage(page) {
+		if(routes[page] == undefined)
+			currentPage = routes['/404'];
+		else
+			currentPage = routes[page];	
 
-		if(!(window.location.pathname in routes))
-			setPage('/404')
-
-		currentPage = routes[page];
-		
-		if(currentPage == undefined) {
-			errorOnLoadContent = true;
-			return;
-		} else {
-			contentIsReady = true;
-		}
-
+		contentIsReady = true;
 	}
 
 

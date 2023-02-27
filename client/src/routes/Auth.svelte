@@ -2,205 +2,56 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 
 <script>
-    import Header from "../components/Header.svelte"
+    import LoginForm from "../components/auth/LoginForm.svelte";
+    import SignupForm from "../components/auth/SignupForm.svelte";
  
-    // Variable to swith 
-    let signedUp = true;
+    let form_submitted_successfully = false;
+    let form_submitted_memssage = "";
 
-    let form_submitted_successfully = false
-    let form_submitted_memssage = ""
-
-    // Provisional toggle to switch between signup and login form
-    function changeForm() {
-        if(signedUp == true) signedUp = false;
-        else signedUp = true
-    }
-
-
-
-    let form = {
-        username: "",
-        email: "",
-        password: "",
-    }
-
-
-    // ------------- LOGIN FORM ----------------
-    function LoginForm(event) {
-        let formData = new FormData()
-        
-        formData.append("email", form.email)
-        formData.append("password", form.password)
-        
-        handleForm('login', formData)
-    }
-
-
-    // ------------- SIGNUP FORM ----------------
-    function SignupForm(event) {
-        let formData = new FormData()
-        
-        formData.append("username", form.username)
-        formData.append("email", form.email)
-        formData.append("password", form.password)
-
-        handleForm('signup', formData)
-    }
-
-
-
-    // ------------- GENERAL FORM ----------------
-    // This
-    function handleForm(type, form) {
-
-        fetch(`/auth/${ type }`, {
-            method: 'POST',
-            body: form
-        }).then((response) => {
-                if(response.status != 200) {
-
-                }
-                return response.json()
-            }
-        ).then((data) => {
-            if(data['status'] == 'error'){
-                form_submitted_memssage = 'Ha habido un error con los datos introducidos, por favor vuelve a introducirlos'
-            } else if(data['status'] == 'successful'){
-                form_submitted_successfully = true;
-                window.location = "/home";
-            }
-        }).catch((error) => {
-            console.log("An error occurred during request")
-            console.log(error)
-        })
-
-    }
-
+    let location = window.location.pathname;
 </script>
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
+<section class="auth-page">
+    <div class="form-container">
 
+        {#if form_submitted_successfully}
+            <div>
+                <h2>{form_submitted_memssage}</h2>
+                <a href="/dashboard">Ir al dashboard</a>
+            </div>
+        {/if}
 
-<Header></Header>
-<section class="login-form-container">
+        <!-- LOGIN -->
+        {#if location == '/auth/login'}
+            <LoginForm></LoginForm>
+        {/if}
 
-    {#if form_submitted_successfully}
-
-        <div>
-            <h2>{form_submitted_memssage}</h2>
-            <a href="/dashboard">Ir al dashboard</a>
-        </div>
-        
-    {/if}
-
-
-     <!-- LOGIN -->
-
-    {#if (!form_submitted_successfully && signedUp)}
-       
-        <form method="POST" class="login-form" on:submit|preventDefault={LoginForm}>
-            {#if form_submitted_memssage != ''}
-                <p style="color: red">{form_submitted_memssage}</p>
-            {/if}
-            
-            <h2 class="welcome-message">Nos alegra verte de vuelta.</h2>
-            
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" bind:value={form.email}>
-            
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" bind:value={form.password}>
-            
-            <button class="gradient-button login-button" type="submit"><b>Login </b></button>
-            <span>¿Aún no estás registrado? <a href="/signup">Regístrate</a></span>
-        </form>
-
-    {/if}
-
-
-    <!-- SIGNUP -->
-
-    {#if (!form_submitted_successfully && !signedUp)}
-
-        <form method="POST" class="login-form" on:submit|preventDefault={SignupForm}>
-            {#if form_submitted_memssage != ''}
-                <p style="color: red">{form_submitted_memssage}</p>
-            {/if}
-            <h2 class="welcome-message">Gracias por elegirnos.</h2>
-
-            <label for="username">Username</label>
-            <input type="text" name="username" id="name" bind:value={form.username}>
-            
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" bind:value={form.email}>
-            
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" bind:value={form.password}>
-
-            <button class="gradient-button login-button" type="submit"><b>Signup </b></button>
-            <span>¿Ya estás registrado? <a href="/login">Inicia sesión</a></span>
-        </form>
-
-    {/if}
-
-    <button class="gradient-button" on:click={changeForm} style="margin: 20px;">change</button>
-
+        <!-- SIGNUP -->
+        {#if location == '/auth/signup'}
+            <SignupForm></SignupForm>
+        {/if}
+    </div>
 </section>
 
 
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
-
 <style>
-    .login-form-container {
-        margin-top: 60px;
+    .auth-page {
         display: grid;
         place-items: center;
+        height: calc(100vh - 40px);
+        max-width: 100%;
     }
 
-
-    .login-form {
-        max-width: 460px;
-        min-width: 360px;
-        padding: 34px;
-        box-shadow: rgba(0, 5, 8, 0.4) 8px 4px 12px;
-        display: grid;
-        place-items: center;
-        background-color: white;
-        border-radius: 8px;
+    .form-container {
+        margin: auto;
+        padding: 0;
+        max-width: fit-content;
     }
 
-    .login-form * {
-        width: 100%;
-    }
+   
 
-    .login-form span {
-        margin-top: 16px;
-        font-size: 14px;
-    }
-
-    .welcome-message {
-        text-align: center;
-        font-family: "Open Sans";
-        font-weight: 900;
-    }
-
-    .login-form label {
-        padding: 8px 0;
-        margin: 6px 0 4px 0;
-    }
-
-    .login-form input {
-        width: calc(100% - 16px);
-        font-size: 14px;
-        padding: 6px;
-        margin: 0px 0 4px 0;
-    }
-    
-    .login-button {
-	    border-radius: 8px;
-        width: 100%;
-        margin: 28px 0 0 0;
-    }
 </style>

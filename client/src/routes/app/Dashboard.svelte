@@ -1,6 +1,6 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import Header from './Header.svelte';
+    import Header from '../../components/headers/HeaderApp.svelte';
 
     import Overview from './services/Overview.svelte'
     import Analytics from './services/Analytics.svelte';
@@ -10,11 +10,11 @@
     let services = {
         'overview': Overview,
         'analytics': Analytics,
-        'Werbpage': Webpage,
-        'Emails': Emails,
+        'webpage': Webpage,
+        'emails': Emails,
     }
 
-    let active_service = services['overview']
+    let active_service = services['webpage']
 
 </script>
 
@@ -28,29 +28,25 @@
             <ul>
                 <li>
                     <button class="left-menu-button active-button">
-                        <img class="left-svg" src="/media/assets/icons/home.svg" alt=" " srcset="/media/assets/icons/home.svg"> Overview
+                        <img class="left-svg" src="/media/assets/icons/home.svg" style="margin-bottom: 4px;" alt=" " srcset="/media/assets/icons/home.svg"> 
+                        Web
                     </button>
                 </li>
+                <!-- 
                 <li>
                     <button class="left-menu-button">
-                        <img class="left-svg" src="/media/assets/icons/graph-file.svg" alt=" " srcset="/media/assets/icons/graph-file.svg"> Webpapge
+                        <img class="left-svg" src="/media/assets/icons/graph-file.svg" alt=" " srcset="/media/assets/icons/graph-file.svg"> 
+                        Formulario
                     </button>
                 </li>
-                <li>
-                    <button class="left-menu-button">
-                        <img class="left-svg" src="/media/assets/icons/email.svg" alt=" " srcset="/media/assets/icons/email.svg"> Emails
-                    </button>
-                </li>
+
                 <li>
                      <button class="left-menu-button">
-                        <img class="left-svg" src="/media/assets/icons/data.svg" alt=" " srcset="/media/assets/icons/data.svg"> Clients
+                        <img class="left-svg" src="/media/assets/icons/data.svg" alt=" " srcset="/media/assets/icons/data.svg"> 
+                        Pruebas
                      </button>
                 </li>
-                <li>
-                     <button class="left-menu-button">
-                        <img class="left-svg" src="/media/assets/icons/data.svg" alt=" " srcset="/media/assets/icons/data.svg"> Analytics
-                     </button>
-                </li>
+                 -->
             </ul>
         </nav>
     </div>
@@ -84,6 +80,7 @@
 
         width: 100%;
         max-height: 100vh;
+        min-width: 140px;
         
         display: grid;
         grid-template-columns: 1fr;
@@ -106,8 +103,8 @@
         padding: 0;
     }
     .left-menu-button {
-        font-size: 16px;
-        padding: 20px 40px;
+        font-size: 14px;
+        padding: 20px 20px;
         border: none;
         color: rgb(0, 4, 37);
         background-color: white;
@@ -118,7 +115,7 @@
     }
 
     .left-menu-button:hover {
-        font-size: 18px;
+        font-size: 16px;
         background-color: aliceblue;
         cursor: pointer;
         background: linear-gradient(to right, #764ba2, #667eea);

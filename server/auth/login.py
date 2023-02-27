@@ -1,5 +1,6 @@
 from flask import redirect, request, session, url_for
 from models.userModel import User
+from globals import db
 
 
  
@@ -19,13 +20,12 @@ def login_user(email, password) -> bool:
         to session dict.
     """
     
-    user = User.load_from_db(username = None, email = email, password = password)
+    user = User.query.filter_by(email=email, password = password).first()
     
     if user != None:
-        session["user_id"] = user.user_id
+        session["user_id"] = user.id
         session["username"] = user.username
         return True
-        
     else:
         return False
         
