@@ -1,7 +1,5 @@
 import unittest
 from app import app
-from globals import db
-from models.userModel import User
 from flask import session
 
 import os
@@ -10,15 +8,8 @@ import os
 class TestAuth(unittest.TestCase):
 
     def setUp(self):
-        app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.abspath("databases/" + "test.db")}'
-        self.app = app.test_client()
-        db.create_all()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-
+        pass
+    
     def test_signup(self):
         response = self.app.post('/signup', data=dict(
             username='test',
@@ -31,10 +22,7 @@ class TestAuth(unittest.TestCase):
 
     def test_login_logout(self):
         # create user
-        user = User(username='test')
-        user.set_password('password')
-        db.session.add(user)
-        db.session.commit()
+        pass
 
         # login with correct credentials
         response = self.app.post('/login', data=dict(

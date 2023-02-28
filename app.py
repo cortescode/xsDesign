@@ -2,7 +2,7 @@ from flask import Flask, send_from_directory, g, jsonify
 from flask import session
 from flask_sqlalchemy import SQLAlchemy
 from server.auth import auth_blueprint
-from globals import _db_name, db
+from server.auth.login import login_required
 
 import os
 
@@ -11,12 +11,6 @@ import os
 # Starting app 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.abspath("databases/" + _db_name)}'
-
-db.init_app(app)
-with app.app_context():
-    from models.userModel import User
-    db.create_all()
 
 
 #---------------------------------------------------------------
@@ -38,8 +32,8 @@ def home():
 def contact():
     return send_from_directory('client/public', 'index.html')
 
-
 @app.get("/dashboard")
+@login_required
 def dashboard():
     return send_from_directory('client/public', 'index.html')
 

@@ -94,14 +94,13 @@ def logout():
 
 @auth_blueprint.get('/session')
 def get_session():
-    session_data = {
-    }
-    if 'user_id' in session:
-        session_data['user_id'] = session['user_id']
-        session_data['username'] = session['username']
+    session_data: dict[str, str] = {}
     
+    if 'username' in session:
+        session_data['username'] = session['username']
+        session_data['email'] = session['email']
     else:
-        return jsonify({"error": "There is no session active"})
+        return jsonify({"ERROR": "There is no session active"})
     
     session_data = jsonify(session_data)
     return session_data

@@ -1,6 +1,6 @@
 from flask import session
-from models.userModel import User
-from globals import db
+
+from db_interaction.users import store_user
 
 
 def signup_user(username: str, email: str, password: str) -> bool:
@@ -8,25 +8,23 @@ def signup_user(username: str, email: str, password: str) -> bool:
         Returns True if user is added successfully
         Returns False if user data isn't correct
     """
+    print("Signup user")
     
+    # checking introduced params
     data_is_correct: bool = check_data(username, email, password)
-    if(data_is_correct):
-        return False
-
-    # Defining user
-    user = User(username=username, email=email, password = password)
-    
-    # Checking that the user has been found
-    if user is None:
+    if not data_is_correct:
+        print("Data isn't correct")
         return False
     
-    # Adding user to database
-    db.session.add(user)
-    db.session.commit()
+    # Store user and check if is stored correctly
+    stored_successfully: bool = store_user(username, email, password)
+    if not stored_successfully:
+        print("User doesn't stored successfully")
+        return False
     
     # Adding user to server session
-    session['user_id'] = user.id
-    session['username'] = user.username
+    session['username'] = username
+    session['email'] = password
     
     return True
 
