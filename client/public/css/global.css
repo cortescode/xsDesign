@@ -165,7 +165,7 @@ p {
 	max-width: fit-content;
 	padding: 12px 20px;
 	float: right;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 900;
 	cursor: pointer;
 	text-decoration: none;
@@ -352,6 +352,7 @@ p {
 	h1 {
 		font-size: 32px;
 	}
+
 
 	section {
 		padding: 10px 10px;

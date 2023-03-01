@@ -1,6 +1,5 @@
 from flask import Flask, send_from_directory, g, jsonify
 from flask import session
-from flask_sqlalchemy import SQLAlchemy
 from server.auth import auth_blueprint
 from server.auth.login import login_required
 

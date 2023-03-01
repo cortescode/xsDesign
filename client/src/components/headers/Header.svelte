@@ -1,6 +1,5 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import { onMount } from 'svelte';
     import { user } from '../../services/session.js';
 
     export let buttonText;
@@ -15,20 +14,10 @@
 
     let isClicked = false;
 
-    let menu;
-
-
     // This function is called when html button is pressed
     function openCloseMenu () {
         isClicked = isClicked? false : true;
     }
-
-
-    function closeIfOpen() {
-        if(isClicked == true)
-            openCloseMenu()
-    }
-        
  
 </script>
   
@@ -83,7 +72,7 @@
             <div class="mobile-button-container">
                 {#if ($user == null) || !("username" in $user) }
                     <a href="/auth/login" class="login-link">Acceder</a>
-                    <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button>
+                    <button href="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button>
                 {:else }
                     <a href="/auth/logout" class="login-link">Logout</a>
                     <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
@@ -271,10 +260,12 @@
         .mobile-links-list {
             display: block;
             text-align: left;
+            align-self: flex-end;
             
         }
         .mobile-button-container {
             display: block;
+            align-self: flex-start;
         }
 
         .mobile-button-container a {
@@ -283,7 +274,6 @@
             padding: 20px 10px;
             border: none;
         }
-
     }
 
 
