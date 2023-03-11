@@ -3,6 +3,9 @@ from flask import session
 from server.auth import auth_blueprint
 from server.auth.login import login_required
 
+from server.SEO.routesMap import set_up_mapping
+from server.SEO import SEO_blueprint
+
 import os
 
 
@@ -10,11 +13,13 @@ import os
 # Starting app 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.config['SERVER_NAME'] = 'localhost:5000'
 
 
 #---------------------------------------------------------------
 # Registring blueprints
 app.register_blueprint(auth_blueprint, url_prefix ='/auth')
+app.register_blueprint(SEO_blueprint, url_prefix='/')
 
 
 #---------------------------------------------------------------
@@ -58,4 +63,6 @@ def routes(path):
 # Run App
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    with app.app_context():
+        set_up_mapping(app) 
+    app.run()
