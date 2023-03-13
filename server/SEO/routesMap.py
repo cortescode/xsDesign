@@ -11,6 +11,8 @@ def set_up_mapping(app):
                 continue
             if '<path:filename>' in rule.rule:
                 continue
+            if 'auth' in rule.rule:
+                continue
             routes.append(app.config.get('SERVER_NAME') + rule.rule)
     
     generate_sitemap(routes)
