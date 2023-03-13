@@ -1,5 +1,5 @@
 from flask import Blueprint, send_from_directory
-from .routesMap import set_up_mapping
+
 
 
 SEO_blueprint = Blueprint('/', __name__, url_prefix='/')

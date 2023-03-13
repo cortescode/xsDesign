@@ -1,9 +1,7 @@
-from flask import url_for
-
 import os
 
 
-def set_up_mapping(app):
+def setup_mapping(app):
     routes = []
     for rule in app.url_map.iter_rules():
         if 'GET' in rule.methods:
@@ -13,10 +11,11 @@ def set_up_mapping(app):
                 continue
             if 'auth' in rule.rule:
                 continue
-            routes.append(app.config.get('SERVER_NAME') + rule.rule)
+            routes.append('xsdesign.co' + rule.rule)
     
     generate_sitemap(routes)
     generate_robots(routes)
+
 
 
 def generate_sitemap(routes):
@@ -38,6 +37,7 @@ def generate_sitemap(routes):
     with open(file_path, 'w') as sitemap_file:
         sitemap_file.write(xml)
     
+
 
 def generate_robots(route:str):
     robots:str = ''
