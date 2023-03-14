@@ -11,7 +11,7 @@ def setup_mapping(app):
                 continue
             if 'auth' in rule.rule:
                 continue
-            routes.append('xsdesign.co' + rule.rule)
+            routes.append('https://xsdesign.co' + rule.rule)
     
     generate_sitemap(routes)
     generate_robots(routes)
