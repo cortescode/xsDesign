@@ -1,10 +1,12 @@
 from flask import Flask, send_from_directory, g, jsonify
 from flask import session
-from server.auth import auth_blueprint
-from server.auth.login import login_required
+from blueprints.auth import auth_blueprint
+from blueprints.auth.login import login_required
 
-from server.SEO.routesMap import setup_mapping
-from server.SEO import SEO_blueprint
+from blueprints.SEO.routesMap import setup_mapping
+from blueprints.SEO import SEO_blueprint
+
+from blueprints.websites import websites_blueprint
 
 import os
 from dotenv import load_dotenv
@@ -23,6 +25,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 # Registring blueprints
 app.register_blueprint(auth_blueprint, url_prefix ='/auth')
 app.register_blueprint(SEO_blueprint, url_prefix='/')
+app.register_blueprint(websites_blueprint, url_prefix='/websites')
 
 
 @app.before_first_request
@@ -63,7 +66,11 @@ def home_app():
 @app.route("/<path:path>")
 def routes(path):
     print(path)
-    return send_from_directory('client/public', path)
+    try:
+        check_exists_response = send_from_directory('client/public', path)
+        return send_from_directory('client/public', path)
+    except:
+        return send_from_directory('client/public', 'index.html')
 
 
 

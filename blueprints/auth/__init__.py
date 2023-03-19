@@ -1,7 +1,7 @@
 from flask import Blueprint, send_from_directory, request, redirect, url_for, jsonify
 from flask import session, make_response
-from server.auth.login import login_user
-from server.auth.signup import signup_user
+from .login import login_user
+from .signup import signup_user
 
 
 
@@ -11,8 +11,6 @@ auth_blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 @auth_blueprint.get('/')
 def auth():
     return send_from_directory('client/public', 'index.html')
-
-
 
 
 @auth_blueprint.route('/login', methods = ["GET", "POST"])

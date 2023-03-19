@@ -20,15 +20,13 @@ dynamodb = boto3.resource(
 )
 
 
-def store_user(username, email, password) -> bool:
+def create_web(web, web_json) -> bool:
     '''
         Create a new user in the dynamodb users table.
         Return True if user is added successfully and False if not.
     '''
     
     users = dynamodb.Table('users')
-    hashed_password: str = generate_password_hash(password)
-    
     try:
         users.put_item(
             Item = {
@@ -42,9 +40,12 @@ def store_user(username, email, password) -> bool:
         print(e)
         return False
     
+
+def update_web(web_id, password) -> bool:
+    pass
     
 
-def get_validated_user(email, password) -> dict:
+def get_web_data(web_id) -> dict:
     '''
         Returns the user if email and passwords are correct
     '''
@@ -62,7 +63,7 @@ def get_validated_user(email, password) -> dict:
         return None
     
     
-def get_user(email) -> dict:
+def validate_web_access(email) -> dict:
 
     key = {'email': email}
     

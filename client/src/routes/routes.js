@@ -11,9 +11,13 @@ import Pricing from "./Pricing.svelte";
 import Auth from "./Auth.svelte";
 import Dashboard from "./app/Dashboard.svelte"
 
+
+// Website creation
+import PageDesigner from './websiteEditor/PageDesigner.svelte'
+
 export default {
     '/404': {
-        title:"Home | XS Design",
+        title:"Página no encontrada | XS Design",
         body: Page404,
     },
     "/": {
@@ -25,15 +29,19 @@ export default {
         body: Home,
     }, 
     "/app": {
-        title:"App | XS Design",
+        title:"Plataforma de creación de landing pages | XS Design",
         body: App,
     }, 
+    "/websites/designer": {
+        title:"Diseño de página web | XS Design",
+        body: PageDesigner,
+    }, 
     "/contact": {
-        title:"Contact | XS Design",
+        title:"Contacta con nosotros | XS Design",
         body: Contact,
     }, 
     "/pricing": {
-        title:"Pricing | XS Design",
+        title:"Descubre nuestros precios | XS Design",
         body: Pricing,
     },
     "/auth/login": {

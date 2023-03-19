@@ -16,7 +16,8 @@
     </a> -->
     <div class="webcard">
         <h2>¡Hola {$user.username}!</h2>
-        <p>Aún no puedes crear ninguna web, en las proximas semanas abriremos la versión beta que desbloqueará el crear una web básica, te avisaremos por correo.</p>
+        <p>¡Ya está disponible la versión beta de nuestro diseñador de páginas web! No te olvides de dejarnos tu feedback para que podamos mejorar con tu ayuda.</p>
+        <a href="/websites/designer" class="button-link">Acceder al editor</a>
     </div>
     
     <div></div>

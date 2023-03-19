@@ -11,7 +11,7 @@
     <img class="feature-icon" src="{ iconUrl }" alt="" srcset="{ iconUrl }">
     <h3>{ title }</h3>
     <p>{ description }</p>
-    <a href="/auth">
+    <a href="/auth/signup">
         Registrate gratis
         <img class="link-icon" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
     </a>

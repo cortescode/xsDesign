@@ -21,8 +21,8 @@
         formData.append("password", form.password)
         
         handleAuthForm('login', formData).then(response => {
-            if(response)
-            errorMessage = response
+            if('Error' in response)
+                errorMessage = response
         })
     }
 

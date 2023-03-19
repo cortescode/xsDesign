@@ -6,7 +6,7 @@
     
     import routes from './routes/routes.js';
 
-	import { getSessionUserData, user } from './services/session.js'
+	import { getSessionUserData, user } from './services/session.js';
 
 	
 
@@ -22,15 +22,20 @@
     // Set the page object once component is mounted
     onMount(() => {
 		getSessionUserData().then(_user => {
-			user.set(_user)
-			setPage(window.location.pathname)
+			user.set(_user);
+			setPage(window.location.pathname);
 		});
-		setPage(window.location.pathname)
+		setPage(window.location.pathname);
 		
 	});
 
 	// Set currentPage object and show it on html
 	function setPage(page) {
+		
+		if(page.charAt(page.length - 1) === '/')
+			if(page.length > 1)
+				page = page.slice(0, -1);
+
 		if(routes[page] == undefined)
 			currentPage = routes['/404'];
 		else

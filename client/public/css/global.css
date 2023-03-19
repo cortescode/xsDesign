@@ -1,3 +1,6 @@
+@import url('./animations.css');
+
+
 :root {
 	--dark: rgb(20, 0, 80);
 	--blue: rgb(67, 28, 225);
@@ -132,6 +135,11 @@ a *:hover {
 .auth-form a:hover .text-icon {
 	margin-right: 20px;
 }
+
+.small-icon {
+	width: 20px;
+}
+
 
 button:hover {
 	cursor: pointer;

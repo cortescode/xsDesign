@@ -5,7 +5,7 @@
         {
             "personImg": "./assets/person.webp",
             "Name": "Pablo Gallego - transportesfrioantakira.com",
-            "Review": "ha sido un placer trabajar con vosotros. En todo momento habeis atendido mis peticiones y habeis solucionado mis dudas."
+            "Review": "Ha sido un placer trabajar con vosotros. En todo momento habeis atendido mis peticiones y habeis solucionado mis dudas."
         },
         {
             "personImg": "./assets/person.webp",
