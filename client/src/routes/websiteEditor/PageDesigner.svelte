@@ -3,7 +3,7 @@
     import EditorHeader from "../../components/headers/EditorHeader.svelte"
     import PageArchitectureBanner from "./PageArchitectureBanner.svelte";
 
-    import DragElement from "./DragElement.svelte";
+    // import DragElement from "./DragElement.svelte";
 
     import HeaderTemplate from "./templates/Header.svelte";
     import HeroTemplate from "./templates/Hero.svelte";
@@ -14,7 +14,6 @@
     import { element } from "svelte/internal";
     
 
-
     let available_templates = {
         'header': {
             'template': HeaderTemplate,
@@ -23,7 +22,7 @@
         'hero': {
             'template': HeroTemplate,
             'icon': '/media/assets/icons/brick.png',
-        }, 
+        },
     }
 
 
@@ -32,6 +31,7 @@
     $: elements = [];
 
     function addElement (key) {
+        console.log(`key: ${key}`)
         let element = available_templates[key];
         elements = [...elements, { body: element.template, params: {} }];
     }
@@ -41,52 +41,96 @@
         elements = elements;
     }
 
-    let isHovering = false;
 
-    function handleMouseOver(element) {
-        isHovering = true;
+    // DRAG AND DROP ELEMENT FUNCTIONS
+
+
+    function handleDragStart(event, template_key) {
+        event.dataTransfer.effectAllowed = 'move';
+        console.log(template_key)
+        event.dataTransfer.setData('text/plain', template_key);
     }
 
-    function handleMouseOut(element) {
-        isHovering = false;
+
+    function handleDragLeave(event) {
+        let template_name = event.dataTransfer.getData('plain/text')
+        console.log(template_name)
     }
+
+
+    function handleDragOver(event) {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+        event.target.classList.add('dragover');
+    }
+
+    function handleDrop(event) {
+        console.log("draggingDrop");
+        event.preventDefault();
+        new_elements_open = false;
+        const template_name = event.dataTransfer.getData('text/plain');
+        console.log(`template_name: ${template_name}`)
+        console.log(template_name);
+        addElement(template_name);
+    }
+
+
+    function handleDragEnd(event) {
+        console.log("draggingEnd");
+        draggedItem.classList.remove('dragging');
+        draggedItem = null;
+    }
+
+    function getItemIndex(item) {
+        console.log("gettingItemIndex");
+        const listItems = Array.from(document.querySelectorAll('.item'));
+        return listItems.indexOf(item);
+    }
+
 
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <EditorHeader></EditorHeader>
-<div class="page-content">
-    <div>
-        {#if elements.length == 0}
-            <h2>No content added (click + button to add)</h2>
-        {/if}
-        {#each elements as element, index}
-            <div class="element">
-                {#if typeof element === "string"}
-                    {element}
-                {:else}
-                    <button class="white-button delete-button" on:click={() => {
-                        removeElement(index)
-                    }}>Delete</button>
-                    <svelte:component class="" this={element.body} params={element.params} on:mouseover={handleMouseOver} on:mouseout={handleMouseOut}/>
-                {/if}
-            </div>
-            
-        {/each}
-    </div>
+<div class="page-content" draggable=true 
+    on:dragover={handleDragOver}
+    on:drop={handleDrop}
+    on:dragleave={handleDragLeave}>
+    {#if elements.length == 0}
+        <h2>Drag and drop Some Element</h2>
+    {/if}
+    {#each elements as element, index}
+        <div class="element">
+            {#if typeof element === "string"}
+                {element}
+            {:else}
+                <button class="white-button delete-button" on:click={() => {
+                    removeElement(index)
+                }}>Delete</button>
+                <svelte:component class="" this={element.body} params={element.params}/>
+            {/if}
+        </div>
+    {/each}
 </div>
 <div id="add-section-banner" class="add-section-banner">
+
     {#if new_elements_open}
         <div class="sections">
             {#each Object.keys(available_templates) as key}
-                <DragElement>
+                <!-- <DragElement>
                     <button on:click={() => {
                         addElement(key)
                         new_elements_open = !new_elements_open
                     }}>
                         {key}
                     </button>
-                </DragElement>
+                </DragElement> -->
+                <div class="element-template" data-template={key}
+                    draggable="true"
+                    on:dragstart={(event) => handleDragStart(event, key)}
+                >
+                    <h1>{key}</h1>
+                </div>
                 
             {/each}
         </div>
@@ -109,6 +153,10 @@
         border: 4px solid rgb(0, 213, 255);
         min-height: 120px;
         background-color: rgb(246, 246, 246);
+    }
+
+    .page-content h2 {
+        text-align: center;
     }
 
     .sections {
@@ -134,6 +182,7 @@
         position: fixed;
         inset: auto 0 0 0;
         z-index: 15;
+        border: 2px solid rgb(0, 213, 255);
 
         background-color: white;
     }
@@ -157,11 +206,31 @@
     }
     
     .element {
-        position: relative
+        position: relative;
     }
 
+    .element-template {
+        padding: 10px;
+        margin: 10px;
+        display: grid;
+        place-items: center;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        background-color: gray;
+        border-radius: 24px;
+    }
+
+    .element:hover {
+        border: 2px solid rgb(0, 213, 255);
+    }
+
+    .element:hover .delete-button {
+        display: block;
+    }
 
     .delete-button {
+        display: none;
         position: absolute;
         inset: auto auto -10px auto;
         z-index: 10;
