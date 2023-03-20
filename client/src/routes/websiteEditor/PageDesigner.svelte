@@ -12,7 +12,8 @@
 
     import { onMount } from "svelte";
     import { element } from "svelte/internal";
-    
+
+    let hovering_element_index;
 
     let available_templates = {
         'header': {
@@ -29,11 +30,21 @@
     let new_elements_open = false;
 
     $: elements = [];
+    
 
-    function addElement (key) {
-        console.log(`key: ${key}`)
+    function addElement (key, position) {
         let element = available_templates[key];
-        elements = [...elements, { body: element.template, params: {} }];
+
+        let elements_before = elements.slice(0, position)
+        let elements_after = elements.slice(position)
+
+        console.log(position)
+        elements = [
+            ...elements_before, 
+            { body: element.template, params: {} },
+            ...elements_after
+        ]
+
     }
 
     function removeElement (index) {
@@ -44,49 +55,40 @@
 
     // DRAG AND DROP ELEMENT FUNCTIONS
 
-
     function handleDragStart(event, template_key) {
         event.dataTransfer.effectAllowed = 'move';
-        console.log(template_key)
         event.dataTransfer.setData('text/plain', template_key);
     }
 
-
+/* 
     function handleDragLeave(event) {
-        let template_name = event.dataTransfer.getData('plain/text')
-        console.log(template_name)
     }
-
+ */
 
     function handleDragOver(event) {
         event.preventDefault();
         event.dataTransfer.dropEffect = 'move';
-        event.target.classList.add('dragover');
     }
 
     function handleDrop(event) {
-        console.log("draggingDrop");
         event.preventDefault();
         new_elements_open = false;
         const template_name = event.dataTransfer.getData('text/plain');
-        console.log(`template_name: ${template_name}`)
-        console.log(template_name);
-        addElement(template_name);
+        addElement(template_name, hovering_element_index);
     }
 
 
-    function handleDragEnd(event) {
-        console.log("draggingEnd");
-        draggedItem.classList.remove('dragging');
-        draggedItem = null;
-    }
 
-    function getItemIndex(item) {
-        console.log("gettingItemIndex");
-        const listItems = Array.from(document.querySelectorAll('.item'));
-        return listItems.indexOf(item);
-    }
+    // Handle Elements Mouse Hovering
 
+    function handleMouseOver(index) {
+        console.log(index)
+        hovering_element_index = index
+    }
+    function handleFocus(index) {
+        console.log("Focus")
+        hovering_element_index = index
+    }
 
 </script>
 
@@ -95,19 +97,25 @@
 <div class="page-content" draggable=true 
     on:dragover={handleDragOver}
     on:drop={handleDrop}
-    on:dragleave={handleDragLeave}>
+    >
+    <!-- on:dragleave={handleDragLeave} -->
     {#if elements.length == 0}
         <h2>Drag and drop Some Element</h2>
     {/if}
     {#each elements as element, index}
-        <div class="element">
+        <div class="element"
+            on:mouseover={() => handleMouseOver(index)}
+            on:focus={() => handleFocus(index)}>
             {#if typeof element === "string"}
                 {element}
             {:else}
                 <button class="white-button delete-button" on:click={() => {
                     removeElement(index)
                 }}>Delete</button>
-                <svelte:component class="" this={element.body} params={element.params}/>
+                <svelte:component class="" 
+                    this={element.body} 
+                    params={element.params}
+                    />
             {/if}
         </div>
     {/each}
