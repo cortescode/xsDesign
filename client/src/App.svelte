@@ -14,10 +14,13 @@
 	let errorOnLoadContent = false;
 	let contentIsReady = false;
 
+	let title = "Diseño y Desarrollo web"
+
+	$: document.title = title;
+
 
 	// This variable will save the page object
     let currentPage;
-
 
     // Set the page object once component is mounted
     onMount(() => {
@@ -36,10 +39,13 @@
 			if(page.length > 1)
 				page = page.slice(0, -1);
 
-		if(routes[page] == undefined)
+		if(routes[page] == undefined){
 			currentPage = routes['/404'];
+			title = "Página no encontrada. Error 404";
+		}
 		else
 			currentPage = routes[page];	
+			title = currentPage.title;
 
 		contentIsReady = true;
 	}
@@ -49,6 +55,7 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
+
 
 <div class = "app">
 	{#if contentIsReady}
