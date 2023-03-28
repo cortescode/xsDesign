@@ -1,6 +1,6 @@
 from flask import session
 
-from db_interaction.users import store_user
+from database.users import store_user
 
 
 def signup_user(username: str, email: str, password: str) -> bool:

@@ -1,5 +1,5 @@
 from flask import redirect, request, session, url_for
-from db_interaction.users import get_validated_user
+from database.users import get_validated_user
 
 
  

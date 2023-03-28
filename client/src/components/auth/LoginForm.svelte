@@ -34,6 +34,12 @@
         <img class="text-icon vertical-flip" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
         Volver
     </a>
+
+
+    <a class="logo-container" href="/">
+        <img class="logo-image" src="/media/assets/logo.png" alt="">
+        <h1 class="logo logo-header">xsdesign.co</h1>
+    </a>
     
     <h2 class="gradient-text">Inicia sesión en XS Design</h2>
     <p>¡Nos alegra verte de vuelta!</p>

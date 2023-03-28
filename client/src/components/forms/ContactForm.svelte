@@ -9,8 +9,11 @@
         <img class="text-icon vertical-flip" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
         Volver
     </a>
-    <h1 class="logo">XS Design</h1>
-
+    <a class="logo-container" href="/">
+        <img class="logo-image" src="/media/assets/logo.png" alt="">
+        <h1 class="logo logo-header">xsdesign.co</h1>
+    </a>
+  
     <h3 class="gradient-text">Resuelve cualquier duda que tengas acerca de nuestros productos o servicios</h3>
     <h3>Envíanos tu consulta:</h3>
         

@@ -2,6 +2,7 @@ import os
 import boto3
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -30,9 +31,7 @@ def create_web(web, web_json) -> bool:
     try:
         users.put_item(
             Item = {
-                'email': email,
-                'username': username,
-                'password': hashed_password
+                'id'
             }
         )
         return True

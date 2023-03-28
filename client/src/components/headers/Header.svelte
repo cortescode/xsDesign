@@ -25,11 +25,10 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header id="header">
-    <div class="logo-container">
-        <a href="/">
-            <h1 class="logo logo-header">XS Design</h1>
-        </a>
-    </div>
+    <a class="logo-container" href="/">
+        <img class="logo-image" src="/media/assets/logo.png" alt="">
+        <h1 class="logo logo-header">xsdesign.co</h1>
+    </a>
   
     <nav class="links-list">
         {#each links as { name, link }}
@@ -110,7 +109,7 @@
     }
 
     .logo-header {
-        font-size: 24px;
+        font-size: 22px;
         width: auto;
         align-items: center;
         justify-self: flex-start;
@@ -121,6 +120,7 @@
         align-items: center;
         justify-content: center;
     }
+
 
     a {
         margin: 0;
@@ -217,10 +217,6 @@
             z-index: 40;
 
             box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
-        }
-
-        .logo-container {
-            justify-self: left;
         }
 
 

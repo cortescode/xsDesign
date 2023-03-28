@@ -4,28 +4,28 @@ import Page404 from "./Page404.svelte"
 // Agency
 import Contact from "./Contact.svelte"
 
-
 // App
 import App from "./app/App.svelte"
 import Pricing from "./Pricing.svelte";
 import Auth from "./Auth.svelte";
 import Dashboard from "./app/Dashboard.svelte"
 
-
 // Website creation
 import PageDesigner from './websiteEditor/PageDesigner.svelte'
 
+
+// Routes mapping
 export default {
     '/404': {
         title:"Página no encontrada | XS Design",
         body: Page404,
     },
     "/": {
-        title:"Home | XS Design",
+        title:"Agencia de diseño y desarrollo web | XS Design",
         body: Home,
     },
     "/home": {
-        title:"Home | XS Design",
+        title:"Agencia de diseño y desarrollo web | XS Design",
         body: Home,
     }, 
     "/app": {
@@ -37,7 +37,7 @@ export default {
         body: PageDesigner,
     }, 
     "/contact": {
-        title:"Contacta con nosotros | XS Design",
+        title:"Contacta con nuestro equipo | XS Design",
         body: Contact,
     }, 
     "/pricing": {

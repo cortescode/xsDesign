@@ -11,11 +11,10 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header cid="header">
-    <div class="logo-container">
-        <a class="logo logo-header" href="/">
-            XS Design
-        </a>
-    </div>
+    <a class="logo-container" href="/">
+        <img class="logo-image" src="/media/assets/logo.png" alt="">
+        <h1 class="logo logo-header">xsdesign.co</h1>
+    </a>
   
     
     <nav class="links-list">
@@ -57,8 +56,10 @@
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 20px;
     }
 
-    .logo-container a {
+    .logo-container{
         height: auto;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .logo-header {

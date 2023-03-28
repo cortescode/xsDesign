@@ -12,8 +12,9 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header cid="header">
-    <a class="logo logo-header" href="/">
-        XS Design
+    <a class="logo-container" href="/">
+        <img class="logo-image" src="/media/assets/logo.png" alt="">
+        <h1 class="logo logo-header">xsdesign.co</h1>
     </a>
   
     
@@ -32,10 +33,11 @@
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
-    header {
+        header {
         grid-row-start: 1;
         grid-column-start: 1;
         grid-column-end: 10;
+
 
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
@@ -46,13 +48,22 @@
 
         position: sticky;
         inset: 0 0 auto 0;
-        z-index: 20;
+        z-index: 10;
 
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 20px;
     }
 
+    .logo-container{
+        height: auto;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     .logo-header {
-        font-size: 1.4vw;
+        font-size: 1.8vw;
+        width: auto;
+        height: auto;
+        align-items: center;
         justify-self: flex-start;
         margin: 0;
         padding: 0;
@@ -66,10 +77,10 @@
     }
 
     a {
-        margin: 0 14px;
+        margin: 6px 14px;
         text-decoration: none;
         color: #333;
-        font-size: 14px;
+        font-size: 16px;
     }
     a:hover {
         background: linear-gradient(to right, #764ba2, #667eea);
@@ -78,7 +89,6 @@
         -webkit-text-fill-color: transparent;
         text-decoration: underline;
     }
-
 
 
     /* BUTTONS STYLES */

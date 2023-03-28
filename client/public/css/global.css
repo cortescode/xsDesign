@@ -40,6 +40,7 @@ header {
 }
 
 
+
 button, a {
 	font-family: Comfortaa;
 	font-size: 15px;
@@ -211,13 +212,31 @@ p {
 
 
 .logo {
-	font-family: 'Castore';
-	font-weight: bold;
+	font-family: 'Righteous';
+	font-weight: 400;
 	background: linear-gradient(to right, #667eea, #764ba2);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	width: max-content;
+}
+
+
+.logo-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-self: left;
+	align-items: center;
+	height: fit-content;
+	padding: 10px;
+}
+
+.logo-container h1 {
+	font-size: 22px;
+}
+.logo-image {
+	width: 40px;
+	margin-right: 10px;
 }
 
 
