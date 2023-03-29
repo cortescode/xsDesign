@@ -27,7 +27,7 @@
 <header id="header">
     <a class="logo-container" href="/">
         <img class="logo-image" src="/media/assets/logo.png" alt="">
-        <h1 class="logo logo-header">xsdesign.co</h1>
+        <h1 class="logo logo-header">xsdesign</h1>
     </a>
   
     <nav class="links-list">

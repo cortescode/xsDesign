@@ -15,6 +15,7 @@
     <img class="feature-icon" src="{ iconUrl }" alt="" srcset="{ iconUrl }">
     <h2>{ title }</h2>
     <p class="description">{ description }</p>
+    <p class="undiscounted-price">{ parseInt(price)*2 } € <span>/año</span></p>
     <p class="price">{ price } <span>/año</span></p>
     <ul class="details">
         {#each caracteristics as caracteristic }
@@ -81,6 +82,13 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    .undiscounted-price {
+        color: rgb(255, 72, 72);
+        text-decoration: line-through;
+        font-weight: bold;
+        margin-bottom: -10px;
     }
 
     .price span {
