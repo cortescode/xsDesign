@@ -1,12 +1,12 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import Card from '../cards/Card.svelte';
+    import Card from '../components/cards/Card.svelte';
 
 </script>
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section>
+<section class="animate">
     <h1 class="left-title">¿Qué nos diferencia del resto?</h1>
     <div class="flex-columns">
         <Card

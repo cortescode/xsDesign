@@ -1,9 +1,21 @@
+
+.animate {
+	animation: appears 1s ease 1;
+}
+
+.no-opacity {
+    opacity: 0;
+}
+
+
 @keyframes appears {
     0% {
-        transform: scale(.6);
+        opacity: 0;
+        transform: translateY(50px);
 
     }
     100% {
-        transform: scale(1);
+        opacity: 1;
+        transform: translateY(0);
     }
 }

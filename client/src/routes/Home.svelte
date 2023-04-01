@@ -3,12 +3,21 @@
 
     import Header from '../components/headers/Header.svelte';
     import Hero from '../components/heros/Hero.svelte';
-    import Testimonials from '../components/sections/Testimonials.svelte';
-    import Portfolio from '../components/sections/Portfolio.svelte';
-	import Cards from '../components/sections/Cards.svelte';
+    import Testimonials from '../sections/Testimonials.svelte';
+    import Portfolio from '../sections/Portfolio.svelte';
+	import Cards from '../sections/Cards.svelte';
 	import PricingComponent from '../components/sales/PricingComponent.svelte';
     import CtaBanner from '../components/sales/CtaBanner.svelte';
-    import Steps from '../components/sections/Steps.svelte';
+    import Steps from '../sections/Steps.svelte';
+
+	import { animate } from '../utils/animations/animate.js'
+
+    import { onMount } from 'svelte';
+
+
+
+	onMount(() => animate());
+	
 
 </script>
 
@@ -30,7 +39,7 @@
 		optimizadas que te permiten aumentar tus ventas y reservas en el mundo online.
     "  
     buttonText = "
-        Contratar servicio
+        Obtén tu web de éxito
     "  
 	buttonUrl = "#pricing"
     videoUrl = "/media/herobg3.mp4"

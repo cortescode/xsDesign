@@ -35,8 +35,8 @@
     function addElement (key, position) {
         let element = available_templates[key];
 
-        let elements_before = elements.slice(0, position)
-        let elements_after = elements.slice(position)
+        let elements_before = elements.slice(0, position+1)
+        let elements_after = elements.slice(position+1)
 
         console.log(position)
         elements = [

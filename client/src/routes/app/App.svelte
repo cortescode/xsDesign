@@ -3,8 +3,15 @@
 
     import Header from '../../components/headers/Header.svelte';
     import Hero from '../../components/heros/HeroApp.svelte';
-    import Features from '../../components/sections/Features.svelte';
+    import Features from '../../sections/Features.svelte';
     import CtaBanner from '../../components/sales/CtaBanner.svelte';
+
+    import { animate } from '../../utils/animations/animate.js'
+
+	import { onMount } from 'svelte';
+
+
+	onMount(() => animate());
     
 </script>
 

@@ -58,6 +58,11 @@ section {
 }
 
 
+img {
+	max-width: 100%;
+}
+
+
 .banner {
 	margin: 0;
 }
@@ -228,11 +233,11 @@ p {
 	justify-self: left;
 	align-items: center;
 	height: fit-content;
-	padding: 10px;
 }
 
 .logo-container h1 {
 	font-size: 22px;
+	margin: 0;
 }
 .logo-image {
 	width: 40px;
@@ -339,29 +344,6 @@ p {
 }
 
 
-.titles-list {
-	list-style: none;
-}
-.titles-list li{
-	list-style: none;
-	padding: 20px 20px;
-	background-color: white;
-	margin-bottom: 10px;
-	border-radius: 8px;
-	box-shadow: rgba(0, 5, 8, 0.2) 0px 0px 12px;
-}
-
-.titles-list li h2{
-	font-size: 18px;
-	font-weight: 400;
-	margin-block: 0;
-}
-
-.titles-list li h2 span{
-	font-size: 24px;
-	font-weight: bold;
-	color: var(--blue);
-}
 
 
 /* --------------- GRID SECTIONS --------------- */
@@ -386,27 +368,9 @@ p {
 		margin: 40px 0;
 		text-align: left;
 	}
-	
-	.flex-columns {
-		display: block;
-	}
-
-	.flex-columns img {
-		width: 100%;
-	}
-
 	.auth-form {
 		padding: 20px;
 		width: calc(100% - 40px);
-	}
-
-	.titles-list {
-		padding: 0;
-		margin: 40px 0 0 0;
-	}
-
-	.titles-list li {
-		margin: 20px 0;
 	}
 
 

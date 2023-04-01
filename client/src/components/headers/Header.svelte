@@ -2,12 +2,15 @@
 <script>
     import { user } from '../../services/session.js';
 
+    import Logo from '../Logo.svelte'
+
     export let buttonText;
     export let buttonLink;
 
     let links = [
       { name: 'home', link: '/' },
-      { name: 'app', link: '/app' },
+      { name: 'servicios', link: '/app' },
+      { name: 'aplicaciones', link: '/app' },
       { name: 'contacto', link: '/contact' }
     ];
 
@@ -25,10 +28,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header id="header">
-    <a class="logo-container" href="/">
-        <img class="logo-image" src="/media/assets/logo.png" alt="">
-        <h1 class="logo logo-header">xsdesign</h1>
-    </a>
+    <Logo></Logo>
   
     <nav class="links-list">
         {#each links as { name, link }}
@@ -98,8 +98,6 @@
         align-items: center;
         justify-items: center;
         background-color: rgb(255, 255, 255);
-        padding: 0 40px;
-        width: calc(100% - 80px);
 
         position: sticky;
         inset: 0 0 auto 0;
@@ -107,14 +105,7 @@
 
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
     }
-
-    .logo-header {
-        font-size: 22px;
-        width: auto;
-        align-items: center;
-        justify-self: flex-start;
-    }
-
+    
     .links-list{
         display: flex;
         align-items: center;

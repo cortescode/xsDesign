@@ -1,6 +1,7 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
     import { handleAuthForm } from '../../services/auth.js';
+    import Logo from '../Logo.svelte';
 
     let errorMessage = "";
 
@@ -33,10 +34,7 @@
     </a>
 
 
-    <a class="logo-container" href="/">
-        <img class="logo-image" src="/media/assets/logo.png" alt="">
-        <h1 class="logo logo-header">xsdesign.co</h1>
-    </a>
+    <Logo></Logo>
     
     <h2 class="gradient-text">Registrate gratis y accede a la beta privada del software de XS Design</h2>
 

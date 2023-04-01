@@ -1,6 +1,6 @@
 from flask import Blueprint, send_from_directory, request, redirect, url_for, jsonify
 from flask import session, make_response
-from .login import login_user
+from .login import login_user, login_required
 from .signup import signup_user
 
 

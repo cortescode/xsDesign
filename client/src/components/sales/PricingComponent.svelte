@@ -6,7 +6,7 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section id="pricing">
+<section id="pricing" class='animate'>
     <h1>Descubre nuestros paquetes de desarrollo web</h1>
     <p>¿No sabes qué web necesita tu negocio o buscas otras características? <br/> <a class="text-link" href="/contact">Contacta con nuestro equipo</a>.</p>
     <div class="flex-columns">

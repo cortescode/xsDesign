@@ -4,6 +4,14 @@
 <script>
     import LoginForm from "../components/auth/LoginForm.svelte";
     import SignupForm from "../components/auth/SignupForm.svelte";
+
+    import { animate } from '../utils/animations/animate.js'
+
+	import { onMount } from 'svelte';
+
+
+
+	onMount(() => animate());
  
     let form_submitted_successfully = false;
     let form_submitted_memssage = "";
@@ -14,7 +22,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <section class="auth-page">
-    <div class="form-container">
+    <div class="form-container animate">
 
         {#if form_submitted_successfully}
             <div>

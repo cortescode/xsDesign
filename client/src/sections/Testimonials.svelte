@@ -64,7 +64,7 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section id="testimonials">
+<section id="testimonials" class="animate">
     <h1 class="right-title">¿Qué opinan nuestros clientes?</h1>
     <div class="testimonials-columns">
         <div class="testimonials-video">

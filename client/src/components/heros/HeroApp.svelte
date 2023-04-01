@@ -6,8 +6,7 @@
 </script>
 
 
-
-<section class="hero-app">
+<section class="hero-app animate">
     <div class="hero-app-content">
         <h1 class="hero-app-title">
             { title }

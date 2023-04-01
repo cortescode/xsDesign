@@ -1,11 +1,11 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import FeatureCard from '../cards/FeatureCard.svelte'
+    import FeatureCard from '../components/cards/FeatureCard.svelte'
 </script>
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section class="normal-section features">
+<section class="normal-section features animate">
     <h1 class="right-title">Funcionalidades pensadas para impulsar tu negocio</h1>
     <div class="flex-columns">
         <FeatureCard

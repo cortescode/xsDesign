@@ -1,10 +1,10 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import WebCard from '../cards/WebCard.svelte'
+    import WebCard from '../components/cards/WebCard.svelte'
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section class="normal-section">
+<section class="normal-section animate">
     <h1 class="left-title">
         Algunas webs que hemos creado.
     </h1>

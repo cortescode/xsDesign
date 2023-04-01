@@ -4,6 +4,13 @@
 	import Header from "../components/headers/Header.svelte";
 	import Hero from "../components/heros/Hero.svelte";
     import ContactForm from "../components/forms/ContactForm.svelte";
+
+    import { animate } from '../utils/animations/animate.js'
+
+	import { onMount } from 'svelte';
+
+
+	onMount(() => animate());
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->

@@ -3,21 +3,19 @@
 
 <script>
     import { onMount } from 'svelte';
-    
     import routes from './routes/routes.js';
-
 	import { getSessionUserData, user } from './services/session.js';
 
-	
+	import { animate } from './utils/animations/animate'
+
 
 	// Defining variables to handle content status
 	let errorOnLoadContent = false;
 	let contentIsReady = false;
 
-	let title = "Diseño y Desarrollo web"
+	let title;
 
-	$: document.title = title;
-
+	$: document.title = title
 
 	// This variable will save the page object
     let currentPage;
@@ -29,6 +27,7 @@
 			setPage(window.location.pathname);
 		});
 		setPage(window.location.pathname);
+		animate()
 		
 	});
 

@@ -1,5 +1,7 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
+    import Logo from '../Logo.svelte'
+
     let links = [
       { name: 'Soporte', link: '/support' },
       { name: 'tips', link: '/tips' },
@@ -11,11 +13,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header cid="header">
-    <a class="logo-container" href="/">
-        <img class="logo-image" src="/media/assets/logo.png" alt="">
-        <h1 class="logo logo-header">xsdesign.co</h1>
-    </a>
-  
+    <Logo></Logo>
     
     <nav class="links-list">
         <!-- 

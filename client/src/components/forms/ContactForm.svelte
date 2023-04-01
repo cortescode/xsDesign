@@ -1,19 +1,18 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
+    import Logo from "../Logo.svelte";
 
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<form action="https://formsubmit.co/ff504add07c0e72b633fc8feeb88ec6b" method="POST" class="auth-form contact-form">
+<form action="https://formsubmit.co/ff504add07c0e72b633fc8feeb88ec6b" method="POST" class="auth-form contact-form animate">
     <a href="/">
         <img class="text-icon vertical-flip" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
         Volver
     </a>
-    <a class="logo-container" href="/">
-        <img class="logo-image" src="/media/assets/logo.png" alt="">
-        <h1 class="logo logo-header">xsdesign.co</h1>
-    </a>
-  
+    
+    <Logo></Logo>
+
     <h3 class="gradient-text">Resuelve cualquier duda que tengas acerca de nuestros productos o servicios</h3>
     <h3>Envíanos tu consulta:</h3>
         

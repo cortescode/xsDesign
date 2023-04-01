@@ -13,7 +13,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <section class="hero">
-    <div class="hero-content">
+    <div class="hero-content animate">
         <h1 class="hero-title">
             { title }
         </h1>
@@ -23,12 +23,12 @@
         <a href="{buttonUrl}" class="white-button">
             { buttonText }
         </a>
-
-        <video id="background-video" class="hero-media-asset is-visible" autoplay="true" muted="true" loop="true" playsinline="true" data-hero-video="{ videoUrl }" data-src-lg="{ videoUrl }" data-src-sm="{ videoUrl }">
-            <source src="{ videoUrl }" type="video/mp4">
-        </video>
-         
     </div>
+
+    <video id="background-video" class="hero-media-asset is-visible" autoplay="true" muted="true" loop="true" playsinline="true" data-hero-video="{ videoUrl }" data-src-lg="{ videoUrl }" data-src-sm="{ videoUrl }">
+        <source src="{ videoUrl }" type="video/mp4">
+    </video>
+     
     
 </section>
 
