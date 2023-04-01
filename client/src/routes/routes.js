@@ -1,17 +1,18 @@
 import Home from "./Home.svelte";
-import Page404 from "./Page404.svelte"
+import Page404 from "./Page404.svelte";
 
 // Agency
-import Contact from "./Contact.svelte"
+import Contact from "./Contact.svelte";
+import Services from "./Services.svelte";
 
 // App
-import App from "./app/App.svelte"
+import App from "./app/App.svelte";
 import Pricing from "./Pricing.svelte";
 import Auth from "./Auth.svelte";
-import Dashboard from "./app/Dashboard.svelte"
+import Dashboard from "./app/Dashboard.svelte";
 
 // Website creation
-import PageDesigner from './websiteEditor/PageDesigner.svelte'
+import PageDesigner from './websiteEditor/PageDesigner.svelte';
 
 
 // Routes mapping
@@ -27,8 +28,12 @@ export default {
     "/home": {
         title:"Agencia de diseño y desarrollo web | XS Design",
         body: Home,
-    }, 
-    "/app": {
+    },
+    "/agency/services": {
+        title:"Descubre los servicios digitalizadores que tenemos a tu disposición | XS Design",
+        body: Services,
+    },
+    "/apps": {
         title:"Plataforma de creación de landing pages | XS Design",
         body: App,
     }, 

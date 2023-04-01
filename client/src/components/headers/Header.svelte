@@ -9,8 +9,8 @@
 
     let links = [
       { name: 'home', link: '/' },
-      { name: 'servicios', link: '/app' },
-      { name: 'aplicaciones', link: '/app' },
+      { name: 'servicios', link: '/agency/services' },
+      { name: 'aplicaciones', link: '/apps' },
       { name: 'contacto', link: '/contact' }
     ];
 
