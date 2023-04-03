@@ -3,24 +3,18 @@
     import { user } from '../../services/session.js';
 
     import Logo from '../Logo.svelte'
+    import ServicesLinkBanner from './ServicesLinkBanner.svelte';
+    import MobileMenu from './MobileMenu.svelte';
 
     export let buttonText;
     export let buttonLink;
 
     let links = [
       { name: 'home', link: '/' },
-      { name: 'servicios', link: '/agency/services' },
+      { name: 'servicios', link: '/agency/services'},
       { name: 'aplicaciones', link: '/apps' },
       { name: 'contacto', link: '/contact' }
     ];
-
-
-    let isClicked = false;
-
-    // This function is called when html button is pressed
-    function openCloseMenu () {
-        isClicked = isClicked? false : true;
-    }
  
 </script>
   
@@ -33,9 +27,20 @@
     <nav class="links-list">
         {#each links as { name, link }}
             {#if window.location.pathname == link}
-                <a class="link selected" href={link}>{name}</a>
-            {:else }
-                <a class="link" href={link}>{name}</a>
+                <a class="link selected" href={link}>
+                    <span>{name}</span>
+                </a>
+            {:else if name == 'servicios'}
+                <a class="link expanded-link" href={link}>
+                    <span>{name}</span>
+                    <div class="expanded-links">
+                        <ServicesLinkBanner></ServicesLinkBanner>
+                    </div>
+                </a>
+            {:else}
+                <a class="link" href={link}>
+                    <span>{name}</span>
+                </a>
             {/if}
 
         {/each}
@@ -50,40 +55,8 @@
         {/if}
     </div>
 
+    <MobileMenu links={links} buttonText={buttonText} buttonLink={buttonLink}></MobileMenu>
 
-    {#if isClicked}
-
-        <button class="mobile-button" type="button" on:click="{openCloseMenu}">
-            <img class="close-icon" src="./media/assets/icons/cross.svg" alt="" srcset="./media/assets/icons/cross.svg">
-        </button>
-        
-        <div class="mobile-menu" id="menu-content">
-            <nav class="mobile-links-list">
-                {#each links as { name, link }}
-                    {#if window.location.pathname == link}
-                        <a class="link selected" href={link}>{name}</a>
-                    {:else }
-                        <a class="link" href={link}>{name}</a>
-                    {/if}
-        
-                {/each}
-            </nav>
-            <div class="mobile-button-container">
-                {#if ($user == null) || !("username" in $user) }
-                    <a href="/auth/login" class="login-link">Acceder</a>
-                    <button href="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button>
-                {:else }
-                    <a href="/auth/logout" class="login-link">Logout</a>
-                    <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
-                {/if}
-            </div>
-        </div>
-
-    {:else}
-        <button class="mobile-button" type="button" on:click="{openCloseMenu}">
-            <img class="open-icon" src="./media/assets/icons/menu.svg" alt="" srcset="./media/assets/icons/menu.svg">
-        </button>
-    {/if}
  
 </header>
 
@@ -113,28 +86,18 @@
     }
 
 
-    a {
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-        color: #333;
-        transition: .2s;
-    }
-    a:hover {
-        font-weight: bold;
-        transform: scale(1.08);
-        background: linear-gradient(to right, #764ba2, #667eea);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: underline;
-    }
-
     .link {
         padding-right: 10px;
         margin: 4px 10px;
         text-decoration: none;
         color: #333;
+    }
+
+    .link:hover > span {
+        background: linear-gradient(to right, #667eea, #764ba2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .link.selected {
@@ -145,6 +108,28 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-decoration: underline;
+    }
+
+    .link .expanded-links {
+        transform: scale(0);
+        opacity: 0;
+        position: fixed;
+        inset: 52px 0 auto 0;
+        display: flex;
+        justify-content: center;
+        font-weight: 400;
+        width: 100vw;
+        transition: .4s;
+        transition-delay: 0 .6s;
+    }
+
+    .link:hover .expanded-links {
+        transform: scale(1);
+        opacity: 1;
+        color: white;
+    }
+    .link:not(:hover) .expanded-links {
+        transition-delay: .2s;
     }
 
     .login-link {
@@ -165,33 +150,6 @@
         align-items: center;
     }
 
-    .mobile-button {
-        display: none;
-        height: 40px;
-        width: 40px;
-        background-color: white;
-        border-radius: 50%;
-        transition: .2s;
-        position: relative;
-        z-index: 25;
-        border: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .mobile-button img {
-        width: 32px;
-        border-radius: 50%;
-    }
-
-    .mobile-button:hover {
-        transform: scale(1.1);
-    }
-    .mobile-button:active {
-        transform: scale(.6);
-    }
-
-
     @media screen and (max-width: 767px) {
         header {
             display: grid;
@@ -199,7 +157,7 @@
             align-items: center;
             justify-items: center;
             background-color: rgb(255, 255, 255);
-            padding: 0 20px;
+            padding: 8px 20px;
             width: calc(100% - 40px);
 
             position: sticky;
@@ -211,55 +169,12 @@
         }
 
 
-        .mobile-button {
-            justify-self: right;
-            display: block;
-        }
-
-
-
-        .link {
-            display: block;
-            font-size: 18px;
-            padding: 20px 10px;
-        }
-        
-
         .links-list {
             display: none;
         }
 
         .button-container {
             display: none;
-        }
-
-        .mobile-menu {
-            position: absolute;
-            inset: 0 0 0 auto;
-            background-color: white;
-            width: 60%;
-            height: 100vh;
-
-            display: grid;
-            place-items: center;
-        }
-
-        .mobile-links-list {
-            display: block;
-            text-align: left;
-            align-self: flex-end;
-            
-        }
-        .mobile-button-container {
-            display: block;
-            align-self: flex-start;
-        }
-
-        .mobile-button-container a {
-            display: block;
-            font-size: 18px;
-            padding: 20px 10px;
-            border: none;
         }
     }
 

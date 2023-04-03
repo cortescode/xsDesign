@@ -28,7 +28,7 @@
         background-color: white;
         border-radius: 12px;
         box-shadow: rgba(100, 100, 110, 0.2) 0px 8px 28px 0px;
-        width: 90%;
+        min-width: 200px;
         max-width: 400px;
     }
 

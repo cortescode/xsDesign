@@ -26,7 +26,7 @@
             title = "Web profesional con Blog incluido"
             description = "Web profesional fácilmente administrable para que obtengas visibilidad en el mercado online."
             price = "495 €"
-            caracteristics = {["Todo lo anterior +", "Blog optimizado para SEO", "Páginas ilimitadas","Múltiples formularios", "Login de usuarios",]}
+            caracteristics = {["Todo lo anterior +", "Blog optimizado para SEO", "Páginas ilimitadas","Múltiples formularios",]}
             linkUrl = "https://buy.stripe.com/7sIbMO66vgbw2yY3cd"
             linkText = "Adquirir"
         >

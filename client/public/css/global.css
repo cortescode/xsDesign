@@ -55,6 +55,7 @@ main {
 section {
 	padding: 40px 20px;
 	margin: 40px 0;
+	height: fit-content;
 }
 
 
@@ -115,7 +116,6 @@ textarea:hover {
 
 a {
 	text-decoration: none;
-	transition: .2s;
 	color: var(--dark);
 }
 
@@ -336,10 +336,11 @@ p {
 	align-items: flex-start;
 	gap: 10px;
 	text-align: left;
+	max-width: 100%;
 }
 
 .flex-columns img {
-	width: 50%;
+	max-width: 50%;
 	border-radius: 8px;
 }
 
@@ -353,6 +354,13 @@ p {
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 40px;
 	margin-top: 80px;
+}
+
+
+@media screen and (max-width: 1150px) {
+	.flex-columns {
+		flex-wrap: wrap;
+	}
 }
 
 
@@ -371,6 +379,14 @@ p {
 	.auth-form {
 		padding: 20px;
 		width: calc(100% - 40px);
+	}
+
+	.flex-columns {
+		display: block;
+		padding: 10px;
+	}
+	.flex-columns > * {
+		max-width: 100%;
 	}
 
 

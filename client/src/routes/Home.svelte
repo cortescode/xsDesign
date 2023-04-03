@@ -65,8 +65,8 @@
 				Creamos la web de tu negocio y te entregamos las herramientas 
 				necesarias para que tengas éxito en el mercado online. Contacta 
 				con nuestro equipo y descubre cómo podemos ayudarte."
-	ctaButtonText="Contactar"
-	ctaUrl="/contact"
+	ctaButtonText="Agenda una llamada de descubrimiento"
+	ctaUrl="https://calendly.com/xsdesign/videollamada-de-descubrimiento"
 ></CtaBanner>
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->

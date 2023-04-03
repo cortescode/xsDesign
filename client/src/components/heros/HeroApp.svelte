@@ -2,6 +2,7 @@
     export let title;
     export let description;
     export let button;
+    export let image = "/media/assets/images/ecommerce.png";
 
 </script>
 
@@ -19,7 +20,7 @@
         </a>
 
     </div>
-    <img class="web-img" src="/media/assets/images/ecommerce.png" srcset="/media/assets/images/ecommerce.png" alt="">
+    <img class="web-img" src="{ image }" srcset="{ image }" alt="">
     
 </section>
 
@@ -65,8 +66,7 @@
 
     .web-img {
         justify-self: flex-end;
-        max-width: 320px;
-	    box-shadow: rgba(0, 8, 45, 0.2) 0px 0px 28px;
+        max-width: 90%;
         border-radius: 8px;
     }
 
