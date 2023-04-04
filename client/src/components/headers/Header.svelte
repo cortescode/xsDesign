@@ -12,7 +12,7 @@
     let links = [
       { name: 'home', link: '/' },
       { name: 'servicios', link: '/agency/services'},
-      { name: 'aplicaciones', link: '/apps' },
+      { name: 'productos', link: '/apps' },
       { name: 'contacto', link: '/contact' }
     ];
  
@@ -148,6 +148,7 @@
         display: flex;
         justify-content: right;
         align-items: center;
+        width: 100%;
     }
 
     @media screen and (max-width: 767px) {
