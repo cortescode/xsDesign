@@ -1,9 +1,6 @@
 <script>
     let draggedItem = null;
-
   
-
-    //
     function handleDragStart(event) {
       draggedItem = event.target;
       event.dataTransfer.effectAllowed = 'move';
@@ -34,11 +31,6 @@
     function handleDragEnd(event) {
       draggedItem.classList.remove('dragging');
       draggedItem = null;
-    }
-    
-
-    function onAttributesChange(el_index, attributes) {
-      console.log("Attributes change");
     }
 </script>
 

@@ -15,6 +15,7 @@ app.register_blueprint(auth_blueprint, url_prefix ='/auth')
 app.register_blueprint(SEO_blueprint, url_prefix='/')
 app.register_blueprint(websites_blueprint, url_prefix='/websites')
 app.register_blueprint(main_blueprint, url_prefix='/')
+app.register_blueprint(agency_blueprint, url_prefix='/')
 
 
 

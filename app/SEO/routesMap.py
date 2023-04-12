@@ -12,7 +12,7 @@ def setup_mapping(app):
             if 'auth' in rule.rule:
                 continue
             routes.append('https://xsdesign.co' + rule.rule)
-    
+
     generate_sitemap(routes)
     generate_robots(routes)
 
@@ -33,15 +33,15 @@ def generate_sitemap(routes):
     xml+='</urlset>'
 
     file_path: str = os.path.join(os.getcwd(), 'client/public/sitemap.xml')
-    
+    print(xml)
     with open(file_path, 'w') as sitemap_file:
         sitemap_file.write(xml)
     
 
 
-def generate_robots(route:str):
+def generate_robots(routes:list[str]):
     robots:str = ''
-    for route in route:
+    for route in routes:
         robots+=f'{route}\n'
 
     file_path: str = os.path.join(os.getcwd(), 'client/public/robots.txt')

@@ -32,22 +32,21 @@
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
-        header {
+    header {
         grid-row-start: 1;
         grid-column-start: 1;
         grid-column-end: 10;
-
 
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
         align-items: center;
         justify-items: center;
         background-color: rgb(255, 255, 255);
-        height: auto;
+        height: 40px;
 
-        position: sticky;
-        inset: 0 0 auto 0;
-        z-index: 10;
+        margin: 0;
+        padding: 2px 20px;
+        width: calc(100% - 40px);
 
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 20px;
     }
@@ -76,7 +75,7 @@
     }
 
     a {
-        margin: 6px 14px;
+        margin: 0 14px;
         text-decoration: none;
         color: #333;
         font-size: 16px;

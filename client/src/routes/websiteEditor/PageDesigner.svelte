@@ -18,32 +18,47 @@
     let available_templates = {
         'header': {
             'template': HeaderTemplate,
-            'icon': '/media/assets/icons/brick.png',
+            'image': '/media/components/header.png',
+            'attributes': {
+
+            }
         }, 
         'hero': {
             'template': HeroTemplate,
-            'icon': '/media/assets/icons/brick.png',
+            'image': '/media/components/hero.png',
+            'attributes': {
+                
+            }
         },
     }
 
 
     let new_elements_open = false;
 
+
+    $: temporary_element = null;
+
     $: elements = [];
     
 
     function addElement (key, position) {
+        console.log("key", key)
         let element = available_templates[key];
 
-        let elements_before = elements.slice(0, position+1)
-        let elements_after = elements.slice(position+1)
+        if (position == undefined) {
+            elements = [...elements, { body: element.template, params: {} }];
+            return;
+        }
 
-        console.log(position)
+        let elements_before = elements.slice(0, position);
+        let elements_after = elements.slice(position);
+
+        console.log(position);
         elements = [
             ...elements_before, 
             { body: element.template, params: {} },
             ...elements_after
-        ]
+        ];
 
     }
 
@@ -53,11 +68,19 @@
     }
 
 
+
     // DRAG AND DROP ELEMENT FUNCTIONS
 
     function handleDragStart(event, template_key) {
         event.dataTransfer.effectAllowed = 'move';
         event.dataTransfer.setData('text/plain', template_key);
+        let dragged_element = event.target.cloneNode(true);
+        dragged_element.style.opacity = 1;
+
+        let x_position = dragged_element.offsetWidth / 2;
+        event.dataTransfer.setDragImage(dragged_element, x_position, 0);
+        console.log(event.target);
+    
     }
 
 /* 
@@ -65,172 +88,145 @@
     }
  */
 
+
+    // DRAG AND DROP FUNCTIONS ADDED TO THE PAGE CONTAINER
+
+
     function handleDragOver(event) {
         event.preventDefault();
         event.dataTransfer.dropEffect = 'move';
     }
 
-    function handleDrop(event) {
+    function handleDrop(event, index) {
         event.preventDefault();
-        new_elements_open = false;
-        const template_name = event.dataTransfer.getData('text/plain');
-        addElement(template_name, hovering_element_index);
-    }
-
-
-
-    // Handle Elements Mouse Hovering
-
-    function handleMouseOver(index) {
+        console.log("Component Drag Over")
         console.log(index)
-        hovering_element_index = index
+        const template_name = event.dataTransfer.getData('text/plain');
+        addElement(template_name, index);
     }
-    function handleFocus(index) {
-        console.log("Focus")
-        hovering_element_index = index
+
+
+
+    function savePage() {
+
     }
+
 
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<EditorHeader></EditorHeader>
-<div class="page-content" draggable=true 
-    on:dragover={handleDragOver}
-    on:drop={handleDrop}
-    >
-    <!-- on:dragleave={handleDragLeave} -->
-    {#if elements.length == 0}
-        <h2>Drag and drop Some Element</h2>
-    {/if}
-    {#each elements as element, index}
-        <div class="element"
-            on:mouseover={() => handleMouseOver(index)}
-            on:focus={() => handleFocus(index)}>
-            {#if typeof element === "string"}
-                {element}
-            {:else}
-                <button class="white-button delete-button" on:click={() => {
-                    removeElement(index)
-                }}>Delete</button>
-                <svelte:component class="" 
-                    this={element.body} 
-                    params={element.params}
-                    />
-            {/if}
-        </div>
-    {/each}
-</div>
-<div id="add-section-banner" class="add-section-banner">
+<div class="editor-page">
+    <EditorHeader></EditorHeader>
 
-    {#if new_elements_open}
-        <div class="sections">
-            {#each Object.keys(available_templates) as key}
-                <!-- <DragElement>
-                    <button on:click={() => {
-                        addElement(key)
-                        new_elements_open = !new_elements_open
-                    }}>
-                        {key}
-                    </button>
-                </DragElement> -->
-                <div class="element-template" data-template={key}
-                    draggable="true"
-                    on:dragstart={(event) => handleDragStart(event, key)}
-                >
-                    <h1>{key}</h1>
+    <div class="editor-container">
+        <div id="add-section-banner" class="add-section-banner">
+            {#if new_elements_open}
+                <div class="sections">
+                    {#each Object.keys(available_templates) as key}
+                        <div class="element-template" data-template={key}
+                            draggable="true"
+                            on:dragstart={(event) => handleDragStart(event, key)}
+                        >
+                            <img class="element-image" src="{available_templates[key]["image"]}" alt="">
+                            <span>{key}</span>
+                        </div>
+                        
+                    {/each}
                 </div>
-                
-            {/each}
+            {/if}
+            <button class="add-section-button" on:click={() => new_elements_open = !new_elements_open}>
+                {#if new_elements_open}
+                    <img class="small-icon" src="/media/assets/icons/cross.svg" alt="">
+                {:else}
+                    <img class="small-icon" src="/media/assets/icons/open.svg" alt="">
+                {/if}
+            </button>
         </div>
-    {/if}
-    <button class="add-section-button" on:click={() => new_elements_open = !new_elements_open}>
-        {#if new_elements_open}
-            <img class="small-icon" src="/media/assets/icons/cross.svg" alt="">
-        {:else}
-            <img class="small-icon" src="/media/assets/icons/open.svg" alt="">
-        {/if}
-    </button>
+
+        <div class="page-content" draggable=true >
+            <!-- on:dragleave={handleDragLeave} -->
+            {#each elements as element, index}
+                <div class="element" 
+                    on:drop={(event) => handleDrop(event, index)}
+                    on:dragover={handleDragOver}
+                    >
+                    {#if typeof element === "string"}
+                        {element}
+                    {:else}
+                        <button class="white-button delete-button" on:click={() => {
+                            removeElement(index)
+                        }}>Delete</button>
+                        <svelte:component class="" 
+                            this={element.body} 
+                            params={element.params}
+                            />
+                    {/if}
+                </div>
+            {/each}
+            <div class="default-droppable-element"
+                on:drop={(event) => handleDrop(event)}
+                on:dragover={handleDragOver}
+                >
+                <h2>Drag and drop Some Element</h2>
+            </div>
+        </div>
+    </div>
 </div>
 <PageArchitectureBanner></PageArchitectureBanner>
 
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
+
+    .editor-page {
+        display: grid;
+        grid-template: auto 1fr / 1fr;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .editor-container {
+        height: calc(100vh - 44px);
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+
+    /* PAGE CONTENT */
+
     .page-content {
         width: calc(100% - 8px);
-        border: 4px solid rgb(0, 213, 255);
+        border: 2px solid var(--blue);
         min-height: 120px;
-        background-color: rgb(246, 246, 246);
+        position: relative;
+        overflow: auto;
+        height: calc(100% - 4px);
+        overflow-y: auto;
     }
 
     .page-content h2 {
         text-align: center;
     }
 
-    .sections {
-        display: flex;
-        max-width: 800px;
-        padding: 20px;
-    }
 
-    .sections button {
-        width: 140px;
-        height: 140px;
-        background-color: gray;
-        padding: 20px;
-        margin: 20px;
-    }
-
-    .add-section-banner {
-        display: grid;
-        place-items: center;
+    .default-droppable-element {
+        background-color: rgb(246, 246, 246);
         width: 100%;
-        height: fit-content;
-
-        position: fixed;
-        inset: auto 0 0 0;
-        z-index: 15;
-        border: 2px solid rgb(0, 213, 255);
-
-        background-color: white;
-    }
-    
-    .add-section-button {
-        position: fixed;
-        inset: auto auto 0 auto;
-        border-radius: 50%;
-        border: 2px solid rgb(0, 213, 255);
-        width: 40px;
-        height: 40px;
-        transition: .2s;
+        height: max-content;
     }
 
-    .add-section-button:active {
-        transform: scale(.9);
-    }
-
-    .element-selection-img {
-        max-width: 100%;
+    .default-droppable-element h2 {
+        margin: 0;
+        margin-block: 0;
+        padding: 20px;
     }
     
     .element {
         position: relative;
     }
 
-    .element-template {
-        padding: 10px;
-        margin: 10px;
-        display: grid;
-        place-items: center;
-        width: 200px;
-        height: 100px;
-        text-align: center;
-        background-color: gray;
-        border-radius: 24px;
-    }
-
     .element:hover {
-        border: 2px solid rgb(0, 213, 255);
+        border: 2px solid var(--blue);
     }
 
     .element:hover .delete-button {
@@ -241,11 +237,73 @@
         display: none;
         position: absolute;
         inset: auto auto -10px auto;
-        z-index: 10;
+        z-index: 4;
         box-shadow: rgba(25, 0, 50, 0.5) 0 0 10px;
     }
     .delete-button:active {
         transform: scale(1);
     }
+
+
+
+    /* ELEMENTS BANNER */
+
+    .add-section-banner {
+        display: grid;
+        place-items: center;
+        width: fit-content;
+        height: calc(100% - 4px);
+
+        inset: auto 0 0 0;
+        z-index: 5;
+        border: 2px solid var(--blue);
+        background-color: white;
+        overflow: hidden;
+    }
+    
+    
+    .add-section-button {
+        position: fixed;
+        inset: auto auto auto 0;
+        border-radius: 50%;
+        border: 2px solid var(--blue);
+        width: 40px;
+        height: 40px;
+        transition: .2s;
+    }
+
+    .add-section-button:active {
+        transform: scale(.9);
+    }
+
+
+    .sections {
+        display: block;
+        width: 280px;
+        height: fit-content;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-align: end;
+    }
+
+
+    .element-template {
+        padding: 10px;
+        margin: 10px;
+        display: grid;
+        place-items: center;
+        height: fit-content;
+        width: 100%;
+        padding: 20px;
+        background-color: rgb(208, 224, 255);
+    }
+
+    .element-image {
+        max-height: 100%;
+        max-width: 220px;
+        margin-bottom: 20px;
+    }
+
 
 </style>

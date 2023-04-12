@@ -4,9 +4,22 @@
     export let title = 'Título';
     export let description = 'Descripción';
     export let buttonText = 'Llamada a la acción';
+
+    let buttonUrl = "/"
     //export let buttonUrl = '/';
 
-    const input = document.getElementById('my-input');
+
+    function setTitle(event){
+        introduced_title = event.target.textContext;
+    }
+
+    function setDescription(event) {
+        description = event.target.textContext;
+    }
+
+    function setButtonText(event){
+        buttonText = event.target.textContext;
+    }
 
 </script>
 
@@ -15,20 +28,22 @@
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <section class="hero">
     <div class="hero-content">
-        <textarea class="hero-title" name="" id="" cols="20" rows="3" bind:value={title}></textarea>
-        <!-- <h1 class="hero-title">
-            { title }
-        </h1> -->
-
-        <textarea class="hero-description" name="" id="" cols="20" rows="2" bind:value={description}></textarea>
-        <!-- <p class="hero-description">
+        <h1 class="hero-title" contenteditable="true" on:input={setTitle}>{title}</h1>
+        
+        <!-- <textarea class="hero-description" name="" id="" cols="20" rows="2" bind:value={description}></textarea>
+         -->
+        <p class="hero-description" contenteditable="true" on:input={setDescription}>
             { description }
-        </p> -->
+        </p>
 
-        <input class="white-button hero-button" type="text" bind:value={buttonText}>
-        <!-- <a href="{buttonUrl}" class="white-button">
+        <a href="{buttonUrl}" class="white-button" contenteditable="true" on:input={setButtonText}>
             { buttonText }
-        </a> -->
+        </a>
+
+    </div>
+
+    <div class="component-options">
+
 
     </div>
     
@@ -59,50 +74,25 @@
     }
 
     .hero-title {
-        font-size: 42px;
-        text-shadow: rgba(0, 10, 62, 0.8) 0 0 40px;
-        margin: 20px 0;
+        font-size: 84px;
     }
+
+    h1, p {
+        min-width: 100px;
+        border: 1px solid rgba(214, 214, 214, 0.4);
+    }
+
+    a {
+        min-width: 20px;
+        border: 1px solid rgba(214, 214, 214, 0.4);
+    }
+
+
     .hero-description {
         max-width: 600px;
         font-size: 18px;
         margin: 20px 0 40px 0;
     }
-
-    input {
-        border: none;
-        text-align: center;
-        font-size: 16px;
-        width: 800px;
-        background-color: transparent;
-        color: white;
-    }
-    input:active {
-        border: 1px solid rgb(200, 200, 200);
-    }
-
-    textarea {
-        border: none;
-        text-align: center;
-        width: 900px;
-        background-color: transparent;
-        color: white;
-    }
-    textarea:active {
-        border: 1px solid rgb(200, 200, 200);
-        
-    }
-
-    .hero-button {
-        background-color: white;
-        color:#070021;
-    }
-
-    .hero-button:active {
-        transform: scale(1);
-
-    }
-
 
 
     @media screen and (max-width: 767px) {
@@ -110,9 +100,6 @@
             text-align: left;
         }
 
-        .hero-title {
-            font-size: 32px;
-        }
         
 
     }

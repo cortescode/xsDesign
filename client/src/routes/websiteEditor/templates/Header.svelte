@@ -95,7 +95,7 @@
 
         position: sticky;
         inset: 0 0 auto 0;
-        z-index: 5;
+        z-index: 2;
 
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
     }
@@ -173,7 +173,7 @@
         border-radius: 50%;
         transition: .2s;
         position: relative;
-        z-index: 25;
+        z-index: 3;
         border: none;
         padding: 0;
         margin: 0;
@@ -217,7 +217,7 @@
             position: sticky;
             inset: 0 0 auto 0;
             overflow: visible;
-            z-index: 40;
+            z-index: 2;
 
             box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
         }
