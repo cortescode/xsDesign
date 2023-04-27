@@ -10,12 +10,12 @@
             </li>
             <li>
                 <h2>
-                    <span>2.</span> Agendamos una entrevista donde concretamos qué resultados te gustaría obtener con tu web y cómo podemos ayudarte a conseguirlos y discutimos la mejor estrategia que puede llevar a cabo tu negocio en el mundo online.
+                    <span>2.</span> Agendamos una reunión donde te mostramos varias propuestas de diseño, concretamos qué resultados te gustaría obtener con tu web y discutimos la mejor estrategia que puede llevar a cabo tu negocio en el mundo online.
                 </h2>
             </li>
             <li>
                 <h2>
-                    <span>3.</span> Te entregamos varios prototipos para que elijas el que más te gusta, puedas darnos tu feedback, y finalizemos tu web de éxito de acorde a tu gusto.
+                    <span>3.</span> Te entregamos una primera versión de tu web donde puedas discutir alguna modificación, y finalizemos tu web de éxito de acorde a tu gusto.
                 </h2>
             </li>
             <li>

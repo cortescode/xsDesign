@@ -13,6 +13,7 @@
 	import { animate } from '../utils/animations/animate.js'
 
     import { onMount } from 'svelte';
+    import ServicesSection from '../sections/ServicesSection.svelte';
 
 
 
@@ -45,17 +46,17 @@
     videoUrl = "/media/herobg3.mp4"
 >
 </Hero>
-
 <!-- Main Section -->
 <main>
 	<Cards></Cards>
 
-	<Steps></Steps>
+	<ServicesSection></ServicesSection>
+
     <Portfolio></Portfolio>
 
+	<!-- <Steps></Steps> -->
 
     <Testimonials></Testimonials>
-	<PricingComponent></PricingComponent>
 </main>
 
 <!-- Cta Section -->

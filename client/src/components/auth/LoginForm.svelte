@@ -15,16 +15,15 @@
 
     // ------------- LOGIN FORM ----------------
     function LoginForm(event) {
-        errorMessage = ''
-        let formData = new FormData()
+        errorMessage = '';
+        let formData = new FormData();
+
+        console.log("Starting form");
         
-        formData.append("email", form.email)
-        formData.append("password", form.password)
+        formData.append("email", form.email);
+        formData.append("password", form.password);
         
-        handleAuthForm('login', formData).then(response => {
-            if('Error' in response)
-                errorMessage = response
-        })
+        handleAuthForm('login', formData).then(response => { errorMessage = response })
     }
 
 

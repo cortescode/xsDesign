@@ -5,7 +5,7 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section class="animate">
+<section class="animate" id="services">
     <h1 class="right-title">Lo que necesita tu negocio, a un click de distancia.</h1>
     <div class="two-columns-grid">
         <Card

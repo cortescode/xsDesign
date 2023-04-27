@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="103px" viewBox="0 0 95 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/ico-dev</title>
+    <defs>
+        <linearGradient x1="100.07%" y1="0%" x2="12.8731885%" y2="105.610379%" id="linearGradient-1">
+            <stop stop-color="#3E63FE" offset="0%"></stop>
+            <stop stop-color="#3EE2FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="-12.2956676%" x2="-3.51866854%" y2="84.666641%" id="linearGradient-2">
+            <stop stop-color="#3E63FE" offset="0%"></stop>
+            <stop stop-color="#3ED8FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="113.218557%" y1="50%" x2="-9.91512346%" y2="50.0076208%" id="linearGradient-3">
+            <stop stop-color="#3E85FE" offset="0%"></stop>
+            <stop stop-color="#3EBAFE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="52.5497518%" y1="-9.22256098%" x2="33.316494%" y2="97.8516622%" id="linearGradient-4">
+            <stop stop-color="#3E89FE" offset="0%"></stop>
+            <stop stop-color="#3EB8FE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Service" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DL-Service-Copy" transform="translate(-457.000000, -1296.000000)">
+            <g id="Services-cards" transform="translate(142.500000, 1254.500000)">
+                <g id="Group-11" transform="translate(292.500000, 0.000000)">
+                    <g id="Group" transform="translate(22.000000, 42.500000)">
+                        <g id="Group-23" transform="translate(0.000000, -0.500000)">
+                            <path d="M0,10.9117225 C0,4.88534457 4.85666044,0 10.8476547,0 L37.5931487,0 C68.5864478,0 90,22.0028571 90,50.7085714 C90,79.7057143 68.5864478,102 37.5931487,102 L10.8476547,102 C4.85666044,102 0,97.1146554 0,91.0882775 L0,10.9117225 Z" id="Combined-Shape" fill="url(#linearGradient-1)"></path>
+                            <g id="Group-22" transform="translate(11.000000, 33.000000)">
+                                <g id="Group-15" transform="translate(0.525880, 0.166667)">
+                                    <rect id="Rectangle-4" stroke="url(#linearGradient-2)" stroke-width="2" fill="#FFFFFF" x="0.0298337934" y="0.192307692" width="81.8472222" height="58.8461538" rx="2.79999995"></rect>
+                                    <ellipse id="Oval-9" fill="#3EADFE" cx="6.94650046" cy="6.03846154" rx="1.15277778" ry="1.15384615"></ellipse>
+                                    <ellipse id="Oval-9-Copy" fill="#3EADFE" cx="11.5576116" cy="6.03846154" rx="1.15277778" ry="1.15384615"></ellipse>
+                                    <ellipse id="Oval-9-Copy-2" fill="#3EADFE" cx="16.1687227" cy="6.03846154" rx="1.15277778" ry="1.15384615"></ellipse>
+                                </g>
+                                <line x1="2.10445135" y1="10.6666667" x2="81.9473085" y2="10.6666667" id="Line-2" stroke="url(#linearGradient-3)" stroke-width="1.5" stroke-linecap="square"></line>
+                            </g>
+                            <g id="Group-4" transform="translate(68.000000, 55.000000)">
+                                <rect id="Rectangle-18" stroke="url(#linearGradient-4)" stroke-width="1.5" fill="#FFFFFF" x="0" y="0" width="21" height="41" rx="2"></rect>
+                                <path d="M5,0.5 L16,0.5 L16,1 C16,1.82842712 15.3284271,2.5 14.5,2.5 L6.5,2.5 C5.67157288,2.5 5,1.82842712 5,1 L5,0.5 L5,0.5 Z" id="Rectangle" fill="#3E8CFE"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -7,7 +7,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 320px));
-    grid-auto-rows: minmax(200px, 360px);
+    grid-auto-rows: auto;
     align-items: start;
     justify-content: center;
     gap: 20px;

@@ -1,5 +1,6 @@
-from flask import Flask, send_from_directory
+from flask import Flask
 from app import *
+from flask_cors import CORS
 
 
 import os
@@ -8,13 +9,13 @@ load_dotenv()
 
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = os.environ.get('SECRET_KEY')
 
 # Registring blueprints
 app.register_blueprint(auth_blueprint, url_prefix ='/auth')
 app.register_blueprint(SEO_blueprint, url_prefix='/')
-app.register_blueprint(websites_blueprint, url_prefix='/websites')
-app.register_blueprint(main_blueprint, url_prefix='/')
+app.register_blueprint(xsdesigner_blueprint, url_prefix='/websites')
 app.register_blueprint(agency_blueprint, url_prefix='/')
 
 
