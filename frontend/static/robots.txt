@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /dashboard/
+Disallow: /platform/designer
+Disallow: /privacy-policy/
+Disallow: /legal-advice/
+Disallow: /cookies-policy/
+
+Sitemap: https://bigseo.com/sitemap.xml

@@ -126,7 +126,9 @@
             inset: 0 0 0 auto;
             opacity: 1;
             background-color: white;
-            width: 60%;
+            width: fit-content;
+            padding: 40px;
+            box-shadow: rgba(0, 60, 255, 0.4) 0 0 40px;
             height: 100vh;
 
             display: grid;

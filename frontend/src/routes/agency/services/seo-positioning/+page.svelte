@@ -29,8 +29,8 @@
 </section>
 
 <CtaBanner 
-    title="Estás a solo unos clicks de tu tienda online lista para vender"
-    description="Agenda tu llamada gratuita ahora y resuelve cualquier duda sobre nuestro producto."
+    title="Es hora de posicionar tu negocio en internet"
+    description="Agenda tu llamada gratuita ahora y resuelve cualquier duda sobre como puedes posicionar tu negocio. Luego ya decides si quieres que te ayudemos o prefieres intentarlo por tu cuenta."
     ctaButtonText="Agendar llamada"
 	ctaUrl="https://calendly.com/xsdesign/videollamada-de-descubrimiento"
 ></CtaBanner>

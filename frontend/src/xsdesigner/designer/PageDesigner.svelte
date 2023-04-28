@@ -128,7 +128,11 @@
 <div class="editor-page">
     <EditorHeader></EditorHeader>
 
+
+
     <div class="editor-container">
+
+        <!-- THE SECTION TU ADD ELEMENTS -->
         <div id="add-section-banner" class="add-section-banner">
             <button class="add-section-button" on:click={() => new_elements_open = !new_elements_open}>
                 {#if new_elements_open}
@@ -156,6 +160,8 @@
             {/if}
         </div>
 
+
+        <!-- THE DESIGNING PAGE CONTENT-->
         <div class="page-content" draggable=true >
             <!-- on:dragleave={handleDragLeave} -->
             {#each elements as element, index}
@@ -259,7 +265,7 @@
 
 
 
-    /* ELEMENTS BANNER */
+    /* SECTION TO ADD ELEMENTS */
 
     .add-section-banner {
         display: grid;
@@ -307,7 +313,9 @@
 
     .sections-list {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 10px;
 
     }
     
@@ -317,19 +325,34 @@
         padding: 0;
         margin: 0;
         display: grid;
-        place-items: center;
-        height: fit-content;
+        grid-template-rows: 1fr auto;
         border: 1px solid rgb(160, 160, 160);
-        gap: 20px;
+        gap: 12px;
         width: 100%;
         height: auto;
         background-color: rgb(80, 80, 80);
+    }
+
+    .element-template:hover {
+        box-shadow: rgba(255, 255, 255, 0.5) 0 0 10px;
+    }
+
+    .element-template, .element-image, .element-template > span:hover {
+        cursor: grab;
+    }
+
+    .element-template span {
+        padding: 6px;
+        display: block;
+        place-self: bottom;
+        height: fit-content;
     }
 
     .element-image {
         max-height: 100%;
         max-width: 100%;
         margin-bottom: 20px;
+        align-self: top;
     }
 
 

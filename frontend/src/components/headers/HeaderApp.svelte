@@ -3,27 +3,13 @@
     import { onMount } from 'svelte';
     import DarkLogo from '../DarkLogo.svelte'
 
-    let links = [
-      { name: 'Soporte', link: '/support' },
-      { name: 'tips', link: '/tips' },
-    ];
-
-    let header;
-    
-
-    onMount(() => {
-        window.onscroll = function () {
-            header.style.backgroundColor = "rgba(30, 12, 47, .6)";
-            header.style.backdropFilter = "blur(50px);"
-        }
-    })
 
 </script>
   
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<header class="header" bind:this={header}>
+<header class="header">
     <div class="header-content">
         <DarkLogo></DarkLogo>
 

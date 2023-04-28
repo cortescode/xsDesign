@@ -1,6 +1,6 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import { user } from '../../lib/session.js';
+    import { user, logout } from '../../lib/session.js';
 
     import Logo from '../Logo.svelte'
     import ServicesLinkBanner from './ServicesLinkBanner.svelte';
@@ -12,8 +12,7 @@
 
     let links = [
       { name: 'home', link: '/' },
-      { name: 'servicios', link: '/agency/services'},
-      { name: 'plataforma', link: '/platform'},
+      { name: 'servicios +', link: '/agency/services'},
       { name: 'contacto', link: '/agency/contact' }
     ];
 
@@ -42,42 +41,43 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header id="header">
-    <Logo></Logo>
+    <div class="header-content">
+        <Logo></Logo>
   
-    <nav class="links-list">
-        {#each links as { name, link }}
-            {#if (pathname.includes(link) && link.length > 1) || pathname == link }
-                <a class="link selected" href={link} on:click={setSelectedLink}>
-                    <span>{name}</span>
-                </a>
-            {:else if name == 'servicios'}
-                <a class="link expanded-link" href={link} on:click={setSelectedLink}>
-                    <span>{name}</span>
-                    <div class="expanded-links">
-                        <ServicesLinkBanner></ServicesLinkBanner>
-                    </div>
-                </a>
-            {:else}
-                <a class="link" href={link} on:click={setSelectedLink}>
-                    <span>{name}</span>
-                </a>
+        <nav class="links-list">
+            {#each links as { name, link }}
+                {#if (pathname.includes(link) && link.length > 1) || pathname == link }
+                    <a class="link selected" href={link} on:click={setSelectedLink}>
+                        <span>{name}</span>
+                    </a>
+                {:else if name == 'servicios +'}
+                    <a class="link expanded-link" href={link} on:click={setSelectedLink}>
+                        <span>{name}</span>
+                        <div class="expanded-links">
+                            <ServicesLinkBanner></ServicesLinkBanner>
+                        </div>
+                    </a>
+                {:else}
+                    <a class="link" href={link} on:click={setSelectedLink}>
+                        <span>{name}</span>
+                    </a>
+                {/if}
+
+            {/each}
+        </nav>
+        <div class="button-container">
+            {#if ($user == null) || !("username" in $user) }
+                <a href="/auth/login" class="login-link">Acceder</a>
+                <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button>
+            {:else }
+                <a class="login-link" on:click={logout}>Cerrar sesión</a>
+                <button onclick="location.href='/platform/dashboard'" class="gradient-button">Dashboard</button>
             {/if}
+        </div>
 
-        {/each}
-    </nav>
-    <div class="button-container">
-        {#if ($user == null) || !("username" in $user) }
-            <a href="/auth/login" class="login-link">Acceder</a>
-            <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button>
-        {:else }
-            <a href="/auth/logout" class="login-link">Logout</a>
-            <button onclick="location.href='/platform/dashboard'" class="gradient-button">Dashboard</button>
-        {/if}
+        <MobileMenu links={links} buttonText={buttonText} buttonLink={buttonLink}></MobileMenu>
+
     </div>
-
-    <MobileMenu links={links} buttonText={buttonText} buttonLink={buttonLink}></MobileMenu>
-
- 
 </header>
 
 
@@ -86,10 +86,6 @@
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
     header {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        align-items: center;
-        justify-items: center;
         background-color: rgb(255, 255, 255);
 
         position: sticky;
@@ -97,6 +93,16 @@
         z-index: 40;
 
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
+    }
+
+    .header-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        justify-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+
     }
     
     .links-list{
@@ -180,10 +186,6 @@
 
     @media screen and (max-width: 767px) {
         header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            justify-items: center;
             background-color: rgb(255, 255, 255);
             padding: 8px 20px;
             width: calc(100% - 40px);
@@ -194,6 +196,13 @@
             z-index: 40;
 
             box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            justify-items: center;
         }
 
 

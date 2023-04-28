@@ -20,7 +20,7 @@ const observer = new IntersectionObserver(entries => {
 
 function animate() {
     let elements = document.getElementsByClassName('animate');
-    console.log(elements)
+    
     for(let i = 0; i < elements.length; i++) {
         elements[i].classList.add('no-opacity')
         observer.observe(elements[i])

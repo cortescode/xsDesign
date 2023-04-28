@@ -1,16 +1,27 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
+    import { onMount } from 'svelte';
 
     import Header from '../components/headers/Header.svelte';
     import Hero from '../components/heros/Hero.svelte';
-    import Testimonials from '../sections/Testimonials.svelte';
-    import Portfolio from '../sections/Portfolio.svelte';
-	import Cards from '../sections/Cards.svelte';
+    import Testimonials from '../components/sections/Testimonials.svelte';
+    import Portfolio from '../components/sections/Portfolio.svelte';
+	import Cards from '../components/sections/Cards.svelte';
     import CtaBanner from '../components/sales/CtaBanner.svelte';
 
-    import { onMount } from 'svelte';
-    import ServicesSection from '../sections/ServicesSection.svelte';
-    import MessageBanner from '../components/cards/messageBanner.svelte';
+    import ServicesSection from '../components/sections/ServicesSection.svelte';
+    import MessageBanner from '../components/cards/MessageBanner.svelte';
+
+
+    import { user, getSessionUserData } from "../lib/session";
+
+    onMount(() => {
+        getSessionUserData().then( (user_data) => user.set(user_data)).catch((error) => {
+            console.log(error);
+            user.set(null);
+        })
+	});
+
 
 
 </script>
@@ -36,7 +47,7 @@
     buttonText = "
         Agenda una llamada de descrubrimiento
     "  
-	buttonUrl = "#pricing"
+	buttonUrl = "https://calendly.com/xsdesign/videollamada-de-descubrimiento"
     videoUrl = "/media/herobg3.mp4"
 >
 </Hero>

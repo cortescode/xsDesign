@@ -29,11 +29,11 @@
     }
 
     .webcard:hover .webcard-img {
-        top:-118%;
+        top:-132%;
     }
 
     .webcard:hover .webcard-info {
-        top: -118%;
+        top: -132%;
         
     }
 

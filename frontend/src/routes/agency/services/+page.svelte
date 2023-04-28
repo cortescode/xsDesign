@@ -2,8 +2,7 @@
 <script>
 
     import Hero from '../../../components/heros/HeroServices.svelte';
-    import Features from '../../../sections/Features.svelte';
-    import ServicesSection from '../../../sections/ServicesSection.svelte';
+    import ServicesSection from '../../../components/sections/ServicesSection.svelte';
     import CtaBanner from '../../../components/sales/CtaBanner.svelte';
 
     

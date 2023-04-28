@@ -14,16 +14,14 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 # Registring blueprints
 app.register_blueprint(auth_blueprint, url_prefix ='/auth')
-app.register_blueprint(SEO_blueprint, url_prefix='/')
 app.register_blueprint(xsdesigner_blueprint, url_prefix='/websites')
-app.register_blueprint(agency_blueprint, url_prefix='/')
 
 
-
+""" 
 @app.before_first_request
 def seo_mapping():
     setup_mapping(app)
-
+ """
 @app.route("/<path:path>")
 def static_files(path):
     print(path)

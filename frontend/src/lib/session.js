@@ -38,5 +38,9 @@ export function getSessionUserData() {
     });
 }
 
+export function logout() {
+    user.set(null)
+    fetch('api/auth/logout').then(response => console.log(response)).catch(error => console.log("Error: ", error))
+}
 
 export const user = writable({});

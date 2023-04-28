@@ -26,7 +26,7 @@
     </p>
     <h3>¿Qué diferencia a nuestro equipo?</h3>
     <p>
-        Estamos a la última. Cansados de ver como "agencias" y "profesionales" ofrecen webs poco optimizadas construidas en herramientas antiguas como wordpress.
+        Estamos a la última. Cansados de ver como "agencias" y "profesionales" ofrecen webs poco optimizadas construidas en herramientas antiquadas como wordpress.
     </p>
     <p>
         En nuestro equipo, realizamos un diseño web a medida capaz de responder a las necesidades del público al que se dirige así como también aumentar sus visitas, sus ventas y posicionar a su negocio o marca a través de Internet. 
@@ -50,8 +50,8 @@
  </section>
 
 <CtaBanner 
-    title="Descubre como puede afectar del diseño web en tu caso concreto"
-    description="Agenda tu llamada gratuita ahora y contacta con nuestro equipo."
+    title="Descubre si nuestras servicio de páginas web encaja con tu negocio"
+    description="Agenda tu llamada gratuita ahora y resuelve cualquier duda que tengas sobre la web que necesita tu negocio. Luego ya decides si quieres que te ayudemos o prefieres intentarlo por tu cuenta."
     ctaButtonText="Agenda tu llamada"
 	ctaUrl="https://calendly.com/xsdesign/videollamada-de-descubrimiento"
 ></CtaBanner>

@@ -31,6 +31,7 @@
         border-radius: 12px;
         box-shadow: rgba(100, 100, 110, 0.2) 0px 8px 28px 0px;
         max-width: 420px;
+        width: calc(100% - 40px);
         transition: .2s;
     }
 
@@ -82,7 +83,6 @@
     @media screen and (max-width: 767px) {
         .service-card {
             margin-bottom: 40px;
-            width: 98%;
         }
     }
 

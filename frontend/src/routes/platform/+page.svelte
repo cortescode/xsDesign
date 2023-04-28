@@ -3,7 +3,7 @@
 
     import Header from '../../components/headers/Header.svelte';
     import Hero from '../../components/heros/HeroApp.svelte';
-    import Features from '../../sections/Features.svelte';
+    import Features from '../../components/sections/Features.svelte';
     import CtaBanner from '../../components/sales/CtaBanner.svelte';
 
     import HeaderApp from '../../components/headers/HeaderApp.svelte';
@@ -17,11 +17,11 @@
             Desarrolla landing pages profesionales en cuestión de minutos
             "
             description = "
-                Registrate ahora y obtén acceso a la beta del producto 
-                y a 1 mes gratis en su lanzamiento.
+                Registrate ahora y obtén acceso a la fase Alpha del producto 
+                y a 3 mes gratis en su lanzamiento.
             "  
             button = "
-                Obtener acceso anticipado
+                Obtener acceso anticipado (fase Alpha)
             "  
         >
     </Hero>

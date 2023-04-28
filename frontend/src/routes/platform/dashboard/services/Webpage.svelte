@@ -54,6 +54,10 @@
         transition: .2s;
     }
 
+    .webcard > h2 {
+        margin: 0 auto;
+    }
+
     .webcard:hover {
         transform: scale(0.98);
         box-shadow: rgba(21, 0, 106, 0.32) 0 0 28px;
