@@ -4,6 +4,7 @@ instance/*
 .webassets-cache
 .env
 
+
 ### Frontend ###
 .DS_Store
 node_modules
@@ -15,7 +16,8 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-
+frontend/.eslintignore
+frontend/.eslintrc.cjs
 
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files

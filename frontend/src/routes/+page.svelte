@@ -27,7 +27,9 @@
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-
+<svelte:head>
+    <title>Agencia de desarrollo web y marketing basado en datos | XS Design</title>
+</svelte:head>
 <!-- Header Section -->
 <Header
     buttonLink = "https://calendly.com/xsdesign/videollamada-de-descubrimiento"

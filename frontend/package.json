@@ -21,6 +21,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^1.2.4",
 		"update": "^0.7.4"
 	}
 }

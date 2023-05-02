@@ -9,6 +9,9 @@
 </script>
 
 
+<svelte:head>
+    <title>Descubre nuestros servicios | XS Design</title>
+</svelte:head>
 <Hero
         title = "
             Servicios enfocados en digitalizar el núcleo de tu negocio para que triunfes en la nueva era digital.

@@ -20,7 +20,9 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-
+<svelte:head>
+    <title>Dashboard | XS Design</title>
+</svelte:head>
 <section class="dashboard">
     <Header></Header>
     <div class="left-menu">

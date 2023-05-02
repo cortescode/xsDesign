@@ -3,6 +3,10 @@
     import CtaBanner from "../../../../components/sales/CtaBanner.svelte";
 </script>
 
+
+<svelte:head>
+    <title>Creación y optimización de tiendas online en shopify | XS Design</title>
+</svelte:head>
 <ServiceHero
     imgUrl = "/media/assets/images/seo.webp"
     title = "Tiendas Shopify optimizadas que generan marca y ventas para tu negocio."

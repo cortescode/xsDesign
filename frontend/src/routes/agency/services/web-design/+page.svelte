@@ -4,6 +4,9 @@
 </script>
 
 
+<svelte:head>
+    <title>Diseño y creación de páginas web a medida | XS Design</title>
+</svelte:head>
 <ServiceHero
     imgUrl = "/media/assets/images/webdesign.webp"
     title = "Diseño y creación de páginas web a medida."

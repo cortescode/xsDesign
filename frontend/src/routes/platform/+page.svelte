@@ -10,6 +10,10 @@
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
+<svelte:head>
+    <title>Crea tu landing page optimizada en cuestión minutos | XS Design</title>
+</svelte:head>
+
 <div class="page-container">
     <HeaderApp></HeaderApp>
     <Hero

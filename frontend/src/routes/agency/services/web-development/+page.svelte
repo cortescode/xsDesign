@@ -3,6 +3,9 @@
     import CtaBanner from "../../../../components/sales/CtaBanner.svelte";
 </script>
 
+<svelte:head>
+    <title>Desarrollo de aplicaciones web a medida | XS Design</title>
+</svelte:head>
 <ServiceHero
     imgUrl = "/media/assets/images/digital-strategy.webp"
     title = "Desarrollo de aplicaciones web a medida para emprendedores y starups"

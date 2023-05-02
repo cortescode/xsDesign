@@ -8,6 +8,9 @@
 
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
+<svelte:head>
+    <title>Inicia sesión | XS Design</title>
+</svelte:head>
 <section class="auth-page">
     <div class="form-container animate">
         <LoginForm></LoginForm>

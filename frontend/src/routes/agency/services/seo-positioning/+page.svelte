@@ -3,6 +3,12 @@
     import CtaBanner from "../../../../components/sales/CtaBanner.svelte";
 </script>
 
+
+
+<svelte:head>
+    <title>Posicionamiento web SEO profesional | XS Design</title>
+</svelte:head>
+
 <ServiceHero
     imgUrl = "/media/assets/images/seo.webp"
     title = "Posicionamiento Web SEO profesional"
