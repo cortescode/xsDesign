@@ -6,7 +6,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <section class="animate" id="services">
-    <h1 class="right-title">Lo que necesita tu negocio, a un click de distancia.</h1>
+    <h1 class="left-title">Lo que necesita tu negocio, a un click de distancia.</h1>
     <div class="services">
         <ServiceCard
             iconUrl = "/media/assets/icons/ico-design.svg"

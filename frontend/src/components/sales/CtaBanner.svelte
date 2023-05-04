@@ -10,13 +10,13 @@
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<section class="cta-banner">
+<div class="cta-banner">
     <div class="banner-content animate">
         <h1>{ title }</h1>
         <p>{ description }</p>
         <a class="white-button" href="{ctaUrl}">{ ctaButtonText }</a>
     </div>
-</section>
+</div>
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>

@@ -7,7 +7,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <section class="animate">
-    <h1 class="left-title">¿Qué nos diferencia del resto?</h1>
+    <h1 class="right-title">¿Qué nos diferencia del resto?</h1>
     <div class="flex-columns">
         <Card
             iconUrl = "/media/assets/icons/code.svg"

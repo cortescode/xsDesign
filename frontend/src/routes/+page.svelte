@@ -40,7 +40,7 @@
 <!-- Hero Section -->
 <Hero
     title = "
-        Diseñamos páginas webs que convierten visitantes en clientes para tu negocio.
+        Diseñamos webs que convierten visitantes en clientes para tu negocio.
     "
     description = "
 		Creamos páginas web profesionales, modernas y 
@@ -55,11 +55,11 @@
 </Hero>
 <!-- Main Section -->
 <main>
-	<Cards></Cards>
+	<ServicesSection></ServicesSection>
 
     <MessageBanner></MessageBanner>
 
-	<ServicesSection></ServicesSection>
+	<Cards></Cards>
 
     <Portfolio></Portfolio>
 

@@ -6,7 +6,7 @@
 	--blue: rgb(67, 28, 225);
 	--buttons-blue: rgb(32, 32, 128);
 
-	--page-content-size: 1150px;
+	--page-content-size: 1250px;
 
 	--title-max-width: 800px;
 	--subtitle-max-width: 600px;
@@ -50,13 +50,13 @@ button, a {
 
 main {
 	padding: 20px;
-	max-width: var(--page-content-size);
 	margin: 0 auto;
 }
 
 section {
 	padding: 40px 20px;
-	margin: 40px 0;
+	max-width: var(--page-content-size);
+	margin: 40px auto;
 	height: fit-content;
 }
 
@@ -68,12 +68,14 @@ img {
 	margin: 0;
 }
 
-h1 {
+h1, h2, h3, h4 {
 	font-family: comfortaa;
-	font-weight: 900;
+	font-weight: 900 !important;
+	line-height: 1.2em;
+}
+h1 {
     color: #140050;
 	font-size: 48px;
-	line-height: 1.2em;
 	max-width: var(--title-max-width);
 }
 
@@ -302,7 +304,7 @@ p {
 
 
 	section {
-		padding: 16px;
+		padding: 10px;
 		margin: 40px 0;
 		text-align: left;
 	}
@@ -326,7 +328,7 @@ p {
 	}
 
 	article {
-		width: 90%;
+		width: 94%;
 	}
 }
 
