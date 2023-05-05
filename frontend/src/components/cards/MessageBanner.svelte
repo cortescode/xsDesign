@@ -11,21 +11,20 @@
 
 <style>
     article {
-        border-radius: 24px;
-        margin: 80px auto;
+        margin: 60px auto;
 		background-image: linear-gradient(321deg,#c084f8,#4353ff 67%,#391389 94%);
 		display: grid;
 		place-items: center;
-		padding: 20px;
+		padding: 60px 20px;
 		color: white;
-        box-shadow: rgba(0, 60, 255, 0.8) 0 0 68px;
-        min-height: 60vh;
         text-align: center;
-        width: calc(80%);
+        width: calc (100% - 40px);
+        max-width: 1400px;
+        border-radius: 24px;
     }
 
     article h1 {
-        font-size: 52px;
+        font-size: 3em;
         width: 100%;
         max-width: 800px;
         color: white;
@@ -39,4 +38,11 @@
         margin-top: 0;
     }
 
+
+    @media screen and (max-width: 767px) {
+        article {
+            margin-left: -20px;
+            border-radius: 0;
+        }
+    }
 </style>

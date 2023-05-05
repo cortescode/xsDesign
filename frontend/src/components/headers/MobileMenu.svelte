@@ -22,6 +22,7 @@
         <img class="close-icon" src="/media/assets/icons/cross.svg" alt="" srcset="/media/assets/icons/cross.svg">
     </button>
 
+    <div class="menu-page-wrapper"></div>
     <div class="mobile-menu" id="menu-content">
         <nav class="mobile-links-list">
             {#each links as { name, link }}
@@ -120,20 +121,30 @@
             display: block;
         }
 
+        .menu-page-wrapper {
+            position: fixed;
+            inset: 0 0 0 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
 
         .mobile-menu {
-            position: absolute;
+            position: fixed;
             inset: 0 0 0 auto;
             opacity: 1;
             background-color: white;
             width: fit-content;
             padding: 40px;
             box-shadow: rgba(0, 60, 255, 0.4) 0 0 40px;
-            height: 100vh;
+            height: calc(100vh - 80px);
 
             display: grid;
             place-items: center;
+            animation: menuOpening .4s;
+
         }
+
 
         .mobile-links-list {
             display: block;
@@ -141,6 +152,16 @@
             text-align: right;
             height: fit-content;
             
+        }
+    }
+
+
+    @keyframes menuOpening {
+        0% {
+            transform: translateX(400px);
+        }
+        100% {
+            transform: translateX(0px);
         }
     }
 
