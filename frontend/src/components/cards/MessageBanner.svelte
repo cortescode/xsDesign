@@ -18,7 +18,7 @@
 		padding: 60px 20px;
 		color: white;
         text-align: center;
-        width: calc (100% - 40px);
+        width: calc(100vw - 40px);
         max-width: 1400px;
         border-radius: 24px;
     }
