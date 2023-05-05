@@ -28,14 +28,17 @@
         box-shadow: rgba(100, 100, 110, 0.2) 0px 8px 28px 0px;
     }
 
-    .webcard:hover .webcard-img {
-        top:-132%;
-    }
+    @media screen and (min-width: 767px) {
+        .webcard:hover .webcard-img {
+            top:-132%;
+        }
 
-    .webcard:hover .webcard-info {
-        top: -132%;
-        
+        .webcard:hover .webcard-info {
+            top: -132%;
+            
+        }
     }
+    
 
     .webcard-img {
         position: relative;
