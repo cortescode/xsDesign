@@ -26,7 +26,7 @@ def store_user(username, email, password) -> bool:
         Return True if user is added successfully and False if not.
     '''
     
-    users = dynamodb.Table('users')
+    users = dynamodb.Table('users_xs')
     hashed_password: str = generate_password_hash(password)
     
     try:
@@ -66,7 +66,7 @@ def get_user(email) -> dict:
 
     key = {'email': email}
     
-    users = dynamodb.Table('users')
+    users = dynamodb.Table('users_xs')
     
     try:
         response = users.get_item(Key=key)
