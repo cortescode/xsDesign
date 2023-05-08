@@ -12,7 +12,13 @@
 
     let links = [
       { name: 'home', link: '/' },
-      { name: 'servicios +', link: '/agency/services'},
+      { name: 'servicios', link: '/agency/services', 
+        sublinks: [
+            { name: 'Diseño y Optimización de páginas web', link: '/agency/services/web-design' },
+            { name: 'Creación de tiendas online', link: '/agency/services/ecommerce-creation' },
+            { name: 'Desarrollo de aplicaciones web', link: '/agency/services/web-development' },
+            { name: 'Posicionamiento Seo', link: '/agency/services/seo-positioning' }
+        ]},
       { name: 'contacto', link: '/agency/contact' }
     ];
 
@@ -45,21 +51,23 @@
         <Logo></Logo>
   
         <nav class="links-list">
-            {#each links as { name, link }}
-                {#if (pathname.includes(link) && link.length > 1) || pathname == link }
-                    <a class="link selected" href={link} on:click={setSelectedLink}>
-                        <span>{name}</span>
-                    </a>
-                {:else if name == 'servicios +'}
-                    <a class="link expanded-link" href={link} on:click={setSelectedLink}>
-                        <span>{name}</span>
-                        <div class="expanded-links">
-                            <ServicesLinkBanner></ServicesLinkBanner>
-                        </div>
+            {#each links as link}
+                {#if (pathname.includes(link['link']) && link['link'].length > 1) || pathname == link }
+                    <a class="link selected" href={link['link']} on:click={setSelectedLink}>
+                        <span>{link['name']}</span>
                     </a>
                 {:else}
-                    <a class="link" href={link} on:click={setSelectedLink}>
-                        <span>{name}</span>
+                    <a class="link" href={link['link']} on:click={setSelectedLink}>
+                        <span>{link['name']}</span>
+                        {#if 'sublinks' in link}
+                            <div class="floating-links">
+                                {#each link['sublinks'] as sublink}
+                                <a href="{sublink['link']}">
+                                    {sublink['name']}
+                                </a>
+                                {/each}
+                            </div> 
+                        {/if}
                     </a>
                 {/if}
 
@@ -117,6 +125,7 @@
         margin: 4px 10px;
         text-decoration: none;
         color: #333;
+        transition: .2s;
     }
 
     .link:hover > span {
@@ -136,26 +145,42 @@
         text-decoration: underline;
     }
 
-    .link .expanded-links {
-        transform: scale(0);
+    .floating-links {
         opacity: 0;
+        transform: scale(0);
         position: fixed;
-        inset: 52px 0 auto 0;
-        display: flex;
-        justify-content: center;
-        font-weight: 400;
-        width: 100vw;
-        transition: .4s;
-        transition-delay: 0 .6s;
+        background-color: white;
+        box-shadow: rgba(0, 60, 255, 0.4) 0 0 40px;
+        inset: 54px auto auto auto;
+        width: fit-content;
+        border: 1px solid var(--default-blue);
+        border-radius: 12px;
+        z-index: 10;
     }
 
-    .link:hover .expanded-links {
-        transform: scale(1);
-        opacity: 1;
+
+    .floating-links a{
+        display: block;
+        font-weight: 400;
+        padding: 20px 20px;
+        border-bottom: 1px solid var(--default-blue);
+        border-radius: 12px;
+        transition: .2s;
+    }
+
+    .floating-links a:hover{
+        font-weight: 600;
+        background-color: var(--light-blue);
+        transform: scale(1.04);
         color: white;
     }
-    .link:not(:hover) .expanded-links {
-        transition-delay: .2s;
+   
+    .link:hover .floating-links {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .link:not(:hover) .floating-links {
+        transition-delay: .4s;
     }
 
     .login-link {

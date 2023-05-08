@@ -2,7 +2,7 @@
 
 </script>
 
-<ul class="links-list">
+<ul class="services-list">
     <li>
         <a href="/agency/services/web-design">
             <img src="/media/assets/icons/ico-design.svg" alt="">
@@ -31,7 +31,7 @@
 
 
 <style>
-    .links-list {
+    .services-list {
         width: 520px;
         justify-self: center;
         display: grid;
@@ -45,11 +45,11 @@
         box-shadow: rgba(100, 100, 110, 0.4) 0px 8px 28px 0px;
 
     }
-    .links-list:hover {
+    .services-list:hover {
         cursor: auto;
     }
 
-    .links-list li a {
+    .services-list li a {
         display: grid;
         grid-template-columns: 28px auto;
 	    background-clip: none;
@@ -60,7 +60,7 @@
         text-align: left;
         transition: .2s;
     }
-    .links-list li a:hover {
+    .services-list li a:hover {
         transform: scale(.9);
         cursor: pointer;
         background: linear-gradient(to right, #764ba2, #667eea);
@@ -70,7 +70,7 @@
         text-decoration: underline;
     }
 
-    .links-list li a img{
+    .services-list li a img{
         display: block;
         text-decoration: none;
         width: 28px;

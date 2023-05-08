@@ -69,6 +69,7 @@
     .text-section {
         max-width: 780px;
         margin: -40px auto 40px auto;
+        padding: 20px;
     }
 
     .text-section > h2 {

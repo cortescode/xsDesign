@@ -5,7 +5,7 @@
 <article class="animate">
     <div class="content">
         <h1>Destacar o perderte</h1>
-        <h2>Diseñamos páginas web y soluciones digitales a medida para que destaques sobre tus cometidores y posiciones tu marca en internet.</h2>
+        <h2>Diseñamos páginas web y soluciones digitales a medida para que destaques sobre tus competidores y posiciones tu marca en internet.</h2>
     </div>
 </article>
 

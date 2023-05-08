@@ -60,7 +60,8 @@
     .auth-form {
         margin: 0 auto;
         margin-block: 0;
-        width: 360px;
+        width: auto;
+        max-width: 400px;
         height: fit-content;
         padding: 34px;
         box-shadow: rgba(0, 62, 155, 0.2) 0 -0 40px;
@@ -110,5 +111,11 @@
 
     .auth-form a:hover .text-icon {
         margin-right: 20px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .auth-form {
+            padding: 20px;
+        }
     }
 </style>

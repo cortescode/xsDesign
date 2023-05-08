@@ -83,7 +83,8 @@
         display: none;
         height: 40px;
         width: 40px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(20px);
         border-radius: 50%;
         position: relative;
         z-index: 25;
@@ -133,7 +134,8 @@
             position: fixed;
             inset: 0 0 0 auto;
             opacity: 1;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             width: fit-content;
             padding: 40px;
             box-shadow: rgba(0, 60, 255, 0.4) 0 0 40px;

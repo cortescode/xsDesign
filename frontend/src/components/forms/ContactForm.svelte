@@ -43,7 +43,7 @@
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
     .contact-form{
-        width: 90%;
+        width: auto;
         max-width: 600px;
         margin: 0;
     }
@@ -104,5 +104,11 @@
 
     .auth-form a:hover .text-icon {
         margin-right: 20px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .auth-form {
+            padding: 20px;
+        }
     }
 </style>

@@ -15,7 +15,7 @@
 <style>
     .contact {
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 40px 0;
         display: grid;
         place-items: center;
     }
