@@ -3,7 +3,6 @@
     import { user, logout } from '../../lib/session.js';
 
     import Logo from '../Logo.svelte'
-    import ServicesLinkBanner from './ServicesLinkBanner.svelte';
     import MobileMenu from './MobileMenu.svelte';
     import { onMount } from 'svelte';
 
