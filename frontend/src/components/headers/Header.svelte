@@ -155,6 +155,7 @@
         border: 1px solid var(--default-blue);
         border-radius: 12px;
         z-index: 10;
+        transition: opacity, transform .4s;
     }
 
 
@@ -179,7 +180,7 @@
         opacity: 1;
     }
     .link:not(:hover) .floating-links {
-        transition-delay: .4s;
+        transition-delay: .2s;
     }
 
     .login-link {
