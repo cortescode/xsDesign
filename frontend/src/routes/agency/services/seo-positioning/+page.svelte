@@ -17,7 +17,7 @@
 ></ServiceHero>
 
 <section class="text-section animate">
-    <h2>Descubre qué te ofrecemos con nuestro servicio de consultoría y estrategia digital</h2>
+    <h2>Descubre cómo podemos mejorar el SEO de tu web y transformarlo en negocio</h2>
     <h3>Creamos estrategias a medida</h3>
     <p>
         El SEO no es comprar enlaces y crear contenidos, ni tampoco informes automatizados de una herramienta. Es mucho más.
