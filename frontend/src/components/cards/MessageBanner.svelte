@@ -6,6 +6,7 @@
     <div class="content">
         <h1>Destacar o perderte</h1>
         <h2>Diseñamos páginas web y soluciones digitales a medida para que destaques sobre tus competidores y posiciones tu marca en internet.</h2>
+        <a class="white-button banner-button" href="https://calendly.com/xsdesign/videollamada-de-descubrimiento?month=2023-07">Agendar llamada de descubrimiento</a>
     </div>
 </article>
 
@@ -32,11 +33,24 @@
 
     article h2 {
         width: 100%;
-        max-width: 600px;
+        max-width: 680px;
         font-size: 24px;
+        font-weight: 400 !important;
         color: white;
         margin-top: 0;
     }
+
+    .content {
+        display: grid;
+        place-items: center;
+    }
+
+
+    .banner-button {
+        margin-top: 40px !important;
+        margin: auto;
+    }
+
 
 
     @media screen and (max-width: 767px) {

@@ -26,6 +26,11 @@
         box-shadow: rgba(100, 100, 110, 0.2) 0px 8px 28px 0px;
         width: 90%;
         max-width: 400px;
+        transition: .2s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-12px);
     }
 
     .feature-card img {

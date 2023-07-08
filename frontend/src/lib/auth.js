@@ -1,7 +1,7 @@
 
 
 // ------------- GENERAL FORM ----------------
-// This
+// This function is used to handle the auth form, such as login and signup
 export async function handleAuthForm(type, form) {
     return fetch(`/api/auth/${ type }`, {
         method: 'POST',

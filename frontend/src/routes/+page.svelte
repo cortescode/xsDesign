@@ -50,7 +50,7 @@
         Agenda una llamada de descrubrimiento
     "  
 	buttonUrl = "https://calendly.com/xsdesign/videollamada-de-descubrimiento"
-    videoUrl = "/media/herobg3.mp4"
+    videoUrl = "/media/herobg4.mp4"
 >
 </Hero>
 <!-- Main Section -->

@@ -20,6 +20,10 @@
         justify-self: left;
         align-items: center;
         height: fit-content;
+        border-radius: 18px;
+        background-color: white;
+        padding: 4px 10px;
+        width: fit-content;
     }
 
     .logo-container h1 {

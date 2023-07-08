@@ -176,7 +176,7 @@ p {
 
 .gradient-button {
 	display: block;
-	background: linear-gradient(to right, #667eea, #764ba2);
+	background: linear-gradient(to right, #61c2f3, #9f4cf1);
 	border-radius: 24px;
 	border: none;
 	color: white;

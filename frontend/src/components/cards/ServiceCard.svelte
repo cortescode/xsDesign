@@ -39,6 +39,7 @@
     .service-card:hover {
         box-shadow: rgba(0, 60, 255, 0.4) 0 0 40px;
         font-weight: 400;
+        transform: translateY(-12px);
     }
 
     .service-card img {
