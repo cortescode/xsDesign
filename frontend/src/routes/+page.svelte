@@ -12,6 +12,7 @@
     import ServicesSection from '../components/sections/ServicesSection.svelte';
     import MessageBanner from '../components/cards/MessageBanner.svelte';
 
+    import PopUp from '../components/pop-ups/PopUp.svelte';
 
     import { user, getSessionUserData } from "../lib/session";
 
@@ -51,6 +52,7 @@
     "  
 	buttonUrl = "https://calendly.com/xsdesign/videollamada-de-descubrimiento"
     videoUrl = "/media/herobg4.mp4"
+    videoCover = "/media/herobg4.webp"
 >
 </Hero>
 <!-- Main Section -->
@@ -78,6 +80,9 @@
 	ctaButtonText="Agenda una llamada de descubrimiento"
 	ctaUrl="https://calendly.com/xsdesign/videollamada-de-descubrimiento"
 ></CtaBanner>
+
+<PopUp />
+
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>

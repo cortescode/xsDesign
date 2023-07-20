@@ -11,8 +11,8 @@
             link: "/agency/services/web-design"
         },
         {
-            title: "Ecommerce",
-            link: "/agency/services/ecommerce-creation"
+            title: "Embudos de venta",
+            link: "/agency/services/sales-funnel"
         },
         {
             title: "Desarrollo web",

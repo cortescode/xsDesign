@@ -1,25 +1,36 @@
 
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     const dispatch = createEventDispatcher();
 
     export let showPopUp = false;
 
     function closePopUp() {
-        dispatch("close");
+        showPopUp = false;
     }
+
+    onMount(() => {
+        setTimeout(() => {
+            showPopUp = true
+        }, 5000)
+    });
 
 
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
-<div class="pop-up-container" class:showPopUp>
+{#if showPopUp}
+    <div class="pop-up-container" class:showPopUp>
 
-    <div class="pop-up">
-        <button class="close-button" on:click={closePopUp}>X</button>
-        <slot></slot>
+        <div class="pop-up">
+            <button class="close-button" on:click={closePopUp}>X</button>
+            <slot>
+                <h1>Pop Up</h1>
+                <p>Pop Up</p>
+            </slot>
+        </div>
     </div>
-</div>
+{/if}
 
 <style>
     .pop-up-container {

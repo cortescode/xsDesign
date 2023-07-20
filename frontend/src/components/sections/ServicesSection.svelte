@@ -18,9 +18,9 @@
         </ServiceCard>
         <ServiceCard
             iconUrl = "/media/assets/icons/ico-dev.svg"
-            title = "Creación y optimización de Tiendas Online"
-            description = "Creamos tiendas online de alta conversión, preparadas para escalar. Empieza a facturar en cuestión de días."
-            linkUrl="/agency/services/ecommerce-creation"
+            title = "Creación y optimización de Embudos de Venta"
+            description = "Creamos Embudos de Venta de alta conversión, preparadas para escalar. Empieza a facturar en cuestión de días."
+            linkUrl="/agency/services/sales-funnel"
         >
         </ServiceCard>
 

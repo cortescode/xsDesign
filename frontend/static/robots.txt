@@ -4,5 +4,6 @@ Disallow: /platform/designer
 Disallow: /privacy-policy/
 Disallow: /legal-advice/
 Disallow: /cookies-policy/
+Disallow: /auth/
 
 Sitemap: https://bigseo.com/sitemap.xml

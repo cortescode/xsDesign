@@ -13,8 +13,8 @@
       { name: 'home', link: '/' },
       { name: 'servicios', link: '/agency/services', 
         sublinks: [
-            { name: 'Diseño y Optimización de páginas web', link: '/agency/services/web-design' },
-            { name: 'Creación de tiendas online', link: '/agency/services/ecommerce-creation' },
+            { name: 'Diseño y optimización de páginas web', link: '/agency/services/web-design' },
+            { name: 'Creación de embudos de venta', link: '/agency/services/sales-funnel' },
             { name: 'Desarrollo de aplicaciones web', link: '/agency/services/web-development' },
             { name: 'Posicionamiento Seo', link: '/agency/services/seo-positioning' }
         ]},

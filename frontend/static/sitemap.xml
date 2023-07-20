@@ -6,43 +6,37 @@
     <priority>1</priority>
 </url>
 <url>
-    <loc>https://xsdesign.co/platform/</loc>
-    <changefreq>weekly</changefreq>
-    <lastmod>2023-04-28</lastmod>
-    <priority>1</priority>
-</url>
-<url>
-    <loc>https://xsdesign.co/contact/</loc>
+    <loc>https://xsdesign.co/agency/contact/</loc>
     <changefreq>monthly</changefreq>
     <lastmod>2023-04-28</lastmod>
     <priority>0.2</priority>
 </url>
 <url>
-    <loc>https://xsdesign.co/services/</loc>
+    <loc>https://xsdesign.co/agency/services/</loc>
     <changefreq>weekly</changefreq>
     <lastmod>2023-04-28</lastmod>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://xsdesign.co/services/web-design</loc>
+    <loc>https://xsdesign.co/agency/services/web-design</loc>
     <changefreq>weekly</changefreq>
     <lastmod>2023-04-28</lastmod>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://xsdesign.co/services/ecommerce-creation</loc>
+    <loc>https://xsdesign.co/agency/services/sales-funnel</loc>
     <changefreq>weekly</changefreq>
     <lastmod>2023-04-28</lastmod>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://xsdesign.co/services/web-development</loc>
+    <loc>https://xsdesign.co/agency/services/web-development</loc>
     <changefreq>weekly</changefreq>
     <lastmod>2023-04-28</lastmod>
     <priority>0.8</priority>
 </url>
 <url>
-    <loc>https://xsdesign.co/services/seo-positioning</loc>
+    <loc>https://xsdesign.co/agency/services/seo-positioning</loc>
     <changefreq>weekly</changefreq>
     <lastmod>2023-04-28</lastmod>
     <priority>0.8</priority>

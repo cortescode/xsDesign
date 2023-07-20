@@ -6,6 +6,7 @@
     export let buttonText;
     export let buttonUrl;
     export let videoUrl;
+    export let videoCover;
 
 </script>
 
@@ -27,7 +28,7 @@
         </a>
     </section>
 
-    <video id="background-video" class="hero-media-asset is-visible" autoplay="true" muted="true" loop="true" playsinline="true" data-hero-video="{ videoUrl }" data-src-lg="{ videoUrl }" data-src-sm="{ videoUrl }" poster="/media/bg-poster.png">
+    <video id="background-video" class="hero-media-asset is-visible" autoplay="true" muted="true" loop="true" playsinline="true" data-hero-video="{ videoUrl }" data-src-lg="{ videoUrl }" data-src-sm="{ videoUrl }" poster="{ videoCover }">
         <source src="{ videoUrl }" type="video/mp4">
     </video>
      
