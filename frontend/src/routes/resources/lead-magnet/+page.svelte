@@ -1,6 +1,6 @@
 <script>
     import Logo from "../../../components/Logo.svelte";
-    import PopUp from "../../../components/pop-ups/PopUp.svelte";
+    import DependentPopUp from "../../../components/pop-ups/DependentPopUp.svelte";
     import { storeLead } from "../../../lib/leads";
 
 
@@ -102,7 +102,7 @@
 
     </div>
 
-    <PopUp showPopUp={popUpShown} on:close={() => popUpShown = false}>
+    <DependentPopUp showPopUp={popUpShown} on:close={() => popUpShown = false}>
         <div class="pop-up--form">
             <Logo></Logo>
 
@@ -113,7 +113,7 @@
             <input type="text" placeholder="tu mejor correo" name="email"/>
             <button class="landing-button form-button" on:click={validateFormAndDownload}><span class="text">DESCARGAR AHORA</span></button>
         </div>
-    </PopUp>
+    </DependentPopUp>
     
 </div>
 

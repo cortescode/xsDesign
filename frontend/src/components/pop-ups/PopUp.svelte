@@ -1,8 +1,6 @@
 
 <script>
-    import { createEventDispatcher, onMount } from "svelte";
-    const dispatch = createEventDispatcher();
-
+    import { onMount } from "svelte";
     export let showPopUp = false;
 
     function closePopUp() {
@@ -25,8 +23,14 @@
         <div class="pop-up">
             <button class="close-button" on:click={closePopUp}>X</button>
             <slot>
-                <h1>Pop Up</h1>
-                <p>Pop Up</p>
+                <div class="columns">
+                    <div class="info">
+                        <h3>Descargate nuestro nuevo mini-ebook.</h3>
+                        <p>Aprende todo lo que necesitas para convertir tu web en un máquina de ventas.</p>
+                    </div>
+                    <img class="ebook-image" src="/media/resources/ebook-tablet-img.webp" alt="ebook">
+                </div>
+                <a class="gradient-button" href="resources/lead-magnet">Descargar gratis</a>
             </slot>
         </div>
     </div>
@@ -56,7 +60,7 @@
     .pop-up {
         background-color: white;
         max-width: 400px;
-        padding: 40px;
+        padding: 20px;
         border-radius: 10px;
         position: relative;
         display: grid;
@@ -72,5 +76,17 @@
         border: none;
         font-size: 20px;
         cursor: pointer;
+    }
+
+    .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-bottom: 20px;
+    }
+
+    .ebook-image {
+        max-height: 240px;
+        margin: 20px 0;
     }
 </style>
