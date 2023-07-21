@@ -42,7 +42,7 @@ def store_lead(name, email) -> bool:
     
 
     
-def get_user(email) -> dict:
+def get_lead(email) -> dict:
 
     key = {'email': email}
     

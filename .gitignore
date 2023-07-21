@@ -5,6 +5,8 @@ instance/*
 .env
 
 
+server_setup.txt
+
 ### Frontend ###
 .DS_Store
 node_modules
