@@ -2,6 +2,8 @@ import os
 import boto3
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from database.users import get_user
+
 
 from dotenv import load_dotenv
 load_dotenv()

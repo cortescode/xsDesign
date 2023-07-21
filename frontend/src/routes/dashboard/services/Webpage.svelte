@@ -1,7 +1,7 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
     import Analytics from "./Analytics.svelte";
-    import { user } from "../../../../lib/session.js"
+    import { user } from "../../../lib/session.js"
     import { onMount } from "svelte";
 
     let username = "";
@@ -23,8 +23,7 @@
     </a> -->
     <div class="webcard">
         <h2>¡Hola {username}!</h2>
-        <p>¡Ya está disponible la versión beta de nuestro diseñador de páginas web! No te olvides de dejarnos tu feedback para que podamos mejorar con tu ayuda.</p>
-        <a href="/platform/designer">Acceder al editor</a>
+        <p>Aún no puedes hacer mucho por aquí. Te avisaremos por correo cuando añadamos funcionalidades.</p>
     </div>
     
     <div></div>

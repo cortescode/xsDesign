@@ -79,7 +79,7 @@
                 <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button>
             {:else }
                 <a class="login-link" on:click={logout}>Cerrar sesión</a>
-                <button onclick="location.href='/platform/dashboard'" class="gradient-button">Dashboard</button>
+                <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
             {/if}
         </div>
 

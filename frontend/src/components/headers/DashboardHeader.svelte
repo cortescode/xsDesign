@@ -3,9 +3,7 @@
     import Logo from '../Logo.svelte'
 
     let links = [
-      { name: 'settings', link: '/page-settings' },
-      { name: 'analytics', link: '/page-settings' },
-      { name: 'SEO', link: '/page-seo' },
+      /* { name: 'analytics', link: '/page-settings' }, */
     ];
 
 </script>
@@ -23,7 +21,7 @@
         {/each}
     </nav> 
 
-    <button class="gradient-button header-button">Save</button>
+    <a class="header-button" href="/">home</a>
     
 </header>
 
@@ -95,6 +93,7 @@
         height: auto;
         font-weight: 14px;
         padding: 4px 8px;
+        color: rgb(0, 2, 52);
     }
 
 

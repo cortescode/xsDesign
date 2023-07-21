@@ -52,7 +52,7 @@
     <input type="password" name="password" id="password" bind:value={form.password}>
     
     <button class="gradient-button auth-button" type="submit"><b>Login </b></button>
-    <span>¿Aún no estás registrado? <a href="/auth/signup">Regístrate</a></span>
+    <!-- <span>¿Aún no estás registrado? <a href="/auth/signup">Regístrate</a></span> -->
 </form>
 
 

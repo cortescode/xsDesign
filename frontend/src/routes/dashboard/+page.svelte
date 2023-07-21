@@ -1,6 +1,6 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import Header from '../../../components/headers/DashboardHeader.svelte';
+    import Header from '../../components/headers/DashboardHeader.svelte';
 
     import Overview from './services/Overview.svelte'
     import Analytics from './services/Analytics.svelte';
