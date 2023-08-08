@@ -41,11 +41,11 @@
 <!-- Hero Section -->
 <Hero
     title = "
-        Diseñamos webs que convierten visitantes en clientes para tu negocio.
+        Consigue vender más, con una web que vende por tí.
     "
     description = "
 		Creamos páginas web profesionales, modernas y 
-		optimizadas que te permiten aumentar tus ventas y reservas en el mundo online.
+		de alta conversión que te permiten aumentar tus ventas y reservas en el mundo online.
     "  
     buttonText = "
         Agenda una llamada de descrubrimiento

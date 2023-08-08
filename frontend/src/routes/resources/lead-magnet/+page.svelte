@@ -62,8 +62,8 @@
 
     <div class="columns">
         <div class="info">
-            <h1 class="gradient-text">Los 3 secretos que utilizamos con las webs de nuestros clientes para que, como mínimo, dupliquen su facturación.</h1>
-            <h3>Y en menos de 60 días.</h3>
+            <h1 class="gradient-text">Los 3 secretos que utilizamos con negocios online como el tuyo para que multipliques tu facturación.</h1>
+            <h2>De una forma simple (que no fácil), y en menos de 60 días.</h2>
             <h3>Deja de marear la perdíz para conseguir escalar las ventas de tu página web.</h3>
             <h3>Es gratis, ameno y directo al grano.</h3>
             
