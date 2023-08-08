@@ -14,9 +14,6 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 # Registring blueprints
 app.register_blueprint(auth_blueprint, url_prefix ='/auth')
-app.register_blueprint(xsdesigner_blueprint, url_prefix='/websites')
-
-
 app.register_blueprint(marketing_blueprint, url_prefix='/marketing')
 
 

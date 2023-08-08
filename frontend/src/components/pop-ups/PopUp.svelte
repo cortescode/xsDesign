@@ -10,7 +10,7 @@
     onMount(() => {
         setTimeout(() => {
             showPopUp = true
-        }, 5000)
+        }, 8000)
     });
 
 
@@ -21,7 +21,9 @@
     <div class="pop-up-container" class:showPopUp>
 
         <div class="pop-up">
-            <button class="close-button" on:click={closePopUp}>X</button>
+            <button class="close-button" on:click={closePopUp}>
+                <img src="/media/assets/icons/cross.svg" alt="Cerrar" srcset="/media/assets/icons/cross.svg">
+            </button>
             <slot>
                 <div class="columns">
                     <div class="info">
@@ -78,6 +80,10 @@
         cursor: pointer;
     }
 
+    .close-button img {
+        width: 28px;
+    }
+
     .columns {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -89,4 +95,28 @@
         max-height: 240px;
         margin: 20px 0;
     }
+
+    @media screen and (max-width: 900px) {
+
+        .pop-up {
+            max-width: 300px;
+        }
+        
+        .columns {
+            grid-template-columns: 1fr;
+            place-items: center;
+            gap: 10px;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .ebook-image {
+            margin: 10px 0;
+        }
+    }
+
+
+
 </style>

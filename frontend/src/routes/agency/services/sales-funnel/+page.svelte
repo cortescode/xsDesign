@@ -11,7 +11,7 @@
     imgUrl = "/media/assets/images/seo.webp"
     title = "Creación y optimizacaión de Embudos de Venta."
     description = "Creamos embudos de venta de alta conversión a medida, con un diseño innovador que además de ventas genere marca y estatus a largo plazo."
-    selected_service="funnel"
+    selected_service="Embudos de venta"
 ></ServiceHero>
 
 <section class="text-section animate">
