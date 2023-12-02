@@ -21,19 +21,22 @@
     <p>En breves subimos precios. Y cuando los subimos... ya no hay marcha atrás. ¡Aprovecha ahora!</p>
 </div>
 <Header
-    buttonLink = "https://calendly.com/xsdesign/videollamada-de-descubrimiento"
+    buttonLink = "#pricing"
     buttonText = "Empieza ahora" 
 />
-
+<!-- https://calendly.com/xsdesign/videollamada-de-descubrimiento -->
 
 
 <!-- Hero Section -->
 
 <section class="hero">
-    <h1 class="title">Obtén el sitio web que despege tu negocio.</h1>
+    <h1 class="title">Creamos las webs de los negocios del futuro.</h1>
+    <!-- <h1 class="title">Obtén el sitio web que despege tu negocio.</h1> -->
     <p>Creamos tu web con superpoderes para que consigas <b>captar la atención de tu usuario, generarle confianza, y convertirlo en cliente</b>.</p>
-    <DefaultButton text="Empieza ahora" />
-    <a href="">Ver características</a>
+    <DefaultButton text="Empieza ahora" action = {() => {
+        window.location.hash = "#pricing"
+    }}/>
+    <a href="#pricing">Ver características</a>
 </section>
 <section class="pain-point animate">
     <div>
@@ -49,7 +52,7 @@
 <Steps></Steps>
 <Benefits></Benefits>
 <MessageBanner></MessageBanner>
-<PricingSection></PricingSection>
+<PricingSection id="pricing"></PricingSection>
 <FaQs></FaQs>
 
 <PopUp></PopUp>
@@ -141,5 +144,12 @@
         max-width: 640px;
         text-align: center;
     }
+
+    @media screen and (max-width: 900px) {
+        .pain-point {
+            grid-template-columns: 1fr;
+        }
+    }
+
 
 </style>

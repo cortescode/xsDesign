@@ -238,7 +238,7 @@ p {
 
 
 .gradient-text {
-	background: linear-gradient(to right, #667eea, #764ba2);
+	background: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -1,5 +1,7 @@
 <script>
     import Logo from "../../../components/Logo.svelte";
+    import DefaultButton from "../../../components/buttons/DefaultButton.svelte";
+    import Card from "../../../components/cards/Card.svelte";
     import DependentPopUp from "../../../components/pop-ups/DependentPopUp.svelte";
     import { storeLead } from "../../../lib/leads";
 
@@ -62,13 +64,24 @@
 
     <div class="columns">
         <div class="info">
-            <h1 class="gradient-text">Los 3 secretos que utilizamos con negocios online como el tuyo para que multipliques tu facturación.</h1>
-            <h2>De una forma simple (que no fácil), y en menos de 60 días.</h2>
-            <h3>Deja de marear la perdíz para conseguir escalar las ventas de tu página web.</h3>
+            <h1>Los <span class="gradient-text">3 secretos</span> que utilizamos con negocios online como el tuyo para <span class="gradient-text">crear webs que generen negocio.</span></h1>
             <h3>Es gratis, ameno y directo al grano.</h3>
-            
+            <div class="benefits">
+                <div class="benefit">
+                    <img src="/media/assets/icons/" alt="">
+                    Aumenta la confianza de tus posibles clientes
+                </div>
+
+                <article class="benefit">
+                    Genera branding y autoridad
+                </article>
+
+                <article class="benefit">
+                    No pierdas el tiempo en "atajos" que no funcionan.
+                </article>
+            </div>
             <div class="button-container">
-                <button class="landing-button" on:click={() => popUpShown=true}><span class="text">DESCARGAR AHORA</span></button>
+                <DefaultButton action={() => popUpShown=true} text="DESCARGAR AHORA" />
             </div>
         </div>
 
@@ -164,6 +177,22 @@
 
     .form-button {
         margin-top: 40px;
+    }
+
+    .benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .benefit {
+        padding: 20px;
+        background-color: white;
+        border-radius: 16px;
+        line-height: 1.4em;
+        font-size: 18px;
+        box-shadow: rgba(60, 118, 176, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(60, 118, 176, 0.4) 0px -3px 0px inset;
     }
 
     .pop-up--form {
@@ -266,6 +295,11 @@
         .landing-button {
             font-size: 24px;
             min-width: 196px;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr;
         }
     }
 

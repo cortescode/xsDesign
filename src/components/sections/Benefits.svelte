@@ -19,21 +19,21 @@
         </Card>
         <Card
             iconUrl = "/media/assets/icons/infinite.svg"
-            title = "Empieza a vender YA."
+            title = "Elimina objeciones"
             description = "Nos apoyamos en un equipo versátil y la última tecnología para entregar nuestras soluciones a la velocidad de la luz."
         >
         </Card>
 
         <Card
             iconUrl = "/media/assets/icons/infinite.svg"
-            title = "Obtén información valiosa."
+            title = "Obtén información valiosa"
             description = "Obtenemos información valiosa sobre tu cliente. Nos apoyamos en un equipo versátil y la última tecnología para entregar nuestras soluciones a la velocidad de la luz."
         >
         </Card>
 
         <Card
             iconUrl = "/media/assets/icons/infinite.svg"
-            title = "Aumenta la reputación de tu negocio."
+            title = "Aumenta la autoridad y reputación de tu negocio"
             description = "Nos apoyamos en un equipo versátil y la última tecnología para entregar nuestras soluciones a la velocidad de la luz."
         >
         </Card>
@@ -54,9 +54,18 @@
     section {
         display: grid;
         place-items: center;
+        padding: 10px;
     }
     section h1 {
         text-align: center !important;
         margin-bottom: 40px;
     }
+
+    @media screen and (max-width: 900px) {
+        .columns {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+        }
+    }
+
 </style>

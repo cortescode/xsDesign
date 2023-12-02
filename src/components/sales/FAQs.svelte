@@ -5,17 +5,17 @@
     let faqs = [
         {
             question: "¿Cuanto tiempo tardais en crear la web?",
-            answer: "Alrededor de una semana para el plan Landing Pro, hasta 2 semanas en Business Pro, y 3 semanas para Business Premium ()",
+            answer: "Alrededor de una semana para el plan Landing Pro y hasta 2 semanas en Business Pro. Los otros planes varían mucho en función de las necesidades específicas. Los sitios más complejos tardarán más tiempo en desarrollarse.",
             isOpen: false
         },
         {
             question: "¿Existe devolución?",
-            answer: "Sí. Puedes anular el pedido sin problema si el resultado no es el deseado y te devolveremos el 100% de tu dinero. Aún no nos ha pasado.",
+            answer: "Sí. Puedes anular el pedido sin problema si el resultado no es el deseado y te devolveremos el 100% de tu dinero. Aún no nos ha pasado. ¿Serás el primero? lo dudo, pero siempre tienes la opción.",
             isOpen: false
         },
         {
             question: "¿Cuantas revisiones existen?",
-            answer: "Te mostramos varios prototipos hasta que decidas a corde a tu gusto. Luego, una vez entregamos la web final, tienes hasta 3 revisiones sin coste adicional. Nunca hemos llegado a la tercera (de hecho, lo más probable es que no necesites ninguna), pero tienes la opción.",
+            answer: "Te mostramos varios prototipos hasta que decidas a corde a tu gusto. Luego, una vez entregamos la web final, tienes hasta 3 revisiones sin coste adicional. Nunca hemos llegado a la tercera (de hecho, lo más probable es que no necesites ninguna), pero, como simepre, te damos la opción.",
             isOpen: false
         },
     ];
