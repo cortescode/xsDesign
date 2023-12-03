@@ -1,6 +1,6 @@
 <script>
 
-    import { user } from '../../lib/session.js';
+    import DefaultButton from '../buttons/DefaultButton.svelte';
 
     export let links;
     export let buttonLink;
@@ -33,13 +33,12 @@
                 {/if}
 
             {/each}
-            {#if ($user == null) || !("username" in $user) }
-                <a href="/auth/login" class="link">Acceder</a>
-                <a href="{buttonLink}" class="gradient-button">{ buttonText }</a>
-            {:else }
-                <a href="/auth/logout" class="link">Logout</a>
-                <a href="/dashboard" class="gradient-button">Dashboard</a>
-            {/if}
+
+            <DefaultButton text={"Obtén tu web"} action={ () => {
+                    location.href=buttonLink;
+                    openCloseMenu();
+                } 
+            }></DefaultButton>
         </nav>
     </div>
 

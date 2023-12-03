@@ -20,7 +20,6 @@
             { name: 'Posicionamiento Seo', link: '/agency/services/seo-positioning' }
         ]}, */
         { name: 'ebook gratuito', link: '/resources/lead-magnet' },
-      { name: 'contacto', link: '/agency/contact' }
     ];
 
     let pathname = "";

@@ -22,19 +22,19 @@
             <li>
                 <span>Paso 2.</span>
                 <p>
-                    Agendamos una reunión donde nos cuentes tus objetivos en más detalle para poder empezar a trabajar.
+                    Agendamos una reunión donde nos cuentes tus objetivos en más detalle, te contemos qué hemos descubierto y obtengamos todos los detalles que nos faltan para hacer una web que funcione estándo 100% alineada con tu marca y mensaje.
                 </p>
             </li>
             <li>
                 <span>Paso 3.</span>
                 <p>
-                    Obtienes 2 versiones de diseño para tu web, eliges el que más te gusta.
+                    Mantenemos el contacto y obtienes 2 versiones de diseño para tu web en menos de lo que canta un gallo, eliges el que más te gusta.
                 </p>
             </li>
             <li>
                 <span>Paso 4.</span>
                 <p>
-                    Te entregamos tu página web profesional, optimizada, y fácilmente administrable para tu negocio.
+                    Te entregamos tu página web profesional, optimizada, y fácilmente administrable (si es que la quieres administrar tu) para tu negocio.
                 </p>
             </li>
         </ul>

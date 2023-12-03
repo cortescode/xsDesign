@@ -2,19 +2,19 @@
 <script>
     import { onMount } from 'svelte';
 
-    import Header from '../components/headers/Header.svelte';
-    import Hero from '../components/heros/Hero.svelte';
-    import Testimonials from '../components/sections/Testimonials.svelte';
-    import Portfolio from '../components/sections/Portfolio.svelte';
-	import Cards from '../components/sections/Cards.svelte';
-    import CtaBanner from '../components/sales/CtaBanner.svelte';
+    import Header from '../headers/Header.svelte';
+    import Hero from '../heros/Hero.svelte';
+    import Testimonials from '../sections/Testimonials.svelte';
+    import Portfolio from '../sections/Portfolio.svelte';
+	import Cards from '../sections/Cards.svelte';
+    import CtaBanner from '../sales/CtaBanner.svelte';
 
-    import ServicesSection from '../components/sections/ServicesSection.svelte';
-    import MessageBanner from '../components/cards/MessageBanner.svelte';
+    import ServicesSection from '../sections/ServicesSection.svelte';
+    import MessageBanner from '../cards/MessageBanner.svelte';
 
-    import PopUp from '../components/pop-ups/PopUp.svelte';
+    import PopUp from '../pop-ups/PopUp.svelte';
 
-    import { user, getSessionUserData } from "../lib/session";
+    import { user, getSessionUserData } from "../../lib/session";
 
     onMount(() => {
         getSessionUserData().then( (user_data) => user.set(user_data)).catch((error) => {

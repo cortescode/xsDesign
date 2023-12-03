@@ -3,14 +3,14 @@
     import DefaultButton from "../../../components/buttons/DefaultButton.svelte";
     import Card from "../../../components/cards/Card.svelte";
     import DependentPopUp from "../../../components/pop-ups/DependentPopUp.svelte";
-    import { storeLead } from "../../../lib/leads";
+    import { storeLead } from "../../../utils/leads_manager";
 
 
     let popUpShown = false;
 
 
     // function that will be called when the user clicks on the form button and validates the form before allow to download the ebook
-    function validateFormAndDownload() {
+    async function validateFormAndDownload() {
         // get the form
         const form = document.querySelector(".pop-up--form");
 
@@ -37,7 +37,7 @@
         popUpShown = false;
 
         // Send the data to the backend
-        storeLead(name, email);
+        await storeLead(name, email);
 
         // if the values are valid, download the ebook
         downloadEbook();
@@ -58,12 +58,12 @@
 
 <div class="landing">
 
-    <div class="logo-container">
+    <div class="logo-container animate">
         <Logo></Logo>
     </div>
 
     <div class="columns">
-        <div class="info">
+        <div class="info animate">
             <h1>Los <span class="gradient-text">3 secretos</span> que utilizamos con negocios online como el tuyo para <span class="gradient-text">crear webs que generen negocio.</span></h1>
             <h3>Es gratis, ameno y directo al grano.</h3>
             <div class="benefits">
@@ -87,7 +87,7 @@
         
 
         <div class="right-container">
-            <img class="ebook-image" src="/media/resources/ebook-tablet-img.webp" alt="ebook">
+            <img class="ebook-image animate" src="/media/resources/ebook-tablet-img.webp" alt="ebook">
         </div>
 
     </div>
