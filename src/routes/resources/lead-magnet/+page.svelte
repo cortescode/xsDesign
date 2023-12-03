@@ -68,7 +68,6 @@
             <h3>Es gratis, ameno y directo al grano.</h3>
             <div class="benefits">
                 <div class="benefit">
-                    <img src="/media/assets/icons/" alt="">
                     Aumenta la confianza de tus posibles clientes
                 </div>
 
@@ -124,7 +123,10 @@
 
             <input type="text" placeholder="tu nombre" name="name" />
             <input type="text" placeholder="tu mejor correo" name="email"/>
-            <button class="landing-button form-button" on:click={validateFormAndDownload}><span class="text">DESCARGAR AHORA</span></button>
+            <br>
+            <br>
+            <!-- <button class="landing-button form-button" on:click={validateFormAndDownload}><span class="text">DESCARGAR AHORA</span></button> -->
+            <DefaultButton text="DESCARGAR AHORA" action={validateFormAndDownload}></DefaultButton>
         </div>
     </DependentPopUp>
     
@@ -192,6 +194,7 @@
         border-radius: 16px;
         line-height: 1.4em;
         font-size: 18px;
+        max-width: calc(100% - 40px);
         box-shadow: rgba(60, 118, 176, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(60, 118, 176, 0.4) 0px -3px 0px inset;
     }
 

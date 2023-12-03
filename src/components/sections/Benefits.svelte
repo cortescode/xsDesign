@@ -1,6 +1,6 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import Card from '../cards/Card.svelte';
+    import Benefit from '../cards/Benefit.svelte';
 
 </script>
 
@@ -9,34 +9,28 @@
 <section class="animate">
     <h2>Obtienes esto y mucho más:</h2>
     <div class="columns">
-        <Card
+        <Benefit
             iconUrl = "/media/assets/icons/code.svg"
-            title = "Mejora tu Marca"
-            description = "
-                        Aumenta la confianza de tus clientes potenciales con un diseño web
-                        profesional y optimizado a la altura de tu proyecto."
+            title = "Mejora de la experiencia de tu cliente"
         >
-        </Card>
-        <Card
+        </Benefit>
+        <Benefit
             iconUrl = "/media/assets/icons/infinite.svg"
-            title = "Elimina objeciones"
-            description = "Nos apoyamos en un equipo versátil y la última tecnología para entregar nuestras soluciones a la velocidad de la luz."
+            title = "Eliminación de objeciones"
         >
-        </Card>
+        </Benefit>
 
-        <Card
-            iconUrl = "/media/assets/icons/infinite.svg"
-            title = "Obtén información valiosa"
-            description = "Obtenemos información valiosa sobre tu cliente. Nos apoyamos en un equipo versátil y la última tecnología para entregar nuestras soluciones a la velocidad de la luz."
+        <Benefit
+            iconUrl = "/media/assets/icons/squares.svg"
+            title = "Información valiosa sobre tu cliente"
         >
-        </Card>
+        </Benefit>
 
-        <Card
-            iconUrl = "/media/assets/icons/infinite.svg"
-            title = "Aumenta la autoridad y reputación de tu negocio"
-            description = "Nos apoyamos en un equipo versátil y la última tecnología para entregar nuestras soluciones a la velocidad de la luz."
+        <Benefit
+            iconUrl = "/media/assets/icons/persons.svg"
+            title = "Aumento de la autoridad de tu negocio"
         >
-        </Card>
+        </Benefit>
     </div>
 </section>
 

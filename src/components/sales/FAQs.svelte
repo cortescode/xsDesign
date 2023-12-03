@@ -10,7 +10,7 @@
         },
         {
             question: "¿Existe devolución?",
-            answer: "Sí. Puedes anular el pedido sin problema si el resultado no es el deseado y te devolveremos el 100% de tu dinero. Aún no nos ha pasado. ¿Serás el primero? lo dudo, pero siempre tienes la opción.",
+            answer: "Sí. Puedes anular el pedido sin problema si el resultado no es el deseado y te devolveremos el 110% de tu dinero. Has leído bien, el 110% del coste. Aún no nos ha pasado. ¿Serás el primero? lo dudo, pero siempre tienes la opción.",
             isOpen: false
         },
         {
@@ -58,7 +58,10 @@
         </div>
     {/each}
     <div class="button-wrapper">
-        <DefaultButton text="Adquirir ahora" />
+        <DefaultButton text="¡Elige ya tu plan!" action={() => {
+            window.location.hash = "";
+            window.location.hash = "#pricing";
+        }}/>
     </div>
 </section>
 

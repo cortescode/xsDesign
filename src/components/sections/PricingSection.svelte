@@ -23,7 +23,7 @@
 
 
     let ecommercePro = [
-        "todo lo de business Pro +",
+        "todo lo de Business Pro +",
         "Desarrollo personalizado",
         "Hasta 50 productos",
         "3 meses de seguimiento",
@@ -31,7 +31,7 @@
 
 
     let academyPro = [
-        "todo lo de business Pro +",
+        "todo lo de Business Pro +",
         "Desarrollo personalizado",
         "Hasta 5 infoproductos",
         "3 meses de seguimiento",
@@ -50,6 +50,7 @@
 
 <section class="animate" id={id}>
     <h1>Toma <span class="gradient-color">Acción</span></h1>
+    <p>*Si no quedas satisfecho te devolvemos el 110% del dinero.</p>
     <div class="price-columns">
         <PricingCard linkUrl="https://buy.stripe.com/dR62ceamL0cya1qfZ4" title="Landing Pro" description="Tu landing page de alta conversión" price="395€" characteristics={landingPro}/>
         <PricingCard linkUrl="https://buy.stripe.com/6oE8ACbqP6AWehG6ov" title="Business Pro" description="La web de tu negocio de alto rendimiento lista para convertir y escalar" price="795€" characteristics={businessPro}/>
@@ -76,6 +77,10 @@
         max-width: 640px;
         text-align: center;
         margin: 20px auto;
+    }
+
+    p {
+        text-align: center;
     }
 
 

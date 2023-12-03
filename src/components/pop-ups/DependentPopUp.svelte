@@ -1,6 +1,7 @@
 
 <script>
     import { createEventDispatcher, onMount } from "svelte";
+    import DefaultButton from "../buttons/DefaultButton.svelte";
     const dispatch = createEventDispatcher();
 
     export let showPopUp = false;
@@ -25,7 +26,7 @@
         <slot>
             <h2>Obtén ahora nuestro ebook nuevo mini-ebook.</h2>
             <img class="ebook-image" src="/media/resources/ebook-tablet-img.webp" alt="ebook">
-            <a class="gradient-button" href="resources/lead-magnet">Obtener</a>
+            <DefaultButton action={() => window.location.pathname = 'resources/lead-magnet'} text="Obtener Ahora" ></DefaultButton>
         </slot>
     </div>
 </div>

@@ -4,18 +4,25 @@
 
 </script>
 
-<article class="animate">
-    <div class="content">
+<article>
+    <div class="content animate">
         <h1>La pregunta es: ¿Estás dispuesto a invertir en tu negocio para hacerlo <span class="colored-text">más rentable</span>?</h1>
         <p>Porque esto no es un gasto, es una inversión. Piénsalo, si ganas un par de clientes más al mes (perfectamente posible), ¿Merece la pena?.</p>
-        <DefaultButton text="obtén tu plaza" action/>
+        <DefaultButton text="Obtén tu web" action={() => {
+            window.location.hash = ""; 
+            window.location.hash = "#pricing"
+            }}
+        />
     </div>
 </article>
 
 <style>
     article {
         margin: 60px auto;
-        background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+        background-image: radial-gradient(100% 100% at 100% 0, #5aa2ffcd 0, #27359eb7 100%), url("/media/assets/images/webBackground.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
 		display: grid;
 		place-items: center;
 		padding: 60px 20px;

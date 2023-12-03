@@ -33,9 +33,11 @@
     <h1 class="title">Creamos las webs de los negocios del futuro.</h1>
     <!-- <h1 class="title">Obtén el sitio web que despege tu negocio.</h1> -->
     <p>Creamos tu web con superpoderes para que consigas <b>captar la atención de tu usuario, generarle confianza, y convertirlo en cliente</b>.</p>
-    <DefaultButton text="Empieza ahora" action = {() => {
+    <DefaultButton text="Empieza ahora" action={() => {
+        window.location.hash = ""; 
         window.location.hash = "#pricing"
-    }}/>
+        }}
+    />
     <a href="#pricing">Ver características</a>
 </section>
 <section class="pain-point animate">
@@ -50,8 +52,8 @@
 </section>
 
 <Steps></Steps>
-<Benefits></Benefits>
 <MessageBanner></MessageBanner>
+<Benefits></Benefits>
 <PricingSection id="pricing"></PricingSection>
 <FaQs></FaQs>
 
