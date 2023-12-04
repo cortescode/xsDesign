@@ -63,6 +63,7 @@
     section {
         margin: 40px auto;
         max-width: 1150px;
+        padding: 20px;
     }
     .price-columns {
         display: grid;
@@ -85,6 +86,9 @@
 
 
     @media screen and (max-width: 900px) {
+        section {
+            padding: 28px;
+        }
         .price-columns {
             grid-template-columns: repeat(1, 1fr);
         }

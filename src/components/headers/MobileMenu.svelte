@@ -34,15 +34,17 @@
 
             {/each}
 
-            <DefaultButton text={"Obtén tu web"} action={ () => {
-                    location.href=buttonLink;
-                    openCloseMenu();
-                } 
-            }></DefaultButton>
+            <div class="button-wrapper">
+                <DefaultButton text={"Obtén tu web"} action={ () => {
+                        location.href=buttonLink;
+                        openCloseMenu();
+                    } 
+                }></DefaultButton>
+            </div>
         </nav>
     </div>
 
-    {:else}
+{:else}
     <button class="mobile-button" type="button" on:click="{openCloseMenu}">
         <img class="open-icon" src="/media/assets/icons/menu.svg" alt="" srcset="/media/assets/icons/menu.svg">
     </button>
@@ -52,6 +54,9 @@
 
 <style>
 
+    .button-wrapper {
+        margin-top: 20px;
+    }
 
     .link {
         padding-right: 10px;
@@ -107,7 +112,6 @@
 
 
     @media screen and (max-width: 767px) {
-
 
         .link {
             display: block;

@@ -75,7 +75,7 @@
 
     .faqs-section {
         margin: 40px auto;
-        padding: 40px;
+        padding: 20px;
         max-width: 1150px;
     }
 
@@ -137,4 +137,12 @@
         margin-top: 40px;
         width: 100%;
     }
+
+
+    @media screen and (max-width: 767px) {
+        .faqs-section {
+            padding: 28px;
+        }
+    }
+    
 </style>

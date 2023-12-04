@@ -48,7 +48,7 @@
 
 <style>
     section {
-        margin: 40px auto;
+        margin: 40px auto 60px auto;
         max-width: 1150px;
     }
     h1 {

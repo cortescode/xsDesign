@@ -17,9 +17,9 @@
 
 
 
-<div class="message">
+<!-- <div class="message">
     <p>En breves subimos precios. Y cuando los subimos... ya no hay marcha atrás. ¡Aprovecha ahora!</p>
-</div>
+</div> -->
 <Header
     buttonLink = "#pricing"
     buttonText = "Empieza ahora" 
@@ -40,6 +40,8 @@
     />
     <a href="#pricing">Ver características</a>
 </section>
+
+
 <section class="pain-point animate">
     <div>
         <img src="/media/assets/images/ecommerce.webp" alt="" srcset="">
@@ -56,8 +58,7 @@
 <Benefits></Benefits>
 <PricingSection id="pricing"></PricingSection>
 <FaQs></FaQs>
-
-<PopUp></PopUp>
+<!-- <PopUp></PopUp> -->
 <CookiesBanner></CookiesBanner>
 
 
@@ -150,6 +151,7 @@
     @media screen and (max-width: 900px) {
         .pain-point {
             grid-template-columns: 1fr;
+            padding: 28px;
         }
     }
 

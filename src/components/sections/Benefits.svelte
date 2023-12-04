@@ -48,7 +48,7 @@
     section {
         display: grid;
         place-items: center;
-        padding: 10px;
+        padding: 20px;
     }
     section h1 {
         text-align: center !important;
@@ -56,6 +56,9 @@
     }
 
     @media screen and (max-width: 900px) {
+        section {
+            padding: 28px;
+        }
         .columns {
             grid-template-columns: repeat(1, 1fr);
             gap: 20px;
