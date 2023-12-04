@@ -1,16 +1,8 @@
-<script>
-    import ServiceHero from "../../../components/heros/ServiceHero.svelte";
-    import CtaBanner from "../../../components/sales/CtaBanner.svelte";
-    import Header from "../../../components/headers/Header.svelte";
-</script>
-
-
 
 <svelte:head>
     <title>Aviso Legal | XS Design</title>
 </svelte:head>
 
-<Header></Header>
 <section class="hero">
     <h1 class="gradient-text animate">Aviso Legal</h1>
 </section>
