@@ -6,6 +6,8 @@
 
 <svelte:head>
     <title>Creación y optimización de Embudos de Venta | XS Design</title>
+    <meta name="description" content="Creamos embudos de venta de alta conversión a medida, con un diseño innovador que además de ventas genere marca y estatus a largo plazo." />
+
 </svelte:head>
 <ServiceHero
     imgUrl = "/media/assets/images/seo.webp"

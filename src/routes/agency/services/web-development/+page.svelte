@@ -5,6 +5,8 @@
 
 <svelte:head>
     <title>Desarrollo de aplicaciones web a medida | XS Design</title>
+    <meta name="description" content="Realizamos desarrollo full stack a medida donde creamos aplicaciones web innovadoras y preparadas para escalar." />
+
 </svelte:head>
 <ServiceHero
     imgUrl = "/media/assets/images/digital-strategy.webp"

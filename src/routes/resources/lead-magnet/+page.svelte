@@ -53,7 +53,8 @@
 
 
 <svelte:head>
-    <title>Ebook Gratuito | XS Design</title>
+    <title>3 secretos para aumentar las ventas de tu web - Ebook Gratuito | XS Design</title>
+    <meta name="desctiption" content="Los 3 secretos que utilizamos con negocios online como el tuyo para crear webs que generan negocio." />
 </svelte:head>
 
 <div class="landing">
@@ -64,7 +65,7 @@
 
     <div class="columns">
         <div class="info animate">
-            <h1>Los <span class="gradient-text">3 secretos</span> que utilizamos con negocios online como el tuyo para <span class="gradient-text">crear webs que generen negocio.</span></h1>
+            <h1>Los <span class="gradient-text">3 secretos</span> que utilizamos con negocios online como el tuyo para <span class="gradient-text">crear webs que generan negocio.</span></h1>
             <h3>Es gratis, ameno y directo al grano.</h3>
             <div class="benefits">
                 <div class="benefit">

@@ -21,6 +21,14 @@
         "SEO estratégico",
     ]
 
+    let academyPro = [
+        "todo lo de Business Pro +",
+        "Desarrollo personalizado",
+        "Hasta 10 infoproductos",
+        "Embudos de venta",
+        "3 meses de seguimiento",
+    ]
+
 
     let ecommercePro = [
         "todo lo de Business Pro +",
@@ -29,13 +37,6 @@
         "3 meses de seguimiento",
     ]
 
-
-    let academyPro = [
-        "todo lo de Business Pro +",
-        "Desarrollo personalizado",
-        "Hasta 5 infoproductos",
-        "3 meses de seguimiento",
-    ]
 
 
 </script>

@@ -13,6 +13,7 @@
 
 <svelte:head>
     <title>Obtén la web que revolucione la imagen de tu negocio | XS Design</title>
+    <meta name="description" content="Obtén el sitio web que despege tu negocio. Creamos las webs de los negocios del futuro." />
 </svelte:head>
 
 

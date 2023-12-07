@@ -6,6 +6,8 @@
 
 <svelte:head>
     <title>Diseño y creación de páginas web a medida | XS Design</title>
+    <meta name="description" content="Diseñamos páginas web modernas y optimizadas de alta conversión para impulsar las ventas de tu negocio y posicionarte en el mundo online." />
+
 </svelte:head>
 <ServiceHero
     imgUrl = "/media/assets/images/webdesign.webp"

@@ -7,6 +7,8 @@
 
 <svelte:head>
     <title>Posicionamiento web SEO profesional | XS Design</title>
+    <meta name="description" content="Posicionamos páginas web en google y los motores de búsqueda más relevantes para que los usuarios te encuentren a tí cuando busquen tu producto o servicio." />
+
 </svelte:head>
 
 <ServiceHero

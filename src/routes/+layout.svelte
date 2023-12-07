@@ -29,7 +29,7 @@
     section {
         margin: 0;
         padding: 16px 20px;
-        background-color: var(--blue);
+        background-color: rgb(18, 0, 72);
         max-width: calc(100vw - 40px);
         color: white;
         text-align: center;
