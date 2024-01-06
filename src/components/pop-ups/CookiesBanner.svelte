@@ -44,6 +44,7 @@
         background-color: white;
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
         animation: appears .4s;
+        max-width: calc(100% - 40px);
     }
 
     article p {
@@ -75,6 +76,14 @@
 
     .buttons button:hover {
         box-shadow: rgba(4, 0, 80, 0.6) 0 2px 16px;
+    }
+
+    @media screen and (max-width: 767px) {
+        article {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
     }
     
     @keyframes appears {

@@ -70,7 +70,6 @@
 
     @media screen and (max-width: 767px) {
         article {
-            width: calc(100vw - 40px);
             border-radius: 0;
         }
     }

@@ -10,8 +10,15 @@
     import PopUp from '../components/pop-ups/PopUp.svelte';
     import Benefits from '../components/sections/Benefits.svelte';
 
-
+    import { onMount } from "svelte";
+/* 
     export let data;
+
+    onMount(() => {
+        console.log(data)
+    })
+ */
+    
 </script>
 
 <svelte:head>
