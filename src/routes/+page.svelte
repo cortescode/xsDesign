@@ -9,6 +9,9 @@
     import CookiesBanner from '../components/pop-ups/CookiesBanner.svelte';
     import PopUp from '../components/pop-ups/PopUp.svelte';
     import Benefits from '../components/sections/Benefits.svelte';
+
+
+    export let data;
 </script>
 
 <svelte:head>

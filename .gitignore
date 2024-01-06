@@ -187,3 +187,4 @@ cython_debug/
 .svelte-kit/
 package
 .vercel
+.env*.local
