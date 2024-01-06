@@ -12,13 +12,13 @@
 
     let links = [
       { name: 'home', link: '/' },
-      /* { name: 'servicios', link: '/agency/services', 
+      { name: 'servicios', link: '/agency/services', 
         sublinks: [
             { name: 'Diseño y optimización de páginas web', link: '/agency/services/web-design' },
             { name: 'Creación de embudos de venta', link: '/agency/services/sales-funnel' },
             { name: 'Desarrollo de aplicaciones web', link: '/agency/services/web-development' },
             { name: 'Posicionamiento Seo', link: '/agency/services/seo-positioning' }
-        ]}, */
+        ]},
         { name: 'ebook gratuito', link: '/resources/lead-magnet' },
     ];
 
@@ -49,43 +49,45 @@
 <header id="header">
     <div class="header-content">
         <Logo></Logo>
-  
-        <nav class="links-list">
-            {#each links as link}
-                {#if (pathname.includes(link['link']) && link['link'].length > 1) || pathname == link }
-                    <a class="link selected" href={link['link']} on:click={setSelectedLink}>
-                        <span>{link['name']}</span>
-                    </a>
-                {:else}
-                    <a class="link" href={link['link']} on:click={setSelectedLink}>
-                        <span>{link['name']}</span>
-                        {#if 'sublinks' in link}
-                            <div class="floating-links">
-                                {#each link['sublinks'] as sublink}
-                                <a href="{sublink['link']}">
-                                    {sublink['name']}
-                                </a>
-                                {/each}
-                            </div> 
-                        {/if}
-                    </a>
-                {/if}
-
-            {/each}
-        </nav>
-        <div class="button-container">
-            <DefaultButton text={buttonText} action={ () => location.href=buttonLink}></DefaultButton>
-            
-            <!-- {#if ($user == null) || !("username" in $user) } -->
-                <!-- <a href="/auth/login" class="login-link">Acceder</a> -->
-                <!-- <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button> -->
-                <!-- <DefaultButton text={buttonText} action={ () => location.href=buttonLink}></DefaultButton>
-            {:else }
-                <a class="login-link" on:click={logout}>Cerrar sesión</a>
-                <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
-            {/if} -->
+        
+        <div class="links-wrapper">
+            <nav class="links-list">
+                {#each links as link}
+                    {#if (pathname.includes(link['link']) && link['link'].length > 1) || pathname == link }
+                        <a class="link selected" href={link['link']} on:click={setSelectedLink}>
+                            <span>{link['name']}</span>
+                        </a>
+                    {:else}
+                        <a class="link" href={link['link']} on:click={setSelectedLink}>
+                            <span>{link['name']}</span>
+                            {#if 'sublinks' in link}
+                                <div class="floating-links">
+                                    {#each link['sublinks'] as sublink}
+                                    <a href="{sublink['link']}">
+                                        {sublink['name']}
+                                    </a>
+                                    {/each}
+                                </div> 
+                            {/if}
+                        </a>
+                    {/if}
+    
+                {/each}
+            </nav>
+            <div class="button-container">
+                <DefaultButton text={buttonText} action={ () => location.href=buttonLink}></DefaultButton>
+                
+                <!-- {#if ($user == null) || !("username" in $user) } -->
+                    <!-- <a href="/auth/login" class="login-link">Acceder</a> -->
+                    <!-- <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button> -->
+                    <!-- <DefaultButton text={buttonText} action={ () => location.href=buttonLink}></DefaultButton>
+                {:else }
+                    <a class="login-link" on:click={logout}>Cerrar sesión</a>
+                    <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
+                {/if} -->
+            </div>
+    
         </div>
-
         <MobileMenu links={links} buttonText={buttonText} buttonLink={buttonLink}></MobileMenu>
 
     </div>
@@ -108,13 +110,18 @@
 
     .header-content {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 1fr auto;
         align-items: center;
         justify-items: center;
         max-width: 1280px;
         margin: 0 auto;
-        padding: 8px 0;
+        padding: 6px 0;
 
+    }
+
+    .links-wrapper {
+        display: grid;
+        grid-template-columns: 1fr auto;
     }
     
     .links-list{
@@ -125,11 +132,15 @@
 
 
     .link {
-        padding-right: 10px;
+        padding: 10px 12px 10px 0;
         margin: 4px 10px;
         text-decoration: none;
         color: #333;
         transition: .2s;
+    }
+
+    .link:hover {
+        border-bottom: 2px solid var(--blue);
     }
 
     .link:hover > span {
@@ -137,6 +148,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        
     }
 
     .link.selected {
@@ -150,15 +162,17 @@
     }
 
     .floating-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         opacity: 0;
         transform: scale(0);
         position: fixed;
         background-color: white;
-        box-shadow: rgba(0, 60, 255, 0.4) 0 0 40px;
-        inset: 54px auto auto auto;
-        width: fit-content;
+        box-shadow: rgba(0, 60, 255, 0.2) 0 0 40px;
+        inset: 72px auto auto auto;
+        width: 340px;
         border: 1px solid var(--default-blue);
-        border-radius: 12px;
+        border-radius: 8px;
         z-index: 10;
         transition: opacity, transform .4s;
     }
@@ -169,13 +183,15 @@
         font-weight: 400;
         padding: 20px 20px;
         border-bottom: 1px solid var(--default-blue);
-        border-radius: 12px;
+        line-height: 1.4em;
+        border-radius: 8px;
         transition: .2s;
     }
 
     .floating-links a:hover{
         font-weight: 600;
-        background-color: var(--light-blue);
+        background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+        box-shadow: rgba(0, 60, 255, 0.2) 0 0 40px;
         transform: scale(1.04);
         color: white;
     }
@@ -212,6 +228,7 @@
         justify-content: right;
         align-items: center;
         width: 100%;
+        margin-left: 10px;
     }
 
     @media screen and (max-width: 767px) {
@@ -234,9 +251,8 @@
             align-items: center;
             justify-items: center;
         }
-
-
-        .links-list {
+        
+        .links-wrapper {
             display: none;
         }
 

@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-node": "^1.2.4",
 		"firebase": "^10.7.0",
-		"update": "^0.7.4"
+		"update": "^0.7.4",
+		"vercel": "^33.0.2"
 	}
 }

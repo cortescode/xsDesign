@@ -31,7 +31,7 @@
 <!-- Hero Section -->
 
 <section class="hero">
-    <h1 class="title">Creamos las webs de los negocios del futuro.</h1>
+    <h1 class="title gradient-text">Desarrollamos las webs de los negocios del futuro</h1>
     <!-- <h1 class="title">Obtén el sitio web que despege tu negocio.</h1> -->
     <p>Creamos tu web con superpoderes para que consigas <b>captar la atención de tu usuario, generarle confianza, y convertirlo en cliente</b>.</p>
     <DefaultButton text="Empieza ahora" action={() => {
@@ -69,8 +69,6 @@
         place-items: center;
         gap: 20px;
         padding: 20px;
-        margin: 4% auto;
-        max-width: 1150px;
     }
 
     .pain-point {
@@ -104,15 +102,7 @@
     .title {
         /* Create a gradient color for the text */
         /* background: linear-gradient(20deg, #4150d1, #27d2de); */
-        background: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
         font-size: 3.4em;
-        /* Set the background size and repeat properties. */
-        background-size: 200%;
-        background-repeat: repeat;
-        /* Use the text as a mask for the background. */
-        /* This will show the gradient as a text color rather than element bg. */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         /* Animate the background-position property tclass="button1ift the gradient. */
         animation: animate 10s linear infinite;
         max-width: 640px;
@@ -153,6 +143,10 @@
         .pain-point {
             grid-template-columns: 1fr;
             padding: 28px;
+        }
+
+        .title {
+            font-size: 2em;
         }
     }
 

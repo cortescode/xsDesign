@@ -22,7 +22,7 @@
 
 {#if showing}
     <article>
-        <p>¡Hola! Utilizamos alguna que otra cookie para mejorar nuestro rendimiento de marketing y poder conocer más a nuestros clientes, todo lo guardamos de forma 100% anónima (por lo que tu privacidad está a salvo)</p>
+        <p>¡Hola! Utilizamos alguna que otra cookie para poder conocerte mejor y ofrecerte un mejor servicio.</p>
         <div class="buttons">
             <button class="agree" on:click={() => showing=!showing }>Aceptar cookies</button>
             <button on:click={() => showing=!showing}>Rechazar</button>
@@ -38,9 +38,8 @@
         height: fit-content;
         inset: auto 0 0 0;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr auto;
         place-items: center;
-        text-align: center;
         gap: 10px;
         background-color: white;
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 16px;
@@ -50,6 +49,7 @@
     article p {
         font-size: 14px;
         max-width: 720px;
+
     }
 
     .buttons {
@@ -68,7 +68,7 @@
     }
 
     .buttons button.agree {
-        background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+        background-color: var(--blue);
         color: white;
 
     }

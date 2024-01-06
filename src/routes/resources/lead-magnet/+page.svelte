@@ -41,11 +41,13 @@
 
         // if the values are valid, download the ebook
         downloadEbook();
+
     }
 
     function downloadEbook() {
         // Download the ebook that is located in /media/resources/ebook.pdf
-        window.open("/media/resources/ebook.pdf");
+        window.location.pathname = '/resources/thanks-page'
+        //window.open("/media/resources/ebook.pdf");
 
     }
 
