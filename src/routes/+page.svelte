@@ -1,23 +1,28 @@
 <script>
-    import DefaultButton from '../components/buttons/DefaultButton.svelte';
-    import Header from '../components/headers/Header.svelte';
-    import FaQs from '../components/sales/FAQs.svelte';
-    import Steps from '../components/sections/Steps.svelte'
-    import CtaBanner from '../components/sales/CtaBanner.svelte';
-    import MessageBanner from '../components/cards/MessageBanner.svelte';
-    import PricingSection from '../components/sections/PricingSection.svelte';
-    import CookiesBanner from '../components/pop-ups/CookiesBanner.svelte';
-    import PopUp from '../components/pop-ups/PopUp.svelte';
-    import Benefits from '../components/sections/Benefits.svelte';
+    import DefaultButton from '$lib/components/buttons/DefaultButton.svelte';
+    import Header from '$lib/components/headers/Header.svelte';
+    import FaQs from '$lib/components/sales/FAQs.svelte';
+    import Steps from '$lib/components/sections/Steps.svelte'
+    import CtaBanner from '$lib/components/sales/CtaBanner.svelte';
+    import MessageBanner from '$lib/components/cards/MessageBanner.svelte';
+    import PricingSection from '$lib/components/sections/PricingSection.svelte';
+    import CookiesBanner from '$lib/components/pop-ups/CookiesBanner.svelte';
+    import PopUp from '$lib/components/pop-ups/PopUp.svelte';
+    import Benefits from '$lib/components/sections/Benefits.svelte';
+    import EditorHeader from '$lib/components/headers/EditorHeader.svelte';
+    import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
+    import DashboardHeader from '$lib/components/headers/DashboardHeader.svelte';
 
     import { onMount } from "svelte";
+    import Footer from '$lib/components/sections/Footer.svelte';
+
 /* 
     export let data;
 
     onMount(() => {
         console.log(data)
     })
- */
+*/
     
 </script>
 
@@ -35,6 +40,7 @@
     buttonLink = "#pricing"
     buttonText = "Empieza ahora" 
 />
+
 <!-- https://calendly.com/xsdesign/videollamada-de-descubrimiento -->
 
 
@@ -51,6 +57,7 @@
     />
     <a href="#pricing">Ver características</a>
 </section>
+
 
 
 <section class="pain-point animate">
@@ -72,6 +79,8 @@
 <!-- <PopUp></PopUp> -->
 <CookiesBanner></CookiesBanner>
 
+
+<Footer></Footer>
 
 <style>
     .hero {

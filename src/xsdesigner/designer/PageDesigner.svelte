@@ -1,6 +1,6 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script>
-    import EditorHeader from "../../components/headers/EditorHeader.svelte"
+    import EditorHeader from "$lib/components/headers/EditorHeader.svelte"
     import PageArchitectureBanner from "./PageArchitectureBanner.svelte";
 
     // import DragElement from "./DragElement.svelte";
@@ -11,7 +11,6 @@
     //import templates from "./templates/elementsMapping.js";
 
     import { onMount } from "svelte";
-    import { element } from "svelte/internal";
 
     let hovering_element_index;
 

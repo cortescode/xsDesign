@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth"
+import { setPersistence, browserLocalPersistence } from "firebase/auth"
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://support.google.com/firebase/answer/7015592
 const firebaseConfig = {
     apiKey: "AIzaSyBz7WoTAO440HmiRYrZigo_WOamh2B5fvI",
     authDomain: "xsdesign-188e9.firebaseapp.com",
@@ -14,8 +14,12 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
+// Initialize Firebase Authentication
+export const auth = getAuth(app);
+
+// setPersistence(auth, browserLocalPersistence)
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
