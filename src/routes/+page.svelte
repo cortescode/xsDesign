@@ -15,6 +15,9 @@
 
     import { onMount } from "svelte";
     import Footer from '$lib/components/sections/Footer.svelte';
+    import FlashCard from '$lib/components/cards/FlashCard.svelte';
+
+    let shouldRender = false;
 
 /* 
     export let data;
@@ -78,6 +81,10 @@
 <FaQs></FaQs>
 <!-- <PopUp></PopUp> -->
 <CookiesBanner></CookiesBanner>
+
+{#if shouldRender}
+    <FlashCard></FlashCard>
+{/if}
 
 
 <Footer></Footer>
