@@ -15,6 +15,7 @@
 
     import { onMount } from "svelte";
     import { goto } from '$app/navigation';
+    import ImageHero from '$lib/components/heros/ImageHero.svelte';
 
 /* 
     export let data;
@@ -27,60 +28,60 @@
 </script>
 
 <svelte:head>
-    <title>Obtén la web que revolucione la imagen de tu negocio | XS Design</title>
-    <meta name="description" content="Obtén el sitio web que despege tu negocio. Creamos las webs de los negocios del futuro." />
+    <title>La página que buscas no existe... | XS Design</title>
 </svelte:head>
 
-
-
-<!-- <div class="message">
-    <p>En breves subimos precios. Y cuando los subimos... ya no hay marcha atrás. ¡Aprovecha ahora!</p>
-</div> -->
 <Header
     buttonLink = "#pricing"
     buttonText = "Empieza ahora" 
 />
-
-<!-- https://calendly.com/xsdesign/videollamada-de-descubrimiento -->
-
-
-<!-- Hero Section -->
-
 <section class="hero">
-    <h1 class="title gradient-text">La página que buscas parece no existir...</h1>
-    <!-- <h1 class="title">Obtén el sitio web que despege tu negocio.</h1> -->
-    <DefaultButton text="Ir a la página principal" action={() => {
-        goto("/")
-    }}/>
+    <div>
+        <h1 class="gradient-text">Error 404</h1>
+        <h2 >La página que buscas parece no existir...</h2>
+        <DefaultButton text="Ir a la página principal" action={() => {
+                goto("/")
+            }}
+        />
+    </div>
+    <div>
+        <img alt="error 404" src="/media/assets/images/ecommerce.webp" srcset="/media/assets/images/ecommerce.webp" />
+    </div>
+    
 </section>
-
-
 
 
 <style>
     .hero {
         display: grid;
+        grid-template-columns: 1fr 1fr;
         place-items: center;
         gap: 20px;
         padding: 20px;
     }
 
-    .title {
+    h1 {
         /* Create a gradient color for the text */
         /* background: linear-gradient(20deg, #4150d1, #27d2de); */
         font-size: 3.4em;
-        /* Animate the background-position property tclass="button1ift the gradient. */
-        animation: animate 10s linear infinite;
         max-width: 640px;
-        text-align: center;
         margin-bottom: 0;
+        font-style: italic;
     }
 
+    h2 {
+        font-size: 2em;
+        max-width: 640px;
+        margin-bottom: 40px;
+    }
 
     @media screen and (max-width: 900px) {
 
-        .title {
-            font-size: 2em;
+        h1 {
+            font-size: 2.6em;
+        }
+        h2 {
+            font-size: 1.8em;
         }
     }
 

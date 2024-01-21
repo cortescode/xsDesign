@@ -1,6 +1,7 @@
 <script lang="ts">
     import { browser } from '$app/environment';
     import { onMount } from 'svelte';
+    import { getCookie, setCookie } from '$lib/cookies';
 
     let showing = false;
     
@@ -10,26 +11,6 @@
 
     $: {
         already_shown
-    }
-
-    function setCookie(cookieName:string, cookieValue:string, daysToExpire:number) {
-        var expirationDate = new Date();
-        expirationDate.setDate(expirationDate.getDate() + daysToExpire);
-
-        var cookieString = `${cookieName}=${encodeURIComponent(cookieValue)};expires=${expirationDate.toUTCString()};path=/`;
-
-        document.cookie = cookieString;
-    }
-
-    function getCookie(cookieName:string) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.startsWith(cookieName + '=')) {
-                return decodeURIComponent(cookie.substring(cookieName.length + 1));
-            }
-        }
-        return null;
     }
 
     onMount(() => {
