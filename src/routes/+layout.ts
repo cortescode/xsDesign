@@ -5,7 +5,6 @@ import { user } from "$lib/stores/session";
 
 onAuthStateChanged(auth, (_user) => {
     if (_user) {
-        console.log(user)
         user.set(_user)
     } else {
         user.set(null)

@@ -1,19 +1,19 @@
-import type { Handle } from "@sveltejs/kit"
+/* import type { Handle } from "@sveltejs/kit"
 
 export const handle: Handle = async ({ event, resolve }) => {
 	const session = event.cookies.get('session')
 
 	let  user;
 
-    /* if (user) {
+    if (user) {
         event.locals.user = {
             name: user.username,
             role: user.role.name,
         }
-    } */
+    } 
     return resolve(event)
 }
-
+*/
 /* 
 import auth from '$lib/firebaseConn';
 

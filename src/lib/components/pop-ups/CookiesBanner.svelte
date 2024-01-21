@@ -1,15 +1,50 @@
-<script>
+<script lang="ts">
     import { browser } from '$app/environment';
+    import { onMount } from 'svelte';
 
     let showing = false;
-    let already_shown = false;
+    
+    let already_shown: boolean = false;
 
+    const COOKIE_NAME = "cookies_banner_shown"
+
+    $: {
+        already_shown
+    }
+
+    function setCookie(cookieName:string, cookieValue:string, daysToExpire:number) {
+        var expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + daysToExpire);
+
+        var cookieString = `${cookieName}=${encodeURIComponent(cookieValue)};expires=${expirationDate.toUTCString()};path=/`;
+
+        document.cookie = cookieString;
+    }
+
+    function getCookie(cookieName:string) {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith(cookieName + '=')) {
+                return decodeURIComponent(cookie.substring(cookieName.length + 1));
+            }
+        }
+        return null;
+    }
+
+    onMount(() => {
+        let value = getCookie(COOKIE_NAME)
+        if(value)
+            already_shown = true;
+    })
+
+    
     function manageWhetherShown() {
         if (browser) {	// client-only code here}
-            if(!already_shown && window.sessionStorage.getItem("already_shown") == null) {
+            if(!already_shown) {
                 showing = true;
                 already_shown = true;
-                window.sessionStorage.setItem("already_shown", true);
+                setCookie(COOKIE_NAME, "true", 30)
             }
 
         }
