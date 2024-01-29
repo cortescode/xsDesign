@@ -1,30 +1,7 @@
 <script>
     import DefaultButton from '$lib/components/buttons/DefaultButton.svelte';
     import Header from '$lib/components/headers/Header.svelte';
-    import FaQs from '$lib/components/sales/FAQs.svelte';
-    import Steps from '$lib/components/sections/Steps.svelte'
-    import CtaBanner from '$lib/components/sales/CtaBanner.svelte';
-    import MessageBanner from '$lib/components/cards/MessageBanner.svelte';
-    import PricingSection from '$lib/components/sections/PricingSection.svelte';
-    import CookiesBanner from '$lib/components/pop-ups/CookiesBanner.svelte';
-    import PopUp from '$lib/components/pop-ups/PopUp.svelte';
-    import Benefits from '$lib/components/sections/Benefits.svelte';
-    import EditorHeader from '$lib/components/headers/EditorHeader.svelte';
-    import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
-    import DashboardHeader from '$lib/components/headers/DashboardHeader.svelte';
-
-    import { onMount } from "svelte";
     import { goto } from '$app/navigation';
-    import ImageHero from '$lib/components/heros/ImageHero.svelte';
-
-/* 
-    export let data;
-
-    onMount(() => {
-        console.log(data)
-    })
-*/
-    
 </script>
 
 <svelte:head>

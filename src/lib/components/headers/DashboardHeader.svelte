@@ -21,7 +21,10 @@
         {/each}
     </nav> 
 
-    <a class="header-button" href="/">home</a>
+    <div>
+        <a href="/auth/logout">Logout</a>
+        <a class="header-button" href="/">home</a>
+    </div>
     
 </header>
 

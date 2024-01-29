@@ -27,26 +27,13 @@
 
     let pathname = "";
 
-    $: {
-        links;
-        if($user) {
-            links[links.length-1].name= 'cerrar sesión', 
-            links[links.length-1].link= '/auth/logout'
-        } else {
-            links[links.length-1].name= 'iniciar sesión', 
-            links[links.length-1].link= '/auth/login'
-
-        }
-    }
-
     onMount(() => {
         pathname = window.location.pathname;
-        console.log("user: ", $user)
     })
 
     
 
-    function setSelectedLink(event) {
+    function setSelectedLink() {
         setTimeout(() => {
             pathname = window.location.pathname;
             links = links;
@@ -92,19 +79,7 @@
                 {/each}
             </nav>
             <div class="button-container">
-                {#if $user}
-                    <DefaultButton text={"Dashboard"} action={ () => location.href="/designer/dashboard"}></DefaultButton>
-                {:else}
                     <DefaultButton text={buttonText} action={ () => location.href=buttonLink}></DefaultButton>
-                {/if}
-                <!-- {#if ($user == null) || !("username" in $user) } -->
-                    <!-- <a href="/auth/login" class="login-link">Acceder</a> -->
-                    <!-- <button onclick="location.href='{buttonLink}'" class="gradient-button">{ buttonText }</button> -->
-                    <!-- <DefaultButton text={buttonText} action={ () => location.href=buttonLink}></DefaultButton>
-                {:else }
-                    <a class="login-link" on:click={logout}>Cerrar sesión</a>
-                    <button onclick="location.href='/dashboard'" class="gradient-button">Dashboard</button>
-                {/if} -->
             </div>
     
         </div>
@@ -122,6 +97,7 @@
         background-color: rgb(255, 255, 255);
 
         position: sticky;
+        height: fit-content;
         inset: 0 0 auto 0;
         z-index: 40;
 

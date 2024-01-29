@@ -6,7 +6,7 @@
 
     
     logout()
-    onMount(() => goto("/"))
+    onMount(() => goto("/", { replaceState: true }))
 </script>
 
 

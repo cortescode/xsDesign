@@ -12,7 +12,7 @@
     
     
     if($user) {
-        goto("/designer/dashboard")
+        goto("/", { replaceState: true })
     }
     
 
@@ -25,14 +25,14 @@
 
 
     // ------------- LOGIN FORM ----------------
-    function submitLogin(event: Event) {
+    async function submitLogin(event: Event) {
         let email = form.email
         let password = form.password
         
         try {
-            login(email, password)
+            await login(email, password)
 
-            goto("/designer/dashboard")
+            goto("/", { replaceState: true })
         } catch (error) {
             errorMessage = "Correo o contraseña inválidos";
         }

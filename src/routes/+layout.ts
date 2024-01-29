@@ -3,6 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { user } from "$lib/stores/session";
 
 
+
 onAuthStateChanged(auth, (_user) => {
     if (_user) {
         user.set(_user)
@@ -10,3 +11,4 @@ onAuthStateChanged(auth, (_user) => {
         user.set(null)
     }
 })
+

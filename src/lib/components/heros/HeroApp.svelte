@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
 
-    export let title;
-    export let description;
-    export let button;
+    export let title: string;
+    export let description: string;
+    export let button: string;
     export let image = "/media/assets/images/designer-view.png";
 
 
@@ -14,10 +14,10 @@
     let transform_propertie = `perspective(1000px) rotateX(${rotateX}) rotateY(${rotateY}) scale3d(1, 1, 1)`;
 
 
-    let web_image;
+    let web_image: HTMLImageElement;
     
 
-    function modifyImagePerspective(event) {
+    function modifyImagePerspective(event: { clientX: any; clientY: any; }) {
         x = event.clientX;
         y = event.clientY;
         let width = window.screen.width;
@@ -42,9 +42,9 @@
     <div class="hero-app-content animate">
         <div class="chatgpt-banner">
             <img src="/media/assets/images/chatgpt-logo.png" alt="">
-            <h3>ChatGPT <br/>Integrado</h3>
+            <h3>ChatGPT <br/>Integrated</h3>
         </div>
-        <h1 class="hero-app-title">
+        <h1 class="hero-app-title gradient-text">
             { title }
         </h1>
         <p class="hero-app-description">
@@ -88,7 +88,6 @@
     }
 
     .chatgpt-banner h3 {
-        color: white;
         text-align: left;
         font-size: 18px;
         margin: 0;
@@ -103,18 +102,24 @@
 
 
     .hero-app-title {
-        font-family: "Alfa Slab One";
+        font-family: "Comfortaa";
         font-weight: 400;
         letter-spacing: 2px;
         font-size: 58px;
-        color: white;
+
+
+        background: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: title_animation 1s infinite alternate;
     }
+
     .hero-app-description {
         max-width: 600px;
         margin-bottom: 40px;
         text-shadow: black 0 0 20px 0;
         font-size: 22px;
-        color: white;
     }
 
     .hero-app-button {
@@ -141,6 +146,7 @@
         transform: auto;
         box-shadow: rgb(48, 63, 200) 0 0 60px 0;
     }
+
 
     @media screen and (max-width: 767px) {
         .hero-app {

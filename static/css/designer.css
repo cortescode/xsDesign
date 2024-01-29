@@ -1,0 +1,109 @@
+
+
+
+:root {
+    --gjs-main-color: #006a90;
+    --gjs-primary-color: #f4f7ff;
+    --gjs-secondary-color: #ddd;
+    --gjs-tertiary-color: #000000;
+    --gjs-quaternary-color: #d278c9;
+    --gjs-font-color: #ddd;
+    --gjs-font-color-active: #f8f8f8;
+    --gjs-main-dark-color: rgba(38, 115, 197, 0.1);
+    --gjs-secondary-dark-color: rgba(26, 60, 112, 0.04);
+    --gjs-main-light-color: rgba(0, 61, 95, 0.1);
+    --gjs-secondary-light-color: rgba(255, 255, 255, 0.7);
+    --gjs-soft-light-color: rgba(255, 255, 255, 0.015);
+    --gjs-color-blue: #3b97e3;
+    --gjs-color-red: #dd3636;
+    --gjs-color-yellow: #ffca6f;
+    --gjs-color-green: #62c462;
+    --gjs-left-width: 15%;
+    --gjs-color-highlight: #71b7f1;
+    --gjs-color-warn: #ffca6f;
+    --gjs-handle-margin: -5px;
+    --gjs-light-border: rgba(255, 255, 255, 0.05);
+    --gjs-arrow-color: rgba(255, 255, 255, 0.7);
+    --gjs-dark-text-shadow: rgba(0, 0, 0, 0.2);
+    --gjs-color-input-padding: 22px;
+    --gjs-input-padding: 5px;
+    --gjs-padding-elem-classmanager: 5px 6px;
+    --gjs-upload-padding: 150px 10px;
+    --gjs-animation-duration: 0.2s;
+    --gjs-main-font: Helvetica, sans-serif;
+    --gjs-font-size: 0.75rem;
+    --gjs-placeholder-background-color: var(--gjs-color-green);
+    --gjs-canvas-top: 40px;
+    --gjs-flex-item-gap: 5px
+}
+
+
+.panel {
+    width: 90%;
+    max-width: 700px;
+    border-radius: 3px;
+    padding: 30px 20px;
+    margin: 150px auto 0px;
+    background-color: #d983a6;
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.25);
+    color:rgba(255,255,255,0.75);
+    font: caption;
+    font-weight: 100;
+}
+
+.designer-logo {
+	font-family: 'comfortaa';
+	font-weight: 900;
+	color: #341B4D;
+	width: max-content;
+}
+
+.designer-logo-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-self: left;
+	align-items: center;
+	height: fit-content;
+	border-radius: 18px;
+	width: fit-content;
+    margin-left: 120px;
+}
+
+.designer-logo-container h1 {
+	font-size: 16px;
+	margin: 0;
+}
+
+.designer-logo-container .logo-image {
+	width: 20px;
+	margin-right: 10px;
+}
+
+
+.big-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin: 15px 0;
+}
+
+.description {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.gjs-frame {
+  width: 100%;
+  height: 100%;
+}
+
+.gjs-pn-panels {
+    
+}
+
+
+svg {
+    max-width: 40px;
+}
+
+
