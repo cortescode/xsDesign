@@ -28,7 +28,7 @@ export default function panels(editor: Editor, opts: RequiredPluginOptions) {
     {
       id: 'commands',
       buttons: [{label:`
-        <a class="designer-logo-container" href="/designer/dashboard">
+        <a class="designer-logo-container" href="/">
             <img class="logo-image" src="/media/assets/logo1.png" alt="">
             <h1 class="designer-logo logo-header">xsdesign</h1>
         </a>`

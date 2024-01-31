@@ -22,9 +22,9 @@
       <p>Acceder a la web</p> 
     </a> -->
     <div class="webcard">
-        <h2>¡Hola {username}!</h2>
-        <p>Aún no puedes hacer mucho por aquí. Te avisaremos por correo cuando añadamos funcionalidades.</p>
-        <a href="/designer">Acceder al editor</a>
+        <h2>Create your first webpage</h2>
+        <p>Discover the potential of xsdesign</p>
+        <a href="/create">+ Create</a>
     </div>
     
     <div></div>

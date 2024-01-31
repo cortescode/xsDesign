@@ -2,10 +2,10 @@
 <script>
     import Header from '$lib/components/headers/DashboardHeader.svelte';
 
-    import Overview from './services/Overview.svelte'
-    import Analytics from './services/Analytics.svelte';
-    import Emails from './services/Emails.svelte';
-    import Webpage from './services/Webpage.svelte';
+    import Overview from '$lib/services/Overview.svelte'
+    import Analytics from '$lib/services/Analytics.svelte';
+    import Emails from '$lib/services/Emails.svelte';
+    import Webpage from '$lib/services/Webpage.svelte';
 
     let services = {
         'overview': Overview,
@@ -34,7 +34,6 @@
                         Web
                     </button>
                 </li>
-                <!-- 
                 <li>
                     <button class="left-menu-button">
                         <img class="left-svg" src="/media/assets/icons/graph-file.svg" alt=" " srcset="/media/assets/icons/graph-file.svg"> 
@@ -48,7 +47,6 @@
                         Pruebas
                      </button>
                 </li>
-                 -->
             </ul>
         </nav>
     </div>
@@ -82,7 +80,7 @@
 
         width: 100%;
         max-height: 100vh;
-        min-width: 140px;
+        min-width: 200px;
         
         display: grid;
         grid-template-columns: 1fr;

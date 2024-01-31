@@ -45,16 +45,17 @@
 
 <!-- Hero Section -->
 
-<section class="hero">
-    <h1 class="title gradient-text">Desarrollamos las webs de los negocios del futuro</h1>
-    <!-- <h1 class="title">Obtén el sitio web que despege tu negocio.</h1> -->
-    <p>Creamos tu web con superpoderes para que consigas <b>captar la atención de tu usuario, generarle confianza, y convertirlo en cliente</b>.</p>
+<section class="hero animate">
+    <h1 class="title gradient-text">Transforming Your Business into a Digital Powerhouse</h1>
+
+    <p>We shatter the ceiling that hinders your business growth. We seamlessly integrate <b>Development, Analytical Marketing, and Artificial Intelligence</b> to push the boundaries of your business in the digital realm.</p>
+
     <DefaultButton text="Empieza ahora" action={() => {
         window.location.hash = ""; 
         window.location.hash = "#pricing"
         }}
     />
-    <a href="#pricing">Ver características</a>
+    <a href="#pricing">See Characteristics</a>
 </section>
 
 

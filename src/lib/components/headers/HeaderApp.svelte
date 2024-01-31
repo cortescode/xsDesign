@@ -3,7 +3,6 @@
     import { onMount } from 'svelte';
     import Logo from '../Logo.svelte';
 
-
 </script>
   
 

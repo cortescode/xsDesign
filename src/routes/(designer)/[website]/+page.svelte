@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import Designer from "./Designer.svelte";
+    import Designer from "$lib/designer/components/Designer.svelte";
 
     import type { Web } from "./interfaces"
 

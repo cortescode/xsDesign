@@ -2,10 +2,10 @@
 </script>
 
 <section>
-    Copyright © 2023 XS Design SL – Creación web para negocios atrevidos – todos los derechos reservados
+    Copyright © 2023 XS Design SL – Web creation for bold businesses – all rights reserved
     <br>
-    <a href="/legal/legal-advice">Aviso legal</a>
-    <a href="/legal/privacy-politics">Política de Privacidad</a>
+    <a href="/legal/legal-advice">Legal Notice</a>
+    <a href="/legal/privacy-politics">Privacy Policy</a>
 </section>
 
 

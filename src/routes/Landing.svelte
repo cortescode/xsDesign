@@ -33,16 +33,5 @@
     button="Access Beta for Free"
 />
 
-<Benefits></Benefits>
-<PricingSection id="pricing"></PricingSection>
-
-<FaQs></FaQs>
-
-<CookiesBanner></CookiesBanner>
-
-{#if shouldRender}
-    <FlashCard></FlashCard>
-{/if}
-
 
 <Footer></Footer>

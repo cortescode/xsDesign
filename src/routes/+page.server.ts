@@ -1,3 +1,13 @@
+// import type { PageServerLoad } from './$types.js';
+
+
+export function load({ cookies }) {
+    let isLoggedIn: boolean = Boolean(cookies.get('logged_in')) || false;
+    
+    return { isLoggedIn }
+    
+}
+
 /* import { db, sql, Client } from "@vercel/postgres";
 import dotenv from "dotenv"
 dotenv.config()
@@ -16,11 +26,3 @@ export async function load({ locals }) {
       data: {"pets": pets}
   }
 } */
-
-
-
-export async function load({ cookies }) {
-	  let isLoggedIn: boolean = Boolean(cookies.get('logged_in')) || false;
-    
-    return { isLoggedIn }
-}

@@ -1,16 +1,22 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { grapesjs } from "grapesjs"
-    import panels from "$lib/designer/panels";
     import plugin from "$lib/designer";
     import type { PluginOptions } from "grapesjs";
-    import Header from "$lib/components/headers/Header.svelte";
+    import PagesManager from "./PagesManager.svelte";
     
 	export let website: string;
+    // export let website_id: string;
 
+    const projectID = 1;
+    const projectEndpoint = `http://localhost:3000/${website}`;
+
+    let editor: any;
+
+    $: editor;
+    
     onMount(() => {
-
-        let editor = grapesjs.init({
+        editor = grapesjs.init({
 			height: '100%',
 			showOffsets: true,
 			noticeOnUnload: false,
@@ -23,7 +29,18 @@
 				// Default storage options
 				options: {
 					local: { key: `gjsProject-${website}` },
-					remote: {/* ... */},
+					remote: {
+                        urlLoad: projectEndpoint,
+                        urlStore: projectEndpoint,
+                        // The `remote` storage uses the POST method when stores data but
+                        // the json-server API requires PATCH.
+                        // fetchOptions: opts => (opts.method === 'POST' ?  { method: 'PATCH' } : {}),
+                        // As the API stores projects in this format `{id: 1, data: projectData }`,
+                        // we have to properly update the body before the store and extract the
+                        // project data from the response result.
+                        onStore: data => ({ id: projectID, data }),
+                        onLoad: result => result.data,
+                    }
 				}
 			},
 			container: '#gjs',
@@ -51,7 +68,7 @@
       </div>
     </div>
 </div>
-
+<PagesManager {editor}></PagesManager>
 
 <style>
     .welcome {

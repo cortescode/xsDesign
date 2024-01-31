@@ -7,33 +7,36 @@ import { user } from './stores/session';
 import { deleteCookie, setCookie } from './cookies';
 
 
-const COOKIE_NAME: string = "logged_in"
+const LOGGED_IN: string = "logged_in"
+const USER_UID: string = "user_uid"
 
 export async function signup(email: string, password: string) {
     let userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
     
-    console.log("User: ", userCredential.user)
-    console.log("User Credential: ", userCredential.user.metadata)
+    let _user = userCredential.user
 
     user.set(userCredential.user)
-    setCookie(COOKIE_NAME, "true", 60)
+    
+    setCookie(LOGGED_IN, "true", 60)
+    setCookie(USER_UID, _user.uid, 60)
 }
 
 
 export async function login(email: string, password: string) {
     let userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password)
     
-    console.log("User: ", userCredential.user)
-    console.log("User Credential: ", userCredential.user.metadata)
+    let _user = userCredential.user
     
-    user.set(userCredential.user)
-    setCookie(COOKIE_NAME, "true", 60)
+    user.set(_user)
+    setCookie(LOGGED_IN, "true", 60)
+    setCookie(USER_UID, _user.uid, 60)
 }
 
 
 export async function logout() {
     await signOut(auth)
     user.set(null)
-    deleteCookie(COOKIE_NAME)
+    deleteCookie(LOGGED_IN)
+    deleteCookie(USER_UID)
 }
 
