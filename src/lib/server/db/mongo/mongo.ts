@@ -6,4 +6,8 @@ const client = new MongoClient(MONGO_URL)
 
 await client.connect()
 
-export default client.db()
+let db = client.db()
+export default db
+
+
+export let websites = db.collection("websites")

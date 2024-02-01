@@ -13,12 +13,13 @@
         <Logo></Logo>
 
         <div class="button-container">
-            <a href="/agency">Web Agency</a>
+            <!-- <a href="/agency">Web Agency</a> -->
+            <a href="/pricing">Made with xsdesign</a>
             <a href="/pricing">Pricing</a>
-            <a href="/contact" class="cta">Access Beta for Free</a>
+            <a href="/auth/login">Login</a>
+            <a href="/auth/signup" class="cta">Access Beta for Free</a>
         </div>
     </div>
-    
     
 </header>
 
@@ -42,7 +43,7 @@
     }
     .header-content {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto 1fr;
         align-items: center;
         justify-items: center;
         height: auto;

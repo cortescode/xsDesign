@@ -1,7 +1,5 @@
 <script lang="ts">
     import Landing from './Landing.svelte';
-    import Dashboard from './(designer)/Dashborad.svelte';
-
     let shouldRender = false;
 
     export let data;
@@ -15,8 +13,4 @@
 </svelte:head>
 
 
-{#if !isLoggedIn}
-    <Landing/>
-{:else }
-    <Dashboard></Dashboard>
-{/if}
+<Landing/>

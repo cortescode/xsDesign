@@ -1,7 +1,7 @@
 <script lang="ts">
     import Designer from "$lib/designer/components/Designer.svelte";
 
-    import type { Web } from "./interfaces"
+    import type { Web } from "../interfaces"
 
     export let data: Web
     

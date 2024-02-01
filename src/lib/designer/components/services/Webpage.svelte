@@ -1,17 +1,23 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
-<script>
+<script lang="ts">
     import Analytics from "./Analytics.svelte";
     import { user } from "$lib/stores/session.js"
     import { onMount } from "svelte";
+    import type { Web } from "../../../../routes/designer/interfaces";
+    import type { PageData } from "../../../../routes/$types";
 
-    let username = "";
-    user.subscribe((data) => {
-        console.log("data", data);
-        if( data != undefined)
-            if("username" in data)
-                username=data.username;
+    export let data;
+
+
+    $: websites = JSON.parse(data?.websites)
+    
+
+    console.log(websites)
+    onMount(() => {
+        console.log(websites)
     })
-
+    
+    
 </script>
 
 
@@ -21,15 +27,20 @@
     <img src="./media/elbuscadordeagua/home_page.png" srcset="./media/elbuscadordeagua/home_page.png" alt="">
       <p>Acceder a la web</p> 
     </a> -->
+    {#each websites as website }
+        <div class="webcard">
+            <h2>{website.name}</h2>
+            <a href="/designer/{website.name}">acceder</a>
+        </div>
+    {/each}
+
     <div class="webcard">
         <h2>Create your first webpage</h2>
         <p>Discover the potential of xsdesign</p>
-        <a href="/create">+ Create</a>
+        <a href="/designer/create">+ Create</a>
     </div>
     
-    <div></div>
-    <div></div>
-  </section>
+</section>
   
   
 <!-- ------------------------------------------ C S S ------------------------------------------ -->

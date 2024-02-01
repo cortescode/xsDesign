@@ -2,10 +2,14 @@
 <script>
     import Header from '$lib/components/headers/DashboardHeader.svelte';
 
-    import Overview from '$lib/services/Overview.svelte'
-    import Analytics from '$lib/services/Analytics.svelte';
-    import Emails from '$lib/services/Emails.svelte';
-    import Webpage from '$lib/services/Webpage.svelte';
+    import Overview from '$lib/designer/components/services/Overview.svelte'
+    import Analytics from '$lib/designer/components/services/Analytics.svelte';
+    import Emails from '$lib/designer/components/services/Emails.svelte';
+    import Webpage from '$lib/designer/components/services/Webpage.svelte';
+    import { onMount } from 'svelte';
+
+    export let data;
+
 
     let services = {
         'overview': Overview,
@@ -25,6 +29,7 @@
 </svelte:head>
 <section class="dashboard">
     <Header></Header>
+    
     <div class="left-menu">
         <nav>
             <ul>
@@ -51,7 +56,7 @@
         </nav>
     </div>
     <div class="service">
-    	<svelte:component this={active_service}/>
+    	<svelte:component this={active_service} {data}/>
     </div>
     <div>
         

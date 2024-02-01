@@ -12,7 +12,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header class="header">
-    <Logo link="/designer/dashboard"></Logo>
+    <Logo link="/designer/"></Logo>
   
     
     <nav class="links-list">

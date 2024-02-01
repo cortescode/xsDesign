@@ -6,8 +6,6 @@
 
     let pages: any = undefined;
     
-    
-
     let openPanel: boolean = false;
     let creatingPage : boolean = false;
 

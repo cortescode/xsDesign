@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit'
 // import type { PageLoad } from './$types.js'
-import type { Web } from "./interfaces.js"
+import type { Web } from "../interfaces.js"
 
 
 export function load({ params }) {
