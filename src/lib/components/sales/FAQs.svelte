@@ -3,19 +3,29 @@
     import { onMount } from 'svelte';
 
     let faqs = [
+        /* {
+            question: "Can I cancel my Workspace plan at any time?",
+            answer: "You have the flexibility to cancel your plan at any time. Upon cancellation, you will automatically transition to our free plan, which includes access to 2 Starter sites at no cost. While direct access to your websites will be temporarily restricted, rest assured that your site content will remain preserved and fully recoverable upon plan reactivation.",
+            isOpen: false
+        }, */
         {
-            question: "¿Cuanto tiempo tardais en crear la web?",
-            answer: "Alrededor de una semana para el plan Landing Pro y hasta 2 semanas en Business Pro. Los otros planes varían mucho en función de las necesidades específicas. Los sitios más complejos tardarán más tiempo en desarrollarse.",
+            question: "It is free forever?",
+            answer: "Currently, our product is still under development. In our pursuit to create the ultimate website builder, we have opened access to gather extensive feedback and insights for enhancement. Upon launching our initial version, it will be available at an affordable price, along with a permanently free version",
             isOpen: false
         },
         {
-            question: "¿Existe devolución?",
-            answer: "Sí. Puedes anular el pedido sin problema si el resultado no es el deseado y te devolveremos el 110% de tu dinero. Has leído bien, el 110% del coste. Aún no nos ha pasado. ¿Serás el primero? lo dudo, pero siempre tienes la opción.",
+            question: "Can I import my website or my code?",
+            answer: "Yes, you can import your own code to the editor, but some functionality not supported yet may be lost in the way.",
             isOpen: false
         },
         {
-            question: "¿Cuantas revisiones existen?",
-            answer: "Te mostramos varios prototipos hasta que decidas a corde a tu gusto. Luego, una vez entregamos la web final, tienes hasta 3 revisiones sin coste adicional. Nunca hemos llegado a la tercera (de hecho, lo más probable es que no necesites ninguna), pero, como simepre, te damos la opción.",
+            question: "Are Xsdesign websites SEO-friendly?",
+            answer: "Yes, Xsdesign sites are SEO-friendly. Our standards-based code, images optimiztion, and mobile-friendliness by default, all help our websites rank in search.",
+            isOpen: false
+        },
+        {
+            question: "¿Can I host my website?",
+            answer: "No, currently we do not provide hosting services. You can download your website and publish it wherever you want (for example, you can host your page in github for free). We are currently working on incorpore hosting functionalities for your websites",
             isOpen: false
         },
     ];
@@ -38,7 +48,7 @@
 </script>
 
 <section class="faqs-section animate">
-    <h2 class="title">Lo que más nos preguntan <span class="gradient-color">antes de comprar:</span></h2>
+    <h2 class="title">What the <span class="gradient-color">FaQ</span>?</h2>
     {#each faqs as faq, index}
         <div class="faq" on:click={() => toggleFaq(index)} class:active={openIndex === index}>
             <div class="question-wrapper">
@@ -58,10 +68,7 @@
         </div>
     {/each}
     <div class="button-wrapper">
-        <DefaultButton text="¡Elige ya tu plan!" action={() => {
-            window.location.hash = "";
-            window.location.hash = "#pricing";
-        }}/>
+        <a class="designer-button" href="/auth/signup"> Access beta for free</a>
     </div>
 </section>
 

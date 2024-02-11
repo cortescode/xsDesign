@@ -4,6 +4,7 @@
 
     let links = [
       { name: 'analytics', link: '/page-settings' }, 
+      { name: 'resources', link: '/page-settings' }, 
     ];
 
 </script>
@@ -16,14 +17,15 @@
   
     
     <nav class="links-list">
+        <!-- 
         {#each links as { name, link }}
             <a href={link}>{name}</a>
         {/each}
+         -->
     </nav> 
 
     <div>
-        <a href="/auth/logout">Logout</a>
-        <a class="header-button" href="/">home</a>
+        <a href="/designer/create" class="create-button">+ Create Website</a>
     </div>
     
 </header>
@@ -39,16 +41,18 @@
         grid-column-end: 10;
 
         display: grid;
-        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
+        justify-content: space-between;
         justify-items: center;
         background-color: rgb(255, 255, 255);
-        height: 40px;
+        height: 46px;
 
         margin: 0;
         padding: 6px 20px;
         width: calc(100% - 40px);
 
+        border-bottom: 1px solid var(--blue);
         box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 20px;
     }
 
@@ -78,26 +82,28 @@
     a {
         margin: 0 14px;
         text-decoration: none;
-        color: #333;
+        color: var(--dark);
         font-size: 16px;
     }
     a:hover {
-        background: linear-gradient(to right, #764ba2, #667eea);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: underline;
+        
+        text-decoration: none;
+    }
+
+    .create-button {
+        background-color: var(--dark);
+        color: white;
+        padding: 12px 28px !important;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+
+    .create-button:hover {
+        background: var(--blue) !important;
+        color: white !important;
     }
 
 
-    /* BUTTONS STYLES */
-    .header-button {
-        justify-self: right;
-        height: auto;
-        font-weight: 14px;
-        padding: 4px 8px;
-        color: rgb(0, 2, 52);
-    }
 
 
 </style>

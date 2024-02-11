@@ -14,8 +14,8 @@
 
         <div class="button-container">
             <!-- <a href="/agency">Web Agency</a> -->
-            <a href="/pricing">Made with xsdesign</a>
-            <a href="/pricing">Pricing</a>
+            <!-- <a href="/pricing">Made with xsdesign</a> -->
+            <!-- <a href="/pricing">Pricing</a> -->
             <a href="/auth/login">Login</a>
             <a href="/auth/signup" class="cta">Access Beta for Free</a>
         </div>

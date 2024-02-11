@@ -34,7 +34,7 @@
 
             goto("/", { replaceState: true })
         } catch (error) {
-            errorMessage = "Correo o contraseña inválidos";
+            errorMessage = "Email or password invalid";
         }
     }
 
@@ -59,8 +59,8 @@
 
         <Logo></Logo>
         
-        <h2 class="gradient-text">Inicia sesión</h2>
-        <p>¡Nos alegra verte de vuelta!</p>
+        <h2 class="gradient-text">Login</h2>
+        <p>¡We are happy to see you again!</p>
 
         {#if errorMessage != ''}
             <p style="color: red">{errorMessage}</p>
@@ -69,11 +69,11 @@
         <label for="email">Email</label>
         <input type="text" name="email" id="email" bind:value={form.email}>
         
-        <label for="password">Contraseña</label>
+        <label for="password">Password</label>
         <input type="password" name="password" id="password" bind:value={form.password}>
         
-        <button class="gradient-button auth-button" type="submit"><b>Login </b></button>
-        <!-- <span>¿Aún no estás registrado? <a href="/auth/signup">Regístrate</a></span> -->
+        <button class="default-button auth-button" type="submit"><b>Login </b></button>
+        <span>Don't you already have an account? <a href="/auth/signup">Signup</a></span>
     </form>
 
 </section>

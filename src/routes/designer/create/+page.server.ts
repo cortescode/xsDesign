@@ -1,6 +1,7 @@
 import { websites } from '$lib/server/db/mongo/mongo'
 import { error, redirect } from '@sveltejs/kit';
-import type { Web } from '../interfaces.js';
+import type { Website } from '$lib/designer/interfaces/Website';
+import { agency_template } from '$lib/designer/templates/sites/agency.js';
 
 export function load() {
     /* websites.deleteMany() */
@@ -14,42 +15,57 @@ export const actions = {
 
 		const data = await request.formData();
 
-        let web_name: string = data.get("name")?.toString() || ""
+        let website_name: string = data.get("name")?.toString() || ""
+
+        let website_description: string = data.get("description")?.toString() || ""
+
 
         if(!user_uid)
             error(513, {
                 message: 'You need to be logged in order to create a website'
             });
 
-        if(!web_name)
+        if(!website_name)
             error(500, {
                 message: 'Website name not found'
             })
 
 
-        let project_id: string = await generateProjectId(web_name);
+        let website_id: string = await generateWebsiteId(website_name);
 
-        let website: Web = {
-            "id": project_id,
+        let website: Website = {
+            "id": website_id,
             "user_uid": user_uid,
-            "name": web_name,
+            "name": website_name,
+            "data": agency_template,
+            "routes": [
+                {
+                    "page_id": "home",
+                    "title": "Home",
+                    "description": website_description,
+                    "slug": "home",
+                }
+            ]
         }
         
         await websites.insertOne(website);
 
-        redirect(301, ("/designer/"+website.name));
+        redirect(301, ("/designer/"+website_id));
     }
 }
 
 
-async function generateProjectId(project_id: string): Promise<string> {
-    let id: string = project_id;
+async function generateWebsiteId(web_name: string): Promise<string> {
+    let id: string = web_name
+            .replace(/ /g, "-")
+            .replace(/[<>\"#%{}|\\^~\[\]`;\/?:@=&$+]/g, '');
+
     let id_found: boolean = false;
 
     let counter: number = 0;
     while(!id_found) {
         const website = await websites.findOne({
-            "id": project_id
+            "id": web_name
           });
 
         if(!website) {
@@ -57,10 +73,9 @@ async function generateProjectId(project_id: string): Promise<string> {
             break;
         }
         
-        id = project_id + counter.toString()
+        id = web_name + counter.toString()
         counter++
     }
     
-    console.log("id: ", id)
     return id;
 }

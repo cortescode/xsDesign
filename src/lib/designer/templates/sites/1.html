@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="I'm Mrinmoy,and this is my personal portfolio website..">
+    <meta name="keywords" content="Mrinmoy, Mrinmoy Deka, mrinmoy ">
+
+    <!--==================== UNICONS ====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+
+    <title>Mrinmoy Deka</title>
+
+</head>
+
+<body>
+    <style>
+        /*==================== GOOGLE FONTS ====================*/
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+        /*==================== VARIABLES CSS ====================*/
+        :root {
+        --header-height: 3rem;
+
+        /*========== Colors ==========*/
+        /* Change favorite color */
+        --hue-color: 225;
+        /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+
+        /* HSL color mode */
+        --first-color: hsl(var(--hue-color), 69%, 61%);
+        --first-color-second: hsl(var(--hue-color), 69%, 61%);
+        --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+        --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+        --title-color: hsl(var(--hue-color), 8%, 15%);
+        --text-color: hsl(var(--hue-color), 8%, 45%);
+        --text-color-light: hsl(var(--hue-color), 8%, 65%);
+        --input-color: hsl(var(--hue-color), 70%, 96%);
+        --body-color: hsl(var(--hue-color), 60%, 99%);
+        --container-color: #fff;
+        --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+        --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+        /*========== Font and typography ==========*/
+        --body-font: 'Poppins', sans-serif;
+
+        /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+        --big-font-size: 2rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1.125rem;
+        --normal-font-size: .938rem;
+        --small-font-size: .813rem;
+        --smaller-font-size: .75rem;
+
+        /*========== Font weight ==========*/
+        --font-medium: 500;
+        --font-semi-bold: 600;
+
+        /*========== Margenes Bottom ==========*/
+        /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+        --mb-0-25: .25rem;
+        --mb-0-5: .5rem;
+        --mb-0-75: .75rem;
+        --mb-1: 1rem;
+        --mb-1-5: 1.5rem;
+        --mb-2: 2rem;
+        --mb-2-5: 2.5rem;
+        --mb-3: 3rem;
+
+        /*========== z index ==========*/
+        --z-tooltip: 10;
+        --z-fixed: 100;
+        --z-modal: 1000;
+        }
+
+        /* Font size for large devices */
+        @media screen and (min-width: 968px) {
+        :root {
+            --big-font-size: 3rem;
+            --h1-font-size: 2.25rem;
+            --h2-font-size: 1.5rem;
+            --h3-font-size: 1.25rem;
+            --normal-font-size: 1rem;
+            --small-font-size: .875rem;
+            --smaller-font-size: .813rem;
+        }
+        }
+
+        /*========== Variables Dark theme ==========*/
+        body.dark-theme {
+        /* HSL color mode */
+        --first-color-second: hsl(var(--hue-color), 30%, 8%);
+        --title-color: hsl(var(--hue-color), 8%, 95%);
+        --text-color: hsl(var(--hue-color), 8%, 75%);
+
+        --input-color: hsl(var(--hue-color), 29%, 16%);
+        --body-color: hsl(var(--hue-color), 28%, 12%);
+        --container-color: hsl(var(--hue-color), 29%, 16%);
+        --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+        --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+        }
+
+        /*========== Button Dark/Light ==========*/
+        .nav__btns {
+        display: flex;
+        align-items: center;
+        }
+
+        .change-theme {
+        font-size: 1.25rem;
+        color: var(--title-color);
+        margin-right: var(--mb-1);
+        cursor: pointer;
+        }
+
+        .change-theme:hover {
+        color: var(--first-color);
+        }
+
+
+
+
+        /*==================== BASE ====================*/
+        * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        }
+
+        html {
+        scroll-behavior: smooth;
+        }
+
+        body {
+        margin: 0 0 var(--header-height) 0;
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        background-color: var(--body-color);
+        color: var(--text-color);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+        color: var(--title-color);
+        font-weight: var(--font-semi-bold);
+        }
+
+        ul {
+        list-style: none;
+        }
+
+        a {
+        text-decoration: none;
+        }
+
+        img {
+        max-width: 100%;
+        height: auto;
+        }
+
+        /*==================== REUSABLE CSS CLASSES ====================*/
+        .section {
+        padding: 2rem 0 4rem;
+        }
+
+        .section__title {
+        font-size: var(--h1-font-size);
+        color: var(--title-color);
+        }
+
+        .section__subtitle {
+        display: block;
+        font-size: var(--small-font-size);
+        margin-bottom: var(--mb-3);
+        }
+
+        .section__title,
+        .section__subtitle {
+        text-align: center;
+        }
+
+        /*==================== LAYOUT ====================*/
+        .container {
+        max-width: 768px;
+        margin-left: var(--mb-1-5);
+        margin-right: var(--mb-1-5);
+        }
+
+        .grid {
+        display: grid;
+        gap: 1.5rem;
+        }
+
+        .header {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: var(--z-fixed);
+        background-color: var(--body-color);
+        }
+
+        /*==================== NAV ====================*/
+        .nav {
+        max-width: 968px;
+        height: var(--header-height);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .nav__logo,
+        .nav__toggle {
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+        }
+
+        .nav__logo:hover {
+        color: var(--first-color);
+        }
+
+        .nav__toggle {
+        font-size: 1.1rem;
+        cursor: pointer;
+
+        }
+
+        .nav__toggle:hover {
+        color: var(--first-color);
+        }
+
+        @media screen and (max-width:767px) {
+        .nav__menu {
+            position: fixed;
+            bottom: -100%;
+            width: 100%;
+            background-color: var(--body-color);
+            padding: 2rem 1.5rem 4rem;
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+            border-radius: 1.5rem 1.5rem 0 0;
+            transition: .3s;
+        }
+        }
+
+        .nav__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        }
+
+        .nav__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: var(--small-font-size);
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+        }
+
+        .nav__link:hover {
+        color: var(--first-color);
+        }
+
+        .nav__icon {
+        font-size: 1.2rem;
+        }
+
+        .nav__close {
+        position: absolute;
+        right: 1.3rem;
+        bottom: .5rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--first-color);
+        }
+
+        .nav__close:hover {
+        color: var(--first-color-alt);
+        }
+
+        /* show menu */
+        .show-menu {
+        bottom: 0;
+        }
+
+        /* Active link */
+        .active-link {
+        color: var(--first-color);
+        }
+
+        /* Change background header */
+        .scroll-header {
+        box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+        }
+
+        /*==================== HOME ====================*/
+        .home__container {
+        gap: 1rem;
+        }
+
+        .home__content {
+        grid-template-columns: .5fr 3fr;
+        padding-top: 3.5rem;
+        align-items: center;
+        }
+
+        .home__social {
+        display: grid;
+        grid-template-columns: max-content;
+        row-gap: 1rem;
+        }
+
+        .home__social-icon {
+        font-size: 1.25rem;
+        color: var(--first-color);
+        }
+
+        .home__social-icon:hover {
+        color: var(--first-color-alt);
+        transform: translateY(-.25rem);
+        transition: 1.5s;
+        }
+
+        .home__blob {
+        width: 200px;
+        fill: var(--first-color);
+        }
+
+        .home__blob-img {
+        width: 170px;
+        }
+
+        .home__data {
+        grid-column: 1/3;
+        }
+
+        .home__title {
+        font-size: var(--big-font-size);
+        }
+
+        .home__subtitle {
+        font-size: var(--h3-font-size);
+        color: var(--text-color);
+        font-weight: var(--font-medium);
+        margin-bottom: var(--mb-0-75);
+        }
+
+        .home__description {
+        margin-bottom: var(--mb-2);
+        }
+
+        .home__scroll-button {
+        color: var(--first-color);
+        transition: .3s;
+        }
+
+        .home__scroll-button:hover {
+        transform: translateY(0.25rem)
+        }
+
+        .home__scroll-mouse {
+        font-size: 2rem;
+        }
+
+        .home__scroll-name {
+        font-size: var(--small-font-size);
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+        margin-right: var(--mb-0-25);
+        }
+
+        .home__scroll-arrow {
+        font-size: 1.25rem;
+        }
+
+        /*==================== BUTTONS ====================*/
+        .button {
+        display: inline-block;
+        background-color: var(--first-color);
+        color: #fff;
+        padding: 1rem;
+        border-radius: .5rem;
+        font-weight: var(--font-medium);
+        }
+
+        .button:hover {
+        background-color: var(--first-color-alt);
+        }
+
+        .button__icon {
+        font-size: 1.25rem;
+        margin-left: var(--mb-0-5);
+        transition: .3s;
+        }
+
+        .button--white {
+        background-color: #fff;
+        color: var(--first-color);
+        }
+
+        .button--white:hover {
+        background-color: #fff;
+        }
+
+        .button--flex {
+        display: inline-flex;
+        align-items: center;
+        }
+
+        .button--small {
+        padding: .75rem 1rem;
+        }
+
+        .button--link {
+        padding: 0;
+        background: transparent;
+        color: var(--first-color);
+        }
+
+        .button--link:hover {
+        background-color: transparent;
+        color: var(--first-color);
+        }
+
+        /*==================== ABOUT ====================*/
+        .about__img {
+        width: 200px;
+        border-radius: .5rem;
+        justify-self: center;
+        align-self: center;
+        }
+
+        .about__description {
+        text-align: center;
+        margin-bottom: var(--mb-2-5);
+        }
+
+        .about_info {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: var(--mb-2-5);
+        }
+
+        .about__info-title {
+        font-size: var(--h2-font-size);
+        font-weight: var(--font-semi-bold);
+        color: var(--title-color);
+        }
+
+        .about__info-name {
+        font-size: var(--smaller-font-size);
+        }
+
+        .about__info-title,
+        .about__info-name {
+        display: block;
+        text-align: center;
+        }
+
+        .about__buttons {
+        display: flex;
+        justify-content: center;
+        }
+
+        /*==================== SKILLS ====================*/
+        .skills__container {
+        row-gap: 0;
+        }
+
+        .skills__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--mb-2-5);
+        cursor: pointer;
+        }
+
+        .skills__icon,
+        .skills__arrow {
+        font-size: 2rem;
+        color: var(--first-color);
+        }
+
+        .skills__icon {
+        margin-right: var(--mb-0-75);
+        }
+
+        .skills__title {
+        font-size: var(--h3-font-size);
+        }
+
+        .skills__subtitle {
+        font-size: var(--small-font-size);
+        color: var(--text-color-light);
+        }
+
+        .skills__arrow {
+        margin-left: auto;
+        transition: .4s;
+        }
+
+        .skills__list {
+        row-gap: 1.5rem;
+        padding-left: 2.7rem;
+        }
+
+        .skills__titles {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--mb-0-5);
+        }
+
+        .skills__name {
+        font-size: var(--normal-font-size);
+        font-weight: var(--font-medium);
+        }
+
+
+        .skills__bar,
+        .skills__percentage {
+        height: 5px;
+        border-radius: .25rem;
+        }
+
+        .skills__bar {
+        background-color: var(--first-color-lighter);
+        }
+
+        .skills__percentage {
+        display: block;
+        background-color: var(--first-color);
+        }
+
+        .skills__html {
+        width: 90%;
+        }
+
+        .skills__css {
+        width: 70%;
+        }
+
+        .skills__js {
+        width: 60%;
+        }
+
+        .skills__react {
+        width: 40%;
+        }
+
+        .skills__php {
+        width: 90%;
+        }
+
+        .skills__mysql {
+        width: 72%;
+        }
+
+        .skills__node {
+        width: 58%;
+        }
+
+        .skills__python {
+        width: 94%;
+        }
+
+        .skills__blender {
+        width: 50%;
+        }
+
+        .skills__photoshop {
+        width: 42%;
+        }
+
+        .skills__adobeillustrator {
+        width: 62%;
+        }
+
+        .skills__close .skills__list {
+        height: 0;
+        overflow: hidden;
+        }
+
+        .skills__open .skills__list {
+        height: max-content;
+        margin-bottom: var(--mb-2-5);
+        }
+
+        .skills__open .skills__arrow {
+        transform: rotate(-180deg);
+        }
+
+        /*==================== QUALIFICATION ====================*/
+
+
+        /*==================== SERVICES ====================*/
+        .services__container {
+        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        }
+
+        .services__content {
+        position: relative;
+        background-color: var(--container-color);
+        padding: 3.5rem .5rem 1.25rem 1.5rem;
+        border-radius: .25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+        transition: .3s;
+        }
+
+        .services:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
+        }
+
+        .services__icon {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--first-color);
+        margin-bottom: var(--mb-1);
+        }
+
+        .services__title {
+        font-size: var(--h3-font-size);
+        margin-bottom: var(--mb-1);
+        font-weight: var(--font-medium);
+        }
+
+        .services__button {
+        cursor: pointer;
+        font-size: var(--small-font-size);
+        }
+
+        .services__button:hover .button__icon {
+        transform: translateX(.25rem);
+        }
+
+        .services__modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+        z-index: var(--z-modal);
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        }
+
+        .services__modal-content {
+        position: relative;
+        background-color: var(--container-color);
+        padding: 1.5rem;
+        border-radius: .5rem;
+        }
+
+        .services__modal-services {
+        row-gap: 1rem;
+        }
+
+        .service__modal-service {
+        display: flex;
+        }
+
+        .services__modal-title {
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+        margin-bottom: var(--mb-1-5);
+        }
+
+        .services__modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: var(--first-color);
+        cursor: pointer;
+        }
+
+        .services__modal-icon {
+        color: var(--first-color);
+        margin-right: var(--mb-0-25);
+        }
+
+        /* Active Modal */
+        .active-modal {
+        opacity: 1;
+        visibility: visible;
+        }
+
+        /*==================== PORTFOLIO ====================*/
+        .portfolio__container {
+        overflow: initial;
+        }
+
+        .portfolio__content {
+        padding: 0 1.5rem;
+        }
+
+        .portfolio__img {
+        width: 265px;
+        border-radius: .5rem;
+        justify-self: center;
+        }
+
+        .portfolio__title {
+        font-size: var(--h3-font-size);
+        margin-bottom: var(--mb-0-5);
+        }
+
+        .portfolio__description {
+        margin-bottom: var(--mb-0-75);
+        }
+
+        .portfolio__button:hover .button__icon {
+        transform: translateX(.25rem);
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+        content: '';
+        }
+
+        .swiper-portfolio-icon {
+        font-size: 2rem;
+        color: var(--first-color);
+        }
+
+        .swiper-button-prev {
+        left: -.5rem;
+        }
+
+        .swiper-button-next {
+        right: -.5rem;
+        }
+
+        .swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: -2.5rem;
+        }
+
+        .swiper-pagination-bullet-active {
+        background-color: var(--first-color);
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next,
+        .swiper-pagination-bullet {
+        outline: none;
+        }
+
+        /*==================== PROJECT IN MIND ====================*/
+        .project {
+        text-align: center;
+        }
+
+        .project__bg {
+        background-color: var(--first-color-second);
+        padding-top: 3rem;
+        }
+
+        .project__title {
+        font-size: var(--h2-font-size);
+        margin-bottom: var(--mb-0-75);
+        }
+
+        .project__description {
+        margin-bottom: var(--mb-1-5);
+        }
+
+        .project__title,
+        .project__description {
+        color: #fff;
+        }
+
+        .project__img {
+        width: 232px;
+        justify-self: center;
+        }
+
+
+
+        /*==================== TESTIMONIAL ====================*/
+        .testimonial__data,
+        .testimonial__header {
+        display: flex;
+        }
+
+        .testimonial__data {
+        justify-content: space-between;
+        margin-bottom: var(--mb-1);
+        }
+
+        .testimonial__img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: var(--mb-0-75);
+        }
+
+        .testimonial__name {
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+        }
+
+        .testimonial__client {
+        font-size: var(--small-font-size);
+        color: var(--text-color-light);
+        }
+
+        .testimonial__description {
+        margin-bottom: var(--mb-2-5);
+        }
+
+        .swiper-container .swiper-pagination-testimonial {
+        bottom: 0;
+        }
+
+
+        /*==================== CONTACT ME ====================*/
+        .contact__container {
+        row-gap: 3rem;
+        }
+
+        .contact__information {
+        display: flex;
+        margin-bottom: var(--mb-2);
+        }
+
+        .contact__icon {
+        font-size: 2rem;
+        color: var(--first-color);
+        margin-right: var(--mb-0-75);
+        }
+
+        .contact__title {
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+        }
+
+        .contact__subtitle {
+        font-size: var(--small-font-size);
+        color: var(--text-color-light);
+        }
+
+        .contact__content {
+        background-color: var(--input-color);
+        border-radius: .5rem;
+        padding: .75rem 1rem .25rem;
+        }
+
+        .contact__label {
+        font-size: var(--smaller-font-size);
+        color: var(--title-color);
+        }
+
+        .contact__input {
+        width: 100%;
+        background-color: var(--input-color);
+        color: var(--text-color);
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        border: none;
+        outline: none;
+        padding: .25rem .5rem .5rem 0;
+        }
+
+        /*==================== FOOTER ====================*/
+        .footer {
+        padding-top: 2rem;
+        }
+
+        .footer__container {
+        row-gap: 3.5rem;
+        }
+
+        .footer__bg {
+        background-color: var(--first-color);
+        padding: 2rem 0 3rem;
+        }
+
+        .footer__title {
+        font-size: var(--h1-font-size);
+        margin-bottom: var(--mb-0-25);
+        }
+
+        .footer__subtitle {
+        font-size: var(--small-font-size);
+        }
+
+        .footer__links {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+        }
+
+        .footer__link:hover {
+        color: var(--first-color-lighter);
+        }
+
+        .footer__social {
+        font-size: 1.25rem;
+        margin-right: var(--mb-1-5);
+        }
+
+        footer .footer__social a:hover {
+        color: var(--first-color-lighter);
+        }
+
+        .footer__copy {
+        font-size: var(--smaller-font-size);
+        text-align: center;
+        color: var(--text-color-light);
+        margin-top: var(--mb-3);
+        }
+
+        .footer__title,
+        .footer__subtitle,
+        .footer__link,
+        .footer__social {
+        color: #fff;
+        }
+
+
+        /*========== SCROLL UP ==========*/
+        .scrollup {
+        position: fixed;
+        right: 1rem;
+        bottom: -20%;
+        background-color: var(--first-color);
+        opacity: .8;
+        padding: 0 .3rem;
+        border-radius: .4rem;
+        z-index: var(--z-tooltip);
+        transition: .4s;
+        }
+
+        .scrollup:hover {
+        background-color: var(--first-color-alt);
+        }
+
+        .scrollup__icon {
+        font-size: 1.5rem;
+        color: #fff;
+        }
+
+
+
+        /* Show scroll */
+        .show-scroll {
+        bottom: 5rem;
+        }
+
+        /*========== SCROLL BAR ==========*/
+        ::-webkit-scrollbar {
+        width: 0.6rem;
+        background-color: var(--scroll-bar-color);
+        border-radius: .5rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background-color: var(--scroll-thumb-color);
+        border-radius: .5rem;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--text-color-light);
+        }
+
+        /*==================== MEDIA QUERIES ====================*/
+        /* For small devices */
+        @media screen and (max-width: 350px) {
+        .container {
+            margin-left: var(--mb-1);
+            margin-right: var(--mb-1);
+        }
+
+        .nav__menu {
+            padding: 2rem .25rem 4rem;
+        }
+
+        .nav__list {
+            column-gap: 0;
+        }
+
+        .home__content {
+            grid-template-columns: .25fr 3fr;
+        }
+
+        .home__blob {
+            width: 180px;
+        }
+
+        .skills__title {
+            font-size: var(--normal-font-size);
+        }
+
+        .services__container {
+            grid-template-columns: max-content;
+            justify-content: center;
+        }
+
+        .services__content {
+            padding-right: 3.5rem;
+        }
+
+        .services__modal {
+            padding: 0 .5rem;
+        }
+
+        .project__img {
+            width: 200px;
+        }
+
+        .swiper-error{
+            visibility: hidden;
+        }
+
+        .testimonial__data,
+        .testimonial__header {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial__img {
+            margin-right: 0;
+            margin-bottom: var(--mb-0-25);
+        }
+
+        .testimonial__data,
+        .testimonial__description {
+            text-align: center;
+        }
+        }
+
+        /* For medium devices */
+        @media screen and (min-width: 568px) {
+        .home__content {
+            grid-template-columns: max-content 1fr 1fr;
+        }
+
+        .home__data {
+            grid-column: initial;
+        }
+
+        .home__img {
+            order: 1;
+            justify-self: center;
+        }
+
+        .about__container,
+        .skills__container,
+        .portfolio__content,
+        .project__container,
+        .contact__container,
+        .footer__container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        @media screen and (min-width: 768px) {
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .section {
+            padding: 6rem 0 2rem;
+        }
+
+        .section__subtitle {
+            margin-bottom: 4rem;
+        }
+
+        .header {
+            top: 0;
+            bottom: initial;
+        }
+
+        .header,
+        .main,
+        .footer__container {
+            padding: 0 1rem;
+        }
+
+        .nav {
+            height: calc(var(--header-height) + 1.5rem);
+            column-gap: 1rem;
+        }
+
+        .nav__icon,
+        .nav__close,
+        .nav__toggle {
+            display: none;
+        }
+
+        .nav__list {
+            display: flex;
+            column-gap: 2rem;
+        }
+
+        .nav__menu {
+            margin-left: auto;
+        }
+
+        .change-theme {
+            margin: 0;
+        }
+
+        .home__container {
+            row-gap: 5rem;
+        }
+
+        .home__content {
+            padding-top: 5.5rem;
+            column-gap: 2rem;
+        }
+
+        .home__blob {
+            padding-top: 5.5rem;
+        }
+
+        .home {
+            display: block;
+        }
+
+        .home__scroll-button {
+            margin-left: 3rem;
+        }
+
+        .about__container {
+            column-gap: 5rem;
+        }
+
+        .about__img {
+            width: 350px;
+        }
+
+        .about__description {
+            text-align: initial;
+        }
+
+        .about__info {
+            justify-content: space-between;
+        }
+
+        .about__buttons {
+            justify-content: initial;
+        }
+
+        .services__container {
+            grid-template-columns: repeat(3, 218px);
+            justify-content: center;
+        }
+
+        .services__icon {
+            font-size: 2rem;
+        }
+
+        .services__content {
+            padding: 6rem 0 2rem 2.5rem;
+        }
+
+        .services__modal-content {
+            width: 450px;
+        }
+
+        .swiper-error{
+            visibility: hidden;
+        }
+
+        .portfolio__img {
+            width: 320px;
+        }
+
+        .portfolio__content {
+            align-items: center;
+        }
+
+        .project {
+            text-align: initial;
+        }
+
+        .project__bg {
+            background: none;
+        }
+
+        .project__container {
+            background-color: var(--first-color-second);
+            border-radius: 1rem;
+            padding: 3rem 2.5rem 0;
+            grid-template-columns: 1fr max-content;
+            column-gap: 3rem;
+        }
+
+        .project__data {
+            padding-top: .8rem;
+        }
+
+        .footer__container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .footer__bg {
+            padding: 3rem 0 3.5rem;
+        }
+
+        .footer__links {
+            flex-direction: row;
+            column-gap: 2rem;
+        }
+
+        .footer__socials {
+            justify-self: flex-end;
+        }
+
+        .footer__copy {
+            margin-top: 4.5rem;
+        }
+        }
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1024px) {
+
+        .header,
+        .main,
+        .footer__container {
+            padding: 0;
+        }
+
+        .home__blob {
+            width: 320px;
+        }
+
+        .home__social {
+            transform: translateX(-6rem);
+        }
+
+        .services__container {
+            grid-template-columns: repeat(3, 238px);
+        }
+
+        .swiper-error{
+            visibility: visible;
+        }
+
+        .portfolio__content {
+            column-gap: 5rem;
+        }
+
+        .swiper-portfolio-icon {
+            font-size: 3.5rem;
+        }
+
+        .swiper-button-prev {
+            left: -3.5rem;
+        }
+
+        .swiper-button-next {
+            right: -3.5rem;
+        }
+
+        .swiper-container-horizontal>.swiper-pagination-bullets {
+            bottom: -4.5rem;
+        }
+
+        .contact__form {
+            width: 460px;
+        }
+
+        .contact__inputs {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        /*==================== Waving hand  ====================*/
+        .wave {
+        animation-name: wave-animation;
+        /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s;
+        /* Change to speed up or slow down */
+        animation-iteration-count: infinite;
+        /* Never stop waving :) */
+        transform-origin: 70% 70%;
+        /* Pivot around the bottom-left palm */
+        display: inline-block;
+        }
+
+        @keyframes wave-animation {
+        0% {
+            transform: rotate(0.0deg)
+        }
+
+        10% {
+            transform: rotate(14.0deg)
+        }
+
+        /* The following five values can be played with to make the waving more or less extreme */
+        20% {
+            transform: rotate(-8.0deg)
+        }
+
+        30% {
+            transform: rotate(14.0deg)
+        }
+
+        40% {
+            transform: rotate(-4.0deg)
+        }
+
+        50% {
+            transform: rotate(10.0deg)
+        }
+
+        60% {
+            transform: rotate(0.0deg)
+        }
+
+        /* Reset for the last half to pause */
+        100% {
+            transform: rotate(0.0deg)
+        }
+        }
+
+        /*==================== Skills logo ====================*/
+        .skills__logo:hover{
+        transform: translateY(-.25rem);
+        transition: 1s;
+        }
+    </style>
+
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Mrinmoy</a>
+
+            <div data-aos="fade-in" class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__items">
+                        <a href="#home" class="nav__link active-link">
+                            <i class="uil uil-estate nav__icon"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="nav__items">
+                        <a href="#about" class="nav__link ">
+                            <i class="uil uil-user nav__icon"></i> About
+                        </a>
+                    </li>
+
+                    <li class="nav_items">
+                        <a href="#skills" class="nav__link ">
+                            <i class="uil uil-file nav__icon"></i> Skills
+                        </a>
+                    </li>
+
+                    <li class="nav__items">
+                        <a href="#services" class="nav__link ">
+                            <i class="uil uil-briefcase-alt nav__icon"></i> Services
+                        </a>
+                    </li>
+
+                    <li class="nav__items">
+                        <a href="#portfolio" class="nav__link ">
+                            <i class="uil uil-scenery nav__icon"></i> Portfolio
+                        </a>
+                    </li>
+
+                    <li class="nav__items">
+                        <a href="#contact" class="nav__link ">
+                            <i class="uil uil-message nav__icon"></i> Contact me
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__btns">
+                <!--Theme Change button-->
+                <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home section" id="home">
+            <div data-aos="fade-left" class="home__container container grid">
+                <div class="home__content grid">
+                    <div class="home__social">
+                        <a href="https://www.instagram.com/invites/contact/?i=1nzdie95dni4q&utm_content=p6o72vi"
+                            target="_blank" class="home__social-icon">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                        <a href="https://github.com/MRINMOY662" target="_blank" class="home__social-icon">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://twitter.com/mrinmoy91013697" target="_blank" class="home__social-icon">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a>
+                    </div>
+
+                    <div data-aos="fade-right" class="home__img">
+                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <mask id="mask0" mask-type="alpha">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                            </mask>
+                            <g mask="url(#mask0)">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                                165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                                129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                                -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+
+                                <image class="home__blob-img" x="12" y="18" href="assets/img/perfil.png" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home_title">Hi!<span class="wave">👋</span>, I'm Mrinmoy</h1>
+                        <h3 class="home__subtitle">
+                            and I'm a full stack developer
+                        </h3>
+                        <p class="home__description">
+                            High level experience in web design and development knowledge, producing quality work.
+                        </p>
+                        <a href="#contact" class="button button--flex">
+                            Contact Me <i class="uil uil-message button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                        <span class="home__scroll-name"> Scroll down</span>
+                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <h2 class="section__title">About Me</h2>
+            <span class="section__subtitle"> My Introduction</span>
+
+            <div data-aos="fade-left" class="about__container container grid">
+                <img src="assets/img/about.jpg" alt="" class="about__img" />
+
+                <div class="about__data">
+                    <p class="about__description">
+                        Hi I'm Mrinmoy Deka. I'm 15 years old. When I have free time, it's
+                        great to indulge in some of my favorite hobbies like study Maths & Science and exploring
+                        different kinds of new technology. <br>
+
+                        I'm a full-stack developer. I have learnt HTML, CSS, JS and Python. I am interested in
+                        working on projects with an open-source focus.
+                    </p>
+
+                    <div class="about_info">
+                        <div>
+                            <span class="about__info-title">02+</span>
+                            <span class="about__info-name">Years <br />
+                                experience</span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">20+</span>
+                            <span class="about__info-name">Completed <br />
+                                project</span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">24/7</span>
+                            <span class="about__info-name">Online<br />
+                                support</span>
+                        </div>
+                    </div>
+
+                    <div class="about__buttons">
+                        <a download="" href="assets/pdf/mrinmoy-cv.pdf" class="button button--flex">
+                            Download CV <i class="uil uil-download-alt button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== SKILLS ====================-->
+        <section class="skills section" id="skills">
+            <h2 class="section__title">Skills</h2>
+            <span class="section__subtitle">My technical level</span>
+
+            <div data-aos="fade-up" class="skills__container container grid">
+                <div>
+                    <!--==================== SKILL 1 ====================-->
+                    <div class="skills__content skills__open">
+                        <div class="skills__header">
+                            <i class="uil uil-brackets-curly skills__icon"></i>
+
+                            <div>
+                                <h1 class="skills__title">Frontend developer</h1>
+                                <span class="skills__subtitle">More then 2 years</span>
+                            </div>
+
+                            <i class="uil uil-angle-down skills__arrow"></i>
+                        </div>
+
+                        <div class="skills__list grid">
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/html.png" class="skills__logo"
+                                            width="25px" alt=""> HTML</h3>
+                                    <span class="skills__number">90%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__html"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/css.png" class="skills__logo"
+                                            width="20px" alt=""> CSS</h3>
+                                    <span class="skills__number">70%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__css"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/javascript.png" class="skills__logo"
+                                            width="20px" alt=""> JavaScript</h3>
+
+                                    <span class="skills__number">60%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__js"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/react.png" class="skills__logo"
+                                            width="20px" alt=""> React</h3>
+                                    <span class="skills__number">40%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__react"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--==================== SKILL 2 ====================-->
+                    <div class="skills__content skills__close">
+                        <div class="skills__header">
+                            <i class="uil uil-server-network skills__icon"></i>
+
+                            <div>
+                                <h1 class="skills__title">Backend developer</h1>
+                                <span class="skills__subtitle">More then 1 years</span>
+                            </div>
+
+                            <i class="uil uil-angle-down skills__arrow"></i>
+                        </div>
+
+                        <div class="skills__list grid">
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/php.png" class="skills__logo"
+                                            width="20px" alt=""> PHP</h3>
+                                    <span class="skills__number">90%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__php"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/sql.png" class="skills__logo"
+                                            width="20px" alt=""> MySQL</h3>
+                                    <span class="skills__number">72%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__mysql"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/node.png" class="skills__logo"
+                                            width="20px" alt=""> Node Js</h3>
+
+                                    <span class="skills__number">58%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__node"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/python.png" class="skills__logo"
+                                            width="20px" alt=""> Python</h3>
+                                    <span class="skills__number">94%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__python"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <!--==================== SKILL 3 ====================-->
+                    <div class="skills__content skills__close">
+                        <div class="skills__header">
+                            <i class="uil uil-swatchbook skills__icon"></i>
+
+                            <div>
+                                <h1 class="skills__titles">Designer</h1>
+                                <span class="skills__subtitle">More then 1/2 years</span>
+                            </div>
+
+                            <i class="uil uil-angle-down skills__arrow"></i>
+                        </div>
+
+                        <div class="skills__list grid">
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/blender.png" class="skills__logo"
+                                            width="20px" alt=""> Blender</h3>
+                                    <span class="skills__number">50%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__blender"></span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/ps.png" class="skills__logo"
+                                            width="20px" alt=""> Adobe Photoshop</h3>
+                                    <span class="skills__number">42%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__photoshop"></span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <div class="skills__titles">
+                                    <h3 class="skills__name"><img src="/assets/img/illustrator.png" class="skills__logo"
+                                            width="20px" alt=""> Adobe Illustrator
+                                    </h3>
+                                    <span class="skills__number">62%</span>
+                                </div>
+                                <div class="skills__bar">
+                                    <span class="skills__percentage skills__adobeillustrator"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+        </section>
+
+        <!--==================== Certificates ====================-->
+        <section class="certificate section">
+            <h2 class="section__title">My Certificates</h2>
+            <span class="section__subtitle">By Programming Hub</span>
+            <span class="section__subtitle">Scroll or slide here to see next>>></span>
+
+            <div data-aos="fade-up" class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!--==================== Certificate 1 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="/assets/img/Mrinmoy_abstract_HTML.jpg" alt="" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <p>HTML Certificate</p>
+                            <a href="/assets/pdf/Mrinmoy_abstract_HTML.pdf"
+                                class="button button--flex button--small portfolio_-button">
+                                Preview
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--==================== Certificate 2 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="/assets/img/Mrinmoy_abstract_CSS.jpg" alt="" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <p>CSS Certificate</p>
+                            <a href="/assets/pdf/Mrinmoy_abstract_CSS.pdf"
+                                class="button button--flex button--small portfolio_-button">
+                                Preview
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+        </section>
+
+        <!--==================== SERVICES ====================-->
+        <section class="services section" id="services">
+            <h2 class="section__title">Services</h2>
+            <span class="section__subtitle">What I offer</span>
+
+            <div data-aos="fade-right" class="services__container container grid">
+                <!--==================== SERVICES 1 ====================-->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-web-grid services__icon"></i>
+                        <h3 class="services__title">Ui/Ux <br> Designer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View More
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Ui/Ux <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I position your company brand.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--==================== SERVICES 2 ====================-->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-arrow services__icon"></i>
+                        <h3 class="services__title">Frontend <br> Developer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View More
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Frontend <br> Developer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I position your company brand.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--==================== SERVICES 3 ====================-->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-pen services__icon"></i>
+                        <h3 class="services__title">Branding <br> Designer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View More
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Branding <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I position your company brand.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PORTFOLIO ====================-->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Portfolio</h2>
+            <span class="section__subtitle">Most recent work</span>
+
+            <div data-aos="fade-right" class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!--==================== PORTFOLIO 1 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="/assets/img/portfolio1.jpg" alt="" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Modern Website</h3>
+                            <p class="portfolio__description">Website adaptable to all devices, with ui components and
+                                animated interactions.</p>
+                            <a href="#" class="button button--flex button--small portfolio_-button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--==================== PORTFOLIO 2 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="/assets/img/portfolio2.jpg" alt="" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Brand Design</h3>
+                            <p class="portfolio__description">Website adaptable to all devices, with ui components and
+                                animated interactions.</p>
+                            <a href="#" class="button button--flex button--small portfolio_-button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--==================== PORTFOLIO 3 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="/assets/img/portfolio3.jpg" alt="" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Online Store</h3>
+                            <p class="portfolio__description">Website adaptable to all devices, with ui components and
+                                animated interactions.</p>
+                            <a href="#" class="button button--flex button--small portfolio_-button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Add Arrows -->
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
+
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!--==================== PROJECT IN MIND ====================-->
+        <section class="project section">
+            <div data-aos="fade-in" class="project__bg">
+                <div class="project__container container grid">
+                    <div class="project__data">
+                        <h2 class="project__title">You have a new project</h2>
+                        <p class="project__description">Contact me now on your new project.</p>
+                        <a href="#contact" class="button button--flex button--white">
+                            Contact Me
+                            <i class="uil uil-message project__icon button__icon"></i>
+                        </a>
+                    </div>
+
+                    <img src="/assets/img/project.png" alt="" class="project__img">
+                </div>
+            </div>
+        </section>
+
+        <!--==================== TESTIMONIAL ====================-->
+        <section class="testimonial section">
+            <h2 class="section__title">Testimonial</h2>
+            <span class="section__subtitle">My client saying</span>
+            <span class="section__subtitle swiper-error">Slide here to see next>>></span>
+
+            <div data-aos="fade-in" class="testimonial__container container swiper-container">
+                <div class="swiper-wrapper">
+
+                    <!--==================== TESTIMONIAL 1 ====================-->
+                    <div class="testimonial__content swiper-slide">
+                        <div class="testimonial__data">
+                            <div class="testimonial__header">
+                                <img src="/assets/img/testimonial1.jpg" alt="" class="testimonial__img">
+
+                                <div>
+                                    <h3 class="testimonial__name">Danyka Nadeau</h3>
+                                    <span class="testimonial__client">Client</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial__description">
+                            I get a good impression, I carry out my project with all the possible quality and attention
+                            and support 24 hours a day.</p>
+                    </div>
+                    <!--==================== TESTIMONIAL 2 ====================-->
+                    <div class="testimonial__content swiper-slide">
+                        <div class="testimonial__data">
+                            <div class="testimonial__header">
+                                <img src="/assets/img/testimonial4.jpg" alt="" class="testimonial__img">
+
+                                <div>
+                                    <h3 class="testimonial__name">Elon Musk</h3>
+                                    <span class="testimonial__client">Client</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial__description">
+                            It's always a pleasure to work with Mrinmoy, he brings 100% to each project and gets work
+                            done when
+                            it's needed the most.</p>
+                    </div>
+                    <!--==================== TESTIMONIAL 3 ====================-->
+                    <div class="testimonial__content swiper-slide">
+                        <div class="testimonial__data">
+                            <div class="testimonial__header">
+                                <img src="/assets/img/testimonial3.jpg" alt="" class="testimonial__img">
+
+                                <div>
+                                    <h3 class="testimonial__name">Brian Cox</h3>
+                                    <span class="testimonial__client">Client</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial__description">
+                            He's a good programmer, I carry out my project with all the possible quality. </p>
+                    </div>
+                    <!--==================== TESTIMONIAL 4 ====================-->
+                    <div class="testimonial__content swiper-slide">
+                        <div class="testimonial__data">
+                            <div class="testimonial__header">
+                                <img src="/assets/img/testimonial2.jpg" alt="" class="testimonial__img">
+
+                                <div>
+                                    <h3 class="testimonial__name">Matt Robinson</h3>
+                                    <span class="testimonial__client">Client</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial__description">
+                            He's an amazing web developer, he has a deep understanding about his sphere, and delivers
+                            great result.</p>
+                    </div>
+                </div>
+
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination-testimonial"></div>
+            </div>
+        </section>
+
+        <!--==================== CONTACT ME ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div data-aos="fade-in" class="contact__container container grid">
+                <div>
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon "></i>
+                        <!--home__social-->
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <span class="contact__subtitle"> cosmosmrinmoy@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact__information">
+                        <i class="uil uil-github-alt contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">Github</h3>
+                            <span class="contact__subtitle">https://github.com/MRINMOY662 </span>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://formsubmit.co/3291f4338dc27f344cdc564a1df42f85" method="POST"
+                    class="contact__form grid">
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Name</label>
+                            <input name="name" type="text" class="contact__input">
+                        </div>
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Email</label>
+                            <input name="email" type="email" class="contact__input">
+                        </div>
+                    </div>
+                    <div class="contact__content">
+                        <label for="" class="contact__label">Project</label>
+                        <input name="message" type="text" class="contact__input">
+                    </div>
+                    <div class="contact__content">
+                        <label for="" class="contact__label">Message</label>
+                        <textarea name="" id="" cols="0" rows="7" class="contact__input" name="message"></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="button button--flex">
+                            Send Message
+                            <i class="uil uil-message button__icon"></i>
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Mrinmoy</h1>
+                    <span class="footer__subtitle">Frontend Developer</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#services" class="footer__link">Services</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="footer__link">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer__link">Contactme</a>
+                    </li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.instagram.com/invites/contact/?i=1nzdie95dni4q&utm_content=p6o72vi"
+                        target="_blank" class="footer__social">
+                        <i class="uil uil-instagram"></i></a>
+                    </a>
+
+                    <a href="https://github.com/MRINMOY662" target="_blank" class="footer__social">
+                        <i class="uil uil-github-alt"></i></a>
+                    </a>
+
+                    <a href="https://twitter.com/mrinmoy91013697" target="_blank" class="footer__social">
+                        <i class="uil uil-twitter-alt"></i></a>
+                    </a>
+                </div>
+            </div>
+            <p class="footer__copy">&copy; 2022 Mrinmoy Deka | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+    <!--==================== SCROLL TOP ====================-->
+    <div>
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
+    </div>
+
+    <!--==================== SWIPER JS ====================-->
+
+    <!--==================== MAIN JS ====================-->
+    <script src="assets/js/main.js">
+        /*==================== MENU SHOW Y HIDDEN ====================*/
+        const navMenu = document.getElementById('nav-menu'),
+            navToggle = document.getElementById('nav-toggle'),
+            navClose = document.getElementById('nav-close')
+        /*===== MENU SHOW =====*/
+        /* Validate if constant exists */
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.add('show-menu')
+            })
+        }
+
+        /*===== MENU HIDDEN =====*/
+        /* Validate if constant exists */
+        if (navClose) {
+            navClose.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu')
+            })
+        }
+
+        /*==================== REMOVE MENU MOBILE ====================*/
+        const navLink = document.querySelectorAll('.nav__link')
+
+        function linkAction() {
+            const navMenu = document.getElementById('nav-menu')
+            // When we click on each nav__link, we remove the show-menu class
+            navMenu.classList.remove('show-menu')
+        }
+        navLink.forEach(n => n.addEventListener('click', linkAction))
+        /*==================== ACCORDION SKILLS ====================*/
+        const skillsContent = document.getElementsByClassName('skills__content'),
+            skillsHeader = document.querySelectorAll('.skills__header')
+
+        function toggleSkills() {
+            let itemClass = this.parentNode.className
+
+            for (i = 0; i < skillsContent.length; i++) {
+                skillsContent[i].className = 'skills__content skills__close'
+            }
+            if (itemClass === 'skills__content skills__close') {
+                this.parentNode.className = 'skills__content skills__open'
+            }
+        }
+
+        skillsHeader.forEach((el) => {
+            el.addEventListener('click', toggleSkills)
+        })
+
+        /*==================== QUALIFICATION TABS ====================*/
+
+
+        /*==================== SERVICES MODAL ====================*/
+        const modalViews = document.querySelectorAll('.services__modal'),
+            modalBtns = document.querySelectorAll('.services__button'),
+            modalCloses = document.querySelectorAll('.services__modal-close')
+
+        let modal = function (modalClick) {
+            modalViews[modalClick].classList.add('active-modal')
+        }
+
+        modalBtns.forEach((modalBtn, i) => {
+            modalBtn.addEventListener('click', () => {
+                modal(i)
+            })
+        })
+
+        modalCloses.forEach((modalClose) => {
+            modalClose.addEventListener('click', () => {
+                modalViews.forEach((modalView) => {
+                    modalView.classList.remove('active-modal')
+                })
+            })
+        })
+        /*==================== PORTFOLIO SWIPER  ====================*/
+        let swiperPortfolio = new Swiper('.portfolio__container', {
+            cssMode: true,
+            loop: true,
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        /*==================== TESTIMONIAL ====================*/
+        let swiperTestimonial = new Swiper('.testimonial__container', {
+            loop: true,
+            grabCursor: true,
+            spaceBetween: 48,
+
+
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            breakpoints: {
+                568: {
+                    slidesPerview: 2,
+                }
+            }
+        });
+
+        /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+        const sections = document.querySelectorAll('section[id]')
+
+        function scrollActive() {
+            const scrollY = window.pageYOffset
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight
+                const sectionTop = current.offsetTop - 50;
+                sectionId = current.getAttribute('id')
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+                } else {
+                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+                }
+            })
+        }
+        window.addEventListener('scroll', scrollActive)
+
+        /*==================== CHANGE BACKGROUND HEADER ====================*/
+        function scrollHeader() {
+            const nav = document.getElementById('header')
+            // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
+            if (this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+        }
+        window.addEventListener('scroll', scrollHeader)
+
+
+        /*==================== SHOW SCROLL UP ====================*/
+        function scrollUp() {
+            const scrollUp = document.getElementById('scroll-up');
+            // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
+            if (this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+        }
+        window.addEventListener('scroll', scrollUp)
+
+
+        /*==================== DARK LIGHT THEME ====================*/
+        const themeButton = document.getElementById('theme-button')
+        const darkTheme = 'dark-theme'
+        const iconTheme = 'uil-sun'
+
+        // Previously selected topic (if user selected)
+        const selectedTheme = localStorage.getItem('selected-theme')
+        const selectedIcon = localStorage.getItem('selected-icon')
+
+        // We obtain the current theme that the interface has by validating the dark-theme class
+        const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+        const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+
+        // We validate if the user previously chose a topic
+        if (selectedTheme) {
+            // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+            document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+            themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+        }
+
+        // Activate / deactivate the theme manually with the button
+        themeButton.addEventListener('click', () => {
+            // Add or remove the dark / icon theme
+            document.body.classList.toggle(darkTheme)
+            themeButton.classList.toggle(iconTheme)
+            // We save the theme and the current icon that the user chose
+            localStorage.setItem('selected-theme', getCurrentTheme())
+            localStorage.setItem('selected-icon', getCurrentIcon())
+        })
+    </script>
+
+    <!--=================== Animated text ===============-->
+
+    <script>
+        AOS.init({
+            offset: 300,
+            duration: 2000
+        });
+    </script>
+
+</body>
+
+</html>

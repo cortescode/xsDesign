@@ -3,7 +3,7 @@ instance/*
 !instance/.gitignore
 .webassets-cache
 .env
-
+service-account.json
 
 server_setup.txt
 

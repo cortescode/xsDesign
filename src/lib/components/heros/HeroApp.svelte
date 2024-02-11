@@ -40,10 +40,12 @@
 
 <section class="hero-app" on:mousemove={modifyImagePerspective}>
     <div class="hero-app-content animate">
+        <!-- 
         <div class="chatgpt-banner">
             <img src="/media/assets/images/chatgpt-logo.png" alt="">
             <h3>ChatGPT <br/>Integrated</h3>
         </div>
+         -->
         <h1 class="hero-app-title gradient-text">
             { title }
         </h1>

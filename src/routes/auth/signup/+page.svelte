@@ -33,7 +33,7 @@
             signup(email, password)
             goto("/designer/dashboard")
         } catch (error) {
-            errorMessage = "Correo o contraseña inválidos";
+            errorMessage = "Email or password invalid";
         }
     }
 
@@ -57,9 +57,9 @@
         
             <Logo></Logo>
             
-            <h2 class="gradient-text">Registrate gratis y accede a la fase alpha</h2>
+            <h2 class="gradient-text">Register for the beta phase</h2>
         
-            <p>Solo te pedimos que participes activamente entregándonos feedback y mejoras sobre nuestro producto. ¡Gracias!</p>
+            <p>We only ask that you actively participate by providing us with feedback and improvements about our product. Thank you!</p>
             
             {#if errorMessage != ''}
                 <p style="color: red">{errorMessage}</p>
@@ -74,8 +74,8 @@
             <label for="password">Confirm Password</label>
             <input type="password" name="password" id="confirmed-password" bind:value={form.password}>
          -->
-            <button class="gradient-button auth-button" type="submit"><b>Signup </b></button>
-            <span>¿Ya estás registrado? <a href="/auth/login">Inicia sesión</a></span>
+            <button class="default-button auth-button" type="submit"><b>Signup </b></button>
+            <span>Do you already have an account? <a href="/auth/login">Login</a></span>
         </form>
     </div>
 </section>
