@@ -80,6 +80,8 @@
         align-items: center; /* This centers the .layout grid horizontally */
         gap: 40px;
         padding: 20px; /* Add padding if needed */
+        max-width: calc(100% - 40px);
+        overflow: hidden;
     }
 
     .benefits h1 {
@@ -89,7 +91,7 @@
     .layout {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        width: 96vw;
+        width: 100%;
         max-width: 1800px;
         position: relative;
 
@@ -100,7 +102,7 @@
         height: 400px;
         display: grid;
         align-items: flex-start;
-        
+        width: calc(100% - 80px);
     }
 
     .benefits article:hover {
@@ -113,7 +115,7 @@
     }
 
     .benefits article p {
-        font-size: 3em;
+        font-size: 2em;
         font-weight: bold;
         transition: transform .1s ease-in;
     }
@@ -147,6 +149,15 @@
         .layout {
             display: grid;
             grid-template-columns: 1fr;
+        }
+
+        .benefits {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .benefits {
+            padding: 0;
         }
     }
 </style>

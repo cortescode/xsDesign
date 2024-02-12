@@ -27,4 +27,10 @@
     a:hover {
         text-decoration: underline;
     }
+
+    @media screen and (max-width: 850px) {
+        section {
+            padding-bottom: 100px;
+        }
+    }
 </style>

@@ -1,7 +1,12 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
-<script>
+<script lang="ts">
     import { onMount } from 'svelte';
     import Logo from '../Logo.svelte';
+
+
+    let y: number;
+
+    $: y;
 
 </script>
   
@@ -20,10 +25,16 @@
             <a href="/auth/signup" class="cta">Access Beta for Free</a>
         </div>
     </div>
+
+    {#if y > 50}
+
+        <a href="/auth/signup" class="cta-mobile animate">Access Beta for Free</a>
+    {/if}
     
 </header>
 
 
+<svelte:window bind:scrollY={y} />
 
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
@@ -95,6 +106,31 @@
         width: 18px;
     }
 
+    @media screen and (max-width: 850px) {
+        .cta {
+            display: none !important;
+        }
+
+        .cta-mobile {
+            display: grid !important;
+            justify-content: center !important;
+            align-items: center !important;
+            position: fixed;
+            height: 40px;
+            inset: auto 0 0 0;
+            width: 100%;
+            margin: 0 !important;
+            padding: 10px 0 !important;
+            color: white;
+            background-color: var(--blue);
+        }
+
+        .cta-mobile:hover{
+            background-color: var(--dark);
+            box-shadow: rgb(48, 63, 200) 0 0 120px 0;
+        }
+
+    }
 
 </style>
 
