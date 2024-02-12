@@ -44,7 +44,7 @@
     {/if}
     {#each websites as website }
     
-        <a class="webcard animate" href="/designer/{website.name}">
+        <a class="webcard animate" href="/designer/{website.id}">
 
             <!-- <img src="/media/assets/images/earth.png" class="rotate" alt="" srcset="/media/assets/landing.avif"> -->
             <p>{website.name}</p>

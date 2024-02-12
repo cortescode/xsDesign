@@ -4,7 +4,7 @@
     export let title: string;
     export let description: string;
     export let button: string;
-    export let image = "/media/assets/images/designer-view.png";
+    export let image = "/media/assets/landing.png";
 
 
     let x, y;
