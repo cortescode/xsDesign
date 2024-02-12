@@ -11,7 +11,7 @@
 
 <div>
     <h2 class="title gradient-text">
-        ¡Nos entristeze verte marchar!
+        ¡We are sad to see you go!!
     </h2>
 </div>
 
