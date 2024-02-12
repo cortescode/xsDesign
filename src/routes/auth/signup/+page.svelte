@@ -31,7 +31,7 @@
         let password = form.password
         try {
             await signup(email, password)
-            goto("/designer/dashboard")
+            goto("/designer")
         } catch (error) {
             errorMessage = "Email or password invalid";
         }
@@ -83,7 +83,6 @@
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
-
 
     .auth-form {
         margin: 0 auto;
