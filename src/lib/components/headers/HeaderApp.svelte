@@ -121,8 +121,8 @@
             align-items: center !important;
             position: fixed;
             height: 40px;
-            inset: auto 0 0 0;
-            width: 100%;
+            inset: auto 10px 10px 10px;
+            width: calc(100% - 20px);
             margin: 0 !important;
             padding: 10px 0 !important;
             color: white;
