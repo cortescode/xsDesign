@@ -25,12 +25,12 @@
     }
 
     // ------------- SIGNUP FORM ----------------
-    function submitSignup(event: Event) {
+    async function submitSignup(event: Event) {
         
         let email = form.email
         let password = form.password
         try {
-            signup(email, password)
+            await signup(email, password)
             goto("/designer/dashboard")
         } catch (error) {
             errorMessage = "Email or password invalid";
