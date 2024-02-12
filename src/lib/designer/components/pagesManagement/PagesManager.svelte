@@ -45,6 +45,7 @@
         editor.trigger('page:change', { route: route });
 
         openPanel=false
+        deactivatePagesButtons()
         
     }
 
