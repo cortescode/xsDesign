@@ -86,6 +86,7 @@
 
     .benefits h1 {
         text-align: center;
+        max-width: 90%;
     }
     
     .layout {
