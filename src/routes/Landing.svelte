@@ -85,9 +85,10 @@
     .benefits h1 {
         text-align: center;
     }
-    .benefits .layout {
+    
+    .layout {
         display: grid;
-        grid-template: 1fr 1fr / 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         width: 96vw;
         max-width: 1800px;
         position: relative;
@@ -138,5 +139,14 @@
 
     .support {
         background: linear-gradient(45deg, rgb(255, 255, 241), rgb(255, 200, 233));
+    }
+
+
+
+    @media screen and (max-width: 900px) {
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
     }
 </style>

@@ -16,9 +16,9 @@
     // export let website_id: string;
 
 
-    const projectEndpoint = `http://localhost:5173/designer/${$website?.id}/data/`;
+    const projectEndpoint = `/designer/${$website?.id}/data/`;
 
-    const assetsEndpoint = `http://localhost:5173/designer/${$website?.id}/assets/`
+    const assetsEndpoint = `/designer/${$website?.id}/assets/`
 
     let editor: any;
 
