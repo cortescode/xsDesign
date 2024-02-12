@@ -23,11 +23,24 @@
       <p>Acceder a la web</p> 
     </a> -->
     {#if websites.length == 0}
-        <div class="webcard animate">
-            <h3>Aún no tienes ninguna web</h3>
+        
+        <a class="webcard animate" href="/designer/create">
 
-            <a href="/designer/create">Crea tu primer sitio web</a>
-        </div>
+            <!-- <img src="/media/assets/images/earth.png" class="rotate" alt="" srcset="/media/assets/landing.avif"> -->
+            <p>You don't still have any website</p>
+            <div class="access">
+                <span>+ Create now
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                        l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                        c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                        c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                        S1.293,9.212,1.729,9.212z"></path>
+                    </svg>
+                </span>
+            </div>
+            
+        </a>
     {/if}
     {#each websites as website }
     
@@ -35,15 +48,18 @@
 
             <!-- <img src="/media/assets/images/earth.png" class="rotate" alt="" srcset="/media/assets/landing.avif"> -->
             <p>{website.name}</p>
-            <span>Access 
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                    <path d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
-                    l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
-                    c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
-                    c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
-                    S1.293,9.212,1.729,9.212z"></path>
-                </svg>
-            </span>
+            <div class="access">
+                <span>Access Editor
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                        l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                        c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                        c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                        S1.293,9.212,1.729,9.212z"></path>
+                    </svg>
+                </span>
+            </div>
+            
         </a>
     {/each}
 </section>
@@ -61,20 +77,18 @@
 
     .webcard {
         background-color: white;
-        padding: 20px;
         border-radius: 8px;
         box-shadow: rgba(16, 0, 78, 0.2) 0 -10px 40px;
         text-align: left;
         text-decoration: none;
         transition: .2s;
         height: fit-content;
-        min-height: 200px;
+        height: 280px;
         background: url("/media/assets/cardbg.jpg");
-        background-position: center;
+        background-position: 50% 60%;
         background-size: cover;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: flex-start;
     }
 
@@ -87,11 +101,12 @@
     }
 
     .webcard > p {
-        font-size: 3em;
+        font-size: 2.4em;
         text-align: left;
         color: white;
         margin: 20px auto;
         width: 100%;
+        padding: 20px;
     }
 
     .webcard:hover > p {
@@ -113,8 +128,27 @@
         fill: rgb(0, 248, 255);
     }
 
+
+    .webcard .access {
+        opacity: 0;
+        transition: opacity .2s ease-in;
+    }
+
+    .webcard:hover .access {
+        opacity: 1;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        width: calc(100% - 40px);
+        height: 240px;
+        background-color: rgba(0, 6, 28, 0.6);
+        padding: 20px;
+        z-index: 10;
+    }
+
     .webcard span {
-        color: black;
+        color: rgba(0, 0, 0, 0);
         font-size: 22px;
     }
 

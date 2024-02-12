@@ -83,7 +83,7 @@
     .auth-form {
         margin: 0 auto;
         margin-block: 0;
-        width: 340px;
+        width: 380px;
         max-width: 100%;
         height: fit-content;
         padding: 34px;

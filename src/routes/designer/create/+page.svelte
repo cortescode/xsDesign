@@ -29,7 +29,6 @@
     </div>
     
     <form method="post">
-        <section class="two-columns">
             <div class="animate">
                 <div class="back-button-wrapper">
                     <a href="/designer"> 
@@ -44,24 +43,9 @@
                 <input type="text" id="name" name="name" placeholder="name">
                 <label for="description">Enter a brief description for your site:</label>
                 <input type="text" id="description" name="description" placeholder="description">
-            </div>
-            <img src="/media/assets/images/earth.png" class="animate" alt="" srcset="/media/assets/landing.avif">
-        </section>
-        <!-- 
-        <section>
-            <h1>Choose your template</h1>
-
-            <div class="templates">
-                {#each templates as template (template.id)}
-                    <article on:click={() => handleTemplateSelection(template.id)} class:active = {selectedTemplate == template.id}>
-                        <img src={template.image} alt={template.name}>
-                        <p>{template.name}</p>
-                    </article>
-                {/each}
-            </div>
-            <p>We are working to bring you more templates! </p>
-        </section>
- -->
+            </div><!-- 
+            <img src="/media/assets/images/earth.png" class="animate" alt="" srcset="/media/assets/landing.avif"> -->
+        
         <div class="button-wrapper">
             <input class="designer-button" type="submit" value="+ Create">
         </div>
@@ -69,47 +53,9 @@
 </div>
 
 <style>
-    /* Your existing styles */
-/* 
-    .templates {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-    .templates article {
-        cursor: pointer;
-        height: 260px;
-        border-radius: 8px;
-        background-color: white;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .templates img {
-        max-width: 100%;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    .templates p {
-        margin-top: 8px;
-        cursor: pointer;
-    }
-
-    .templates article[selected='true'] {
-        outline: 2px solid var(--dark);
-    }
-
-    .active {
-        outline: 2px solid var(--blue);
-    }
- */
 
     .back-button-wrapper {
-        width: 100%;
+        width: fit-content;
         height: fit-content;
         color: var(--dark);
         fill: var(--dark);
@@ -120,10 +66,9 @@
         grid-template-columns: auto 1fr;
         align-items: center;
         gap: 20px;
-        font-size: 22px;
+        font-size: 18px;
         text-align: left;
-        min-width: 200px;
-        padding: 10px 20px;
+        padding: 6px 18px 6px 12px;
         border-radius: 12px;
         margin-bottom: 40px;
         border: 1px solid var(--blue)
@@ -142,10 +87,11 @@
 
     .wrapper {
         background: linear-gradient(160deg, white, #DAD4FD);
-        padding-top: 80px !important;
+        padding-top: 120px !important;
         padding: 10px;
         display: grid;
-        place-items: center;
+        align-items: flex-start;
+        justify-items: center;
         height: calc( 100vh - 90px );
     }
 
@@ -160,11 +106,6 @@
         place-items: center;
     }
     
-    .two-columns {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        place-items: center;
-    }
 
     form {
         max-width: 1050px;
@@ -210,6 +151,69 @@
 
     .button-wrapper input {
         font-family: "Comfortaa";
+        padding: 10px 20px;
+        font-size: 22px;
+        margin-top: 40px;
     }
 
 </style>
+
+
+
+<!-- 
+        <section>
+            <h1>Choose your template</h1>
+
+            <div class="templates">
+                {#each templates as template (template.id)}
+                    <article on:click={() => handleTemplateSelection(template.id)} class:active = {selectedTemplate == template.id}>
+                        <img src={template.image} alt={template.name}>
+                        <p>{template.name}</p>
+                    </article>
+                {/each}
+            </div>
+            <p>We are working to bring you more templates! </p>
+        </section>
+ -->
+
+
+ <!-- 
+        /* Your existing styles */
+/* 
+    .templates {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .templates article {
+        cursor: pointer;
+        height: 260px;
+        border-radius: 8px;
+        background-color: white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .templates img {
+        max-width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .templates p {
+        margin-top: 8px;
+        cursor: pointer;
+    }
+
+    .templates article[selected='true'] {
+        outline: 2px solid var(--dark);
+    }
+
+    .active {
+        outline: 2px solid var(--blue);
+    }
+ */
+  -->

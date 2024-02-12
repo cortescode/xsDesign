@@ -58,6 +58,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
 	
 	function openModal(component: any) {
+
 		
 		// Check if the added component is of type 'custom-link'
 		if (component.get('type') !== 'custom-link')
@@ -70,7 +71,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     		textComponent = textComponent ? textComponent.get('content') : '';
 		} 
 			
-
+		const componentStyles = component.getStyle();
+		const currentDecoration = componentStyles['text-decoration'] || 'none';
+		
 		
 		const modalContent = `
 			<label for="linkHref">Link Href:</label>
@@ -78,6 +81,11 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 			<br><br>
 			<label for="linkText">Link Text:</label>
 			<input id="linkText" type="text" placeholder="Enter link Text" value="${textComponent}">
+			<br><br>
+			<div style="display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; justify-items: flex-start;">
+				<label for="toggleTextDecoration">Underline: </label>
+				<input style="display: inline-block; width: 32px; cursor: pointer;" id="toggleTextDecoration" type="checkbox" ${currentDecoration === 'underline' ? 'checked' : ''}>
+			</div>
 			<br><br>
 			<button id="saveLinkBtn" class="designer-button">Save</button>
 		`;
@@ -107,9 +115,16 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 				href: hrefElement?.value
 			});
 
-			let textElement: HTMLInputElement | null | undefined = modal?.querySelector('#linkHref')
+			let textElement: HTMLInputElement | null | undefined = modal?.querySelector('#linkText')
 			component.set('content', textElement?.value);
 
+			// Update text-decoration based on the checkbox
+			let textDecorationCheckbox: HTMLInputElement | null | undefined = modal?.querySelector('#toggleTextDecoration');
+			if (textDecorationCheckbox?.checked) {
+				component.addStyle({ 'text-decoration': 'underline' });
+			} else {
+				component.addStyle({ 'text-decoration': 'none' });
+			}
 			
 			editor.Modal.close(); // Close the modal once the properties are modified
 		});
