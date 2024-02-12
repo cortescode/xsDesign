@@ -106,6 +106,10 @@
         width: 18px;
     }
 
+    .cta-mobile {
+        display: none;
+    }
+
     @media screen and (max-width: 850px) {
         .cta {
             display: none !important;
