@@ -104,9 +104,10 @@
         font-size: 2.4em;
         text-align: left;
         color: white;
-        margin: 20px auto;
+        margin: 20px 0;
         width: 100%;
         padding: 20px;
+        max-width: 380px;
     }
 
     .webcard:hover > p {

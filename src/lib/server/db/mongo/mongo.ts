@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
-import { MONGO_DB_URI } from '$env/static/private'; 
+import { MONGODB_URI } from '$env/static/private'; 
 
-const client = new MongoClient(MONGO_DB_URI)
+const client = new MongoClient(MONGODB_URI)
 
 
 await client.connect()
