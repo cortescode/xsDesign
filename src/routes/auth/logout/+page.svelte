@@ -9,7 +9,16 @@
     onMount(() => goto("/", { replaceState: true }))
 </script>
 
+<div>
+    <h2 class="title gradient-text">
+        ¡Nos entristeze verte marchar!
+    </h2>
+</div>
 
-<h2 class="title">
-    ¡Nos entristeze verte marchar!
-</h2>
+<style>
+    div {
+        display: grid;
+        place-items: center;
+        padding: 80px 20px;
+    }
+</style>

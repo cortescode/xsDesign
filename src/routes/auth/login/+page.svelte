@@ -53,7 +53,7 @@
     <form method="POST" class="auth-form animate" on:submit|preventDefault={submitLogin}>
         <a class="return-link" on:click={backToLastPage}>
             <img class="text-icon vertical-flip" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
-            Volver
+            Back
         </a>
 
 
