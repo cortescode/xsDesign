@@ -1,10 +1,7 @@
 <script lang="ts">
     import Landing from './Landing.svelte';
-    let shouldRender = false;
+    
 
-    export let data;
-
-    let isLoggedIn: boolean = data.isLoggedIn || false;
 </script>
 
 <svelte:head>

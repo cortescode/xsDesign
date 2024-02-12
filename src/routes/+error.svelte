@@ -1,22 +1,21 @@
 <script>
     import DefaultButton from '$lib/components/buttons/DefaultButton.svelte';
-    import Header from '$lib/components/headers/Header.svelte';
     import { goto } from '$app/navigation';
+    import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
 </script>
 
 <svelte:head>
     <title>La página que buscas no existe... | XS Design</title>
 </svelte:head>
 
-<Header
-    buttonLink = "#pricing"
-    buttonText = "Empieza ahora" 
-/>
+
+<HeaderApp/>
+
 <section class="hero">
     <div>
         <h1 class="gradient-text">Error 404</h1>
-        <h2 >La página que buscas parece no existir...</h2>
-        <DefaultButton text="Ir a la página principal" action={() => {
+        <h2>The page you are looking for seems not to exists...</h2>
+        <DefaultButton text="Go to home" action={() => {
                 goto("/")
             }}
         />

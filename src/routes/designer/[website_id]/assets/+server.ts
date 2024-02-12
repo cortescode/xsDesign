@@ -1,5 +1,6 @@
 import { Readable } from 'stream';
 import { Storage } from '@google-cloud/storage';
+import { GOOGLE_APPLICATION_CREDENTIALS_JSON } from "$env/static/private"
 
 export async function GET() {
     console.log("get")
@@ -35,10 +36,9 @@ async function storeFile(website_id:string, file: File) {
     let fileBuffer = await file.arrayBuffer()
     const bucketName = 'xsdesign';
     const storage = new Storage({
-
         projectId: "xs-agency",
-        keyFilename: "service-account.json",
-      
+        credentials: JSON.parse(GOOGLE_APPLICATION_CREDENTIALS_JSON),
+        
     });
 
     const bucket = storage.bucket(bucketName);
