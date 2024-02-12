@@ -10,38 +10,8 @@
     <url>
         <loc>https://xsdesign.co/</loc>
         <changefreq>weekly</changefreq>
-        <lastmod>2024-01-22</lastmod>
+        <lastmod>2024-02-12</lastmod>
         <priority>1</priority>
     </url>
-    <url>
-        <loc>https://xsdesign.co/services/web-design</loc>
-        <changefreq>weekly</changefreq>
-        <lastmod>2024-01-22</lastmod>
-        <priority>1</priority>
-    </url>
-    <url>
-        <loc>https://xsdesign.co/services/web-development</loc>
-        <changefreq>weekly</changefreq>
-        <lastmod>2024-01-22</lastmod>
-        <priority>1</priority>
-    </url>
-        <url>
-        <loc>https://xsdesign.co/services/sales-funnel</loc>
-        <changefreq>weekly</changefreq>
-        <lastmod>2024-01-22</lastmod>
-        <priority>1</priority>
-    </url>
-    <url>
-        <loc>https://xsdesign.co/services/seo-positioning</loc>
-        <changefreq>weekly</changefreq>
-        <lastmod>2024-01-22</lastmod>
-        <priority>1</priority>
-    </url>
-    <url>
-        <loc>https://xsdesign.co/resources/lead-magnet</loc>
-        <changefreq>weekly</changefreq>
-        <lastmod>2024-01-22</lastmod>
-        <priority>0.8</priority>
-    </url>	
 </urlset>
     
