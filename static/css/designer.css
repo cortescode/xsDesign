@@ -223,3 +223,32 @@ svg {
     background: none !important;
 }
 
+
+
+
+
+.gjs-sm-sector .gjs-sm-gradient {
+    width: 100%;
+  }
+
+  .grp-wrapper {
+    margin: 15px 0;
+    background-image: none !important;
+    background-color: var(--gjs-main-dark-color);
+  }
+
+  .grp-handler-close {
+    background-color: #444;
+    color: #ddd;
+  }
+
+  .grp-handler-cp-wrap {
+    border-color: #444;
+  }
+
+  .grp-preview,
+  .grp-wrapper {
+    border-radius: 3px;
+  }
+
+  

@@ -1,19 +1,16 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { grapesjs } from "grapesjs"
-    import main from "$lib/designer/plugins/main";
-    import navbar from "$lib/designer/plugins/navbar"
     import PagesManager from "./pagesManagement/PagesManager.svelte";
     // import exportPlugin from "grapesjs-plugin-export";
-    import basic from "$lib/designer/plugins/basic"
-    import advanced from "$lib/designer/plugins/advanced"
     import type { Website } from "../interfaces/Website";
+
+    import main from "$lib/designer/plugins/main"
+    import advanced from "$lib/designer/plugins/advanced"
 
     import { website } from "./website"
 
 
-    
-    // export let website_id: string;
 
 
     const projectEndpoint = `/designer/${$website?.id}/data/`;
@@ -65,22 +62,26 @@
             pageManager: {
                 pages: [
                     {
-                    id: 'home',
-                    styles: '.my-el { color: red }',
-                    component: '<div class="my-el">Hello world!</div>',
+                        id: 'home',
+                        styles: '.my-el { color: red }',
+                        component: '<div class="my-el">Hello world!</div>',
                     }
                 ]
             },
-			plugins: [main, basic, advanced, navbar],
+            plugins: [main, advanced],
 			pluginsOpts: {
-				'grapesjs-preset-webpage': {},
-                'grapesjs-basic': {},
+                'grapesjs-main': {},
                 'grapesjs-advanced': {},
-                'grapesjs-navbar': {},
 			}
 
         });
-            
+        editor.StyleManager.addProperty('decorations', {
+            name: 'Gradient',
+            property: 'background-image',
+            type: 'gradient',
+            defaults: 'none',
+            full: true
+        });
     })
 
 

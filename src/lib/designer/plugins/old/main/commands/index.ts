@@ -1,5 +1,5 @@
 import type { Editor } from 'grapesjs';
-import type { PluginOptions } from '..';
+import type { RequiredPluginOptions } from '..';
 import {
   cmdClear,
   cmdDeviceDesktop,
@@ -7,12 +7,12 @@ import {
   cmdDeviceTablet,
   oas,
   opa
-} from '../consts';
+} from './../consts';
 import openImport from './openImport';
 
-export default function loadCommands(editor: Editor, config: Required<PluginOptions>) {
+export default function commands (editor: Editor, config: RequiredPluginOptions) {
   const { Commands } = editor;
-  const clearTextConfirm = 'Are you sure you want to clear the canvas?';
+  const txtConfirm = config.textCleanCanvas;
 
   openImport(editor, config);
 
@@ -46,5 +46,5 @@ export default function loadCommands(editor: Editor, config: Required<PluginOpti
     },
   })
 
-  Commands.add(cmdClear, (e: Editor) => confirm(clearTextConfirm) && e.runCommand('core:canvas-clear'));
+  Commands.add(cmdClear, (e: Editor) => confirm(txtConfirm) && e.runCommand('core:canvas-clear'));
 }

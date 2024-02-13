@@ -1,5 +1,5 @@
 import type { Editor, Page } from 'grapesjs';
-import type { PluginOptions } from '.';
+import type { RequiredPluginOptions } from '.';
 import JSZip from "jszip";
 import saveAs from "file-saver";
 
@@ -19,7 +19,7 @@ import type { Route } from '$lib/designer/interfaces/Route';
 
 
 
-export default function loadPanels(editor: Editor) {
+export default function panels(editor: Editor, opts: RequiredPluginOptions) {
   const { Panels } = editor;
   const config = editor.getConfig();
   const swv = 'sw-visibility';
@@ -316,8 +316,8 @@ export default function loadPanels(editor: Editor) {
   }
 
 
-    // On component change show the Style Manager
-    editor.on('component:selected', () => {
+  // On component change show the Style Manager
+  opts.showStylesOnChange && editor.on('component:selected', () => {
     const openSmBtn = Panels.getButton('views', osm);
     const openLayersBtn = Panels.getButton('views', ola);
 

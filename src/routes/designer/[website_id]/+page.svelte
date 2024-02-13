@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-    <title>Diseñador de landing pages | XS Design</title>
+    <title>Websites Designer| XS Design</title>
 </svelte:head>
 
 <div class="wrapper">

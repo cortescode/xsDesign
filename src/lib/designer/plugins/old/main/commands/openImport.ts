@@ -1,25 +1,21 @@
 import type { Editor } from 'grapesjs';
 import type { PluginOptions } from '..';
-import { cmdImport } from '../consts';
+import { cmdImport } from './../consts';
 
 export default function openImport(editor: Editor, config: PluginOptions) {
   const pfx = editor.getConfig('stylePrefix');
-
-  const modalImportTitle = "Import"
-  const importLabel = "";
-  const importCnt: String = '';
-
-  const importViewerOptions = {}
+  const importLabel = config.modalImportLabel;
+  const importCnt = config.modalImportContent;
 
   editor.Commands.add(cmdImport, {
     codeViewer: null as any,
     container: null as HTMLElement | null,
 
     run(editor) {
-      const codeContent = importCnt;
+      const codeContent = typeof importCnt == 'function' ? importCnt(editor) : importCnt;
       const codeViewer = this.getCodeViewer();
       editor.Modal.open({
-        title: modalImportTitle,
+        title: config.modalImportTitle,
         content: this.getContainer(),
       }).onceClose(() => editor.stopCommand(cmdImport));
       codeViewer.setContent(codeContent ?? '');
@@ -50,7 +46,7 @@ export default function openImport(editor: Editor, config: PluginOptions) {
         // Import button
         const btnImp = document.createElement('button');
         btnImp.type = 'button';
-        btnImp.innerHTML = "Import";
+        btnImp.innerHTML = config.modalImportButton || "";
         btnImp.className = `${pfx}btn-prim ${pfx}btn-import`;
         btnImp.onclick = () => {
           editor.Css.clear();
@@ -75,7 +71,7 @@ export default function openImport(editor: Editor, config: PluginOptions) {
           codeName: 'htmlmixed',
           theme: 'hopscotch',
           readOnly: false,
-          ...importViewerOptions,
+          ...config.importViewerOptions,
         });
       }
 
