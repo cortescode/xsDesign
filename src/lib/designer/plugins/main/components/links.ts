@@ -10,9 +10,11 @@ export default function addLinks(editor: Editor) {
         run: function(editor) {
             let component = editor.getSelected()
 
+			console.log("The modal should open now")
 			openModal(component)
         }
     });
+	
 
 
     Components.addType("custom-link", {
@@ -21,7 +23,7 @@ export default function addLinks(editor: Editor) {
 			defaults: {
 				name: 'link',
 				attributes: { 
-					class: `link`,
+					class: `basic-link`,
 					href: "/"
 				},
 				toolbar: [
@@ -47,19 +49,38 @@ export default function addLinks(editor: Editor) {
 					}
 				]
 			},
-		}
-		
+		}	
     });
 
 	Components.addType("button-link", {
 		extend: 'link',
 		model: {
 			defaults: {
-				name: 'link',
+				name: 'button-link',
 				attributes: { 
-					class: `button-link`,
+					class: `basic-button-link`,
 					href: "/"
 				},
+				styles: `
+
+				.basic-button-link {
+					display: block;
+					padding: 10px 20px;
+					border-radius: 8px;
+					background-color: rgb(36, 57, 214);
+					color: white;
+					font-size: 18px;
+					text-decoration: none;
+					margin: 10px auto;
+					width: fit-content;
+				}
+
+				.basic-button-link:hover {
+					background-color: white;
+					color: rgb(36, 57, 214);
+				}
+				
+				`,
 				toolbar: [
 					{
 						attributes: {class: 'fa fa-arrow-up'},
@@ -94,10 +115,8 @@ export default function addLinks(editor: Editor) {
 
 	
 	function openModal(component: any) {
-
-		
 		// Check if the added component is of type 'custom-link'
-		if (component.get('type') !== 'custom-link')
+		if (component.get('type') !== 'custom-link' && component.get('type') !== 'button-link')
 			return
 			
 		// Obtain the link text to show it as default
@@ -118,9 +137,9 @@ export default function addLinks(editor: Editor) {
 			<label for="linkText">Link Text:</label>
 			<input id="linkText" type="text" placeholder="Enter link Text" value="${textComponent}">
 			<br><br>
-			<div style="display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; justify-items: flex-start;">
-				<label for="toggleTextDecoration">Underline: </label>
-				<input style="display: inline-block; width: 32px; cursor: pointer;" id="toggleTextDecoration" type="checkbox" ${currentDecoration === 'underline' ? 'checked' : ''}>
+			<div style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; justify-items: flex-start;">
+				<label for="toggleTextDecoration"><u>Underline:</u> </label>
+				<input style="display: inline-block; width: 30px; cursor: pointer;" id="toggleTextDecoration" type="checkbox" ${currentDecoration === 'underline' ? 'checked' : ''}>
 			</div>
 			<br><br>
 			<button id="saveLinkBtn" class="designer-button">Save</button>
@@ -134,7 +153,6 @@ export default function addLinks(editor: Editor) {
                 class: 'small-modal',
               }
 		})
-
 
 		// FUNCTIONALITY ASSOCIATED TO THE MODAL TO MODIFY PROPERTIES
 
@@ -164,6 +182,7 @@ export default function addLinks(editor: Editor) {
 			
 			editor.Modal.close(); // Close the modal once the properties are modified
 		});
+
 
 	}
 

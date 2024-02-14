@@ -115,7 +115,7 @@ svg {
 
 
 .small-modal .gjs-mdl-dialog {
-    max-width: 360px !important;
+    max-width: 380px !important;
 }
 
 .small-modal .gjs-mdl-dialog .gjs-mdl-content {
@@ -123,7 +123,7 @@ svg {
     place-items: center;
     grid-template-rows: 1fr;
     min-height: 180px;
-    padding: 32px 8px;
+    padding: 32px 0;
 }
 
 
@@ -132,22 +132,33 @@ svg {
     display: grid;
     place-items: center;
     grid-template-rows: 1fr;
+    width: calc(100% - 40px);
+    margin: 0;
+    padding: 20px;
     min-height: 180px;
+}
+
+
+.small-modal .gjs-mdl-dialog #gjs-mdl-c {
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
 }
 
 .small-modal .gjs-mdl-dialog .gjs-mdl-content label {
     font-size: 16px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .small-modal .gjs-mdl-dialog .gjs-mdl-content input {
     display: block;
-    margin: 10px 0;
+    margin: 4px 0;
     
     height: 100%;
     padding: 0 20px;
     min-height: 40px;
+    width: calc(100% - 40px);
     border: 1px solid var(--blue);
     border-radius: 12px;
     font-size: 18px;
@@ -155,6 +166,7 @@ svg {
 
 .small-modal .gjs-mdl-dialog .gjs-mdl-content button {
     margin: 0 auto;
+    width: 100%;
 }
 
 
@@ -252,3 +264,8 @@ svg {
   }
 
   
+
+
+.link-modal {
+
+}

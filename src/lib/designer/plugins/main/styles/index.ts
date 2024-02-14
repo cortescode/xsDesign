@@ -1,5 +1,6 @@
 import type { Editor, Plugin } from 'grapesjs';
 import loadGradientSupport from './gradient';
+// import loadGrid from './grid';
 
 export { parseGradient, toGradient, getValidDir, GRAD_DIRS, GRAD_TYPES } from './gradient';
 
@@ -52,5 +53,9 @@ export default function loadStyles (editor: Editor, opts = {}){
     };
 
     loadGradientSupport(editor, options);
+
+    // loadGridSupport(editor)
+
+    // loadGrid(editor)
     
 };

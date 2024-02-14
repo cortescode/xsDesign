@@ -1,6 +1,7 @@
 import type { BlockProperties, Plugin } from 'grapesjs';
 import loadHeader from './header';
 import loadMap from './map';
+import loadCustomCode from './custom-code';
 
 export type PluginOptions = {
   
@@ -14,10 +15,11 @@ export type PluginOptions = {
 
 export type RequiredPluginOptions = Required<PluginOptions>;
 
-const plugin: Plugin<PluginOptions> = (editor, opts = {}) => {
+const plugin: Plugin<PluginOptions> = (editor, opts: PluginOptions = {}) => {
 
   loadHeader(editor)
   loadMap(editor)
+  loadCustomCode(editor)
 };
 
 export default plugin;

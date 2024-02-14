@@ -72,8 +72,7 @@
 			pluginsOpts: {
                 'grapesjs-main': {},
                 'grapesjs-advanced': {},
-			}
-
+			},
         });
         editor.StyleManager.addProperty('decorations', {
             name: 'Gradient',
@@ -82,6 +81,7 @@
             defaults: 'none',
             full: true
         });
+
     })
 
 
