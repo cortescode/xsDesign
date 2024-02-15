@@ -22,6 +22,8 @@
         <h2 class="gradient-text">
             You need to access from a computer to manage your websites
         </h2>
+
+        <a href="/auth/logout" class="designer-button">Logout</a>
     </div>
 </section>
 
@@ -58,6 +60,10 @@
 
         .mobile-message h2 {
             margin-top: 40px;
+        }
+
+        .mobile-message a {
+            margin-top: 20px;
         }
     }
 </style>
