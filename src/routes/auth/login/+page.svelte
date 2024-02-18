@@ -5,10 +5,8 @@
 
     import { goto } from "$app/navigation"
     import { user, isLoggedIn } from '$lib/stores/session';
-    import { auth } from '$lib/firebaseConn';
-    import { signInWithEmailAndPassword } from 'firebase/auth';
-
     import { login } from '$lib/auth';
+    import SignInWithGoogleButton from '$lib/components/SignInWithGoogleButton.svelte';
     
     
     if($user) {
@@ -49,41 +47,65 @@
     <title>Inicia sesión | XS Design</title>
 </svelte:head>
 <section class="auth-page">
-        
-    <form method="POST" class="auth-form animate" on:submit|preventDefault={submitLogin}>
-        <a class="return-link" on:click={backToLastPage}>
-            <img class="text-icon vertical-flip" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
-            Back
-        </a>
+    <div class="form-container animate">
+        <form method="POST" class="auth-form" on:submit|preventDefault={submitLogin}>
+            <a class="return-link" on:click={backToLastPage}>
+                <img class="text-icon vertical-flip" src="/media/assets/icons/right-arrow.png" alt="" srcset="/media/assets/icons/right-arrow.png">
+                Back
+            </a>
 
 
-        <Logo></Logo>
-        
-        <h2 class="gradient-text">Login</h2>
-        <p>¡We are happy to see you again!</p>
+            <Logo></Logo>
+            
+            <h2 class="gradient-text">Login</h2>
+            <p>¡We are happy to see you again!</p>
 
-        {#if errorMessage != ''}
-            <p style="color: red">{errorMessage}</p>
-        {/if}
-        
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" bind:value={form.email}>
-        
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" bind:value={form.password}>
-        
-        <button class="default-button auth-button" type="submit"><b>Login </b></button>
-        <span>Don't you already have an account? <a href="/auth/signup">Signup</a></span>
-    </form>
+            {#if errorMessage != ''}
+                <p style="color: red">{errorMessage}</p>
+            {/if}
+            
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" bind:value={form.email}>
+            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" bind:value={form.password}>
+            
+            <button class="designer-button auth-button" type="submit"><b>Login </b></button>
 
+            <span>Don't you already have an account? <a href="/auth/signup">Signup</a></span>
+
+            <div class="divider"></div>
+            <SignInWithGoogleButton></SignInWithGoogleButton>
+        </form>
+            
+    </div>
 </section>
 
 
 <style>
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background-color: rgb(255, 70, 70);
+        border-radius: 2px;
+        
+        margin-top: 20px;
+    }
+
+    .auth-page {
+        max-width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
+        padding: 10px;
+        display: grid;
+        place-items: center;
+    }
+
     .auth-form {
         margin: 0 auto;
         margin-block: 0;
-        width: 360px;
+        width: auto;
+        max-width: 360px;
         height: fit-content;
         padding: 34px;
         box-shadow: rgba(0, 62, 155, 0.2) 0 -0 40px;
@@ -134,20 +156,6 @@
     .auth-form a:hover .text-icon {
         margin-right: 20px;
     }
-    
-    .auth-page {
-        display: grid;
-        place-items: center;
-        height: calc(100vh - 40px);
-        max-width: 100%;
-    }
-
-    .form-container {
-        margin: auto;
-        padding: 0;
-        max-width: fit-content;
-    }
-
 
     @media screen and (max-width: 767px) {
         .auth-form {

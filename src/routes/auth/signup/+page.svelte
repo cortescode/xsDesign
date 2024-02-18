@@ -6,10 +6,9 @@
     import Logo from '$lib/components/Logo.svelte';
     import { goto } from "$app/navigation";
     import { user } from '$lib/stores/session';
-    import { createUserWithEmailAndPassword } from 'firebase/auth';
-    import { auth } from '$lib/firebaseConn';
-
+    
     import { signup } from '$lib/auth';
+    import SignInWithGoogleButton from '$lib/components/SignInWithGoogleButton.svelte';
 
     if($user) {
         goto("/designer/dashboard")
@@ -22,6 +21,7 @@
     let form = {
         email: "",
         password: "",
+        confirm_password: "",
     }
 
     // ------------- SIGNUP FORM ----------------
@@ -29,6 +29,13 @@
         
         let email = form.email
         let password = form.password
+        let confirm_password = form.confirm_password
+
+        if(password != confirm_password) {
+            errorMessage = "The two passwords do not match"
+            return
+        }
+
         try {
             await signup(email, password)
             goto("/designer")
@@ -40,6 +47,7 @@
     function backToLastPage(event: Event) {
         window.history.back()
     }
+    
 
 </script>
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
@@ -59,7 +67,7 @@
             
             <h2 class="gradient-text">Register for the beta phase</h2>
         
-            <p>We only ask that you actively participate by providing us with feedback and improvements about our product. Thank you!</p>
+            <p>Welcome to the next-generation website builder</p>
             
             {#if errorMessage != ''}
                 <p style="color: red">{errorMessage}</p>
@@ -70,19 +78,41 @@
             
             <label for="password">Password</label>
             <input type="password" name="password" id="password" bind:value={form.password}>
-        <!-- 
+        
             <label for="password">Confirm Password</label>
-            <input type="password" name="password" id="confirmed-password" bind:value={form.password}>
-         -->
-            <button class="default-button auth-button" type="submit"><b>Signup </b></button>
+            <input type="password" name="password" id="confirmed-password" bind:value={form.confirm_password}>
+         
+            <button class="designer-button auth-button" type="submit"><b>Signup </b></button>
             <span>Do you already have an account? <a href="/auth/login">Login</a></span>
+
+            <div class="divider"></div>
+            <SignInWithGoogleButton></SignInWithGoogleButton>
         </form>
+        
+            
     </div>
 </section>
 
 
 <!-- ------------------------------------------ C S S ------------------------------------------ -->
 <style>
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background-color: rgb(255, 70, 70);
+        border-radius: 2px;
+        
+        margin-top: 20px;
+    }
+
+    .auth-page {
+        max-width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
+        padding: 10px;
+        display: grid;
+        place-items: center;
+    }
 
     .auth-form {
         margin: 0 auto;
