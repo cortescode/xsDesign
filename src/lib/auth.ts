@@ -6,7 +6,8 @@ import {
     GoogleAuthProvider, 
     signInWithPopup, 
     signOut, 
-    getAuth
+    signInWithRedirect,
+    getRedirectResult
 } from 'firebase/auth';
 import type { UserCredential, User } from 'firebase/auth';
 import { goto } from '$app/navigation';
@@ -25,14 +26,11 @@ export async function signup(email: string, password: string) {
     
     let _user = userCredential.user
 
-    user.set(userCredential.user)
-    
-    setCookie(LOGGED_IN, "true", 60)
-    setCookie(USER_UID, _user.uid, 60)
+    setUserCookiesAndStore(_user)
 }
 
-export async function signinWithGoogle() {
-    
+export async function signinWithGooglePopUp() {
+
     const userCredential: UserCredential = await signInWithPopup(auth, provider);
 
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -41,22 +39,25 @@ export async function signinWithGoogle() {
 
     const _user = userCredential.user
 
-    user.set(_user)
-        
-    // You might want to update these lines based on your application's logic
-    setCookie(LOGGED_IN, "true", 60);
-    setCookie(USER_UID, _user.uid, 60);
+
+    setUserCookiesAndStore(_user)
 }
+
+
+export async function signinWithGoogleRedirect() {
+    await signInWithRedirect(auth, provider);
+
+}
+
 
 
 export async function login(email: string, password: string) {
     let userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password)
     
     let _user = userCredential.user
+
+    setUserCookiesAndStore(_user)
     
-    user.set(_user)
-    setCookie(LOGGED_IN, "true", 60)
-    setCookie(USER_UID, _user.uid, 60)
 }
 
 
@@ -68,3 +69,10 @@ export async function logout() {
     deleteCookie(USER_UID)
 }
 
+
+
+export function setUserCookiesAndStore(_user: User) {
+    user.set(_user)
+    setCookie(LOGGED_IN, "true", 60)
+    setCookie(USER_UID, _user.uid, 60)
+}
