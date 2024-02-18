@@ -1,167 +1,80 @@
-
 <!-- ------------------------------------------ TS ------------------------------------------ -->
 <script lang="ts">
-    import Logo from '$lib/components/Logo.svelte';
+    import Logo from "$lib/components/Logo.svelte";
 
-    import { goto } from "$app/navigation"
-    import { user, isLoggedIn } from '$lib/stores/session';
-    import { login } from '$lib/auth';
-    import SignInWithGoogleButton from '$lib/components/SignInWithGoogleButton.svelte';
-    import { onMount } from 'svelte';
-    import { getRedirectResult } from 'firebase/auth';
-    
-    
-    if($user) {
-        goto("/", { replaceState: true })
-    }
-    
+    import { goto } from "$app/navigation";
+    import { user, isLoggedIn } from "$lib/stores/session";
+    import { login } from "$lib/auth";
+    import SignInWithGoogleButton from "$lib/components/SignInWithGoogleButton.svelte";
+    import { onMount } from "svelte";
+    import { getRedirectResult } from "firebase/auth";
 
-    let errorMessage = ""
+    let errorMessage = "";
 
     let form = {
         email: "",
         password: "",
-    }
-
+    };
 
     // ------------- LOGIN FORM ----------------
     async function submitLogin(event: Event) {
-        let email = form.email
-        let password = form.password
-        
-        try {
-            await login(email, password)
+        let email = form.email;
+        let password = form.password;
 
-            goto("/", { replaceState: true })
+        try {
+            await login(email, password);
+
+            goto("/", { replaceState: true });
         } catch (error) {
             errorMessage = "Email or password invalid";
         }
     }
-
-
-    function backToLastPage(event: Event) {
-
-        goto("/", { replaceState: true })
-    }
-
 </script>
+
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <svelte:head>
     <title>Inicia sesión | XS Design</title>
 </svelte:head>
-<section class="auth-page">
-    <div class="form-container animate">
-        <form method="POST" class="auth-form" on:submit|preventDefault={submitLogin}>
-            
-            <div class="back-button-wrapper">
-                <button on:click={backToLastPage}> 
-                    <svg width="20" height="20" viewBox="0 0 20 20">
-                        <path d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"></path>
-                    </svg>   
-                    Back 
-                </button>
-            </div>
 
+<form method="POST" class="auth-form" on:submit|preventDefault={submitLogin}>
+    <Logo></Logo>
 
-            <Logo></Logo>
-            
-            <h2 class="gradient-text">Login</h2>
-            <p>¡We are happy to see you again!</p>
+    <h2 class="gradient-text">Login</h2>
+    <p>¡We are happy to see you again!</p>
 
-            {#if errorMessage != ''}
-                <p style="color: red">{errorMessage}</p>
-            {/if}
-            
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" bind:value={form.email}>
-            
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" bind:value={form.password}>
-            
-            <button class="designer-button auth-button" type="submit"><b>Login </b></button>
+    {#if errorMessage != ""}
+        <p style="color: red">{errorMessage}</p>
+    {/if}
 
-            <span>Don't you already have an account? <a href="/auth/signup">Signup</a></span>
-        </form>
-            
-        <div class="divider"></div>
-        <SignInWithGoogleButton></SignInWithGoogleButton>
-    </div>
-</section>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" bind:value={form.email} />
+
+    <label for="password">Password</label>
+    <input
+        type="password"
+        name="password"
+        id="password"
+        bind:value={form.password}
+    />
+
+    <button class="designer-button auth-button" type="submit">
+        <b>Login </b>
+    </button>
+
+    <span>
+        Don't you already have an account? 
+        <a href="/auth/signup">Signup</a>
+    </span>
+</form>
 
 
 <style>
-
-    .back-button-wrapper {
-        width: fit-content;
-        height: fit-content;
-        color: var(--dark);
-        fill: var(--dark);
-    }
-
-    .back-button-wrapper button {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        gap: 20px;
-        font-size: 18px;
-        text-align: left;
-        padding: 6px 18px 6px 12px;
-        border-radius: 12px;
-        margin-bottom: 40px;
-        border: 1px solid var(--blue);
-        background-color: white;
-    }
-
-    .back-button-wrapper button:hover {
-        background-color: white;
-    }
-
-    .back-button-wrapper svg {
-        transition: padding .1s ease-in;
-    }
-    .back-button-wrapper:hover svg {
-        padding-right: 20px;
-    }
-
-
-    .divider {
-        width: 100%;
-        height: 1px;
-        background-color: rgb(255, 70, 70);
-        border-radius: 2px;
-        
-        margin-top: 20px;
-    }
-
-    .auth-page {
-        max-width: calc(100vw - 20px);
-        height: calc(100vh - 20px);
-        padding: 10px;
-        display: grid;
-        place-items: center;
-    }
-
-    .form-container {
-        margin: 0 auto;
-        margin-block: 0;
-        width: auto;
-        max-width: 360px;
-        height: fit-content;
-        padding: 34px;
-        box-shadow: rgba(0, 62, 155, 0.2) 0 -0 40px;
-        background-color: white;
-        border-radius: 8px;
-
-    }
 
     .auth-form {
         display: grid;
         grid-template-columns: 1fr;
         text-align: left;
-    }
-
-    .return-link {
-        margin-bottom: 20px;
+        padding: 0 !important;
     }
 
     .auth-form h2 {
@@ -194,17 +107,6 @@
         border-radius: 8px;
         width: 100%;
         margin: 28px 0 0 0;
-    }
-
-
-    .auth-form a:hover .text-icon {
-        margin-right: 20px;
-    }
-
-    @media screen and (max-width: 767px) {
-        .auth-form {
-            padding: 20px;
-        }
     }
 
 </style>

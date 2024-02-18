@@ -311,9 +311,6 @@ p {
 
 /* --------------- FORMS ---------------- */
 
-.auth-page {
-	margin: 0 auto;
-}
 
 
 .welcome-message {
@@ -370,10 +367,6 @@ p {
 		padding: 10px;
 		margin: 40px 0;
 		text-align: left;
-	}
-	.auth-form {
-		padding: 20px;
-		width: calc(100% - 40px);
 	}
 
 	.flex-columns {
