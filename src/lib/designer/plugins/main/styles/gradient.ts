@@ -226,6 +226,4 @@ export default function loadGradientSupport(editor: Editor, config: PluginOption
         ]
     });
 
-    
-
 }

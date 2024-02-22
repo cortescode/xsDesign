@@ -1,7 +1,7 @@
 import type { Editor, BlockProperties } from 'grapesjs'
 
 
-export default function loadColumns(editor: Editor) {
+export default function loadFlexColumns(editor: Editor) {
     
     const blockManager = editor.BlockManager;
 
@@ -107,25 +107,22 @@ export default function loadColumns(editor: Editor) {
 		select: true,
 	};
 
-/* 'column1',
-      'column2',
-      'column3',
-      'column3-7', */
+    
     blockManager.add('column1', {
         ...commonBlockProps,
         label: 'column1',
         media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
         </svg>`,
-        content: `<div ${attrsRow}>
+        content: `<section ${attrsRow}>
         <div ${attrsCell}></div>
-        </div>
+        </section>
         <style>
             ${styleRow}
             ${styleColumn}
         </style>
         `,
-        category: 'Layout'
+        category: 'Flexbox'
     });
 
     
@@ -135,16 +132,16 @@ export default function loadColumns(editor: Editor) {
         media: `<svg viewBox="0 0 23 24">
         <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
         </svg>`,
-        content: `<div ${attrsRow}>
+        content: `<section ${attrsRow}>
         <div ${attrsCell}></div>
         <div ${attrsCell}></div>
-        </div>
+        </section>
         <style>
             ${styleRow}
             ${styleColumn}
         </style>
         `,
-        category: 'Layout'
+        category: 'Flexbox'
     });
     
 
@@ -154,17 +151,17 @@ export default function loadColumns(editor: Editor) {
         media: `<svg viewBox="0 0 23 24">
         <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
         </svg>`,
-        content: `<div ${attrsRow}>
+        content: `<section ${attrsRow}>
         <div ${attrsCell}></div>
         <div ${attrsCell}></div>
         <div ${attrsCell}></div>
-        </div>
+        </section>
         <style>
             ${styleRow}
             ${styleColumn}
         </style>
         }`,
-        category: 'Layout'
+        category: 'Flexbox'
     });
 
     blockManager.add('column3-7', {
@@ -174,10 +171,10 @@ export default function loadColumns(editor: Editor) {
         <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"/>
         </svg>`,
         content: `
-        <div ${attrsRow}>
+        <section ${attrsRow}>
             <div ${attrsCell} style='flex-basis'></div>
             <div ${attrsCell} style='flex-basis'></div>
-        </div>
+        </section>
         <style>
                 ${styleRow}
                 ${styleColumn}
@@ -186,7 +183,7 @@ export default function loadColumns(editor: Editor) {
         </style>
         
         }`,
-        category: 'Layout'
+        category: 'Flexbox'
         
     });
 

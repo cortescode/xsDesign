@@ -1,6 +1,3 @@
-
-
-
 :root {
     --gjs-main-color: #006a90;
     --gjs-primary-color: #f4f7ff;
@@ -18,15 +15,15 @@
     --gjs-color-red: #dd3636;
     --gjs-color-yellow: #ffca6f;
     --gjs-color-green: #62c462;
-    --gjs-left-width: 15%;
+    --gjs-left-width: 20%;
     --gjs-color-highlight: #71b7f1;
-    --gjs-color-warn: #ffca6f;
+    --gjs-color-warn: rgb(145, 62, 255);
     --gjs-handle-margin: -5px;
     --gjs-light-border: rgba(255, 255, 255, 0.05);
     --gjs-arrow-color: rgb(0, 4, 36);
     --gjs-dark-text-shadow: rgba(0, 0, 0, 0.2);
     --gjs-color-input-padding: 22px;
-    --gjs-input-padding: 5px;
+    --gjs-input-padding: 6px;
     --gjs-padding-elem-classmanager: 5px 6px;
     --gjs-upload-padding: 150px 10px;
     --gjs-animation-duration: 0.2s;
@@ -45,45 +42,45 @@
     padding: 30px 20px;
     margin: 150px auto 0px;
     background-color: #d983a6;
-    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.25);
-    color:rgba(255,255,255,0.75);
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.75);
     font: caption;
     font-weight: 100;
 }
 
 .designer-logo {
-	font-family: 'comfortaa';
-	font-weight: 900;
-	color: #341B4D;
-	width: max-content;
+    font-family: 'comfortaa';
+    font-weight: 900;
+    color: #341B4D;
+    width: max-content;
 }
 
 .designer-logo-container {
     position: fixed;
     top: 10px;
     left: 38%;
-	display: grid;
-	grid-template-columns: auto auto;
-	justify-self: left;
-	align-items: center;
-	height: 24px;
-	border-radius: 18px;
-	width: fit-content;
-    -webkit-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-self: left;
+    align-items: center;
+    height: 24px;
+    border-radius: 18px;
+    width: fit-content;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     z-index: 2;
 }
 
 .designer-logo-container h1 {
-	font-size: 16px;
-	margin: 0;
+    font-size: 16px;
+    margin: 0;
 }
 
 .designer-logo-container .logo-image {
-	width: 20px;
-	margin-right: 10px;
+    width: 20px;
+    margin-right: 10px;
 }
 
 
@@ -100,13 +97,11 @@
 }
 
 .gjs-frame {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
-.gjs-pn-panels {
-    
-}
+.gjs-pn-panels {}
 
 
 svg {
@@ -154,7 +149,7 @@ svg {
 .small-modal .gjs-mdl-dialog .gjs-mdl-content input {
     display: block;
     margin: 4px 0;
-    
+
     height: 100%;
     padding: 0 20px;
     min-height: 40px;
@@ -172,9 +167,9 @@ svg {
 
 
 .designer-button {
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: rgb(67, 28, 225);
     padding: 10px 20px;
     border-radius: 12px;
@@ -185,6 +180,7 @@ svg {
     font-size: 16px;
     transition: .2s;
 }
+
 .designer-button:hover {
     background: rgb(13, 4, 27);
     box-shadow: rgb(48, 63, 200) 0 0 120px 0;
@@ -200,13 +196,16 @@ svg {
 .route-name {
     display: inline-block !important;
     cursor: default !important;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; 
-    font-size: 14.6px !important; 
-    font-weight: bold; 
-    padding: 6px 8px 0 8px !important; 
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    font-size: 14.6px !important;
+    font-weight: bold;
+    padding: 6px 8px 0 8px !important;
     margin: 0;
     max-width: 160px;
     overflow: hidden;
@@ -241,31 +240,113 @@ svg {
 
 .gjs-sm-sector .gjs-sm-gradient {
     width: 100%;
-  }
+}
 
-  .grp-wrapper {
+.grp-wrapper {
     margin: 15px 0;
     background-image: none !important;
     background-color: var(--gjs-main-dark-color);
-  }
+}
 
-  .grp-handler-close {
+.grp-handler-close {
     background-color: #444;
     color: #ddd;
-  }
-
-  .grp-handler-cp-wrap {
-    border-color: #444;
-  }
-
-  .grp-preview,
-  .grp-wrapper {
-    border-radius: 3px;
-  }
-
-  
-
-
-.link-modal {
-
 }
+
+.grp-handler-cp-wrap {
+    border-color: #444;
+}
+
+.grp-preview,
+.grp-wrapper {
+    border-radius: 3px;
+}
+
+
+
+
+
+
+/* .gjs-field {
+    margin: 4px;
+}
+.gjs-field input,
+.gjs-field select,
+.gjs-field textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: inherit;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    padding: var(--gjs-input-padding);
+    z-index: 1;
+
+    background-color: #edf7ff;
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+        rgba(44, 61, 187, 0.15) 0 1px 2px,
+        rgba(44, 168, 187, 0.15) 0 2px 4px,
+        rgba(44, 101, 187, 0.15) 0 4px 8px;
+    border-radius: 4px;
+}
+
+
+
+.gjs-field input:focus,
+.gjs-field select:focus,
+.gjs-field textarea:focus {
+    outline: none;
+    background-color: #7b64ff;
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 61, 187, 0.15) 0 1px 2px,
+    rgba(44, 168, 187, 0.15) 0 2px 4px,
+    rgba(44, 101, 187, 0.15) 0 4px 8px,
+    rgba(44, 158, 187, 0.15) 0 8px 16px,
+    rgba(44, 46, 187, 0.15) 0 16px 32px;
+}
+
+.gjs-field input[type=number] {
+    -moz-appearance: textfield
+}
+
+.gjs-field input[type=number]::-webkit-outer-spin-button,
+.gjs-field input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.gjs-field-range {
+    flex: 9 1 auto
+}
+
+.gjs-field-integer input {
+    padding-right: 30px
+}
+
+.gjs-select option,
+.gjs-field-select option,
+.gjs-clm-select option,
+.gjs-sm-select option,
+.gjs-fields option,
+.gjs-sm-unit option {
+    background-color: var(--gjs-main-color);
+    color: var(--gjs-font-color)
+}
+
+.gjs-field {
+    background-color: #edf7ff;
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+        rgba(44, 61, 187, 0.15) 0 1px 2px,
+        rgba(44, 168, 187, 0.15) 0 2px 4px,
+        rgba(44, 101, 187, 0.15) 0 4px 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0;
+    position: relative
+}
+
+.gjs-field textarea {
+    resize: vertical
+} */

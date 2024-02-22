@@ -1153,6 +1153,7 @@ span.CodeMirror-selectedtext {
 
 .gjs-one-bg {
     background-color: #f4f7ff;
+    
 }
 
 
@@ -1191,14 +1192,22 @@ span.CodeMirror-selectedtext {
 .gjs-bg-main,
 .gjs-sm-colorp-c,
 .gjs-off-prv {
-    background-color: var(--gjs-main-color)
+    background-color: rgb(200, 206, 255);
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 61, 187, 0.15) 0 1px 2px,
+    rgba(44, 168, 187, 0.15) 0 2px 4px,
+    rgba(44, 101, 187, 0.15) 0 4px 8px;
+    border-radius: 4px !important;
+    padding: 20px;
+    font-size: 18px;
+    color: var(--blue);
 }
 
 .gjs-color-main,
 .gjs-sm-stack #gjs-sm-add,
 .gjs-off-prv {
-    color: var(--gjs-font-color);
-    fill: var(--gjs-font-color)
+    color: var(--blue);
+    fill: currentColor;
 }
 
 .gjs-color-active {
@@ -1300,7 +1309,8 @@ span.CodeMirror-selectedtext {
     position: relative;
     z-index: 10;
     padding: 5px;
-    cursor: pointer
+    cursor: pointer;
+    margin: 10px;
 }
 
 .gjs-editor-cont ::-webkit-scrollbar-track {
@@ -1999,7 +2009,7 @@ span.CodeMirror-selectedtext {
 
 .gjs-pn-views-container {
     height: 100%;
-    padding: 42px 0 0;
+    padding: 52px 0 0 0;
     right: 0;
     width: var(--gjs-left-width);
     overflow: auto;
@@ -2017,19 +2027,36 @@ span.CodeMirror-selectedtext {
     min-height: 30px;
     min-width: 30px;
     line-height: 21px;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
+    background-color: rgba(0, 153, 255, 0);
     font-size: 18px;
     margin-right: 5px;
     border-radius: 2px;
     padding: 4px;
     position: relative;
     cursor: pointer;
+    color: rgb(1, 0, 60);
+}
+
+.gjs-pn-btn * {
+    cursor: pointer !important;
+}
+
+.gjs-pn-btn:hover {
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 61, 187, 0.15) 0 1px 2px,
+    rgba(44, 168, 187, 0.15) 0 2px 4px,
+    rgba(44, 101, 187, 0.15) 0 4px 8px;
+    border: 1px solid var(--blue);
 }
 
 .gjs-pn-btn.gjs-pn-active {
-    background-color: rgba(0, 0, 0, .15);
-    box-shadow: 0 0 3px rgba(0, 0, 0, .25) inset
+    background-color: rgba(0, 26, 255, 0.15);
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 61, 187, 0.15) 0 1px 2px,
+    rgba(44, 168, 187, 0.15) 0 2px 4px,
+    rgba(44, 101, 187, 0.15) 0 4px 8px;
+    border: 1px solid var(--blue);
+    color: rgb(4, 0, 255);
 }
 
 .gjs-pn-btn svg {
@@ -2066,7 +2093,6 @@ span.CodeMirror-selectedtext {
 .gjs-select select:focus {
     outline: none
 }
-
 .gjs-field input,
 .gjs-field select,
 .gjs-field textarea {
@@ -2074,13 +2100,20 @@ span.CodeMirror-selectedtext {
     -moz-appearance: none;
     appearance: none;
     color: inherit;
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
     box-sizing: border-box;
     width: 100%;
     position: relative;
     padding: var(--gjs-input-padding);
-    z-index: 1
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: rgba(44, 101, 187, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 61, 187, 0.15) 0 1px 2px,
+    rgba(44, 168, 187, 0.15) 0 2px 4px,
+    rgba(44, 101, 187, 0.15) 0 4px 8px,
+    rgba(44, 158, 187, 0.15) 0 8px 16px,
+    rgba(44, 46, 187, 0.15) 0 16px 32px;
+    z-index: 1;
 }
 
 .gjs-field input:focus,
@@ -2113,8 +2146,8 @@ span.CodeMirror-selectedtext {
 .gjs-sm-select option,
 .gjs-fields option,
 .gjs-sm-unit option {
-    background-color: var(--gjs-main-color);
-    color: var(--gjs-font-color)
+    background-color: white;
+    color: var(--dark);
 }
 
 .gjs-field {
@@ -2124,7 +2157,8 @@ span.CodeMirror-selectedtext {
     border-radius: 2px;
     box-sizing: border-box;
     padding: 0;
-    position: relative
+    position: relative;
+    border: 1px solid var(--blue);
 }
 
 .gjs-field textarea {
@@ -2233,11 +2267,7 @@ span.CodeMirror-selectedtext {
 .gjs-radio-item {
     flex: 1 1 auto;
     text-align: center;
-    border-left: 1px solid var(--gjs-dark-text-shadow)
-}
 
-.gjs-radio-item:first-child {
-    border: none
 }
 
 .gjs-radio-item:hover {
@@ -2249,11 +2279,13 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-radio-item input:checked+.gjs-radio-item-label {
-    background-color: rgba(255, 255, 255, .2)
+    background-color: rgba(0, 149, 255, 0.2);
+    border-radius: 4px;
 }
 
 .gjs-radio-items {
-    display: flex
+    display: flex;
+    border-radius: 4px;
 }
 
 .gjs-radio-item-label {
@@ -2265,22 +2297,27 @@ span.CodeMirror-selectedtext {
 .gjs-field-units {
     position: absolute;
     margin: auto;
-    right: 10px;
+    right: 18px;
     bottom: 0;
     top: 0
 }
 
 .gjs-field-unit {
     position: absolute;
-    right: 10px;
+    right: 18px;
     top: 3px;
     font-size: 10px;
     color: var(--gjs-arrow-color);
-    cursor: pointer
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    
 }
 
 .gjs-input-unit {
-    text-align: center
+    text-align: center;
+    border: none !important;
+    box-shadow: none !important;
+    background: rgba(255, 255, 255, 1);
 }
 
 .gjs-field-arrow-u,
@@ -2372,17 +2409,31 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-btn-prim {
-    color: inherit;
-    background-color: var(--gjs-main-light-color);
+    background-color: rgb(67, 28, 225);;
     border-radius: 2px;
     padding: 3px 6px;
     padding: var(--gjs-input-padding);
     cursor: pointer;
-    border: none
+    border: none;
+
+    border-radius: 12px;
+
+    outline: none;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.gjs-btn-prim:hover {
+    background: rgb(13, 4, 27);
+    box-shadow: rgb(48, 63, 200) 0 0 120px 0;
+
 }
 
 .gjs-btn-prim:active {
-    background-color: var(--gjs-main-light-color)
+    background: rgb(13, 4, 27);
+    box-shadow: rgb(48, 63, 200) 0 0 120px 0;
 }
 
 .gjs-btn--full {
@@ -2445,7 +2496,7 @@ span.CodeMirror-selectedtext {
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
-    border-bottom: 1px solid rgba(0, 0, 0, .25)
+    background-color: rgb(235, 244, 255);
 }
 
 .gjs-category-title,
@@ -2453,7 +2504,7 @@ span.CodeMirror-selectedtext {
 .gjs-block-category .gjs-title,
 .gjs-sm-sector-title {
     font-weight: lighter;
-    background-color: var(--gjs-main-dark-color);
+    background: linear-gradient(45deg, #ecf1ff, #ffffff);
     letter-spacing: 1px;
     padding: 9px 10px 9px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, .25);
@@ -2478,7 +2529,12 @@ span.CodeMirror-selectedtext {
 .gjs-sm-sector {
     clear: both;
     font-weight: lighter;
-    text-align: left
+    text-align: left;
+    border: 1px solid var(--blue);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px;
+    
 }
 
 .gjs-sm-sector-title {
@@ -3016,11 +3072,17 @@ span.CodeMirror-selectedtext {
 
 .gjs-block-categories {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 10px;
 }
 
 .gjs-block-category {
-    width: 100%
+    width: calc(100% - 2px);
+    border: 1px solid var(--blue);
+    border-radius: 4px;
+    box-sizing:content-box;
+    overflow: hidden;
 }
 
 .gjs-block-category .gjs-caret-icon {

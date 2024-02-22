@@ -21,12 +21,12 @@ export const actions = {
 
 
         if(!user_uid)
-            error(513, {
+            throw error(513, {
                 message: 'You need to be logged in order to create a website'
             });
 
         if(!website_name)
-            error(500, {
+            throw error(500, {
                 message: 'Website name not found'
             })
 

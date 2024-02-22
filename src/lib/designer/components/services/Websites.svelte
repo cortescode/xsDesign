@@ -1,6 +1,5 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script lang="ts">
-    import Analytics from "./Analytics.svelte";
     import { user } from "$lib/stores/session.js"
     import { onMount } from "svelte";
     import type { Website } from "$lib/designer/interfaces/Website";
@@ -9,8 +8,12 @@
 
     $: websites = JSON.parse(data?.websites)
     
-    let showModal = false;
+    let showDeleteModal = false;
+    let showEditModal = false;
     let websiteToDelete: Website | undefined;
+    let websiteToEdit: Website | undefined;
+
+    let websiteNewName: string | undefined;
 
     onMount(() => {});
 
@@ -24,13 +27,40 @@
 
         if (response.ok) {
             websites = websites.filter((website: Website) => website.id !== websiteId);
-            showModal = false; // Close modal after deletion
+            showDeleteModal = false; // Close modal after deletion
         } else {
             alert("Failed to delete the website. Please try again.");
         }
     }
-    onMount(() => {
-    })
+
+    async function editWebsite(websiteId: string) {
+
+        if(!websiteNewName || websiteId == undefined)
+            return
+
+        
+        const response = await fetch(`/designer/${websiteId}/edit`, {
+            method: 'POST', // Assuming POST triggers the deletion as per your initial setup
+            body: JSON.stringify({
+                "new_name": websiteNewName
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            websites = websites.map((website: Website) => {
+                if(website.id === websiteId)
+                    website.name = websiteNewName
+                return website
+            });
+            showEditModal = false; // Close modal after deletion
+        } else {
+            alert("Failed to edit the website name. Please try again.");
+        }
+    }
+
     
     
 </script>
@@ -80,10 +110,20 @@
                     </span>
                 </div>   
             </a>
-            <button class="designer-button delete-button animate" 
+
+            <button class="designer-button animate" 
+                on:click={() => { 
+                    websiteToEdit = website; 
+                    websiteNewName = websiteToEdit?.name
+                    showEditModal = true; 
+                }}>
+                Edit
+            </button>
+
+            <button class="delete-button animate" 
                 on:click={() => { 
                     websiteToDelete = website; 
-                    showModal = true; 
+                    showDeleteModal = true; 
                 }}>
                 Delete
             </button>  
@@ -92,14 +132,29 @@
         
     {/each}
 
-    {#if showModal}
+    {#if showDeleteModal}
         <div class="modal">
             <p>Deleting website: <br> <b>{ websiteToDelete?.name }</b></p>
             <span>Are you sure you want to delete this website?</span>
-            <button class="designer-button delete-button" on:click={() => {
+            <button class="designer-button" on:click={() => {
                 if(websiteToDelete) deleteWebsite(websiteToDelete.id)
             }}>Yes, delete it</button>
-            <button class="cancel-button" on:click={() => { showModal = false; }}>Cancel</button>
+            <button class="cancel-button" on:click={() => { showDeleteModal = false; }}>Cancel</button>
+        </div>
+        <div class="modal-background"></div>
+    {/if}
+
+    {#if showEditModal}
+        <div class="modal">
+            <p>Editing website with id: <br> <b>{ websiteToEdit?.id }</b></p>
+            <div class="input-wrapper">
+                <label for="new_name">Set the new name: </label>
+                <input type="text" name="new_name" bind:value={websiteNewName}>
+            </div>
+            <button class="designer-button" on:click={() => {
+                if(websiteToEdit) editWebsite(websiteToEdit.id)
+            }}>Edit name</button>
+            <button class="cancel-button" on:click={() => { showEditModal = false; }}>Cancel</button>
         </div>
         <div class="modal-background"></div>
     {/if}
@@ -170,7 +225,6 @@
         fill: rgb(0, 248, 255);
     }
 
-
     .webcard .access {
         opacity: 0;
         transition: opacity .2s ease-in;
@@ -198,9 +252,37 @@
         color: rgb(0, 248, 255);
     }
 
+    .input-wrapper {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input-wrapper input {
+        padding: 8px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--blue);
+    }
 
     .delete-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        color: var(--dark);
+        text-decoration: none;
+        font-size: 16px;
+        transition: .2s;
         margin-top: 10px;
+    }
+
+    .delete-button:hover {
+        box-shadow: rgb(48, 63, 200) 0 0 120px 0;
     }
 
     .cancel-button {
@@ -234,6 +316,7 @@
         padding: 40px;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        min-width: 400px;
         z-index: 5; /* Ensure modal appears above other content */
     }
 

@@ -7,7 +7,6 @@ export async function GET() {
 }
 
 
-
 export async function POST({ params, request }) {
     
     const result = {
@@ -22,7 +21,6 @@ export async function POST({ params, request }) {
     for(file of files) {
         let file_obj = await storeFile(params.website_id, file)
         result["data"].push(file_obj)
-
     }
     
     
