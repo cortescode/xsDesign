@@ -105,7 +105,7 @@ function addGridSector(editor: Editor) {
         name: 'Grid',
         open: false,
         properties: [
-            {
+            /* {
                 name: 'Align',
                 property: 'place-items',
                 type: 'select',
@@ -119,20 +119,17 @@ function addGridSector(editor: Editor) {
                     { value: 'space-around', name: 'Space Around' },
                     { value: 'space-evenly', name: 'Space Evenly' },
                 ],
-            },
+            }, */
             {
                 name: 'Horizontal Align',
-                property: 'justify-content',
+                property: 'justify-items',
                 type: 'select',
                 defaults: 'center',
                 // @ts-ignore 
                 options: [
-                    { value: 'flex-start', name: 'Start' },
-                    { value: 'flex-end', name: 'End' },
+                    { value: 'start', name: 'Start' },
+                    { value: 'end', name: 'End' },
                     { value: 'center', name: 'Center' },
-                    { value: 'space-between', name: 'Space Between' },
-                    { value: 'space-around', name: 'Space Around' },
-                    { value: 'space-evenly', name: 'Space Evenly' },
                 ],
             },
             {
@@ -142,12 +139,9 @@ function addGridSector(editor: Editor) {
                 defaults: 'center',
                 // @ts-ignore 
                 options: [
-                    { value: 'flex-start', name: 'Start' },
-                    { value: 'flex-end', name: 'End' },
+                    { value: 'start', name: 'Start' },
+                    { value: 'end', name: 'End' },
                     { value: 'center', name: 'Center' },
-                    { value: 'space-between', name: 'Space Between' },
-                    { value: 'space-around', name: 'Space Around' },
-                    { value: 'space-evenly', name: 'Space Evenly' },
                 ],
             },
             {

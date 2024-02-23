@@ -29,7 +29,7 @@
 
 <HeroApp 
     title="Discover the digital power of your business"
-    description="Create the web your business needs, in a matter of minutes, with all the personalization you need"
+    description="Create stunning websites in a matter of minutes, with all the personalization you need"
     button="Access Beta for Free"
 />
 

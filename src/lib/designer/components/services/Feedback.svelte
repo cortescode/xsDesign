@@ -6,6 +6,7 @@
     $: feedback = "";
 
     let feedback_messages: any[] = [];
+    $: feedback_messages
 
     onMount(async () => {
         fetch("/designer/feedback", {
@@ -15,7 +16,8 @@
                 const response_json = await response.json();
 
                 console.log("response_json: ", JSON.stringify(response_json));
-                if (response) feedback_messages = response_json["feedback"];
+                if (response) 
+                    feedback_messages = response_json["feedback"].map((feedback_obj: any) => feedback_obj["message"]);
             })
             .catch((error) => console.log("An error has occourred: ", error));
     });
@@ -29,7 +31,9 @@
             body: JSON.stringify({ message: feedback }),
         });
 
+        feedback_messages.push(feedback)
         alert(`Thank you for your feedback!`);
+        
         feedback = ""; // Clear the feedback after submission
     }
 </script>
@@ -60,7 +64,7 @@
         <div class="feedback_messages">
             {#each feedback_messages as feedback_message }
                 <div class="feedback_message">
-                    <p>{feedback_message["message"]}</p>
+                    <p>{feedback_message}</p>
                 </div>
             {/each}
             {#if feedback_messages.length < 1 }

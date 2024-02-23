@@ -90,14 +90,6 @@ export default function loadPanels(editor: Editor) {
     {
       id: 'options',
       buttons: [{
-        id: "logo",
-        label: `
-        <a class="designer-logo-container" href="/">
-            <img class="logo-image" src="/media/assets/logo1.png" alt="">
-            <h1 class="designer-logo logo-header">xsdesign</h1>
-        </a>
-        `
-      },{
         id: swv,
         command: swv,
         context: swv,

@@ -1,6 +1,6 @@
 import type { Editor } from "grapesjs";
 import loadGrid from "./grid";
-import loadFlexColumns from "./flexColumns";
+import loadFlexColumns from "./flex";
 import loadSections from "./sections";
 
 

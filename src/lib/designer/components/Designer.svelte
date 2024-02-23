@@ -19,6 +19,8 @@
 
     let editor: any;
 
+    let logo: HTMLElement;
+
     $: editor;
     
     onMount(() => {
@@ -44,7 +46,6 @@
 				// ...
 				// Default storage options
 				options: {
-					// local: { key: `gjsProject-${website}` },
 					remote: {
                         urlLoad: projectEndpoint,
                         urlStore: projectEndpoint,
@@ -82,12 +83,26 @@
             full: true
         });
 
+        editor.on('run:preview', () => {
+            logo.style.transform = 'scale(0)'
+        });
+
+        // Listen to the event triggered when exiting the preview mode
+        editor.on('stop:preview', () => {
+            logo.style.transform = 'scale(1)'
+        });
+
     })
 
 
 </script>
 
 
+
+<a class="designer-logo-container" href="/" bind:this={logo}>
+    <img class="logo-image" src="/media/assets/logo1.png" alt="">
+    <h1 class="designer-logo logo-header">xsdesign</h1>
+</a>
 <div id="gjs" style="height:0px; overflow:hidden">
     <div class="panel">
       <h1 class="welcome">Welcome to {$website?.id}</h1>

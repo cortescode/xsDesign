@@ -1,4 +1,4 @@
-import type { Editor } from 'grapesjs'
+import type { Component, Editor } from 'grapesjs'
 
 
 
@@ -10,57 +10,110 @@ export default function loadText(editor: Editor) {
         category: "Basic"
     }
 
+    function changeTag(component: Component, tagName: string) {
+        component.set('tagName', tagName);
+        component.view?.render();
+    }
+
+    editor.Components.addType('simple-text', {
+        extend: 'text',
+        model: {
+            defaults: {
+                name: 'text',
+                tagName: "p",
+                attributes: {
+                    class: "simplet-text",
+                },
+                traits: [
+                    // Existing traits here...
+                    // Adding a custom trait for changing the tag name
+                    "id",
+                    {
+                        default: "p",
+                        type: 'select', // Using select to limit options, but 'text' type could be used for freeform input
+                        label: 'Html Tag',
+                        name: 'tagName',
+                        options: [
+                            { id: 'p', name: 'p' },
+                            { id: 'span', name: 'span' },
+                            { id: 'blockquote', name: 'blockquote' },
+                        ]
+                    },
+                ],
+                styles: `
+                    .simple-text {
+                        display: block;
+                    }
+                `
+                
+            },
+            // Function to run when the model's init event is triggered
+            init() {
+                this.on('change:attributes:tagName', this.changeTagName);
+            },
+            // Function to change the tag name
+            changeTagName(model: any, tagName: string) {
+                console.log(model)
+                changeTag(this, tagName)
+            },
+        },
+    });
+
+
+    editor.Components.addType('title', {
+        extend: 'text',
+        model: {
+            defaults: {
+                // Default traits for the component
+                name: 'title',
+                tagName: 'h1',
+                traits: [
+                    "id",
+                    {
+                        type: 'select', // Use a select box for tag name options
+                        label: 'Html Tag',
+                        name: 'tagName', // This will change the tag name of the component
+                        default: 'h1',
+                        options: [
+                            { id: 'h1', name: 'H1' },
+                            { id: 'h2', name: 'H2' },
+                            { id: 'h3', name: 'H3' },
+                            { id: 'h4', name: 'H4' },
+                            { id: 'h5', name: 'H5' },
+                            { id: 'h6', name: 'H6' },
+                        ],
+                    },
+                ],
+            },
+
+            // Function to run when the model's init event is triggered
+            init() {
+
+                console.log("init")
+                this.on('change:attributes:tagName', this.changeTagName);
+            },
+            // Function to change the tag name
+            changeTagName(model: any, tagName: string) {
+                changeTag(this, tagName)
+            },
+        },
+    });
+
     blockManager.add("title", {
         ...commonBlockProps,
-        label: "title (H1)",
+        label: "title",
         media: `<svg viewBox="0 0 24 24">
             <path fill="currentColor" d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
         </svg>`,
-        content: `
-        <h1 class="title">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        </h1>
-        `
+        content: {
+            type: "title",
+            content: `
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            `,
+        }
     })
 
-    blockManager.add("title-small", {
-        ...commonBlockProps,
-        label: "title small (H2)",
-        media: `<svg viewBox="0 0 32 32">
-            <path fill="currentColor" d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
-        </svg>`,
-        content: `
-        <h2 class="title-small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        </h2>
-        `
-    })
 
-    blockManager.add("subtitle", {
-        ...commonBlockProps,
-        label: "subtitle (H3)",
-        media: `<svg viewBox="0 0 32 32">
-        <path fill="currentColor" d="M14.5,14.5l-0,14.5c0,0.828 0.672,1.5 1.5,1.5c0.828,-0 1.5,-0.672 1.5,-1.5l-0,-24.5l3,-0l-0,24.5c0,0.828 0.672,1.5 1.5,1.5c0.828,-0 1.5,-0.672 1.5,-1.5l-0,-24.5l2.5,-0c0.828,-0 1.5,-0.672 1.5,-1.5c-0,-0.828 -0.672,-1.5 -1.5,-1.5l-15.5,-0c-3.266,-0 -6,2.871 -6,6.5c-0,3.629 2.734,6.5 6,6.5l4,-0Z"/>
-        </svg>`,
-        content: `
-        <h3 class="subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        </h3>
-        `
-    })
-
-    blockManager.add("subtitle-small", {
-        ...commonBlockProps,
-        label: "subtitle small (H4)",
-        media: `<svg viewBox="0 0 44 44">
-        <path fill="currentColor" d="M14.5,14.5l-0,14.5c0,0.828 0.672,1.5 1.5,1.5c0.828,-0 1.5,-0.672 1.5,-1.5l-0,-24.5l3,-0l-0,24.5c0,0.828 0.672,1.5 1.5,1.5c0.828,-0 1.5,-0.672 1.5,-1.5l-0,-24.5l2.5,-0c0.828,-0 1.5,-0.672 1.5,-1.5c-0,-0.828 -0.672,-1.5 -1.5,-1.5l-15.5,-0c-3.266,-0 -6,2.871 -6,6.5c-0,3.629 2.734,6.5 6,6.5l4,-0Z"/>
-        </svg>`,
-        content: `
-        <h4 class="subtitle-small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        </h4>
-        `
-    })
 
     blockManager.add("paragraph", {
         ...commonBlockProps,
@@ -68,22 +121,13 @@ export default function loadText(editor: Editor) {
         media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M21,6V8H3V6H21M3,18H12V16H3V18M3,13H21V11H3V13Z" />
     </svg>`,
-        content: `
-        <p class="paragraph">
+        content: {
+            type: "simple-text",
+            content: `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
-        </p>
-        `
-    })
-
-    blockManager.add('quote', {
-        ...commonBlockProps,
-        label: 'Quote',
-        media: `<svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
-        </svg>`,
-        content: `<blockquote class="quote">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
-          </blockquote>`
+            `,
+            editable: "true"
+        }
     })
 
 
@@ -107,6 +151,5 @@ export default function loadText(editor: Editor) {
         category: 'Basic',
         content: { type: 'button-link', content: 'Button Link' },
     });
-
 
 }
