@@ -60,7 +60,5 @@ async function createRoute(website: Website, route: Route): Promise<Route | null
     })
 
     
-    console.log("updated_website: ", updated_website)
-    
     return route
 }

@@ -10,7 +10,6 @@ export default function addLinks(editor: Editor) {
         run: function(editor) {
             let component = editor.getSelected()
 
-			console.log("The modal should open now")
 			openModal(component)
         }
     });

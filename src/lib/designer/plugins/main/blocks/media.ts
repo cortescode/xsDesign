@@ -27,7 +27,6 @@ export default function loadMedia(editor: Editor) {
 		},
 	});
 
-/* 
     blockManager.add('video', {
 		...commonBlockProps,
 		label: 'video',
@@ -43,8 +42,5 @@ export default function loadMedia(editor: Editor) {
 			}
 		},
 	});
- */
-
-
 
 }

@@ -1,34 +1,18 @@
 <script>
     import FaQs from '$lib/components/sales/FAQs.svelte';
-    import PricingSection from '$lib/components/sections/PricingSection.svelte';
-    import CookiesBanner from '$lib/components/pop-ups/CookiesBanner.svelte';
-    import PopUp from '$lib/components/pop-ups/PopUp.svelte';
-    import Benefits from '$lib/components/sections/Benefits.svelte';
     import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
-    import DashboardHeader from '$lib/components/headers/DashboardHeader.svelte';
-
-    import { onMount } from "svelte";
     import Footer from '$lib/components/sections/Footer.svelte';
-    import FlashCard from '$lib/components/cards/FlashCard.svelte';
     import HeroApp from '$lib/components/heros/HeroApp.svelte';
+    import CookiesBanner from '$lib/components/pop-ups/CookiesBanner.svelte';
 
-    let shouldRender = false;
 
-/* 
-    export let data;
-
-    onMount(() => {
-        console.log(data)
-    })
-*/
-    
 </script>
 
 
 <HeaderApp/>
 
 <HeroApp 
-    title="Discover the digital power of your business"
+    title="Discover the hidden power of your website"
     description="Create stunning websites in a matter of minutes, with all the personalization you need"
     button="Access Beta for Free"
 />
@@ -68,6 +52,9 @@
 
 
 <Footer></Footer>
+
+
+<CookiesBanner></CookiesBanner>
 
 
 

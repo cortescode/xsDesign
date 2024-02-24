@@ -73,7 +73,6 @@ export async function POST({ params, request, cookies }) {
         } }
     );
 
-    // console.log(JSON.stringify(data, null, 2))
 
     // Return successful response if everything is correct
     return new Response(

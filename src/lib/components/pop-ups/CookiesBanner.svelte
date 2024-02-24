@@ -39,11 +39,11 @@
 {#if showing}
     <article>
         <div class="text">
-            <p>¡Hola! Utilizamos alguna que otra cookie para obtener datos que nos permitan ofrecerte un mejor servicio.</p>
+            <p>¡Hello! We use some cookies to gather data that allows us to offer you a better product.</p>
         </div>
         <div class="buttons">
-            <button class="agree" on:click={() => showing=!showing }>Aceptar cookies</button>
-            <button on:click={() => showing=!showing}>Rechazar</button>
+            <button class="agree" on:click={() => showing=!showing }>Accept cookies</button>
+            <button on:click={() => showing=!showing}>Reject</button>
         </div>
     </article>
 {/if}

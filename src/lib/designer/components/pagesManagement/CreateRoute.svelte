@@ -4,7 +4,7 @@
     import type { Editor } from "grapesjs";
     import { onMount } from "svelte";
     import { website } from "../website";
-    import { opa } from "$lib/designer/plugins/old/main/consts";
+    import { opa } from "$lib/designer/plugins/main/consts";
 
     export let editor: Editor;
     let pages;
