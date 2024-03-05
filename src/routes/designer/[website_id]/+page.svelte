@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Designer from "$lib/designer/components/Designer.svelte";
-    import { website } from "$lib/designer/components/website";
+    import Designer from "$lib/designer/Designer.svelte";
+    import { website } from "$lib/stores/website.js";
 
 
     export let data
@@ -21,6 +21,7 @@
 	.wrapper {
 		height: 100vh;
 		margin: 0;
+        background-color: white;
 	}
 
 </style>           

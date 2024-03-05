@@ -4,7 +4,7 @@
 
     import { goto } from "$app/navigation";
     import { user, isLoggedIn } from "$lib/stores/session";
-    import { login } from "$lib/auth";
+    import { login } from "$lib/auth/auth";
     import SignInWithGoogleButton from "$lib/components/SignInWithGoogleButton.svelte";
     import { onMount } from "svelte";
     import { getRedirectResult } from "firebase/auth";

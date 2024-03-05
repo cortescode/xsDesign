@@ -1,6 +1,6 @@
 import { websites } from "$lib/server/db/mongo/mongo.js";
 import type { RequestHandler } from "@sveltejs/kit";
-import type { Website } from "$lib/designer/interfaces/Website";
+import type { Website } from "$lib/interfaces/Website";
 
 
 

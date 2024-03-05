@@ -1,6 +1,6 @@
 <script lang="ts">
     import Logo from "$lib/components/Logo.svelte";
-    import Dashboard from "../../lib/designer/components/Dashboard.svelte";
+    import Dashboard from "$lib/dashboard/views/Dashboard.svelte";
 
     export let data;
     

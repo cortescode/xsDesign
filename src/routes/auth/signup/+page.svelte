@@ -5,7 +5,7 @@
     import Logo from "$lib/components/Logo.svelte";
     import { goto } from "$app/navigation";
     import { user } from "$lib/stores/session";
-    import { signup } from "$lib/auth";
+    import { signup } from "$lib/auth/auth";
 
     import SignInWithGoogleButton from "$lib/components/SignInWithGoogleButton.svelte";
 

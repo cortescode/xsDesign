@@ -1,5 +1,5 @@
-import type { Route } from '$lib/designer/interfaces/Route';
-import type { Website } from '$lib/designer/interfaces/Website';
+import type { Route } from '$lib/interfaces/Route';
+import type { Website } from '$lib/interfaces/Website';
 import { websites } from '$lib/server/db/mongo/mongo';
 import { error } from '@sveltejs/kit';
 

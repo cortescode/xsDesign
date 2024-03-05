@@ -4,7 +4,7 @@
 </svelte:head>
 
 <section class="hero">
-    <h1 class="gradient-text animate">Aviso Legal</h1>
+    <h1 class="gradient-text animate">Legal Advice</h1>
 </section>
 <section class="text-section animate">
     <h3>
@@ -12,7 +12,7 @@
     </h3>
 
     <p>
-        This website, CONSULTORIA.IO (hereinafter "Website"), is owned by XS DESIGN S.L, and provides users with this document to comply with the obligations contained in Law 34/2002, of July 11, on Services of the Information Society and Electronic Commerce (hereinafter "LSSI-CE"), as well as to inform all users of the website about the terms of use.
+        This website, XSDESIGN.CO (hereinafter "Website"), is owned by XS DESIGN S.L, and provides users with this document to comply with the obligations contained in Law 34/2002, of July 11, on Services of the Information Society and Electronic Commerce (hereinafter "LSSI-CE"), as well as to inform all users of the website about the terms of use.
     </p>
     <p>
        Anyone accessing this Website assumes the role of "User", committing to the observance and strict compliance with the provisions set forth herein, as well as any other applicable legal provision.

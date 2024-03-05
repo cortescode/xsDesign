@@ -1,8 +1,8 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { setUserCookiesAndStore, signinWithGooglePopUp } from "$lib/auth";
-    import { signinWithGoogleRedirect } from "$lib/auth";
-    import { auth } from "$lib/firebaseConn";
+    import { setUserCookiesAndStore, signinWithGooglePopUp } from "$lib/auth/auth";
+    import { signinWithGoogleRedirect } from "$lib/auth/auth";
+    import { auth } from "$lib/auth/firebaseConn";
     import { GoogleAuthProvider, getRedirectResult, signInWithRedirect } from "firebase/auth";
     import { onMount } from "svelte";
 

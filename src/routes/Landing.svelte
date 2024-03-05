@@ -1,5 +1,5 @@
 <script>
-    import FaQs from '$lib/components/sales/FAQs.svelte';
+    import FaQs from '$lib/components/sections/FAQs.svelte';
     import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
     import Footer from '$lib/components/sections/Footer.svelte';
     import HeroApp from '$lib/components/heros/HeroApp.svelte';
