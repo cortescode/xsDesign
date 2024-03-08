@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onDestroy, onMount } from "svelte";
     import type { Editor } from "grapesjs";
     import { grapesjs } from "grapesjs";
     import PagesManager from "./pagesManagement/PagesManager.svelte";
@@ -12,6 +12,7 @@
     import { selectStylesOption } from "./generalStyles/options";
     import PublishingButton from "./Publishing/publishingButton.svelte";
     import StylesPanel from "./generalStyles/stylesPanel.svelte";
+    import sectors from "./generalStyles/sectors";
 
     const projectEndpoint = `/designer/${$website?.id}/data/`;
 
@@ -19,11 +20,9 @@
 
     let editor: Editor;
 
-    let logo: HTMLElement;
+    $: editor;
 
-    $: {
-        editor;
-    }
+    let logo: HTMLElement;
 
     onMount(() => {
         editor = grapesjs.init({
@@ -42,8 +41,7 @@
                 type: "remote", // Storage type. Available: local | remote
                 autosave: true, // Store data automatically
                 autoload: true, // Autoload stored data on init
-                stepsBeforeSave: 1, // If autosave is enabled, indicates how many changes are necessary before the store method is triggered
-                // ...
+                stepsBeforeSave: 1, 
                 options: {
                     remote: {
                         urlLoad: projectEndpoint,
@@ -66,98 +64,22 @@
                     },
                 ],
             },
-            plugins: [main],
             blockManager: {
                 appendTo: "#blocks",
+                custom: true,
             },
             styleManager: {
                 appendTo: "#styles",
                 clearProperties: true,
-                sectors: [
-                    {
-                        name: "Dimension",
-                        open: false,
-                        buildProps: ["width", "height"],
-                        properties: [
-                            {
-                                type: "number",
-                                property: "margin",
-                                label: "Margin",
-                                default: "auto",
-                                //@ts-ignore
-                                units: ["px", "%", "em", "rem"],
-                            },
-                            {
-                                type: "number",
-                                property: "padding",
-                                label: "Padding",
-                                default: "auto",
-                                //@ts-ignore
-                                units: ["px", "%", "em", "rem"],
-                            },
-                        ],
-                    },
-                    {
-                        name: "Flex",
-                        open: false,
-                        buildProps: [
-                            "flex-direction",
-                            "flex-wrap",
-                            "justify-content",
-                            "align-items",
-                            "align-content",
-                            "order",
-                            "flex-basis",
-                            "flex-grow",
-                            "flex-shrink",
-                            "align-self",
-                        ],
-                    },
-                    {
-                        name: "Typography",
-                        open: false,
-                        properties: [
-                            {
-                                type: "radio",
-                                property: "font-size",
-                                label: "Font Size",
-                                default: "block",
-                                // @ts-ignore
-                                options: [
-                                    { id: "12px", label: "small" },
-                                    { id: "18px", label: "normal" },
-                                    { id: "2em", label: "subtitle" },
-                                    { id: "4em", label: "title" },
-                                ],
-                            },
-                            {
-                                type: "radio",
-                                property: "text-align",
-                                label: "Text Align",
-                                default: "block",
-                                // @ts-ignore
-                                options: [
-                                    { id: "left", label: "left" },
-                                    { id: "center", label: "center" },
-                                    { id: "right", label: "right" },
-                                ],
-                            }
-                        ],
-                        buildProps: ["font-size", "text-align", "color", "text-shadow"],
-                        visible: false
-                    },
-                    {
-                        name: "Border",
-                        open: false,
-                        buildProps: ["border", "border-radius-c"],
-                    },
-                    {
-                        name: "Decorations",
-                        open: false,
-                        buildProps: ["box-shadow"],
-                    },
-                ],
+                sectors: sectors
             },
+            selectorManager: {
+                custom: true,
+            },
+            plugins: [main],
+            pluginsOpts: {
+                'grapesjs-main': {},
+			},
         });
 
         editor.on("run:preview", () => {
@@ -169,6 +91,7 @@
             logo.style.transform = "scale(1)";
         });
     });
+
 </script>
 
 <a class="designer-logo-container" href="/" bind:this={logo}>

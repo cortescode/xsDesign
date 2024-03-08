@@ -8,7 +8,7 @@ export default function loadBlocks(editor: Editor) {
 
     
     const commonBlockProps: Partial<BlockProperties> = {
-        category: 'Grids',
+        category: 'Display',
 		select: true,
 	};
 

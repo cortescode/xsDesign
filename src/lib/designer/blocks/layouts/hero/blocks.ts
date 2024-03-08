@@ -3,13 +3,22 @@ import type { Editor } from 'grapesjs';
 export default function loadHeroBlocks(editor: Editor) {
 
     editor.Blocks.add('hero', {
-        media: `<svg viewBox="0 0 24 24">
-				<path d="M22 9c0-.6-.5-1-1.25-1H3.25C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.25 1h17.5c.75 0 1.25-.4 1.25-1V9Zm-1 6H3V9h18v6Z"/><path d="M15 10h5v1h-5zM15 13h5v1h-5zM15 11.5h5v1h-5z"/>	
-			</svg>`,
+        media: `<img width="100%" style="border: 1px solid var(--light-blue)" src="/media/assets/hero.avif"></img>`,
         label: 'Hero basic',
         category: 'Layouts',
         select: true,
-        content: { type: 'hero' },
+        content: { 
+            type: 'hero'
+        },
     });
 
+    editor.Blocks.add('hero2', {
+        media: `<img width="100%" style="border: 1px solid var(--light-blue)" src="/media/assets/hero2.avif"></img>`,
+        label: 'Hero 2',
+        category: 'Layouts',
+        select: true,
+        content: { 
+            type: 'hero2'
+        },
+    });
 }

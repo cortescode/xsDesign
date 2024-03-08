@@ -9,12 +9,12 @@ import loadSections from "./sections";
 
 
 export default function loadAtoms(editor: Editor) {
-    loadCustomCode(editor)
+    loadText(editor)
+    loadSections(editor)
     loadLinks(editor)
     loadMedia(editor)
-    loadText(editor)
+    loadCustomCode(editor)
     loadMap(editor)
-    loadSections(editor)
 
     
     const typographySector = editor.StyleManager.getSector('Typography')

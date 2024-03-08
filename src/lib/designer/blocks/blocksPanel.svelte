@@ -13,12 +13,38 @@
 
 	$: blocksPanel;
 
+    $: listenersReady = false;
+
 
     onMount(() => {
 
         document.addEventListener("open-blocks", () => {
             if(blocksPanel && blocksPanel.style)
                 blocksPanel.style.left = "35px"
+
+            if(!listenersReady){
+                const categories = editor?.BlockManager.getCategories();
+                    // Close all categories except the one that was just opened
+                categories?.each((category) => {
+                    category.set('open', false);
+                    console.log(category)
+                });
+
+                /* editor?.on('block:category:open', (openedCategory) => {
+                    // Get all block categories
+                    console.log("open")
+
+                    // Close all categories except the one that was just opened
+                    categories?.each((category) => {
+                        if (category !== openedCategory) {
+                            category.set('open', false);
+                        }
+                    });
+                }); */
+
+                listenersReady = true
+        
+            }
            
         })
 
@@ -27,6 +53,7 @@
                 blocksPanel.style.left = "-385px"
            
         })
+
         
     })
     

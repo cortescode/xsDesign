@@ -6,9 +6,6 @@ export default function loadComponents(editor: Editor) {
 
     const components = editor.Components
 
-    const stylePrefix = "layout"
-
-
     const gridMinHeight = 80;
 
     const styleGrid = {
@@ -34,8 +31,9 @@ export default function loadComponents(editor: Editor) {
             defaults: {
                 name: 'Grid Child',
                 tagName: 'div',
-                styles: styleChild,
+                style: styleChild,
                 unstylable: ['font-size'],
+                editable: true,
             },
         }
     });
@@ -49,7 +47,8 @@ export default function loadComponents(editor: Editor) {
                 styles: Object.assign({}, styleGrid, {
                     "grid-template-columns": "1fr",
                     "grid-template-rows": "1fr"
-                })
+                }),
+                editable: true,
             },
         }
     });
@@ -61,10 +60,11 @@ export default function loadComponents(editor: Editor) {
                 name: 'Grid',
                 tagName: 'section',
                 components: [{ type: "grid-child" }, { type: "grid-child" }],
-                styles: Object.assign({}, styleGrid, {
+                style: Object.assign({}, styleGrid, {
                     "grid-template-columns": "1fr 1fr",
                     "grid-template-rows": "1fr"
-                })
+                }),
+                editable: true,
             },
         }
     });
@@ -75,10 +75,11 @@ export default function loadComponents(editor: Editor) {
                 name: 'Grid',
                 tagName: 'section',
                 components: [{ type: "grid-child" }, { type: "grid-child" }, { type: "grid-child" }],
-                styles: Object.assign({}, styleGrid, {
+                style: Object.assign({}, styleGrid, {
                     "grid-template-columns": "1fr 1fr 1fr",
                     "grid-template-rows": "1fr"
-                })
+                }),
+                editable: true,
             },
         }
     });
@@ -90,10 +91,11 @@ export default function loadComponents(editor: Editor) {
                 name: 'Grid',
                 tagName: 'section',
                 components: [{ type: "grid-child" }, { type: "grid-child" }, { type: "grid-child" }, { type: "grid-child" }],
-                styles: Object.assign({}, styleGrid, {
+                style: Object.assign({}, styleGrid, {
                     "grid-template-columns": "1fr 1fr",
                     "grid-template-rows": "1fr 1fr"
-                })
+                }),
+                editable: true,
             },
         }
     });

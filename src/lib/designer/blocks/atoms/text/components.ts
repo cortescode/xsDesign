@@ -38,8 +38,6 @@ export default function loadTextComponents(editor: Editor) {
             defaults: {
                 name: 'text',
                 tagName: "p",
-                attributes: {
-                },
                 traits: [
                     "id",
                     {
@@ -54,8 +52,12 @@ export default function loadTextComponents(editor: Editor) {
                         ]
                     },
                 ],
+                style: {
+                    "font-size": "18px",
+                }
                 
             },
+            editable: true,
             // Function to run when the model's init event is triggered
             init() {
                 this.on('change:attributes:tagName', this.changeTagName);
@@ -92,73 +94,19 @@ export default function loadTextComponents(editor: Editor) {
                         ],
                     },
                 ],
+                editable: true
             },
 
             // Function to run when the model's init event is triggered
             init() {
                 this.on('change:attributes:tagName', this.changeTagName);
                 this.on('added', () => updateTitleTag(this,));
-                this.on('select', () => {
-                    const typographySector = editor.StyleManager.getSector('Typography')
-                    typographySector.set('visible', true)
-
-                    /* editor.StyleManager.addSector('Typography', {
-                        name: "Typography",
-                        open: false,
-                        properties: [{
-                            type: 'radio',
-                            property: 'font-size',
-                            label: 'Font Size',
-                            default: 'block',
-                            //@ts-ignore
-                            options: [
-                                { id: '12px', label: 'small' },
-                                { id: '18px', label: 'normal' },
-                                { id: '2em', label: 'subtitle' },
-                                { id: '4em', label: 'title' },
-                            ]
-                        }],
-                        buildProps: [
-                            "font-size",
-                            "color",
-                            "text-shadow",
-                        ],
-                    }) */
-                })
-                this.on('deselect', () => {
-                    const typographySector = editor.StyleManager.getSector('Typography')
-                    typographySector.set('visible', false)
-                })
             },
             // Function to change the tag name
             changeTagName(model: any, tagName: string) {
                 changeTag(this, tagName)
             },
 
-            /* 
-            {
-        name: "Typography",
-        open: false,
-        properties: [{
-            type: 'radio',
-            property: 'font-size',
-            label: 'Font Size',
-            default: 'block',
-            //@ts-ignore
-            options: [
-                { id: '12px', label: 'small' },
-                { id: '18px', label: 'normal' },
-                { id: '2em', label: 'subtitle' },
-                { id: '4em', label: 'title' },
-            ]
-        }],
-        buildProps: [
-            "font-size",
-            "color",
-            "text-shadow",
-        ],
-    }
-             */
         },
     });
 }

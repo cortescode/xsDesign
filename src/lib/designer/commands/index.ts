@@ -30,27 +30,18 @@ export default function loadCommands(editor: Editor) {
 	Commands.add(cmdDeviceDesktop, {
 		run: ed => {
 			ed.setDevice('Desktop');
-			setTimeout(()  => {
-				ed.editorView?.render()
-			}, 0)
 		},
 		stop: () => { },
 	});
 	Commands.add(cmdDeviceTablet, {
 		run: ed => {
 			ed.setDevice('Tablet')
-			setTimeout(()  => {
-				ed.editorView?.render()
-			}, 0)
 		},
 		stop: () => { },
 	});
 	Commands.add(cmdDeviceMobile, {
 		run: ed => {
 			ed.setDevice('Mobile portrait')
-			setTimeout(()  => {
-				ed.editorView?.render()
-			}, 0)
 		},
 		stop: () => { },
 	});

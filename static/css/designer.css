@@ -347,7 +347,7 @@ svg {
 }
 
 .gjs-four-color-h:hover {
-    color: var(--gjs-quaternary-color)
+    color: var(--dark)
 }
 
 .gjs-danger-bg {

@@ -2,6 +2,7 @@ import type { Editor, Plugin } from 'grapesjs';
 import loadGradientSupport from './background/gradient';
 import loadBackgroundStyleOptions from './background';
 import { loadSectorsManager } from './options';
+import loadMarginAndPaddingInput from './dimensions/marginAndPadding';
 
 export { parseGradient, toGradient, getValidDir, GRAD_DIRS, GRAD_TYPES } from './background/gradient';
 
@@ -57,6 +58,6 @@ export default function loadStyles(editor: Editor, opts = {}) {
 
 	loadBackgroundStyleOptions(editor)
 
-	// loadSectorsManager(editor)
+	loadMarginAndPaddingInput(editor)
 
 };

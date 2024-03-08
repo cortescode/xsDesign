@@ -16,7 +16,7 @@ export default (editor: Editor) => {
       defaults: {
         droppable: false,
         name: 'Navbar',
-        tagName: "navbar",
+        tagName: "nav",
         attributes: { class: navbarPfx },
         components: { type: idContainer },
         styles: `
@@ -25,6 +25,7 @@ export default (editor: Editor) => {
             color: #ddd;
             min-height: 50px;
             position: fixed;
+            inset: 0 0 auto 0;
             width: 100%;
           }
 

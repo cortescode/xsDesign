@@ -9,7 +9,7 @@ export default function loadMedia(editor: Editor) {
 
     const commonBlockProps = {
         select: true,
-		category: 'Basic'
+		category: 'Media'
     }
 
     blockManager.add('image', {

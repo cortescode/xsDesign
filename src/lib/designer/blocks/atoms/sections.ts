@@ -6,7 +6,7 @@ export default function loadSections(editor: Editor) {
     const blockManager = editor.BlockManager
 
     const commonBlockProps = {
-        category: 'Basic'
+        category: 'Display'
     }
 
     const components = editor.Components
@@ -16,7 +16,7 @@ export default function loadSections(editor: Editor) {
             defaults: {
                 name: 'Section',
                 tagName: 'section',
-                styles: {
+                style: {
                     "display": "grid",
                     "box-sizing": "border-box",
                     "width": "100%",
@@ -34,7 +34,7 @@ export default function loadSections(editor: Editor) {
                 attributes: {
                     class: `default-block`,
                 },
-                styles: `
+                style: `
                     .default-block {
                         display: block;
                         box-sizing: border-box;

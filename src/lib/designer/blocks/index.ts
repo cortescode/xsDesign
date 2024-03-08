@@ -7,6 +7,6 @@ import loadDisplays from './displays'
 export default function loadBlocks(editor: Editor) {
     loadAtoms(editor)
     loadMolecules(editor)
-    loadLayouts(editor)
     loadDisplays(editor)
+    loadLayouts(editor)
 }

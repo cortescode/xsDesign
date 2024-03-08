@@ -51,10 +51,10 @@
         box-sizing: border-box;
         position: fixed;
         width: var(--gjs-left-width);
-        height: calc(100vh - 160px);
+        height: calc(100vh - 120px);
         padding: 0;
         right: -350px;
-        top: 160px;
+        top: 120px;
         background-color: white;
         z-index: 2;
         border-top: 2px solid var(--light-blue);
