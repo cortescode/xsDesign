@@ -17,17 +17,16 @@ export default (editor: Editor) => {
         droppable: false,
         name: 'Navbar',
         tagName: "nav",
-        attributes: { class: navbarPfx },
         components: { type: idContainer },
+        style: {
+          "background": "#222",
+          "color": "#ddd",
+          "min-height": "50px",
+          "position": "fixed",
+          "inset": "0 0 auto 0",
+          "width": "100%,"
+        },
         styles: `
-          .${navbarPfx} {
-            background-color: #222;
-            color: #ddd;
-            min-height: 50px;
-            position: fixed;
-            inset: 0 0 auto 0;
-            width: 100%;
-          }
 
           .${navbarPfx}-container {
             max-width: 950px;

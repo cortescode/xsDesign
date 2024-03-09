@@ -36,7 +36,7 @@ const sectors = [
         name: "Typography",
         open: false,
         properties: [
-            {
+            /* {
                 type: "radio",
                 property: "font-size",
                 label: "Font Size",
@@ -48,12 +48,11 @@ const sectors = [
                     { id: "2em", label: "subtitle" },
                     { id: "4em", label: "title" },
                 ],
-            },
+            }, */
             {
                 type: "radio",
                 property: "text-align",
                 label: "Text Align",
-                default: "block",
                 // @ts-ignore
                 options: [
                     { id: "left", label: "left" },

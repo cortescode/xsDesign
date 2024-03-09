@@ -54,6 +54,9 @@ export default function loadTextComponents(editor: Editor) {
                 ],
                 style: {
                     "font-size": "18px",
+                    "margin-block": "0px",
+                    "margin-top": "20px",
+                    "margin-bottom": "20px",
                 }
                 
             },
@@ -94,6 +97,10 @@ export default function loadTextComponents(editor: Editor) {
                         ],
                     },
                 ],
+                style: {
+                    "margin-top": "20px",
+                    "margin-bottom": "20px",
+                },
                 editable: true
             },
 

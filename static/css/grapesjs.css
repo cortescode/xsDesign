@@ -2832,11 +2832,6 @@ span.CodeMirror-selectedtext {
     margin: 7px 0
 }
 
-.gjs-clm-header-status {
-    flex-shrink: 1;
-    margin-left: auto
-}
-
 .gjs-clm-tag {
     display: flex;
     overflow: hidden;

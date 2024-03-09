@@ -10,7 +10,7 @@ import loadSections from "./sections";
 
 export default function loadAtoms(editor: Editor) {
     loadText(editor)
-    loadSections(editor)
+    // loadSections(editor)
     loadLinks(editor)
     loadMedia(editor)
     loadCustomCode(editor)

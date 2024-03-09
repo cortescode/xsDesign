@@ -68,13 +68,14 @@
                 appendTo: "#blocks",
                 custom: true,
             },
+            selectorManager: {
+                componentFirst: true,
+                appendTo: "#selector",
+            },
             styleManager: {
                 appendTo: "#styles",
                 clearProperties: true,
                 sectors: sectors
-            },
-            selectorManager: {
-                custom: true,
             },
             plugins: [main],
             pluginsOpts: {

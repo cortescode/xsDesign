@@ -367,7 +367,6 @@ svg {
 
 
 .gjs-clm-tags {
-    display: none;
     font-size: var(--gjs-font-size);
     padding: 10px 5px
 }
@@ -390,21 +389,51 @@ svg {
     clear: both;
     padding: 5px;
     margin-bottom: 5px;
-    display: flex;
+    display: none;
     flex-wrap: wrap
 }
 
 .gjs-clm-tags #gjs-clm-tags-c {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     vertical-align: top;
     overflow: hidden
 }
 
+.gjs-clm-tags #gjs-clm-label {
+    display: none;
+}
+
+.gjs-clm-label-sel {
+    display: none !important;
+}
+
+.gjs-clm-tags #gjs-clm-status-c {
+    width: 90%;
+}
+
+.gjs-clm-tags .gjs-clm-sels-info {
+    display: none;
+}
+
+
+.gjs-clm-header-status {
+    flex-shrink: 1;
+    margin-right: auto;
+    margin-left: auto
+}
+
+
+.gjs-clm-tags #gjs-clm-states {
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+
 .gjs-clm-tags #gjs-clm-new {
     color: var(--gjs-font-color);
     padding: var(--gjs-padding-elem-classmanager);
-    display: none
 }
 
 .gjs-clm-tags #gjs-clm-close {

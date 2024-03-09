@@ -2,9 +2,8 @@ import type { Component, Editor, PropertyProps } from "grapesjs";
 
 
 
-export default function loadGridSupport(editor: Editor) {
+export default function loadDisplayGridsManager(editor: Editor) {
     const styleManager = editor.StyleManager;
-
 
 
     // Listen for Grid component selection
@@ -24,7 +23,7 @@ export default function loadGridSupport(editor: Editor) {
         if (!parent) return;
 
         if (parent && window.getComputedStyle(parent).display === 'grid') {
-            addGridChildProperties(editor)
+            addGridChildProperties(editor, parent)
             addGridEditingStyles(parent)
         }
 
@@ -97,6 +96,7 @@ function addGridProperties(editor: Editor) {
         id: 'grid-columns',
         type: 'radio',
         name: 'Columns',
+        default: "1fr",
         property: 'grid-template-columns',
         options: [
             { id: '1fr', label: '1' },
@@ -110,6 +110,7 @@ function addGridProperties(editor: Editor) {
         type: "radio",
         name: "Rows",
         property: "grid-template-rows",
+        default: "1fr",
         // @ts-ignore
         options: [
             { id: "1fr", label: "1" },
@@ -120,7 +121,7 @@ function addGridProperties(editor: Editor) {
     StyleManager.addProperty('Display', {
         id: 'horizontal-align',
         type: "radio",
-        name: "Horizontal Align",
+        name: "Components Horizontal Align",
         property: "justify-items",
         defaults: "center",
         // @ts-ignore
@@ -134,7 +135,7 @@ function addGridProperties(editor: Editor) {
     StyleManager.addProperty('Display', {
         id: 'vertical-align',
         type: "radio",
-        name: "Vertical Align",
+        name: "Components Vertical Align",
         property: "align-items",
         defaults: "center",
         // @ts-ignore
@@ -168,43 +169,62 @@ function removeGridProperties(editor: Editor) {
     StyleManager.removeProperty('Display', 'gap')
 }
 
-function addGridChildProperties(editor: Editor) {
+function addGridChildProperties(editor: Editor, parent: HTMLElement) {
 
     const { StyleManager } = editor
 
-    StyleManager.addProperty('Display', {
-        id: "grid-columns-size",
-        type: "radio",
-        property: "grid-column",
-        label: "Size in columns",
-        default: "span 1",
-        // @ts-ignore
-        options: [
-            { id: "span 1", label: "1" },
-            { id: "span 2", label: "2" },
-            { id: "span 3", label: "3" },
-            { id: "span 4", label: "4" },
-        ],
-    })
-    StyleManager.addProperty('Display', {
-        id: "grid-rows-size",
-        type: "radio",
-        property: "grid-row",
-        label: "Size in rows",
-        default: "span 1",
-        // @ts-ignore
-        options: [
-            { id: "span 1", label: "1" },
-            { id: "span 2", label: "2" },
-            { id: "span 3", label: "3" },
-            { id: "span 4", label: "4" },
-        ],
-    })
+    const parentComputedStyles = window.getComputedStyle(parent)
+    let parentColumnsLength = parentComputedStyles?.getPropertyValue('grid-template-columns')?.split(" ")?.length
+    let parentRowsLength = parentComputedStyles?.getPropertyValue('grid-template-rows')?.split(" ")?.length
+
+    
+    if(parentColumnsLength && parentColumnsLength > 1) {
+
+        const columnsSizeProperties = Array.from({ length: parentColumnsLength }, (_, index) => {
+            return { 
+                "id": `span ${index+1}`, 
+                "label": `${index+1}`
+            }
+        });
+
+        StyleManager.addProperty('Display', {
+            id: "grid-columns-size",
+            type: "radio",
+            property: "grid-column",
+            label: "Size in columns",
+            default: "span 1",
+            // @ts-ignore
+            options: [...columnsSizeProperties],
+        })
+    }
+        
+
+    if(parentRowsLength && parentRowsLength > 1) {
+        const rowsSizeProperties = Array.from({ length: parentRowsLength }, (_, index) => {
+            return { 
+                "id": `span ${index+1}`, 
+                "label": `${index+1}`
+            }
+        });
+        StyleManager.addProperty('Display', {
+            id: "grid-rows-size",
+            type: "radio",
+            property: "grid-row",
+            label: "Size in rows",
+            default: "span 1",
+            // @ts-ignore
+            options: [...rowsSizeProperties],
+        })
+    }
+        
+        
+
+    
 
     StyleManager.addProperty('Display', {
         id: 'self-horizontal-align',
         type: "radio",
-        name: "Horizontal Align",
+        name: "Self Horizontal Align",
         property: "justify-self",
         // @ts-ignore
         options: [
@@ -217,7 +237,7 @@ function addGridChildProperties(editor: Editor) {
     StyleManager.addProperty('Display', {
         id: 'self-vertical-align',
         type: "radio",
-        name: "Vertical Align",
+        name: "Self Vertical Align",
         property: "align-self",
         // @ts-ignore
         options: [

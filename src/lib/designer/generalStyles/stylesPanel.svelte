@@ -9,9 +9,9 @@
     $: editor;
 
 
-    let stylesPanel: HTMLElement;
+    let panel: HTMLElement;
 
-	$: stylesPanel;
+	$: panel;
 
     $: active = false;
 
@@ -19,14 +19,14 @@
     onMount(() => {
 
         document.addEventListener("open-styles", () => {
-            if(stylesPanel && stylesPanel.style)
-                stylesPanel.style.right = "0";
+            if(panel && panel.style)
+                panel.style.right = "0";
             active=true
         })
 
         document.addEventListener("close-styles", () => {
-            if(stylesPanel && stylesPanel.style)
-                stylesPanel.style.right = "-350px"
+            if(panel && panel.style)
+                panel.style.right = "-350px"
             active=false
            
         })
@@ -38,10 +38,13 @@
 </script>
 
 
-<div id="styles" class="styles-panel" bind:this={stylesPanel}>
-    <!-- {#if active}
-        <ModeSwitcher {editor}></ModeSwitcher>
-    {/if} -->
+<div class="styles-panel" bind:this={panel}>
+    <div style="display:contents;" id="selector">
+
+    </div>
+    <div style="display:contents;" id="styles">
+
+    </div>
 </div>
 
 
@@ -57,6 +60,7 @@
         top: 120px;
         background-color: white;
         z-index: 2;
+        color: var(--blue);
         border-top: 2px solid var(--light-blue);
         overflow: auto;
     }

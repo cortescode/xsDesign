@@ -4,56 +4,65 @@ import type { Editor } from 'grapesjs'
 export default function loadHeroComponents(editor: Editor) {
 
     const { Components } = editor
-    
+
     Components.addType("hero", {
         model: {
             defaults: {
                 name: 'Hero',
                 tagName: 'section',
-                components: [{ 
+                components: [{
                     type: "grid-child",
                     components: [
                         {
-                            type: "title",
-                            components: "Set a title for your hero",
+                            type: "grid1x1",
+                            components: [
+                                {
+                                    type: "title",
+                                    components: "Set a title for your hero",
+                                    style: {
+                                        'font-size': "4em",
+                                        "margin-top": "20",
+                                        "margin-bottom": "40",
+                                    }
+                                },
+                                {
+                                    type: "simple-text",
+                                    components: "Set the content for the hero paragraph",
+                                    style: {
+                                        "max-width": "90%",
+                                        "font-size": "18px",
+                                    }
+                                },
+                                {
+                                    type: "button-link",
+                                    components: "Call to Action",
+                                    style: {
+                                        "margin": "20px"
+                                    }
+                                }
+                            ],
                             style: {
-                                'font-size': "4em",
+                                "text-align": "center",
+                                "display": "grid",
+                                "place-items": "center"
                             }
                         },
-                        {
-                            type: "simple-text",
-                            components: "Set the content for the hero paragraph",
-                            style: {
-                                "width": "600px",
-                                "max-width": "90%",
-                                "font-size": "18px",
-                            }
-                        },
-                        {
-                            type: "button-link",
-                            components: "Call to Action",
-                            style: {
-                                "margin": "20px"
-                            }
-                        }
                     ],
                     style: {
-                        "width": "720px",
-                        "max-width": "96%",
-                        "text-align": "center",
-                        "display": "grid",
-                        "place-items": "center"
-                    },
+                        "width": "fit-content",
+                        "max-width": "96vw",
+                    }
                 }],
                 style: {
                     "display": "grid",
+                    "box-sizing": "border-box",
                     "padding": "120px 20px",
                     "place-items": "center",
                 },
                 editable: true,
             },
         }
-        
+
     })
 
     Components.addType("hero2", {
@@ -63,70 +72,64 @@ export default function loadHeroComponents(editor: Editor) {
                 tagName: 'section',
                 components: [
                     {
-                        type: "grid2x2",
-                        components: [{ 
-                            type: "grid-child",
-                            components: [
-                                {
-                                    type: "title",
-                                    components: "Set a title for your hero",
+                        type: "grid-child",
+                        components: [
+                            {
+                                type: "grid2x2",
+                                components: [{
+                                    type: "grid-child",
+                                    components: [
+                                        {
+                                            type: "title",
+                                            components: "Set a title for your hero",
+                                            style: {
+                                                'font-size': "4em"
+                                            }
+                                        },
+                                        {
+                                            type: "simple-text",
+                                            components: "Set the content for the hero paragraph",
+                                            style: {
+                                                "max-width": "90%",
+                                            }
+                                        },
+                                        {
+                                            type: "button-link",
+                                            components: "Call to Action",
+                                            style: {
+                                                "margin": "20px 10px",
+                                                "font-size": "18px",
+                                            }
+                                        }
+                                    ],
                                     style: {
-                                        'font-size': "4em"
-                                    }
-                                },
-                                {
-                                    type: "simple-text",
-                                    components: "Set the content for the hero paragraph",
-                                    style: {
-                                        "width": "600px",
-                                        "max-width": "90%",
-                                    }
-                                },
-                                {
-                                    type: "button-link",
-                                    components: "Call to Action",
-                                    style: {
-                                        "margin": "20px 10px",
-                                        "font-size": "18px",
-                                    }
-                                }
-                            ],
-                            style: {
-                                "width": "100%",
-                                "text-align": "left",
-                                "display": "grid",
-                                "align-items": "center",
-                                "justify-items": "left",
-                            },
-                        }, {
-                            type: "grid-child",
-                            components: [
-                                {
+                                        "width": "100%",
+                                        "text-align": "left",
+                                        "display": "grid",
+                                        "align-items": "center",
+                                        "justify-items": "left",
+                                    },
+                                }, {
                                     type: "image",
                                     style: {
-                                        "width": "auto",
-                                        "height": "100%",
+                                        "max-width": "100%",
+                                        "max-height": "100%",
                                     },
+                                }],
+                                style: {
+                                    "box-sizing": "border-box",
+                                    "max-width": "100%",
+                                    "width": "1150px",
+                                    "display": "grid",
+                                    "grid-template-columns": "1fr 1fr",
+                                    "padding": "10px",
+                                    "place-items": "center",
+                                    "gap": "40px",
                                 },
-                                
-                            ],
-                            style: {
-                                "width": "100%",
-                                "height": "100%",
-                                "text-align": "center",
-                                "padding": "20px",
-                                "display": "grid",
-                                "place-items": "center"
-                            },
-                        }],
+                            }
+                        ],
                         style: {
-                            "max-width": "98%",
-                            "width": "1150px",
-                            "display": "grid",
-                            "grid-template-columns": "1fr 1fr",
-                            "padding": "10px",
-                            "place-items": "center",
-                            "gap": "40px",
+                            "width": "fit-content",
                         },
                     }
                 ],
@@ -140,6 +143,6 @@ export default function loadHeroComponents(editor: Editor) {
                 editable: true,
             },
         }
-        
+
     })
 }
