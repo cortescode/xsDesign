@@ -2,7 +2,7 @@
 </script>
 
 <section>
-    Copyright © 2023 XS Design SL – Web creation for bold businesses – all rights reserved
+    Copyright © 2024 XS Design SL – Web builder for bold businesses – all rights reserved
     <br>
     <a href="/legal/legal-advice">Legal Notice</a>
     <a href="/legal/privacy-politics">Privacy Policy</a>

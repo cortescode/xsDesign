@@ -1,11 +1,11 @@
 
 <svelte:head>
-    <title>Política de Privacidad | XS Design</title>
+    <title>Privacy Policy | XS Design</title>
 </svelte:head>
 
 
 <section class="hero">
-    <h1 class="gradient-text animate">Política de Privacidad</h1>
+    <h1 class="gradient-text animate">Privacy Policy</h1>
 </section>
 
 <section class="text-section animate">

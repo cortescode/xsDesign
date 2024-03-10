@@ -1,6 +1,6 @@
 
 <svelte:head>
-    <title>Aviso Legal | XS Design</title>
+    <title>Legal Advice | XS Design</title>
 </svelte:head>
 
 <section class="hero">
