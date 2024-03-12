@@ -44,7 +44,7 @@ export default function loadComponents(editor: Editor) {
                 name: 'Grid',
                 tagName: 'section',
                 components: [{ type: "grid-child" }],
-                styles: Object.assign({}, styleGrid, {
+                style: Object.assign({}, styleGrid, {
                     "grid-template-columns": "1fr",
                     "grid-template-rows": "1fr"
                 }),
