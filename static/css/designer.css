@@ -491,3 +491,55 @@ svg {
 .gjs-sm-composite.gjs-clm-field {
     border-radius: 12px
 }
+
+
+
+/* TOOLBAR */
+
+.gjs-toolbar {
+    position: absolute;
+    background-color: var(--blue);
+    white-space: nowrap;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer !important;
+    z-index: 10;
+    top: 0;
+    left: 0
+}
+
+.gjs-toolbar-item {
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block
+}
+
+.gjs-toolbar-item:hover {
+    background-color: var(--dark);
+}
+
+
+.gjs-toolbar-item svg {
+    fill: currentColor;
+    vertical-align: middle;
+    cursor: pointer !important;
+    width: 100%;
+}
+
+
+
+.gjs-field-integer input {
+    padding-right: 30px;
+}
+
+.gjs-field-integer input::placeholder {
+    color: var(--blue)
+}
+
+
+
+
+

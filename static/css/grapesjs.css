@@ -1505,27 +1505,7 @@ span.CodeMirror-selectedtext {
 }
 
 
-.gjs-toolbar {
-    position: absolute;
-    background-color: var(--gjs-color-blue);
-    white-space: nowrap;
-    color: #fff;
-    z-index: 10;
-    top: 0;
-    left: 0
-}
 
-.gjs-toolbar-item {
-    width: 26px;
-    padding: 5px;
-    cursor: pointer;
-    display: inline-block
-}
-
-.gjs-toolbar-item svg {
-    fill: currentColor;
-    vertical-align: middle
-}
 
 .gjs-resizer-c {
     position: absolute;
@@ -1802,9 +1782,6 @@ span.CodeMirror-selectedtext {
     flex: 9 1 auto
 }
 
-.gjs-field-integer input {
-    padding-right: 30px
-}
 
 .gjs-select option,
 .gjs-field-select option,

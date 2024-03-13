@@ -13,14 +13,23 @@ const sectors = [
             options: [
                 { id: "static", label: "normal" },
                 { id: "fixed", label: "floating" }
-            ]
-
-        }]
+            ],
+        }, {
+            type: "radio",
+            property: "display",
+            label: "Display",
+            default: "block",
+            options: [
+                { id: "block", label: "block" },
+                { id: "inline-block", label: "inline" },
+                { id: "grid", label: "grid" }
+            ],
+        }],
     },
     {
         name: "Dimension",
         open: false,
-        buildProps: ["width", "height"],
+        buildProps: ["width", "height", "max-width", "max-height", "min-width", "min-height"],
         properties: [
             
             {
@@ -50,6 +59,19 @@ const sectors = [
                 ],
             }, */
             {
+                type: "select",
+                property: "font-family",
+                label: "Font family",
+                default: "Arial Black",
+                // @ts-ignore
+                options: [
+                    { id: "Arial Black, Gadget, sans-serif", label: "Arial Black" },
+                    { id: "Comfortaa", label: "Comfortaa" },
+                    { id: "Righteous", label: "Alfa Slab One" },
+                    { id: "Bevan", label: "Bevan" },
+                ],
+            },
+            {
                 type: "radio",
                 property: "text-align",
                 label: "Text Align",
@@ -61,18 +83,23 @@ const sectors = [
                 ],
             }
         ],
-        buildProps: ["font-size", "font-family", "text-align", "color", "text-shadow"],
+        buildProps: ["font-size", "font-family", "text-align", "line-height", "letter-spacing", "color", "text-shadow"],
         visible: false
     },
     {
         name: "Border",
         open: false,
-        buildProps: ["border", "border-radius-c"],
+        buildProps: ["border", "border-radius"],
     },
     {
         name: "Decorations",
         open: false,
-        buildProps: ["box-shadow", "background"],
+        buildProps: ["background", "box-shadow"],
+    },
+    {
+        name: "Extra",
+        open: false,
+        properties: ['opacity', 'transition', 'transform'],
     },
 ]
 

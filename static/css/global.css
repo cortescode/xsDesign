@@ -14,10 +14,6 @@
 	--subtitle-max-width: 600px;
 }
 
-* {
-	cursor: default;
-}
-
 html {
 	scroll-behavior: smooth;
 }

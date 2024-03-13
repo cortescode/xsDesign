@@ -16,6 +16,7 @@ export async function GET({ params, cookies }) {
         "user_uid": user_uid
     })
 
+    console.log(JSON.stringify(db_website?.data))
     // Create the response json object
     let website: Website = {
         id: params.website_id,

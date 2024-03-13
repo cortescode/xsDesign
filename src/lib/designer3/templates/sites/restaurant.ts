@@ -1,6 +1,0 @@
-
-
-
-export let data = {
-    
-}

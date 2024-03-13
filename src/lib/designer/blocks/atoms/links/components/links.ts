@@ -25,28 +25,6 @@ export default function addLinks(editor: Editor) {
 					class: `basic-link`,
 					href: "/"
 				},
-				toolbar: [
-					{
-						attributes: {class: 'fa fa-arrow-up'},
-						command: 'select-parent'
-					},
-					{
-						attributes: {class: 'fa fa-arrows'},
-						command: 'tlb-move'
-					},
-					{
-						attributes: {class: 'fa fa-clone'},
-						command: 'tlb-clone',
-					},
-					{
-						attributes: {class: 'fa fa-trash'},
-						command: 'tlb-delete'
-					},
-					{
-						attributes: {class: 'fa fa-link'},
-						command: 'open-link'
-					}
-				]
 			},
 		}	
     });
@@ -80,28 +58,6 @@ export default function addLinks(editor: Editor) {
 				}
 				
 				`,
-				toolbar: [
-					{
-						attributes: {class: 'fa fa-arrow-up'},
-						command: 'select-parent'
-					},
-					{
-						attributes: {class: 'fa fa-arrows'},
-						command: 'tlb-move'
-					},
-					{
-						attributes: {class: 'fa fa-clone'},
-						command: 'tlb-clone',
-					},
-					{
-						attributes: {class: 'fa fa-trash'},
-						command: 'tlb-delete'
-					},
-					{
-						attributes: {class: 'fa fa-link'},
-						command: 'open-link'
-					}
-				]
 			},
 		}
 		
