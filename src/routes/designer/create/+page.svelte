@@ -1,219 +1,275 @@
 <script lang="ts">
     import Logo from "$lib/components/Logo.svelte";
-    import { onMount } from 'svelte';
-/* 
-    let selectedTemplate = null;
+    import { onMount } from "svelte";
+    import ColorPaletteSelector from "./ColorPaletteSelector.svelte";
+    import TemplateSelection from "./TemplateSelection.svelte";
+    import BackButton from "./BackButton.svelte";
+    import type { Template } from "$lib/interfaces/Template";
 
-    // Example template data
-    const templates = [
-        { id: 'template1', name: 'Template 1', image: '/media/assets/landing.avif' },
-        { id: 'template2', name: 'Template 2', image: '/media/assets/landing.avif' },
-        { id: 'template3', name: 'Template 3', image: '/media/assets/landing.avif' }
-    ];
+    let step = 0;
 
-    // Function to handle template selection
-    function handleTemplateSelection(templateId) {
-        selectedTemplate = templateId;
+    let name: string;
+    let description: string;
+
+    let palette: any;
+
+    function createWebsite() {
+        if (!name || !description) openErrorModal("error");
+
+        fetch("/designer/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                description: description,
+            }),
+        })
+            .then(async (response) => {
+                if (response.redirected) {
+                    // Redirect occurred
+                    window.location.href = response.url; // Redirect to the new location
+                } else {
+                    // No redirect, handle the response as usual
+                    // Example: Log response data to console
+                    const responseData = await response.json();
+                    console.log(responseData);
+                }
+            })
+            .catch((error) => {
+                alert(error);
+            });
     }
 
-    onMount(() => {
-        // Set the initial selected template (you can customize this)
-        selectedTemplate = templates[0].id;
-    });
-     */
+    function openErrorModal(errorMessage: string) {
+        alert(errorMessage);
+    }
+
+    function setPalette(palette: any) {
+        palette = palette
+    }
+
+    function setTemplate(template: Template) {}
 </script>
 
-<div class="wrapper">
+<div class="creation-header">
+    <BackButton></BackButton>
+    <h1>Create your Website</h1>
     <div class="logo-wrapper">
         <Logo></Logo>
     </div>
-    
-    <form method="post">
-            <div class="animate">
-                <div class="back-button-wrapper">
-                    <a href="/designer"> 
-                        <svg width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"></path>
-                        </svg>   
-                        Back 
-                    </a>
-                </div>
-                <h1>Create your webpage</h1>
-                <label for="name">Enter the name of your website:</label>
-                <input type="text" id="name" name="name" placeholder="name">
-                <label for="description">Enter a brief description for your site:</label>
-                <input type="text" id="description" name="description" placeholder="description">
-            </div><!-- 
-            <img src="/media/assets/images/earth.png" class="animate" alt="" srcset="/media/assets/landing.avif"> -->
-        
-        <div class="button-wrapper">
-            <input class="designer-button" type="submit" value="+ Create">
+</div>
+<div class="wrapper">
+    <div class="creation-steps">
+        <div class="creation-steps-circles">
+            <div class="circle active"></div>
+            {#if step > 0}
+                <div class="circle active"></div>
+            {:else}
+                <div class="circle"></div>
+            {/if}
         </div>
-    </form>
+    </div>
+
+    {#if step == 0}
+        <section class="information">
+            <div class="website-info animate">
+                <h2>Describe your project:</h2>
+
+                <label for="name">Enter the name of your website:</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="name"
+                    bind:value={name}
+                />
+
+                <label for="description">
+                    Enter a brief description for your site:
+                </label>
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="description"
+                    rows="5"
+                    bind:value={description}
+                />
+            </div>
+
+            <ColorPaletteSelector {setPalette}></ColorPaletteSelector>
+        </section>
+    {:else}
+        <TemplateSelection {setTemplate}></TemplateSelection>
+    {/if}
+
+    <div class="button-wrapper">
+        {#if step == 0}
+            <button class="designer-button" on:click={() => step++}>
+                Select Template
+            </button>
+        {:else}
+            <button class="back-button" on:click={() => (step = 0)}>
+                <svg width="10" height="10" viewBox="0 0 20 20">
+                    <path
+                        d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"
+                    ></path>
+                </svg>
+                Back
+            </button>
+            <button class="designer-button" on:click={createWebsite}>
+                Create
+            </button>
+        {/if}
+    </div>
 </div>
 
 <style>
-
-    .back-button-wrapper {
-        width: fit-content;
+    .creation-header {
+        background-color: var(--blue);
+        position: fixed;
+        inset: 0 0 auto 0;
         height: fit-content;
-        color: var(--dark);
-        fill: var(--dark);
-    }
-
-    .back-button-wrapper a {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr 3fr 1fr;
         align-items: center;
-        gap: 20px;
-        font-size: 18px;
-        text-align: left;
-        padding: 6px 18px 6px 12px;
+        padding: 10px;
+    }
+
+    .creation-header h1 {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 2em;
+    }
+
+    .back-button {
+        outline: 1px solid rgb(67, 28, 225);;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        padding: 8px 10px;
+        height: 100%;
         border-radius: 12px;
-        margin-bottom: 40px;
-        border: 1px solid var(--blue)
+        border: none;
+        outline: none;
+        color: var(--blue);
+        text-decoration: none;
+        font-size: 14px;
+        transition: .2s;
     }
 
-    .back-button-wrapper a:hover {
-        background-color: white;
+
+    .back-button svg{
+        fill: var(--blue);
+        margin-right: 10px;
+        transition: margin .2s ease-in-out;
     }
 
-    .back-button-wrapper svg {
-        transition: padding .1s ease-in;
+
+    .back-button:hover svg{
+        fill: white;
+        margin-right: 20px;
     }
-    .back-button-wrapper:hover svg {
-        padding-right: 20px;
+
+    .back-button:hover {
+        background: rgb(67, 28, 225);;
+        box-shadow: rgb(48, 63, 200) 0 0 120px 0;
+        color: white;
     }
 
     .wrapper {
-        background: linear-gradient(160deg, white, #DAD4FD);
+        box-sizing: border-box;
+        background: linear-gradient(160deg, white, #dad4fd);
         padding-top: 120px !important;
-        padding: 10px;
+        padding: 40px;
         display: grid;
+        grid-template-columns: 1fr;
         align-items: flex-start;
         justify-items: center;
-        height: calc( 100vh - 90px );
+        min-height: 100vh;
     }
 
     .logo-wrapper {
-        max-width: 100%;
-        position: fixed;
-        inset: 10px auto auto auto;
+        justify-self: flex-end;
     }
 
-    section {
-        display: grid !important;
-        place-items: center;
+    .information {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1350px;
+        margin: 0;
+        padding: 10px 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
     }
-    
 
-    form {
-        max-width: 1050px;
-    }
-
-    form * {
+    .information * {
         display: block;
         margin: 10px 0;
     }
 
-    .two-columns  h1 {
-        max-width: 320px;
+    .information label {
+        margin-top: 20px;
     }
 
-    form label {
-        margin-top: 20px;
+    .creation-steps {
+        position: fixed;
+        inset: 40% auto auto 10px;
+    }
+
+    .creation-steps-circles {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 4px;
+    }
+    .creation-steps-circles .circle {
+        width: 15px;
+        height: 15px;
+        background-color: var(--dark);
+        border-radius: 50%;
+    }
+    .creation-steps-circles .circle.active {
+        background-color: var(--blue);
     }
 
     input {
         padding: 10px 20px;
         border-radius: 12px;
         border: 2px solid var(--blue);
-        width: calc(100% - 36px);
+        width: calc(80% - 36px);
         font-size: 18px;
     }
 
-
-    form input[type="submit"] {
-        cursor: pointer;
-        width: fit-content;
-    }
-
-
-    img {
-        width: 600px;
+    textarea {
+        box-sizing: border-box;
+        padding: 10px 20px;
         border-radius: 12px;
+        border: 2px solid var(--blue);
+        width: calc(100% - 40px);
+        font-size: 18px;
+        resize: none;
     }
 
     .button-wrapper {
-        display: grid;
-        place-items: center;
+        position: fixed;
+        inset: auto 20px 10px auto;
+        width: fit-content;
+        height: fit-content;
     }
 
     .button-wrapper input {
         font-family: "Comfortaa";
         padding: 10px 20px;
         font-size: 22px;
-        margin-top: 40px;
+        margin: 0;
     }
 
+    .website-info {
+        border-right: 2px solid var(--blue);
+    }
 </style>
-
-
-
-<!-- 
-        <section>
-            <h1>Choose your template</h1>
-
-            <div class="templates">
-                {#each templates as template (template.id)}
-                    <article on:click={() => handleTemplateSelection(template.id)} class:active = {selectedTemplate == template.id}>
-                        <img src={template.image} alt={template.name}>
-                        <p>{template.name}</p>
-                    </article>
-                {/each}
-            </div>
-            <p>We are working to bring you more templates! </p>
-        </section>
- -->
-
-
- <!-- 
-        /* Your existing styles */
-/* 
-    .templates {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-    .templates article {
-        cursor: pointer;
-        height: 260px;
-        border-radius: 8px;
-        background-color: white;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .templates img {
-        max-width: 100%;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-    .templates p {
-        margin-top: 8px;
-        cursor: pointer;
-    }
-
-    .templates article[selected='true'] {
-        outline: 2px solid var(--dark);
-    }
-
-    .active {
-        outline: 2px solid var(--blue);
-    }
- */
-  -->

@@ -4,7 +4,7 @@ import {
 	cmdDeviceDesktop,
 	cmdDeviceMobile,
 	cmdDeviceTablet,
-	cmdExport,
+	otm,
 	oas,
 	obl,
 	opa,
@@ -112,6 +112,11 @@ export default function loadCommands(editor: Editor) {
 			document.dispatchEvent(closePagesEvent)
 		},
 	})
+
+
+	document.addEventListener("open-traits", () => {
+		editor.runCommand(otm)
+	}) 
 
 	Commands.add(cmdClear, (e: Editor) => confirm(clearTextConfirm) && e.runCommand('core:canvas-clear'));
 }

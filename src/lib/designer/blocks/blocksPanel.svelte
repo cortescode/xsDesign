@@ -27,7 +27,6 @@
                     // Close all categories except the one that was just opened
                 categories?.each((category) => {
                     category.set('open', false);
-                    console.log(category)
                 });
 
                 /* editor?.on('block:category:open', (openedCategory) => {

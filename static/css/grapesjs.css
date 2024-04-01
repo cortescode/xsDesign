@@ -1336,46 +1336,7 @@ span.CodeMirror-selectedtext {
     pointer-events: none
 }
 
-.gjs-traits-label {
-    border-bottom: 1px solid var(--gjs-main-dark-color);
-    font-weight: lighter;
-    margin-bottom: 5px;
-    padding: 10px;
-    text-align: left
-}
 
-.gjs-label-wrp {
-    width: 30%;
-    min-width: 30%
-}
-
-.gjs-field-wrp {
-    flex-grow: 1
-}
-
-.gjs-trt-header {
-    font-weight: lighter;
-    padding: 10px
-}
-
-.gjs-trt-trait {
-    display: flex;
-    justify-content: flex-start;
-    padding: 5px 10px;
-    font-weight: lighter;
-    align-items: center;
-    text-align: left
-}
-
-.gjs-trt-traits {
-    font-size: var(--gjs-font-size)
-}
-
-.gjs-trt-trait .gjs-label {
-    text-align: left;
-    text-overflow: ellipsis;
-    overflow: hidden
-}
 
 .gjs-guide-info {
     position: absolute
@@ -1739,20 +1700,7 @@ span.CodeMirror-selectedtext {
     display: flex
 }
 
-.gjs-select {
-    padding: 0;
-    width: 100%
-}
 
-.gjs-select select {
-    padding-right: 10px
-}
-
-.gjs-select:-moz-focusring,
-.gjs-select select:-moz-focusring {
-    color: rgba(0, 0, 0, 0);
-    text-shadow: 0 0 0 var(--gjs-secondary-light-color)
-}
 
 .gjs-input:focus,
 .gjs-button:focus,
@@ -1783,7 +1731,6 @@ span.CodeMirror-selectedtext {
 }
 
 
-.gjs-select option,
 .gjs-field-select option,
 .gjs-clm-select option,
 .gjs-sm-select option,
@@ -1896,31 +1843,6 @@ span.CodeMirror-selectedtext {
     border-style: solid
 }
 
-.gjs-radio-item {
-    flex: 1 1 auto;
-    text-align: center;
-
-}
-
-.gjs-radio-item:hover {
-    background: var(--gjs-main-dark-color)
-}
-
-.gjs-radio-item input {
-    display: none
-}
-
-
-.gjs-radio-items {
-    display: flex;
-    border-radius: 4px;
-}
-
-.gjs-radio-item-label {
-    cursor: pointer;
-    display: block;
-    padding: var(--gjs-input-padding)
-}
 
 .gjs-field-units {
     position: absolute;
@@ -1966,8 +1888,8 @@ span.CodeMirror-selectedtext {
     top: 4px
 }
 
-.gjs-field-select {
-    padding: 0
+.gjs-field-select select{
+    text-align: center;
 }
 
 .gjs-field-range {
@@ -2391,8 +2313,8 @@ span.CodeMirror-selectedtext {
     box-sizing: border-box;
     float: left;
     width: 50%;
-    margin-bottom: 5px;
-    padding: 0 5px
+    margin-bottom: 10px;
+    padding: 0 8px
 }
 
 .gjs-sm-property--full,
@@ -2785,75 +2707,12 @@ span.CodeMirror-selectedtext {
     background-color: var(--gjs-color-green)
 }
 
-#gjs-clm-add-tag,
-.gjs-clm-tags-btn {
-    background-color: rgba(255, 255, 255, .15);
-    border-radius: 2px;
-    padding: 3px;
-    margin-right: 3px;
-    border: 1px solid rgba(0, 0, 0, .15);
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    cursor: pointer
-}
-
-.gjs-clm-tags-btn svg {
-    fill: currentColor;
-    display: block
-}
-
-.gjs-clm-header {
-    display: flex;
-    align-items: center;
-    margin: 7px 0
-}
-
-.gjs-clm-tag {
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    border-radius: 3px;
-    margin: 0 3px 3px 0;
-    padding: 5px;
-    cursor: default;
-    border: 1px solid rgb(8, 12, 48);
-}
-
-.gjs-clm-tag-status,
-.gjs-clm-tag-close {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 1
-}
-
-.gjs-clm-tag-status svg,
-.gjs-clm-tag-close svg {
-    vertical-align: middle;
-    fill: currentColor
-}
-
-.gjs-clm-sels-info {
-    margin: 7px 0;
-    text-align: left
-}
-
-.gjs-clm-sel-id {
-    font-size: .9em;
-    opacity: .5;
-    filter: alpha(opacity=50)
-}
-
-.gjs-clm-label-sel {
-    float: left;
-    padding-right: 5px
-}
 
 .gjs-mdl-container {
     font-family: var(--gjs-main-font);
     overflow-y: auto;
     position: fixed;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgb(1, 0, 40, 0.4);
     display: flex;
     top: 0;
     left: 0;
@@ -2863,8 +2722,7 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-mdl-dialog {
-    text-shadow: -1px -1px 0 rgba(0, 0, 0, .05);
-    animation: gjs-slide-down .215s;
+    animation: gjs-slide-down .2s;
     margin: auto;
     max-width: 850px;
     width: 90%;

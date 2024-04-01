@@ -15,7 +15,7 @@
     --gjs-color-red: #dd3636;
     --gjs-color-yellow: #ffca6f;
     --gjs-color-green: #62c462;
-    --gjs-left-width: 260px;
+    --gjs-left-width: 280px;
     --gjs-color-highlight: #71b7f1;
     --gjs-color-warn: rgb(145, 62, 255);
     --gjs-handle-margin: -5px;
@@ -28,7 +28,7 @@
     --gjs-upload-padding: 150px 10px;
     --gjs-animation-duration: 0.2s;
     --gjs-main-font: "Comfortaa", Helvetica, sans-serif;
-    --gjs-font-size: 0.75rem;
+    --gjs-font-size: 1rem;
     --gjs-placeholder-background-color: var(--gjs-color-green);
     --gjs-canvas-top: 50px;
     --gjs-flex-item-gap: 5px
@@ -221,8 +221,6 @@ svg {
 
 
 
-
-
 .gjs-category-title,
 .gjs-layer-title, .gjs-title,
 .gjs-sm-sector-title {
@@ -249,7 +247,7 @@ svg {
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
-    background-color: white;
+    background: white;
 }
 
 .gjs-sm-sector {
@@ -282,7 +280,7 @@ svg {
 .gjs-sm-properties {
     box-sizing: border-box;
     /* border: 1px solid var(--blue); */
-    font-size: var(--gjs-font-size);
+    font-size: 14px;
     padding: 10px 5px;
     display: flex;
     flex-wrap: wrap;
@@ -308,24 +306,21 @@ svg {
     z-index: 1;
 }
 
+.gjs-field select {
+    padding: var(--gjs-input-padding) 0;
+}
+
 
 .gjs-field {
+    width: 100%;
     background-color: var(--light-blue);
     border: none;
     box-shadow: none;
     border-radius: 12px;
     box-sizing: border-box;
-    padding: 0;
+    padding: 2px 4px;
     position: relative;
 }
-
-
-.gjs-radio-item input:checked+.gjs-radio-item-label {
-    background-color: var(--blue);
-    color: white;
-    border-radius: 12px;
-}
-
 
 
 
@@ -366,6 +361,7 @@ svg {
 
 
 
+
 .gjs-clm-tags {
     font-size: var(--gjs-font-size);
     padding: 10px 5px
@@ -379,6 +375,11 @@ svg {
     padding: 7px 0;
     float: left
 }
+.gjs-clm-tags #gjs-clm-up {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+}
 
 .gjs-clm-tags #gjs-clm-sel {
     font-style: italic;
@@ -389,28 +390,93 @@ svg {
     clear: both;
     padding: 5px;
     margin-bottom: 5px;
-    display: none;
-    flex-wrap: wrap
+    display: none; /* flex */
+    flex-wrap: wrap;
+    border: 1px solid var(--blue);
+    border-radius: 8px;
 }
 
 .gjs-clm-tags #gjs-clm-tags-c {
-    display: none;
     flex-wrap: wrap;
     vertical-align: top;
     overflow: hidden
 }
 
 .gjs-clm-tags #gjs-clm-label {
-    display: none;
+    display: none; /* block */
+}
+
+
+.gjs-clm-header {
+    display: none; /* flex */
+    margin: 7px 0
+}
+
+.gjs-clm-tag {
+    display: none; /* flex */
+    overflow: hidden;
+    align-items: center;
+    border-radius: 3px;
+    margin: 0;
+    padding: 5px;
+    cursor: default;
+    border-radius: 8px;
+    margin-right: 5px;
+    border: 1px solid var(--blue);
+    background-color: white;
+}
+
+
+#gjs-clm-add-tag,
+.gjs-clm-tags-btn {
+    align-self: center;
+    background-color: var(--blue);
+    border-radius: 8px;
+    padding: 3px;
+    margin-right: 3px;
+    border: 1px solid var(--dark);
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    cursor: pointer
+}
+
+.gjs-clm-tags-btn svg {
+    fill: white;
+    display: block
+}
+
+.gjs-clm-tag-edite,
+.gjs-clm-tag-status,
+.gjs-clm-tag-close {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 1
+}
+.gjs-clm-tag-edite svg,
+.gjs-clm-tag-status svg,
+.gjs-clm-tag-close svg {
+    vertical-align: middle;
+    fill: currentColor
+}
+
+.gjs-clm-sels-info {
+    margin: 7px 0;
+    text-align: left
+}
+
+.gjs-clm-sel-id {
+    font-size: .9em;
+    opacity: .5;
+    filter: alpha(opacity=50)
 }
 
 .gjs-clm-label-sel {
-    display: none !important;
+    float: left;
+    padding-right: 5px
 }
 
-.gjs-clm-tags #gjs-clm-status-c {
-    width: 90%;
-}
+
 
 .gjs-clm-tags .gjs-clm-sels-info {
     display: none;
@@ -418,9 +484,9 @@ svg {
 
 
 .gjs-clm-header-status {
-    flex-shrink: 1;
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
+    width: 50%;
 }
 
 
@@ -531,15 +597,53 @@ svg {
 
 
 
-.gjs-field-integer input {
-    padding-right: 30px;
+
+
+
+
+.gjs-trt-trait {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 5px 10px;
+    font-weight: lighter;
+    align-items: center;
+    text-align: left
 }
 
-.gjs-field-integer input::placeholder {
-    color: var(--blue)
+.gjs-trt-traits {
+    font-size: var(--gjs-font-size)
+}
+
+.gjs-trt-trait .gjs-label {
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden
 }
 
 
 
+.gjs-traits-label {
+    border-bottom: 1px solid var(--gjs-main-dark-color);
+    font-weight: lighter;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: left
+}
 
 
+.gjs-label-wrp {
+    width: 100%;
+    min-width: 30%
+}
+
+.gjs-field-wrp {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.gjs-trt-header {
+    font-weight: lighter;
+    padding: 10px
+}

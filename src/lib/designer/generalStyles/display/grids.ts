@@ -1,6 +1,8 @@
 import type { Component, Editor, PropertyProps } from "grapesjs";
 
 
+// The Style Manager Sector where the grid options will be added
+const smSectorId = "DISPLAY"
 
 export default function loadDisplayGridsManager(editor: Editor) {
     const styleManager = editor.StyleManager;
@@ -92,7 +94,7 @@ function removeGridEditingStyles(element: HTMLElement): void {
 
 function addGridProperties(editor: Editor) {
     const { StyleManager } = editor
-    StyleManager.addProperty('Display', {
+    StyleManager.addProperty(smSectorId, {
         id: 'grid-columns',
         type: 'radio',
         name: 'Columns',
@@ -105,7 +107,7 @@ function addGridProperties(editor: Editor) {
         ],
     },)
 
-    StyleManager.addProperty('Display', {
+    StyleManager.addProperty(smSectorId, {
         id: 'grid-rows',
         type: "radio",
         name: "Rows",
@@ -118,7 +120,7 @@ function addGridProperties(editor: Editor) {
             { id: "1fr 1fr 1fr", label: "3" },
         ],
     })
-    StyleManager.addProperty('Display', {
+    StyleManager.addProperty(smSectorId, {
         id: 'horizontal-align',
         type: "radio",
         name: "Components Horizontal Align",
@@ -132,7 +134,7 @@ function addGridProperties(editor: Editor) {
         ],
     })
 
-    StyleManager.addProperty('Display', {
+    StyleManager.addProperty(smSectorId, {
         id: 'vertical-align',
         type: "radio",
         name: "Components Vertical Align",
@@ -147,7 +149,7 @@ function addGridProperties(editor: Editor) {
     })
 
 
-    StyleManager.addProperty('Display',
+    StyleManager.addProperty(smSectorId,
         {
             id: 'grid-gap',
             name: "Space Between",
@@ -162,11 +164,11 @@ function addGridProperties(editor: Editor) {
 
 function removeGridProperties(editor: Editor) {
     const { StyleManager } = editor
-    StyleManager.removeProperty('Display', 'grid-columns')
-    StyleManager.removeProperty('Display', 'grid-rows')
-    StyleManager.removeProperty('Display', 'horizontal-align')
-    StyleManager.removeProperty('Display', 'vertical-align')
-    StyleManager.removeProperty('Display', 'gap')
+    StyleManager.removeProperty(smSectorId, 'grid-columns')
+    StyleManager.removeProperty(smSectorId, 'grid-rows')
+    StyleManager.removeProperty(smSectorId, 'horizontal-align')
+    StyleManager.removeProperty(smSectorId, 'vertical-align')
+    StyleManager.removeProperty(smSectorId, 'gap')
 }
 
 function addGridChildProperties(editor: Editor, parent: HTMLElement) {
@@ -187,7 +189,7 @@ function addGridChildProperties(editor: Editor, parent: HTMLElement) {
             }
         });
 
-        StyleManager.addProperty('Display', {
+        StyleManager.addProperty(smSectorId, {
             id: "grid-columns-size",
             type: "radio",
             property: "grid-column",
@@ -206,7 +208,7 @@ function addGridChildProperties(editor: Editor, parent: HTMLElement) {
                 "label": `${index+1}`
             }
         });
-        StyleManager.addProperty('Display', {
+        StyleManager.addProperty(smSectorId, {
             id: "grid-rows-size",
             type: "radio",
             property: "grid-row",
@@ -221,7 +223,7 @@ function addGridChildProperties(editor: Editor, parent: HTMLElement) {
 
     
 
-    StyleManager.addProperty('Display', {
+    StyleManager.addProperty(smSectorId, {
         id: 'self-horizontal-align',
         type: "radio",
         name: "Self Horizontal Align",
@@ -234,7 +236,7 @@ function addGridChildProperties(editor: Editor, parent: HTMLElement) {
         ]
     })
 
-    StyleManager.addProperty('Display', {
+    StyleManager.addProperty(smSectorId, {
         id: 'self-vertical-align',
         type: "radio",
         name: "Self Vertical Align",
@@ -251,8 +253,8 @@ function addGridChildProperties(editor: Editor, parent: HTMLElement) {
 
 function removeGridChildProperties(editor: Editor) {
     const { StyleManager } = editor
-    StyleManager.removeProperty('Display', 'grid-columns-size')
-    StyleManager.removeProperty('Display', 'grid-rows-size')
-    StyleManager.removeProperty('Display', 'self-horizontal-align')
-    StyleManager.removeProperty('Display', 'self-vertical-align')
+    StyleManager.removeProperty(smSectorId, 'grid-columns-size')
+    StyleManager.removeProperty(smSectorId, 'grid-rows-size')
+    StyleManager.removeProperty(smSectorId, 'self-horizontal-align')
+    StyleManager.removeProperty(smSectorId, 'self-vertical-align')
 }

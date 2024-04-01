@@ -17,9 +17,6 @@ export default function loadTextBlocks(editor: Editor, commonBlockProps: any) {
             content: `
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
             `,
-            style: {
-                "font-size": "4em"
-            }
         }
     })
 

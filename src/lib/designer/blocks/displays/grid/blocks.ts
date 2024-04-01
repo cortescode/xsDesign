@@ -8,7 +8,7 @@ export default function loadBlocks(editor: Editor) {
 
     
     const commonBlockProps: Partial<BlockProperties> = {
-        category: 'Display',
+        category: 'DISPLAY',
 		select: true,
 	};
 

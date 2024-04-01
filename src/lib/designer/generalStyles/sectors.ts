@@ -2,8 +2,8 @@
 
 const sectors = [
     {
-        id: "Display",
-        name: "Display",
+        id: "DISPLAY",
+        name: "DISPLAY",
         open: false,
         properties: [{
             type: "radio",
@@ -27,14 +27,20 @@ const sectors = [
         }],
     },
     {
-        name: "Dimension",
+        id: "SIZE",
+        name: "SIZE",
         open: false,
         buildProps: ["width", "height", "max-width", "max-height", "min-width", "min-height"],
+    },
+    {
+        id: "MARGIN & PADDIN",
+        name: "MARGIN & PADDIN",
+        open: false,
         properties: [
             
             {
                 type: 'margin-and-padding',
-                label: "Margin and Padding",
+                label: "",
                 properties: ["margin", "padding"],
                 full: true,
                 units: ['px', '%'],
@@ -42,7 +48,8 @@ const sectors = [
         ],
     },
     {
-        name: "Typography",
+        id: "TEXT",
+        name: "TEXT",
         open: false,
         properties: [
             /* {
@@ -87,17 +94,25 @@ const sectors = [
         visible: false
     },
     {
-        name: "Border",
+        id: "BORDER",
+        name: "BORDER",
         open: false,
         buildProps: ["border", "border-radius"],
     },
     {
-        name: "Decorations",
+        id: "BACKGROUND",
+        name: "BACKGROUND",
         open: false,
-        buildProps: ["background", "box-shadow"],
+        buildProps: ["background"],
     },
     {
-        name: "Extra",
+        id: "SHADOWS",
+        name: "SHADOWS",
+        open: false,
+        buildProps: ["box-shadow"],
+    },
+    {
+        name: "EXTRA ",
         open: false,
         properties: ['opacity', 'transition', 'transform'],
     },

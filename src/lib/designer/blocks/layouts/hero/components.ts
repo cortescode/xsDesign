@@ -53,13 +53,13 @@ export default function loadHeroComponents(editor: Editor) {
                         "max-width": "96vw",
                     }
                 }],
-                style: {
-                    "display": "grid",
-                    "box-sizing": "border-box",
-                    "padding": "120px 20px",
-                    "place-items": "center",
+                attributes: {
+                    class: "hero"
                 },
                 editable: true,
+                traits: [
+                    "id"
+                ]
             },
         }
 
@@ -141,6 +141,9 @@ export default function loadHeroComponents(editor: Editor) {
                     "padding": "120px 20px",
                 },
                 editable: true,
+                traits: [
+                    "id"
+                ]
             },
         }
 

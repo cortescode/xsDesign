@@ -8,3 +8,4 @@ export const oas = 'open-asset';
 export const opa = 'open-pages-command';
 export const obl = 'open-blocks';
 export const osm = 'open-sm';
+export const otm = 'open-tm'

@@ -30,7 +30,7 @@ export default function loadDisplayPositionManager(editor: Editor) {
         
 
         if(position && position === "fixed") {
-            StyleManager.addProperty('Display', {
+            StyleManager.addProperty('DISPLAY', {
                 id: 'top-space',
                 name: "Top",
                 property: "top",
@@ -41,7 +41,7 @@ export default function loadDisplayPositionManager(editor: Editor) {
             }, {
                 at: 1
             })
-            StyleManager.addProperty('Display', {
+            StyleManager.addProperty('DISPLAY', {
                 id: 'right-space',
                 name: "Right",
                 property: "right",
@@ -52,7 +52,7 @@ export default function loadDisplayPositionManager(editor: Editor) {
             }, {
                 at: 2
             })
-            StyleManager.addProperty('Display', {
+            StyleManager.addProperty('DISPLAY', {
                 id: 'bottom-space',
                 name: "Bottom",
                 property: "bottom",
@@ -63,7 +63,7 @@ export default function loadDisplayPositionManager(editor: Editor) {
             }, {
                 at: 3
             })
-            StyleManager.addProperty('Display', {
+            StyleManager.addProperty('DISPLAY', {
                 id: 'left-space',
                 name: "Left",
                 property: "left",
@@ -75,10 +75,13 @@ export default function loadDisplayPositionManager(editor: Editor) {
                 at: 4
             })
         } else {
-            StyleManager.removeProperty('Display', 'top-space')
-            StyleManager.removeProperty('Display', 'right-space')
-            StyleManager.removeProperty('Display', 'bottom-space')
-            StyleManager.removeProperty('Display', 'left-space')
+            if(!StyleManager.getSector('DISPLAY'))
+                return
+            
+            StyleManager.removeProperty('DISPLAY', 'top-space')
+            StyleManager.removeProperty('DISPLAY', 'right-space')
+            StyleManager.removeProperty('DISPLAY', 'bottom-space')
+            StyleManager.removeProperty('DISPLAY', 'left-space')
         }
 
     }

@@ -4,6 +4,7 @@ import loadBackgroundStyleOptions from './background';
 import loadMarginAndPaddingInput from './dimension/marginAndPadding';
 import loadDisplayPositionManager from './display/position';
 import loadDisplayGridsManager from './display/grids';
+import { openTraitsEvent } from '../traits';
 
 export { parseGradient, toGradient, getValidDir, GRAD_DIRS, GRAD_TYPES } from './background/gradient';
 
@@ -55,6 +56,7 @@ export default function loadStyles(editor: Editor, opts = {}) {
 		...opts,
 	};
 
+
 	loadGradientSupport(editor, options);
 
 	loadBackgroundStyleOptions(editor)
@@ -64,5 +66,12 @@ export default function loadStyles(editor: Editor, opts = {}) {
 	loadDisplayPositionManager(editor)
 
 	loadDisplayGridsManager(editor)
+
+	editor.on("component:select", (component) => {
+		const { SelectorManager } = editor
+
+		 SelectorManager.setState("")
+	})
+
 };
 

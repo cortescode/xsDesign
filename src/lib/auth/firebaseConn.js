@@ -19,8 +19,6 @@ export const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication
 export const auth = getAuth(app);
 
-// setPersistence(auth, browserLocalPersistence)
-
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 

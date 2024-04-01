@@ -16,7 +16,6 @@ export async function GET({ params, cookies }) {
         "user_uid": user_uid
     })
 
-    console.log(JSON.stringify(db_website?.data))
     // Create the response json object
     let website: Website = {
         id: params.website_id,
@@ -74,7 +73,7 @@ export async function POST({ params, request, cookies }) {
         } }
     );
 
-
+    // console.log("data: ", JSON.stringify(data))
     // Return successful response if everything is correct
     return new Response(
         JSON.stringify({ success: true }),

@@ -13,6 +13,7 @@
     import PublishingButton from "./Publishing/publishingButton.svelte";
     import StylesPanel from "./generalStyles/stylesPanel.svelte";
     import sectors from "./generalStyles/sectors";
+    import TraitsModal from "./traits/traitsModal.svelte";
 
     const projectEndpoint = `/designer/${$website?.id}/data/`;
 
@@ -66,16 +67,18 @@
             },
             blockManager: {
                 appendTo: "#blocks",
-                custom: true,
             },
             selectorManager: {
                 componentFirst: true,
                 appendTo: "#selector",
+                custom: true
             },
             styleManager: {
                 appendTo: "#styles",
-                clearProperties: true,
                 sectors: sectors
+            },
+            traitManager: {
+                appendTo: "#traits",
             },
             plugins: [main],
             pluginsOpts: {
@@ -102,6 +105,7 @@
 <PublishingButton></PublishingButton>
 <BlocksPanel {editor}></BlocksPanel>
 <StylesPanel {editor}></StylesPanel>
+<TraitsModal {editor}></TraitsModal>
 
 <div id="gjs" style="height:0px; overflow:hidden"></div>
 

@@ -9,4 +9,10 @@ export default function loadBlocks(editor: Editor) {
     loadMolecules(editor)
     loadDisplays(editor)
     loadLayouts(editor)
+
+
+	// Listen to the 'component:add' event
+    editor.on('component:add', (component) => {
+		editor.select(component)
+	})
 }

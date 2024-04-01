@@ -6,6 +6,14 @@ export default function loadComponents(editor: Editor) {
 
     const components = editor.Components
 
+    const commonModelProperties = {
+        unstylable: ['font-size'],
+        editable: true,
+        traits: [
+            "id"
+        ]
+    }
+
     const gridMinHeight = 80;
 
     const styleGrid = {
@@ -32,8 +40,7 @@ export default function loadComponents(editor: Editor) {
                 name: 'Grid Child',
                 tagName: 'div',
                 style: styleChild,
-                unstylable: ['font-size'],
-                editable: true,
+                ...commonModelProperties
             },
         }
     });
@@ -48,7 +55,7 @@ export default function loadComponents(editor: Editor) {
                     "grid-template-columns": "1fr",
                     "grid-template-rows": "1fr"
                 }),
-                editable: true,
+                ...commonModelProperties
             },
         }
     });
@@ -64,7 +71,7 @@ export default function loadComponents(editor: Editor) {
                     "grid-template-columns": "1fr 1fr",
                     "grid-template-rows": "1fr"
                 }),
-                editable: true,
+                ...commonModelProperties
             },
         }
     });
@@ -79,7 +86,7 @@ export default function loadComponents(editor: Editor) {
                     "grid-template-columns": "1fr 1fr 1fr",
                     "grid-template-rows": "1fr"
                 }),
-                editable: true,
+                ...commonModelProperties
             },
         }
     });
@@ -95,7 +102,7 @@ export default function loadComponents(editor: Editor) {
                     "grid-template-columns": "1fr 1fr",
                     "grid-template-rows": "1fr 1fr"
                 }),
-                editable: true,
+                ...commonModelProperties
             },
         }
     });

@@ -51,14 +51,16 @@ async function createRoute(website: Website, route: Route): Promise<Route | null
     // If the route is new for this website, add it to the 'routes' array
     await websites.updateOne(
         { "id": website.id, "user_uid": website.user_uid },
+        // @ts-ignore
         { $push: { routes: route } }
     );
 
+    /* 
     let updated_website = await websites.findOne({ 
         "id": website.id, 
         "user_uid": website.user_uid 
     })
-
+    */
     
     return route
 }

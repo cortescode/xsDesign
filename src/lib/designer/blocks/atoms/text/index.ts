@@ -6,7 +6,7 @@ import loadTextComponents from "./components";
 
 export default function loadText(editor: Editor) {
     const commonBlockProps = {
-        'category': 'Text'
+        'category': 'TEXT'
     }
     loadTextBlocks(editor, commonBlockProps)
     loadTextComponents(editor)

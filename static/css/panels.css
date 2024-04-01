@@ -842,3 +842,136 @@
     margin-bottom: var(--padding-units-margin);
     height: var(--units-size);
 }
+
+
+
+
+
+.gjs-field input, select {
+    font-family: Comfortaa;
+}
+
+
+.gjs-radio-item input:checked+.gjs-radio-item-label {
+    border: 1px solid var(--dark);
+    border-radius: 8px;
+    background-color: var(--blue);
+    background-image: radial-gradient(
+        50% 115% at 50% -5%,
+        rgba(255, 255, 255, 0.11) 0%,
+        transparent 100%
+    );
+    box-shadow:
+        inset 0 0px 10px 0px rgba(0, 0, 0, 0.14),
+        inset 0px 5px 10px 0px rgba(0, 0, 0, 0.11),
+        inset 0px 2px 5px 0px rgba(0, 0, 0, 0.4),
+        inset 0px 3px 20px 0px rgba(255, 255, 255, 0.25);       
+
+    color: white;
+    transition: all 150ms ease-in-out;
+}
+
+
+
+.gjs-field-radio {
+    color: var(--dark);
+    background-color: var(--light-blue);
+    padding: 2px;
+}
+
+.gjs-radio-item {
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 2px;
+}
+
+.gjs-radio-item:hover {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+}
+
+.gjs-radio-item input {
+    display: none
+}
+
+
+.gjs-radio-items {
+    display: flex;
+    border-radius: 4px;
+}
+
+.gjs-radio-item-label {
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    padding: var(--gjs-input-padding)
+}
+
+
+.gjs-field-integer {
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--dark);    
+
+    transition: all 150ms ease-in-out;
+}
+
+.gjs-field-integer input {
+    padding-right: 40px;
+    text-overflow: ellipsis;
+}
+
+.gjs-field-integer .gjs-input-unit {
+    color: var(--dark) !important;
+}
+.gjs-field-integer input::placeholder {
+    color: rgba(5, 0, 4, 0.6);
+}
+
+.gjs-field-integer .gjs-field-arrows * {
+    border-bottom-color: var(--dark);
+    border-top-color: var(--dark);
+}
+
+
+
+.gjs-select {
+    padding: 0;
+    width: 100%
+}
+
+.gjs-select {
+    padding: 0 10px 0 4px;
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    background-color: var(--light-blue);
+    transition: all 150ms ease-in-out;
+}
+
+.gjs-select select {
+    color: var(--blue);
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+.gjs-select .gjs-sel-arrow *{
+    border-top-color: var(--blue);
+    border-bottom-color: var(--blue);
+}
+
+
+.gjs-select:-moz-focusring,
+.gjs-select select:-moz-focusring {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0 0 0 var(--gjs-secondary-light-color)
+}
+
+.gjs-select option {
+    background-color: white;
+    color: var(--blue);
+    font-family: Comfortaa;
+    font-style: italic;
+}
