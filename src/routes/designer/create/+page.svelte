@@ -12,9 +12,15 @@
     let description: string;
 
     let palette: any;
+    let template_uid: any;
+
+    $: { name, description, palette, template_uid}
 
     function createWebsite() {
-        if (!name || !description) openErrorModal("error");
+        if (!name || !description || !template_uid) {
+            openErrorModal("You need to enter the name and description of your site")
+            return
+        };
 
         fetch("/designer/create", {
             method: "POST",
@@ -24,6 +30,7 @@
             body: JSON.stringify({
                 name: name,
                 description: description,
+                template_uid: template_uid,
             }),
         })
             .then(async (response) => {
@@ -46,16 +53,20 @@
         alert(errorMessage);
     }
 
-    function setPalette(palette: any) {
-        palette = palette
+    function setPalette(_palette: any) {
+        palette = _palette
     }
 
-    function setTemplate(template: Template) {}
+    function setTemplate(_template: Template) {
+        template_uid = _template.uid
+
+        console.log(template_uid)
+    }
 </script>
 
 <div class="creation-header">
     <BackButton></BackButton>
-    <h1>Create your Website</h1>
+    <h1 class="gradient-text">Create your Website</h1>
     <div class="logo-wrapper">
         <Logo></Logo>
     </div>
@@ -97,8 +108,7 @@
                     bind:value={description}
                 />
             </div>
-
-            <ColorPaletteSelector {setPalette}></ColorPaletteSelector>
+            <img src="/media/assets/images/ecommerce.webp" alt="Website Creation Graphic">
         </section>
     {:else}
         <TemplateSelection {setTemplate}></TemplateSelection>
@@ -127,7 +137,6 @@
 
 <style>
     .creation-header {
-        background-color: var(--blue);
         position: fixed;
         inset: 0 0 auto 0;
         height: fit-content;

@@ -104,6 +104,7 @@ function addGridProperties(editor: Editor) {
             { id: '1fr', label: '1' },
             { id: '1fr 1fr', label: '2' },
             { id: '1fr 1fr 1fr', label: '3' },
+            { id: '1fr 1fr 1fr 1fr', label: '4' },
         ],
     },)
 
@@ -118,6 +119,7 @@ function addGridProperties(editor: Editor) {
             { id: "1fr", label: "1" },
             { id: "1fr 1fr", label: "2" },
             { id: "1fr 1fr 1fr", label: "3" },
+            { id: '1fr 1fr 1fr 1fr', label: '4' },
         ],
     })
     StyleManager.addProperty(smSectorId, {

@@ -1,7 +1,8 @@
 import { websites } from '$lib/server/db/mongo/mongo'
 import { error, redirect } from '@sveltejs/kit';
 import type { Website } from '$lib/interfaces/Website';
-import { agency_template } from '$lib/designer/templates/sites/agency.js';
+import { data as agencyTemplateData } from '$lib/designer/templates/sites/agency/data';
+import { templatesList } from '$lib/designer/templates/templatesList.js';
 
 
 
@@ -14,6 +15,13 @@ export async function POST({ request, cookies }) {
     let website_name: string = data["name"] || ""
 
     let website_description: string = data["description"] || ""
+
+
+    let template_uid: string = data["template_uid"] || "0"
+
+    let template = templatesList[template_uid]
+
+    if(!template) template = templatesList["0"]
 
 
     if (!user_uid)
@@ -33,7 +41,7 @@ export async function POST({ request, cookies }) {
         "id": website_id,
         "user_uid": user_uid,
         "name": website_name,
-        "data": agency_template,
+        "data": template.data,
         "routes": [
             {
                 "page_id": "home",

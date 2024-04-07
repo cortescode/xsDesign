@@ -26,6 +26,9 @@ export async function GET({ params, cookies }) {
     }
 
 
+    // console.log(JSON.stringify(website.data))
+
+
     // Return the response with the website associated information
     return new Response(
         JSON.stringify(website),

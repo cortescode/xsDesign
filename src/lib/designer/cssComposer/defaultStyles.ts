@@ -13,7 +13,6 @@ const defaultRules = `
 
 * {
     box-sizing: border-box;
-    color: ${colorPalette["text"]};
 }
 
 .hero {
@@ -45,6 +44,7 @@ const defaultRules = `
 .basic-button-link:hover {
   background-color: white;
   color: rgb(36, 57, 214);
+  outline: 1px solid rgb(36, 57, 214);
 }
 
 

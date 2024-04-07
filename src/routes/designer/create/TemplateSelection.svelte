@@ -1,38 +1,38 @@
 <script lang="ts">
-    import { agency_template } from "$lib/designer/templates/sites/agency";
     import type { Template } from "$lib/interfaces/Template";
 
     // Set template function -> setTemplate(template: Template)
     export let setTemplate: any;
 
-    export let templates: Template[] = [
+    let templates: any[] = [
         {
             uid: "0",
-            name: "Agency",
-            image_url: "/media/templates/agency-template.png",
-            data: agency_template,
+            name: "Blank",
+            image_url: "/media/templates/blank-page-template.webp",
         },
         {
             uid: "1",
-            name: "Blank",
-            image_url: "/media/templates/agency-template.png",
-            data: [],
+            name: "Digital Marketing Agency",
+            image_url: "/media/templates/marketing-agency-template.webp",
         },
         {
             uid: "2",
-            name: "Ejemplo",
-            image_url: "/media/assets/landing.avif",
-            data: agency_template,
+            name: "Fitness/Personal Trainer",
+            image_url: "/media/templates/fitness-template.webp",
         },
         {
             uid: "3",
-            name: "Ejemplo",
-            image_url: "/media/assets/landing.avif",
-            data: agency_template,
+            name: "Mobile App",
+            image_url: "/media/templates/mobile-app-template.webp",
         },
+        {
+            uid: "4",
+            name: "Restaurant Basic",
+            image_url: "/media/templates/restaurant-template.webp",
+        }
     ];
 
-    $: selectedTemplate = templates[1]
+    $: selectedTemplate = templates[0]
     function selectTemplate(template: Template) {
         selectedTemplate = template
         setTemplate(template)
@@ -43,11 +43,11 @@
 <section class="templates-wrapper">
     <div>
         <div class="selected-template animate">
-            <h3>Selected Template</h3>
             <div class="image-wrapper">
                 <img src={selectedTemplate.image_url} alt="{selectedTemplate.name}" />
             </div>
-            <p>{selectedTemplate.name}</p>
+            <p>Selected Template</p>
+            <h3>{selectedTemplate.name}</h3>
         </div>
     </div>
     
@@ -82,10 +82,14 @@
     }
 
     .all-templates-wrapper {
+        box-sizing: border-box;
         width: 100%;
         padding: 20px;
-        border-radius: 24px;
+        border-radius: 12px;
         background-color: white;
+        height: 100%;
+        max-height: 70vh;
+        overflow: auto;
     }
 
     .all-templates-wrapper h3 {
@@ -94,13 +98,13 @@
     }
 
     .templates {
+        box-sizing: border-box;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 30%));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 46%));
         width: 100%;
         padding: 10px;
         gap: 20px;
-        max-height: 50vh;
-        overflow: auto;
+        height: 100%;
     }
 
     .selected-template {
@@ -139,8 +143,9 @@
 
     .selected-template img {
         box-sizing: border-box;
-        width: 100%;
+        border-radius: 12px;
         border: 2px solid var(--blue);
+        width: 100%;
         transition: transform .1s ease-in;
     }
     
@@ -153,6 +158,7 @@
         border: none;
         border-radius: 12px;
         border-color: var(--blue);
+        outline: 2px solid var(--light-blue);
         transition: .1s ease-in-out;
     }
 
@@ -170,7 +176,7 @@
     }
 
     .template p {
-        font-size: 22px;
+        font-size: 18px;
         color: var(--blue);
         margin: 8px 0 0 0;
         padding: 0 20px;
@@ -179,7 +185,7 @@
     .template img {
         box-sizing: border-box;
         width: 420px;
-        border-radius: 8px;
+        border-radius: 12px;
         transition: transform .1s ease-in;
     }
 </style>
