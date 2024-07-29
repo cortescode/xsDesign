@@ -44,13 +44,13 @@ async function requestPublishing(content: Blob): Promise<boolean> {
     try {
         const response = await fetch(PUBLISHING_API_URL, {
             method: "POST",
-            // mode: 'no-cors',
+            mode: 'no-cors',
             body: form
         });
         
-        if (!response.ok) {
+        /* if (!response.ok) {
             throw new Error('Failed to publish website');
-        }
+        } */
         return true;
     } catch (error) {
         console.log(error)
