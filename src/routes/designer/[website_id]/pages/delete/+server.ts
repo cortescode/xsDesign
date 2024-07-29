@@ -24,8 +24,11 @@ export async function POST({request, cookies, params}) {
         id: params.website_id,
         user_uid: user_uid,
         name: db_website.name,
+        description: db_website?.description,
         data: db_website.data,
-        routes: db_website.routes
+        routes: db_website.routes,
+        published: db_website?.published,
+        config: db_website?.config
     }
 
     return await removeRoute(website, route);

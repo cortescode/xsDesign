@@ -23,10 +23,13 @@ export async function POST({request, cookies, params}) {
     // Create the response json object
     let website: Website = {
         id: params.website_id,
-        user_uid: user_uid || "",
+        user_uid: user_uid,
         name: db_website?.name,
+        description: db_website?.description,
         data: db_website?.data,
-        routes: db_website?.routes
+        routes: db_website?.routes,
+        published: db_website?.published,
+        config: db_website?.config
     }
 
     const route = await createRoute(website, request_route);
@@ -40,27 +43,32 @@ export async function POST({request, cookies, params}) {
 
 
 async function createRoute(website: Website, route: Route): Promise<Route | null>{
-    // Check if the website already has the route by slug to prevent duplicates within the same website
-    const existingRouteIndex = website.routes.findIndex(r => r.slug === route.slug);
+    try {
+        // Check if the website already has the route by slug to prevent duplicates within the same website
+        const existingRouteIndex = website.routes.findIndex(r => r.slug === route.slug);
 
-    // If the route already exists in this website, do not add it again
-    if (existingRouteIndex !== -1) {
-        return null
+        // If the route already exists in this website, do not add it again
+        if (existingRouteIndex !== -1) {
+            return null;
+        }
+
+        // If the route is new for this website, add it to the 'routes' array
+        const result = await websites.updateOne(
+            { id: website.id, user_uid: website.user_uid },
+            //@ts-ignore
+            { $push: { routes: route } }
+        );
+
+        // Ensure the route was successfully added
+        if (result.modifiedCount === 0) {
+            throw new Error("Failed to add the route to the website.");
+        }
+
+        // Return the newly added route
+        return route;
+
+    } catch (error: any) {
+        console.error(`Error creating route: ${error.message}`);
+        return null;
     }
-
-    // If the route is new for this website, add it to the 'routes' array
-    await websites.updateOne(
-        { "id": website.id, "user_uid": website.user_uid },
-        // @ts-ignore
-        { $push: { routes: route } }
-    );
-
-    /* 
-    let updated_website = await websites.findOne({ 
-        "id": website.id, 
-        "user_uid": website.user_uid 
-    })
-    */
-    
-    return route
 }

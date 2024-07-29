@@ -21,8 +21,11 @@ export async function GET({ params, cookies }) {
         id: params.website_id,
         user_uid: user_uid || "",
         name: db_website?.name,
+        description: db_website?.description,
         data: db_website?.data,
-        routes: db_website?.routes
+        routes: db_website?.routes,
+        published: db_website?.published || false,
+        config: db_website?.config || {}
     }
 
 
@@ -50,8 +53,9 @@ export async function POST({ params, request, cookies }) {
     const id = json_data.id
     const data = json_data.data
     const routes = json_data.routes
+    const published: boolean = json_data.published || false;
 
-
+    
     // Check required fields exists
     if (!id || !data || !user_uid || !routes) {
         return new Response(
@@ -72,7 +76,8 @@ export async function POST({ params, request, cookies }) {
         },
         { $set: { 
             data: data,
-            routes: routes
+            routes: routes,
+            published: published
         } }
     );
 

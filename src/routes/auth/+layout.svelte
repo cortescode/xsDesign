@@ -1,9 +1,11 @@
 <script lang="ts">
-    import Logo from '$lib/components/Logo.svelte';
+    import Logo from '../../UI/Logo.svelte';
 
     import { goto } from "$app/navigation"
     import { user, isLoggedIn } from '$lib/stores/session';
-    import SignInWithGoogleButton from '$lib/components/SignInWithGoogleButton.svelte';
+    import SignInWithGoogleButton from "$auth/components/SignInWithGoogleButton.svelte"
+
+
     if($user) {
         goto("/", { replaceState: true })
     }
@@ -82,11 +84,15 @@
     }
 
     .auth-page {
+        background: linear-gradient(-45deg, #dad4fd, #a595ff, #de9c76, var(--blue), var(--dark));
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
         max-width: calc(100vw - 20px);
         height: calc(100vh - 20px);
         padding: 10px;
         display: grid;
         place-items: center;
+        margin: 0;
     }
 
     .form-container {
@@ -100,6 +106,19 @@
         background-color: white;
         border-radius: 8px;
 
+    }
+
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
 
 

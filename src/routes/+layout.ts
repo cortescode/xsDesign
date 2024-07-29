@@ -1,4 +1,4 @@
-import { auth } from "$lib/auth/firebaseConn";
+import { auth } from "../auth/firebaseConn";
 import { onAuthStateChanged } from "firebase/auth";
 import { user } from "$lib/stores/session";
 

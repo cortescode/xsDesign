@@ -502,7 +502,7 @@ span.CodeMirror-selectedtext {
 }
 
 .cm-s-hopscotch .CodeMirror-gutters {
-    background: #322931;
+    background: #f0edff;
     border-right: 0px
 }
 
@@ -1157,11 +1157,12 @@ span.CodeMirror-selectedtext {
 .gjs-bg-main,
 .gjs-sm-colorp-c,
 .gjs-off-prv {
-    background-color: var(--light-blue);
+    background-color: white;
     border-radius: 4px !important;
     padding: 20px;
     font-size: 18px;
     color: var(--blue);
+    border: 1px solid var(--blue);
 }
 
 .gjs-color-main,
@@ -1177,8 +1178,8 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-color-warn {
-    color: var(--gjs-color-warn);
-    fill: var(--gjs-color-warn)
+    color: var(--blue);
+    fill: var(--blue)
 }
 
 .gjs-color-hl {
@@ -1693,7 +1694,7 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-label {
-    line-height: 18px
+    line-height: 1.5rem;
 }
 
 .gjs-fields {
@@ -1825,23 +1826,6 @@ span.CodeMirror-selectedtext {
     top: 0
 }
 
-.gjs-field-checkbox {
-    padding: 0;
-    width: 17px;
-    height: 17px;
-    display: block;
-    cursor: pointer
-}
-
-.gjs-field-checkbox input {
-    display: none
-}
-
-.gjs-field-checkbox input:checked+.gjs-chk-icon {
-    border-color: rgb(0, 54, 204);
-    border-width: 0 2px 2px 0;
-    border-style: solid
-}
 
 
 .gjs-field-units {
@@ -1990,17 +1974,6 @@ span.CodeMirror-selectedtext {
     width: 100%
 }
 
-.gjs-chk-icon {
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
-    box-sizing: border-box;
-    display: block;
-    height: 14px;
-    margin: 0 5px;
-    width: 6px
-}
 
 .gjs-add-trasp {
     background: none;
@@ -2724,7 +2697,7 @@ span.CodeMirror-selectedtext {
 .gjs-mdl-dialog {
     animation: gjs-slide-down .2s;
     margin: auto;
-    max-width: 850px;
+    max-width: 1050px;
     width: 90%;
     border-radius: 3px;
     font-weight: lighter;
@@ -2749,10 +2722,17 @@ span.CodeMirror-selectedtext {
     animation: gjs-mdl-slide-down .216s
 }
 
+.gjs-asset-manager{
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 20px;
+    min-height: 600px;
+}
+
+
 .gjs-mdl-header,
 .gjs-mdl-content {
     padding: 10px 15px;
-    clear: both
 }
 
 .gjs-mdl-header {
@@ -2787,13 +2767,11 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-am-assets {
-    height: 290px;
     overflow: auto;
-    clear: both;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: flex-start
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .gjs-am-assets-header {
@@ -2802,8 +2780,16 @@ span.CodeMirror-selectedtext {
 
 .gjs-am-add-asset .gjs-am-add-field {
     width: 70%;
-    float: left
+    float: left;
 }
+.gjs-am-add-asset .gjs-am-add-field input {
+    color: var(--dark);
+}
+
+.gjs-am-add-asset .gjs-am-add-field input::placeholder {
+    color: var(--blue);
+}
+
 
 .gjs-am-add-asset button {
     width: 25%;
@@ -2812,8 +2798,8 @@ span.CodeMirror-selectedtext {
 
 .gjs-am-preview-cont {
     position: relative;
-    height: 70px;
-    width: 30%;
+    height: 120px;
+    width: 100%;
     background-color: var(--gjs-main-color);
     border-radius: 2px;
     float: left;
@@ -2869,13 +2855,19 @@ span.CodeMirror-selectedtext {
     border-bottom: 1px solid color-mix(in srgb, var(--gjs-main-dark-color), black 3%);
     padding: 5px;
     cursor: pointer;
-    position: relative;
     box-sizing: border-box;
-    width: 100%
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
 }
 
 .gjs-am-asset:hover .gjs-am-close {
-    display: block
+    position: absolute;
+    display: block;
+    opacity: 1;
+    z-index: 10;
+    color: white;
 }
 
 .gjs-am-highlight {
@@ -2883,24 +2875,22 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-am-assets-cont {
-    background-color: var(--gjs-secondary-dark-color);
     border-radius: 3px;
     box-sizing: border-box;
+    width: 100%;
     padding: 10px;
-    width: 45%;
-    float: right;
-    height: 325px;
     overflow: hidden
 }
 
 .gjs-am-file-uploader {
-    width: 55%;
-    float: left
+    width: 100%;
+    height: 100%;
 }
 
 .gjs-am-file-uploader>form {
-    background-color: var(--gjs-secondary-dark-color);
-    border: 2px dashed;
+    background-color: var(--light-blue);
+    border: 2px dashed var(--blue);
+    color: var(--dark);
     border-radius: 3px;
     position: relative;
     text-align: center;
@@ -2925,6 +2915,7 @@ span.CodeMirror-selectedtext {
 }
 
 .gjs-am-file-uploader #gjs-am-title {
+    box-sizing: border-box;
     position: absolute;
     padding: var(--gjs-upload-padding);
     width: 100%

@@ -27,7 +27,7 @@ html, body {
 
 body {
 	background: linear-gradient(to right, white, rgba(192, 212, 255, 0.4));
-	color: var(--blue);
+	color: var(--dark);
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;

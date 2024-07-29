@@ -1,3 +1,5 @@
+
+
 .panel-route {
     z-index: 6 !important;
     background: none !important;
@@ -143,7 +145,7 @@
 }
 
 .gjs-pn-btn.gjs-pn-active {
-    background-color: var(--blue);
+    background-color: var(--dark);
     color: white;
 }
 
@@ -351,7 +353,8 @@
     width: 100%;
     height: 100%;
     right: 0;
-    margin: auto
+    margin: auto;
+    border: 4px solid var(--dark);
 }
 
 .gjs-frame-wrapper--anim {
@@ -408,7 +411,6 @@
 
 
 .gjs-frame {
-    outline: medium none;
     height: 100%;
     width: 100%;
     border: none;
@@ -440,7 +442,7 @@
 }
 
 .gjs-cv-canvas-bg {
-    background-color: rgb(255, 255, 255)
+    background: linear-gradient(60deg, var(--light-blue), #eeeeee);
 }
 
 .gjs-cv-canvas.gjs-cui {
@@ -650,35 +652,144 @@
 /* MARGIN AND PADDING */
 
 .margin-and-padding-input {
+    position: relative;
     box-sizing: border-box;
     width: calc(var(--gjs-left-width) - 20px) !important;
     height: 200px;
-    display: grid;
-    justify-items: stretch;
-    gap: 4px;
-    grid-template-areas:
-        "... margin-top margin-top margin-top ..."
-        "margin-left ... padding-top ... margin-right"
-        "margin-left padding-left ... padding-right margin-right"
-        "margin-left ... padding-bottom ... margin-right"
-        "... margin-bottom margin-bottom margin-bottom ...";
     background: white;
     border-radius: 0px;
     padding: 2px;
-    box-shadow: inset 26px 26px 0px #ddecff,
-        inset -26px -26px 0px #ddecff,
-        inset 27px 27px 0px var(--blue),
-        inset -27px -27px 0px var(--blue),
-        inset 56px 56px 0px var(--light-blue),
-        inset -56px -56px 0px var(--light-blue);
+    box-shadow: inset 59px 39px 0px #ddecff,
+        inset -59px -39px 0px #ddecff,
+        inset 60px 40px 0px var(--blue),
+        inset -60px -40px 0px var(--blue),
+        inset 120px 80px 0px var(--light-blue),
+        inset -120px -80px 0px var(--light-blue);
+}
+.margin-and-padding-input > div {
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
 }
 
-.margin-and-padding-input > div {
+.margin-and-padding-input > div > p {
+    margin: 0;
+    padding-top: 10px;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    align-self: center;
+}
+
+
+/* .margin-and-padding-input > div:hover > .property-box {
+    display: grid;
+} */
+
+.property-box {
+    position: absolute;
+    display: grid;
+    padding: 20px;
+    box-shadow: 0 0 20px -10px var(--blue);
+    border-radius: 8px;
+    background: radial-gradient(white, rgb(246, 250, 255));
+    width: calc(var(--gjs-left-width) - 20px);
+    /* height: 200px; */
+    background-color: white;
+    place-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.property-box .property-box-close-button {
+    justify-self: right;
+    border: none;
+    border-radius: 24px;
+    background-color: var(--light-blue);
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    aspect-ratio: 1;
+}
+
+.property-box .property-box-close-button:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+.margin-top .property-box {
+    top: 40px;
+}
+.margin-right .property-box {
+    top: 40px;
+    right: 0;
+}
+.margin-bottom .property-box {
+    top: 40px;
+}
+.margin-left .property-box {
+    top: 40px;
+    left: 0;
+}
+
+.padding-top .property-box {
+    top: 40px;
+}
+.padding-right .property-box {
+    top: 40px;
+    right: -60px;
+}
+.padding-bottom .property-box {
+    top: 40px;
+}
+.padding-left .property-box {
+    top: 40px;
+    left: -60px;
+}
+
+.property-box p {
+    margin: 0;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+
+.property-input-wrapper {
     display: grid;
     grid-template-columns: 1fr auto;
-    box-sizing: border-box;
+    gap: 20px;
 }
 
+.property-buttons-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    gap: 4px;
+    margin-top: 20px;
+}
+
+.property-buttons-wrapper button {
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-blue);
+    border-radius: 4px;
+    border: none;
+}
+
+.property-buttons-wrapper button:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+.margin-and-padding-input > div:hover > p{
+    font-weight: bold;
+    background-color: var(--blue);
+    color: white;
+}
 
 .margin-and-padding-input select {
     display: grid;
@@ -688,11 +799,11 @@
     -webkit-appearance: none; 
     appearance: none;
     border: none;
-    background-color: rgba(119, 151, 255, 0);
-    color: rgb(141, 168, 255);
+    background-color: var(--blue);
+    color: white;
     border-radius: 4px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     padding: 2px;
     margin: 2px;
     overflow: visible;
@@ -701,24 +812,20 @@
 }
 
 .margin-and-padding-input select:hover {
-    background-color: var(--blue);
+    background-color: var(--dark) !important;
     color: white;
 }
 
-.margin-and-padding-input input {
+
+.margin-and-padding-input input{
     box-sizing: border-box;
-    background: #ffffff00;
-    /* box-shadow: inset 0 0 2px var(--blue); */
-    border: none;
+    background: var(--light-blue);
     font-size: 14px;
+    height: fit-content;
+    padding: 8px;
+    border: none !important;
+    border-radius: 8px;
     color: var(--blue);
-    width: 100%;
-    height: 100%;
-    padding: 4px;
-    text-align: center;
-    border-radius: 0;
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
 }
 
 .margin-and-padding-input input:hover {
@@ -767,8 +874,8 @@
 }
 
 .margin-top {
-    grid-area: margin-top;
-    justify-self: center;
+    position: absolute;
+    inset: 0 auto auto calc(50% - 30px);
 }
 
 .margin-top select {
@@ -776,9 +883,8 @@
 }
 
 .margin-right {
-    grid-area: margin-right;
-    justify-self: end;
-    writing-mode: tb-rl;
+    position: absolute;
+    inset: calc(50% - 20px) 0 auto auto;
 }
 
 .margin-right select {
@@ -787,8 +893,8 @@
 }
 
 .margin-bottom {
-    grid-area: margin-bottom;
-    justify-self: center;
+    position: absolute;
+    inset: auto auto 0 calc(50% - 30px);
 }
 
 .margin-bottom select {
@@ -796,10 +902,8 @@
 }
 
 .margin-left {
-    grid-area: margin-left;
-    justify-self: start;
-    writing-mode: tb-rl;
-    transform: rotate(180deg);
+    position: absolute;
+    inset: calc(50% - 20px) auto auto 0;
 }
 
 .margin-left select {
@@ -808,7 +912,8 @@
 }
 
 .padding-top {
-    grid-area: padding-top;
+    position: absolute;
+    inset: 40px auto auto calc(50% - 30px);
 }
 
 .padding-top select {
@@ -817,8 +922,8 @@
 }
 
 .padding-right {
-    grid-area: padding-right;
-    writing-mode: tb-rl;
+    position: absolute;
+    inset: calc(50% - 20px) 60px auto auto;
 }
 .padding-right select {
     margin-bottom: var(--padding-units-margin);
@@ -826,7 +931,8 @@
 }
 
 .padding-bottom {
-    grid-area: padding-bottom;
+    position: absolute;
+    inset: auto auto 40px calc(50% - 30px);
 }
 .padding-bottom select {
     margin-right: var(--padding-units-margin);
@@ -834,9 +940,8 @@
 }
 
 .padding-left {
-    grid-area: padding-left;
-    writing-mode: tb-rl;
-    transform: rotate(180deg);
+    position: absolute;
+    inset: calc(50% - 20px) auto auto 60px;
 }
 .padding-left select {
     margin-bottom: var(--padding-units-margin);
@@ -844,6 +949,9 @@
 }
 
 
+.gjs-sm-margin-and-padding .gjs-sm-label {
+    display: none;
+}
 
 
 
@@ -888,7 +996,7 @@
 
 .gjs-radio-item:hover {
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 1);
 
 }
 
@@ -911,11 +1019,9 @@
 
 
 .gjs-field-integer {
-    border: 1px solid var(--blue);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--light-blue);
     color: var(--dark);    
-
     transition: all 150ms ease-in-out;
 }
 
@@ -925,7 +1031,12 @@
 }
 
 .gjs-field-integer .gjs-input-unit {
-    color: var(--dark) !important;
+    color: var(--dark);
+    background: linear-gradient(to top, white, transparent);
+}
+
+.gjs-field-integer .gjs-input-unit:hover {
+    background: linear-gradient(to top, var(--light-blue), transparent);
 }
 .gjs-field-integer input::placeholder {
     color: rgba(5, 0, 4, 0.6);
@@ -974,4 +1085,94 @@
     color: var(--blue);
     font-family: Comfortaa;
     font-style: italic;
+}
+
+
+
+/* CHECKBOX */
+.gjs-field-checkbox {
+    padding: 2px;
+    width: 72px !important;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gjs-field-checkbox input {
+    display: none
+}
+
+
+.gjs-field-checkbox input:checked+.gjs-chk-icon {
+    border-color: var(--dark);
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+}
+
+.gjs-chk-icon {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-sizing: border-box;
+    display: block;
+    height: 21px;
+    margin: 0 5px;
+    width: 9px
+}
+
+
+
+
+.font-family-selector {
+    box-sizing: border-box;
+    position: static;
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.font-family-selected {
+    width: 100%;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+.font-family-options-wrapper {
+    position: absolute;
+    padding: 10px 0 0 0;
+    z-index: 20;
+}
+
+.font-family-options {
+    display: none;
+    height: 280px;
+    overflow: auto;
+    width: fit-content;
+    border-radius: 12px;
+    animation: textOptionsApareance .2s ease-in-out;
+}
+
+.family-option {
+    padding: 10px 20px;
+    background: radial-gradient(white, rgb(246, 250, 255));
+    color: var(--dark);
+}
+
+.family-option:hover {
+    background: var(--light-blue);
+}
+.family-option:active {
+    background: var(--blue);
+    color: white;
+}
+
+@keyframes textOptionsApareance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -15,9 +15,8 @@
     --gjs-color-red: #dd3636;
     --gjs-color-yellow: #ffca6f;
     --gjs-color-green: #62c462;
-    --gjs-left-width: 280px;
+    --gjs-left-width: 320px;
     --gjs-color-highlight: #71b7f1;
-    --gjs-color-warn: rgb(145, 62, 255);
     --gjs-handle-margin: -5px;
     --gjs-light-border: rgba(255, 255, 255, 0.05);
     --gjs-arrow-color: rgb(0, 4, 36);
@@ -25,7 +24,7 @@
     --gjs-color-input-padding: 22px;
     --gjs-input-padding: 6px;
     --gjs-padding-elem-classmanager: 5px 6px;
-    --gjs-upload-padding: 150px 10px;
+    --gjs-upload-padding: 100% 10px;
     --gjs-animation-duration: 0.2s;
     --gjs-main-font: "Comfortaa", Helvetica, sans-serif;
     --gjs-font-size: 1rem;
@@ -34,6 +33,11 @@
     --gjs-flex-item-gap: 5px
 }
 
+
+html {
+    scrollbar-width: 2vw;
+    scrollbar-color: var(--blue) var(--light-blue);
+}
 
 .panel {
     width: 90%;
@@ -171,7 +175,7 @@ svg {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgb(67, 28, 225);
+    background: var(--blue); /* rgb(67, 28, 225) */
     padding: 10px 20px;
     border-radius: 12px;
     border: none;
@@ -250,14 +254,14 @@ svg {
     background: white;
 }
 
+
 .gjs-sm-sector {
     box-sizing: border-box;
     clear: both;
     font-weight: lighter;
     text-align: left;
-    overflow: hidden;
-    border-bottom: 2px solid var(--light-blue);
-    
+    overflow: visible;
+    border-bottom: 2px solid var(--light-blue); 
 }
 
 .gjs-sm-sector-caret {
@@ -337,7 +341,7 @@ svg {
 }
 
 .gjs-four-color {
-    color: var(--purple);
+    color: var(--blue);
     font-weight: bold;
 }
 
@@ -364,7 +368,7 @@ svg {
 
 .gjs-clm-tags {
     font-size: var(--gjs-font-size);
-    padding: 10px 5px
+    padding: 10px 20px
 }
 
 .gjs-clm-tags.active {
@@ -379,6 +383,7 @@ svg {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;
+    gap: 20px;
 }
 
 .gjs-clm-tags #gjs-clm-sel {
@@ -413,6 +418,7 @@ svg {
 }
 
 .gjs-clm-tag {
+    box-sizing: border-box;
     display: none; /* flex */
     overflow: hidden;
     align-items: center;
@@ -460,10 +466,15 @@ svg {
     fill: currentColor
 }
 
+.gjs-clm-sels {
+    color: var(--blue);
+}
+
 .gjs-clm-sels-info {
     margin: 7px 0;
-    text-align: left
+    text-align: left;
 }
+
 
 .gjs-clm-sel-id {
     font-size: .9em;
@@ -471,11 +482,14 @@ svg {
     filter: alpha(opacity=50)
 }
 
-.gjs-clm-label-sel {
-    float: left;
-    padding-right: 5px
+.gjs-clm-label-sels {
+    display: inline;
 }
 
+.gjs-clm-label-sel {
+    font-size: 14px;
+    padding-right: 5px;
+}
 
 
 .gjs-clm-tags .gjs-clm-sels-info {
@@ -605,7 +619,7 @@ svg {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 5px 10px;
+    padding: 20px 10px;
     font-weight: lighter;
     align-items: center;
     text-align: left

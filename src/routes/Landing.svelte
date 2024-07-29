@@ -1,9 +1,9 @@
 <script>
-    import FaQs from '$lib/components/sections/FAQs.svelte';
-    import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
-    import Footer from '$lib/components/sections/Footer.svelte';
-    import HeroApp from '$lib/components/heros/HeroApp.svelte';
-    import CookiesBanner from '$lib/components/pop-ups/CookiesBanner.svelte';
+    import FaQs from '$UI/sections/FAQs.svelte';
+    import HeaderApp from '$UI/headers/HeaderApp.svelte';
+    import Footer from '$UI/sections/Footer.svelte';
+    import HeroApp from '$UI/heros/HeroApp.svelte';
+    import CookiesBanner from '$UI/pop-ups/CookiesBanner.svelte';
 
 
 </script>

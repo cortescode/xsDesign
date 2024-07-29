@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { db, sql, Client } from '@vercel/postgres';
+import { db } from '@vercel/postgres';
 
 import dotenv from 'dotenv'
 dotenv.config()

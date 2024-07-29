@@ -1,9 +1,9 @@
 <script lang="ts">
-    import Logo from "$lib/components/Logo.svelte";
+    import Logo from "$UI/Logo.svelte";
     import { onMount } from "svelte";
     import ColorPaletteSelector from "./ColorPaletteSelector.svelte";
     import TemplateSelection from "./TemplateSelection.svelte";
-    import BackButton from "./BackButton.svelte";
+    import BackButton from "$UI/buttons/BackButton.svelte";
     import type { Template } from "$lib/interfaces/Template";
 
     let step = 0;
@@ -12,9 +12,9 @@
     let description: string;
 
     let palette: any;
-    let template_uid: any;
+    let template_uid: string = "0";
 
-    $: { name, description, palette, template_uid}
+    $: { name, description, palette, template_uid }
 
     function createWebsite() {
         if (!name || !description || !template_uid) {
@@ -51,6 +51,7 @@
 
     function openErrorModal(errorMessage: string) {
         alert(errorMessage);
+        step = 0;
     }
 
     function setPalette(_palette: any) {
@@ -64,9 +65,10 @@
     }
 </script>
 
+
 <div class="creation-header">
     <BackButton></BackButton>
-    <h1 class="gradient-text">Create your Website</h1>
+    <h1>Create your Website</h1>
     <div class="logo-wrapper">
         <Logo></Logo>
     </div>
@@ -108,7 +110,7 @@
                     bind:value={description}
                 />
             </div>
-            <img src="/media/assets/images/ecommerce.webp" alt="Website Creation Graphic">
+            <!-- <ColorPaletteSelector {setPalette}/> -->
         </section>
     {:else}
         <TemplateSelection {setTemplate}></TemplateSelection>
@@ -135,7 +137,10 @@
     </div>
 </div>
 
+
 <style>
+
+
     .creation-header {
         position: fixed;
         inset: 0 0 auto 0;
@@ -150,8 +155,12 @@
         margin: 0 auto;
         width: 100%;
         text-align: center;
-        color: white;
         font-size: 2em;
+        padding: 10px 20px;
+        border-radius: 12px;
+        background: white;
+        color: var(--blue);
+        width: fit-content;
     }
 
     .back-button {
@@ -192,7 +201,10 @@
 
     .wrapper {
         box-sizing: border-box;
-        background: linear-gradient(160deg, white, #dad4fd);
+        background: linear-gradient(-45deg, #dad4fd, #a595ff, #de9c76, var(--blue), var(--dark));
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+        height: 100vh;
         padding-top: 120px !important;
         padding: 40px;
         display: grid;
@@ -209,11 +221,11 @@
     .information {
         box-sizing: border-box;
         width: 100%;
-        max-width: 1350px;
+        max-width: 650px;
         margin: 0;
         padding: 10px 20px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -223,7 +235,8 @@
     }
 
     .information label {
-        margin-top: 20px;
+        display: block;
+        margin-top: 40px;
     }
 
     .creation-steps {
@@ -247,10 +260,13 @@
     }
 
     input {
+        box-sizing: border-box;
         padding: 10px 20px;
+        margin-bottom: 20px;
         border-radius: 12px;
-        border: 2px solid var(--blue);
+        border: 1px solid var(--blue);
         width: calc(80% - 36px);
+        width: 100%;
         font-size: 18px;
     }
 
@@ -258,8 +274,8 @@
         box-sizing: border-box;
         padding: 10px 20px;
         border-radius: 12px;
-        border: 2px solid var(--blue);
-        width: calc(100% - 40px);
+        border: 1px solid var(--blue);
+        width: 100%;
         font-size: 18px;
         resize: none;
     }
@@ -279,6 +295,25 @@
     }
 
     .website-info {
-        border-right: 2px solid var(--blue);
+        background-color: white;
+        padding: 28px;
+        border-radius: 12px;
+    }
+
+    button {
+        border: 1px solid white;
+    }
+
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
 </style>

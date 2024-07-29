@@ -1,10 +1,8 @@
-import { Readable } from 'stream';
-import { Storage } from '@google-cloud/storage';
-import { GOOGLE_APPLICATION_CREDENTIALS_JSON } from "$env/static/private"
+import { storeFile } from '$designer/server/assets/store.js';
 
-export async function GET() {
-    console.log("get")
-}
+
+
+const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4 MB (adjust as needed)
 
 
 export async function POST({ params, request }) {
@@ -19,63 +17,24 @@ export async function POST({ params, request }) {
     let file: File | any
 
     for(file of files) {
+        // Check size limit
+        if (file.size > MAX_FILE_SIZE) {
+            return new Response(
+                JSON.stringify({ error: `File ${file.name} exceeds the maximum allowed size` }),
+                { status: 400 }
+            );
+        }
+
+
         let file_obj = await storeFile(params.website_id, file)
+        
+        //@ts-ignore
         result["data"].push(file_obj)
     }
     
     
     return new Response(JSON.stringify(result))
     
-}
-
-
-async function storeFile(website_id:string, file: File) {
-    
-    let fileBuffer = await file.arrayBuffer()
-    const bucketName = 'xsdesign';
-    const storage = new Storage({
-        projectId: "xs-agency",
-        credentials: JSON.parse(GOOGLE_APPLICATION_CREDENTIALS_JSON),
-        
-    });
-
-    const bucket = storage.bucket(bucketName);
-    const filePath = `${website_id}/${file.name}`;
-
-    
-    try {
-        const fileStream = new Readable();
-        fileStream.push(new Uint8Array(fileBuffer)); // Assuming `file.buffer` contains the file data
-        fileStream.push(null); 
-
-        // Upload the file data to Google Cloud Storage
-        // Create a writable stream to upload the file
-        const uploadStream = bucket.file(filePath).createWriteStream({
-            metadata: {
-                contentType: file.type
-            }
-        });
-
-        // Pipe the file data to the stream
-        fileStream.pipe(uploadStream);
-
-        // Wait for the upload to complete
-        await new Promise((resolve, reject) => {
-            uploadStream.on('error', reject);
-            uploadStream.on('finish', resolve);
-        });
-
-        const [url] = await bucket.file(filePath).getSignedUrl({
-            action: 'read',
-            expires: '01-01-3000' // Adjust expiration date as needed
-        });
-
-        return url;
-    } catch (error) {
-        console.error('Error uploading file:', error);
-        throw error; // Rethrow the error to propagate it to the caller
-    }
-
 }
 
 

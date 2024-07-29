@@ -1,11 +1,10 @@
 <script lang="ts">
-    import Logo from "$lib/components/Logo.svelte";
-    import Dashboard from "$lib/dashboard/views/Dashboard.svelte";
+    import Logo from "$UI/Logo.svelte";
+    import Dashboard from "$lib/dashboard/Dashboard.svelte";
 
     export let data;
     
 </script>
-
 
 
 <div class="dashboard-wrapper">

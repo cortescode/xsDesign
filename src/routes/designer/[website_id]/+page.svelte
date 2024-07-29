@@ -1,11 +1,7 @@
 <script lang="ts">
-    import Designer from "$lib/designer/Designer.svelte";
+    import Designer from "$designer/Designer.svelte";
     import { website } from "$lib/stores/website.js";
 
-
-    export let data
-    
-    $website = data.website
 </script>
 
 <svelte:head>

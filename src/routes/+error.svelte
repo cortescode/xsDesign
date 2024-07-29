@@ -1,7 +1,7 @@
 <script>
-    import DefaultButton from '$lib/components/buttons/DefaultButton.svelte';
+    import DefaultButton from '$UI/buttons/DefaultButton.svelte';
     import { goto } from '$app/navigation';
-    import HeaderApp from '$lib/components/headers/HeaderApp.svelte';
+    import HeaderApp from '$UI/headers/HeaderApp.svelte';
 </script>
 
 <svelte:head>

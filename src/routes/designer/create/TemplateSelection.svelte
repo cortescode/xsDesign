@@ -46,7 +46,7 @@
             <div class="image-wrapper">
                 <img src={selectedTemplate.image_url} alt="{selectedTemplate.name}" />
             </div>
-            <p>Selected Template</p>
+            <p>Selected Template:</p>
             <h3>{selectedTemplate.name}</h3>
         </div>
     </div>
@@ -118,12 +118,12 @@
     
 
     .selected-template p {
-        background-color: white;
         border-radius: 12px;
         font-size: 18px;
         color: inherit;
         padding: 5px 20px;
         text-align: center;
+        color: white;
     }
 
     .selected-template h3 {
