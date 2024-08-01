@@ -88,11 +88,11 @@ export default (editor: Editor) => {
 			defaults: {
 				attributes: { class: `${navbarPfx}-container`, 'data-gjs': 'navbar' },
 				name: 'Navbar Container',
-				droppable: false,
+				/* droppable: false,
 				draggable: false,
 				removable: false,
 				badgable: false,
-				copyable: false,
+				copyable: false, */
 				components: [
 					{
 						attributes: { class: `${navbarPfx}-brand-wrapper` },
@@ -107,7 +107,7 @@ export default (editor: Editor) => {
 						]
 					},
 					{
-						locked: true,
+						locked: false,
 						components: [
 							{ type: idBurgerMenu },
 							{
@@ -141,7 +141,6 @@ export default (editor: Editor) => {
 				init: function () {
 					// @ts-ignore
 					this.on("change:attributes:bgOnScroll", () => {
-						console.log("It is at least executed")
 						// @ts-ignore
 						const component = this as HTMLElement;
 						const label = component?.attributes?.getNamedItem("bgOnScroll")
@@ -189,9 +188,9 @@ export default (editor: Editor) => {
 			defaults: {
 				name: 'Navbar Menu',
 				tagName: 'nav',
-				selectable: false,
+				/* selectable: false,
 				badgable: true,
-				locked: false,
+				locked: false, */
 				attributes: { class: `${navbarPfx}-menu` },
 				components: [
 					{
@@ -225,11 +224,11 @@ export default (editor: Editor) => {
 		model: {
 			defaults: {
 				name: 'Burger',
-				draggable: false,
+				/* draggable: false,
 				droppable: false,
 				copyable: false,
 				removable: false,
-				badgable: false,
+				badgable: false, */
 				attributes: { class: `${navbarPfx}-burger` },
 				components: `
 				<svg class="svg-icon" viewBox="0 0 20 20">
