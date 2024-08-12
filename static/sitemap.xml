@@ -10,8 +10,20 @@
     <url>
         <loc>https://xsdesign.co/</loc>
         <changefreq>weekly</changefreq>
-        <lastmod>2024-02-12</lastmod>
+        <lastmod>2024-08-12</lastmod>
         <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://xsdesign.co/blog</loc>
+        <changefreq>weekly</changefreq>
+        <lastmod>2024-08-12</lastmod>
+        <priority>0.8</priority>
+    </url>
+     <url>
+        <loc>https://xsdesign.co/blog/posts/common-website-design-mistakes</loc>
+        <changefreq>weekly</changefreq>
+        <lastmod>2024-08-12</lastmod>
+        <priority>0.6</priority>
     </url>
 </urlset>
     
