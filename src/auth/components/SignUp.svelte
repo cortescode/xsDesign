@@ -47,7 +47,7 @@
 
 <form method="POST" class="auth-form" on:submit|preventDefault={submitSignup}>
 
-    <h2 class="gradient-text">Welcome to the beta phase</h2>
+    <h3 class="gradient-text">Welcome to the beta phase</h3>
 
     {#if errorMessage != ""}
         <p style="color: red">{errorMessage}</p>

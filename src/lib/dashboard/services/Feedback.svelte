@@ -40,11 +40,11 @@
 
 <section class="feedback">
     <div class="feedback-form">
-        <h1 class="gradient-text">Propose some new functionality</h1>
-        <h3>
+        <h2 class="gradient-text">Propose some new functionality</h2>
+        <p>
             Hello! We are building this product for you, so we want to focus on what you'd like to see
             inside our platform. Any idea on improvement is welcome!
-        </h3>
+        </p>
         <p class="gradient-text">
             We can't wait to hear what you would add or improve on our platform.
         </p>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="current_feedback">
-        <h2>Current Feedback</h2>
+        <h3>Current Feedback</h3>
         <div class="feedback_messages">
             {#each feedback_messages as feedback_message }
                 <div class="feedback_message">
@@ -100,6 +100,10 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    .feedback-form * {
+        margin: 20px 0;
+    }
+
     .feedback-form h3 {
         margin-bottom: 20px;
     }
@@ -131,6 +135,10 @@
         padding: 40px;
         background-color: white;
         border-radius: 12px;
+    }
+
+    .current_feedback h3 {
+        margin: 0 0 40px 0;
     }
 
     .feedback_messages {

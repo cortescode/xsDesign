@@ -395,7 +395,7 @@ svg {
     clear: both;
     padding: 5px;
     margin-bottom: 5px;
-    display: none; /* flex */
+    display: flex; /* flex */
     flex-wrap: wrap;
     border: 1px solid var(--blue);
     border-radius: 8px;
@@ -408,18 +408,18 @@ svg {
 }
 
 .gjs-clm-tags #gjs-clm-label {
-    display: none; /* block */
+    display: block; /* block */
 }
 
 
 .gjs-clm-header {
-    display: none; /* flex */
+    display: flex; /* flex */
     margin: 7px 0
 }
 
 .gjs-clm-tag {
     box-sizing: border-box;
-    display: none; /* flex */
+    display: flex; /* flex */
     overflow: hidden;
     align-items: center;
     border-radius: 3px;

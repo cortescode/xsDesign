@@ -17,6 +17,8 @@ export default function loadDisplayGridsManager(editor: Editor) {
         let styles = getComponentStyles(component, editor)
         let display = styles["display"]
 
+        console.log("Display: ", display)
+
         if (domElement && display === 'grid') {
             addGridProperties(editor)
             addGridEditingStyles(domElement)

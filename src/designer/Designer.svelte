@@ -95,7 +95,7 @@
                 appendTo: "#blocks",
             },
             selectorManager: {
-                componentFirst: true,
+                // componentFirst: true,
                 appendTo: "#selector",
                 // custom: true,
             },

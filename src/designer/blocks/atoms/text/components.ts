@@ -1,3 +1,4 @@
+import ToolbarElements from '$designer/blocks/toolbarElements';
 import { openTraitsEvent } from '$designer/traits';
 import type { Component, Editor } from 'grapesjs'
 
@@ -6,6 +7,9 @@ import type { Component, Editor } from 'grapesjs'
 export default function loadTextComponents(editor: Editor) {
 
     const components = editor.Components
+
+    const toolbarElements = new ToolbarElements(editor)
+	const { exit, move, clone, remove, openTraits }= toolbarElements
 
     // Set component tagName and refresh component view to update on html
     function setComponentTag(component: Component, tagName: string) {
@@ -38,6 +42,7 @@ export default function loadTextComponents(editor: Editor) {
                         ]
                     },
                 ],
+                toolbar: [exit, move, clone, remove, openTraits]
             },
             editable: true,
             // Function to run when the model's init event is triggered
@@ -75,6 +80,7 @@ export default function loadTextComponents(editor: Editor) {
                         ],
                     },
                 ],
+                toolbar: [exit, move, clone, remove, openTraits],
                 style: {
                     "margin-top": "20px",
                     "margin-bottom": "20px",

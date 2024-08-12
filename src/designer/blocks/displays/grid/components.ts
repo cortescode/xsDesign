@@ -1,3 +1,4 @@
+import ToolbarElements from "$designer/blocks/toolbarElements";
 import type { Component, Editor, Sector, SectorProperties } from "grapesjs";
 
 
@@ -6,12 +7,17 @@ export default function loadComponents(editor: Editor) {
 
     const components = editor.Components
 
+    
+    const toolbarElements = new ToolbarElements(editor)
+	const { exit, move, clone, remove, openTraits }= toolbarElements
+
     const commonModelProperties = {
         unstylable: ['font-size'],
         editable: true,
         traits: [
             "id"
-        ]
+        ],
+        toolbar: [exit, move, clone, remove, openTraits]
     }
 
     const gridMinHeight = 80;
@@ -39,6 +45,7 @@ export default function loadComponents(editor: Editor) {
             defaults: {
                 name: 'Grid Child',
                 tagName: 'div',
+                resizable: true,
                 style: styleChild,
                 ...commonModelProperties
             },

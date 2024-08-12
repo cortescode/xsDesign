@@ -52,7 +52,7 @@
     {#each faqs as faq, index}
         <button class="faq" on:click={() => toggleFaq(index)} class:active={openIndex === index}>
             <div class="question-wrapper">
-                <h2>{faq.question}</h2>
+                <span>{ faq.question }</span>
 
                 <div class="icon">
                     {#if openIndex === index}
@@ -74,7 +74,6 @@
 
 <style>
     .title {
-        font-size: 2.8em;
         max-width: 640px;
         margin-bottom: 0;
         margin-bottom: 40px;
@@ -90,7 +89,7 @@
         padding: 20px;
         margin: 20px 0;
         background-color: #d8e2ff;
-        border-radius: 24px;
+        border-radius: 12px;
         cursor: pointer;
         transition: .2s;
         border: none;
@@ -103,10 +102,11 @@
         box-shadow: #d8e2ff 0 0 40px;
     }
 
-    .faq h2 {
+    .faq span {
         margin: 0;
         font-weight: bold;
         font-size: 1.6em;
+        color: var(--dark);
     }
 
     .faq p {
@@ -133,7 +133,7 @@
         cursor: pointer;
     }
 
-    .question-wrapper h2:hover {
+    .question-wrapper p:hover {
         cursor: pointer;
     }
 

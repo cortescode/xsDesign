@@ -20,7 +20,7 @@
         <div class="button-container">
             <!-- <a href="/agency">Web Agency</a> -->
             <!-- <a href="/pricing">Made with xsdesign</a> -->
-            <!-- <a href="/pricing">Pricing</a> -->
+            <a class="hide-on-mobile" href="/blog">Blog</a>
             <a href="/auth/login">Login</a>
             <a href="/auth/signup" class="cta">Access Beta for Free</a>
         </div>
@@ -132,6 +132,10 @@
         .cta-mobile:hover{
             background-color: var(--dark);
             box-shadow: rgb(48, 63, 200) 0 0 120px 0;
+        }
+
+        .hide-on-mobile {
+            display: none !important;
         }
 
     }

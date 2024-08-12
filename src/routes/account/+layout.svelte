@@ -57,6 +57,10 @@
         background-color: white;
     }
 
+    h2 {
+        font-size: 24px;
+    }
+
     h2,
     h3 {
         cursor: default !important;

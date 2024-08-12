@@ -12,13 +12,13 @@
 <HeaderApp/>
 
 <HeroApp 
-    title="Discover the hidden power of your website"
+    title="A next generation websites builder"
     description="Create stunning websites in a matter of minutes, with all the personalization you need"
     button="Access Beta for Free"
 />
 
 <section class="benefits">
-    <h1>Discover the <span class="gradient-text">Benefits</span> of Xsdesign</h1>
+    <h2>The <span class="gradient-text">websites builder</span> that fits you</h2>
     <div class="layout">
         <article class="speed animate">
             <div class="content">
@@ -61,17 +61,15 @@
 <style>
 
     .benefits {
-        margin-top: 40px;
         display: flex;
         flex-direction: column;
         align-items: center; /* This centers the .layout grid horizontally */
         gap: 40px;
-        padding: 20px; /* Add padding if needed */
         max-width: calc(100% - 40px);
         overflow: hidden;
     }
 
-    .benefits h1 {
+    .benefits h2 {
         text-align: center;
         max-width: 90%;
     }

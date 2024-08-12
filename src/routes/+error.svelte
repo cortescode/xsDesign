@@ -21,7 +21,7 @@
         />
     </div>
     <div>
-        <img alt="error 404" src="/media/assets/images/ecommerce.webp" srcset="/media/assets/images/ecommerce.webp" />
+        <img alt="error 404" src="/media/assets/error-page-image.png" srcset="/media/assets/error-page-image.png" />
     </div>
     
 </section>
@@ -49,6 +49,10 @@
         font-size: 2em;
         max-width: 640px;
         margin-bottom: 40px;
+    }
+
+    img {
+        width: 500px;
     }
 
     @media screen and (max-width: 900px) {

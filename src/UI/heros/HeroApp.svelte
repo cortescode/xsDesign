@@ -38,6 +38,7 @@
 </script>
 
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <section class="hero-app" on:mousemove={modifyImagePerspective}>
     <div class="hero-app-content animate">
         <!-- 
@@ -100,22 +101,21 @@
         grid-template-columns: 1fr;
         line-height: 1.5em;
         place-items: center;
+        background: radial-gradient(rgba(59, 15, 255, 0.2), rgba(255, 255, 255, 0) 60%);
     }
 
 
     .hero-app-title {
-        font-family: "Comfortaa";
         font-weight: 400;
         letter-spacing: 2px;
-        font-size: 58px;
-
-
-        background: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+        background: radial-gradient(100% 80% at 100% 40%, var(--dark) 40%, #0067ce 80%, #00aeff 100%);
+        background-size: 300% 300%;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: title_animation 1s infinite alternate;
+        animation: text-gradient-position 10s ease infinite;
     }
+
 
     .hero-app-description {
         max-width: 600px;
@@ -150,14 +150,32 @@
     }
 
 
+    @keyframes text-gradient-position {
+        0% {
+            background-position: 0% 0%;
+        }
+
+        25% {
+            background-position: 100% 20%;
+        }
+        50% {
+            background-position: 100% 100%;
+        }
+
+        75% {
+            background-position: 20% 100%;
+        }
+        100% {
+            background-position: 0% 0%;
+        }
+    }
+
+
     @media screen and (max-width: 767px) {
         .hero-app {
             text-align: left;
             grid-template-columns: 1fr;
             padding: 28px;
-        }
-        .hero-app-title {
-            font-size: 28px;
         }
         .hero-app-description {
             font-size: 18px;

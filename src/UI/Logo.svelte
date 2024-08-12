@@ -18,7 +18,8 @@
 
     .logo-container {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 36px auto;
+        gap: 10px;
         justify-self: left;
         align-items: center;
         height: fit-content;
@@ -34,7 +35,7 @@
     }
 
     .logo-image {
-        width: 36px;
+        width: 36px !important;
         margin-right: 10px;
     }
 

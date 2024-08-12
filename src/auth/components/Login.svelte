@@ -37,7 +37,7 @@
 
 
 <form class="auth-form" on:submit|preventDefault={submitLogin}>
-    <h2 class="gradient-text">We are happy to see you again!</h2>
+    <h3 class="gradient-text">We are happy to see you again!</h3>
 
     {#if errorMessage != ""}
         <p style="color: red">{errorMessage}</p>

@@ -1,9 +1,9 @@
 import type { Editor } from "grapesjs";
-import loadHeader from "./header";
 import loadHero from './hero'
+import loadHeaders from "./headers";
 
 
 export default function loadLayouts(editor: Editor) {
-    loadHeader(editor)
     loadHero(editor)
+    loadHeaders(editor)
 }

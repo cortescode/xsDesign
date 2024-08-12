@@ -64,7 +64,7 @@ const sectors = [
                 ],
             }
         ],
-        buildProps: ["text-align", "color"],
+        buildProps: ["text-align", "color", "text-shadow"],
     },
     {
         id: "BORDER",
@@ -76,7 +76,7 @@ const sectors = [
         id: "BACKGROUND",
         name: "BACKGROUND",
         open: false,
-        buildProps: ["background"],
+        buildProps: ["background-color", "background"],
     },
     {
         id: "SHADOWS",

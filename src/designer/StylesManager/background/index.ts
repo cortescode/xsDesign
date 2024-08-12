@@ -114,6 +114,7 @@ export default function loadBackgroundStyleOptions (editor: Editor, opts = {}) {
 
   editor.Styles.addBuiltIn('background', {
     type: 'stack',
+    label: 'Gradient/Image',
     // @ts-ignore
     layerSeparator: /(?<!\(.*[^)]),(?![^(]*\))/,
     layerJoin: ', ',
