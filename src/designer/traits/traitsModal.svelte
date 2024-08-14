@@ -19,14 +19,14 @@
         document.addEventListener("open-traits", () => {
             if (traitsModal && traitsModal.style) {
                 selectedComponentType = editor.getSelected()?.attributes.type || ""
-                traitsModal.style.top = "calc(50% - 200px)";
+                traitsModal.style.top = "10%";
                 opacityLayer.style.display = "block";
             }
         });
 
         document.addEventListener("close-traits", () => {
             if (traitsModal && traitsModal.style) {
-                traitsModal.style.top = "-600px";
+                traitsModal.style.top = "-1200px";
                 opacityLayer.style.display = "none";
             }
         });

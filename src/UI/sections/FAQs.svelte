@@ -25,7 +25,7 @@
         },
         {
             question: "¿Can I host my website?",
-            answer: "No, currently we do not provide hosting services. You can download your website and publish it wherever you want (for example, you can host your page in github for free). We are currently working on incorpore hosting functionalities for your websites",
+            answer: "Yes, you can host your website on the platform or download it and publish it wherever you want. You also can add your custom domain or use a free one given by xsdesign.co",
             isOpen: false
         },
     ];
