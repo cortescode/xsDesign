@@ -37,7 +37,8 @@
                     return route.page_id == selectedPage?.id
                 })
 
-                background.style.display = "block"
+                if(background?.style)
+                    background.style.display = "block"
 
                 setTimeout(() => {
                     if(currentRoute)
@@ -54,7 +55,8 @@
                     return route.page_id == selectedPage?.id
                 })
 
-                background.style.display = "none"
+                if(background?.style)
+                    background.style.display = "none"
                 
                 setTimeout(() => {
                     if(currentRoute)

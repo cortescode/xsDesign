@@ -16,6 +16,7 @@ export async function GET({ params, cookies }) {
         "user_uid": user_uid
     })
 
+
     // Create the response json object
     let website: Website = {
         id: params.website_id,
@@ -24,12 +25,10 @@ export async function GET({ params, cookies }) {
         description: db_website?.description,
         data: db_website?.data,
         routes: db_website?.routes,
+        sharedComponents: db_website?.sharedComponents,
         published: db_website?.published || false,
         config: db_website?.config || {}
     }
-
-
-    // console.log(JSON.stringify(website.data))
 
 
     // Return the response with the website associated information
@@ -53,6 +52,7 @@ export async function POST({ params, request, cookies }) {
     const id = json_data.id
     const data = json_data.data
     const routes = json_data.routes
+    const sharedComponents = json_data.sharedComponents
     const published: boolean = json_data.published || false;
 
     
@@ -76,12 +76,12 @@ export async function POST({ params, request, cookies }) {
         },
         { $set: { 
             data: data,
+            sharedComponents: sharedComponents,
             routes: routes,
             published: published
         } }
     );
 
-    // console.log("data: ", JSON.stringify(data))
     // Return successful response if everything is correct
     return new Response(
         JSON.stringify({ success: true }),

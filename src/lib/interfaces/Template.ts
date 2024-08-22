@@ -1,4 +1,4 @@
-import type { Page, ProjectData } from "grapesjs"
+import type { Component, Page, ProjectData } from "grapesjs"
 
 
 
@@ -7,4 +7,5 @@ export interface Template {
     name: string
     image_url: string
     data: ProjectData
+    shared_components?: any[]
 }

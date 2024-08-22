@@ -23,14 +23,6 @@ const defaultRules = `
     font-family: Comfortaa;
 }
 
-.hero {
-    display: grid;
-    box-sizing: border-box;
-    padding: 120px 20px;
-    place-items: center;
-}
-
-
 
 .basic-button-link {
     box-sizing: border-box;

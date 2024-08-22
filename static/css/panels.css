@@ -1097,6 +1097,7 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    border: 1px solid var(--blue) !important
 }
 
 .gjs-field-checkbox input {

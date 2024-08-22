@@ -24,6 +24,9 @@
 
     let logo: HTMLElement;
 
+    console.log("Website: ", $website)
+    console.log("Website shared components: ", $website?.sharedComponents)
+
     onMount(() => {
         editor = grapesjs.init({
             height: "100%",

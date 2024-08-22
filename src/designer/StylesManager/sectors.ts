@@ -37,7 +37,6 @@ const sectors = [
         name: "MARGIN & PADDIN",
         open: false,
         properties: [
-            
             {
                 type: 'margin-and-padding',
                 label: "",
@@ -64,7 +63,7 @@ const sectors = [
                 ],
             }
         ],
-        buildProps: ["text-align", "color", "text-shadow"],
+        buildProps: ["font-weight", "text-align", "color", "text-shadow"],
     },
     {
         id: "BORDER",

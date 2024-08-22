@@ -5,6 +5,7 @@
     import { onMount } from "svelte";
     import { website } from "$lib/stores/website";
     import { opa } from "$designer/consts";
+    import { setRouteNameOnPanel } from "$designer/panels";
 
     export let editor: Editor;
     let pages;
@@ -30,11 +31,19 @@
     })
 
     $: if (!slugManuallyEdited) {
-        route.slug = route.title
+    route.slug = route.title
         .toLowerCase()
         .replace(/ /g, '-') // Replace spaces with hyphens
+        .replace(/[áàäâ]/g, 'a') // Replace 'á', 'à', 'ä', 'â' with 'a'
+        .replace(/[éèëê]/g, 'e') // Replace 'é', 'è', 'ë', 'ê' with 'e'
+        .replace(/[íìïî]/g, 'i') // Replace 'í', 'ì', 'ï', 'î' with 'i'
+        .replace(/[óòöô]/g, 'o') // Replace 'ó', 'ò', 'ö', 'ô' with 'o'
+        .replace(/[úùüû]/g, 'u') // Replace 'ú', 'ù', 'ü', 'û' with 'u'
+        .replace(/[ñ]/g, 'n') // Replace 'ñ' with 'n'
+        .replace(/[ç]/g, 'c') // Replace 'ç' with 'c'
         .replace(/[<>\"#%{}|\\^~\[\]`;\/?:@=&$+]/g, '') // Remove unsafe characters
-    }
+        .replace(/[^a-z0-9-]/g, '') // Remove any other non-allowed characters
+}
 
 
     function sanitizeSlug() {
@@ -55,44 +64,19 @@
             return
         }
 
+        // Select the
+        const shared_components = $website.sharedComponents?.map(sharedComponentId => {
+            let foundComponent =  editor?.Components?.getWrapper()?.find(`[shared-component="${sharedComponentId}"]`)
+            if(foundComponent) return foundComponent
+        })
+
         const newPage = editor?.Pages?.add({
             id: route.slug,
             styles: `
-.page-container {
-    font-family: Arial, sans-serif;
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 20px;
-}
-
-.page-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.page-content {
-    margin-top: 20px;
-    text-align: left;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
             `,
-            component: `
-<div class="page-container">
-    <header class="page-header">
-        <h1>Welcome to My Page</h1>
-    </header>
-    <main class="page-content">
-        <p>This is a simple page created with GrapesJS.</p>
-    </main>
-</div>
-`,
+            //@ts-ignore 
+            component: shared_components?.length > 0? shared_components: "<p>Hello World</p>"
         });
-
 
 
         await fetch(`/designer/${ $website.id }/pages/create`, {
@@ -118,17 +102,27 @@
 
 
     function selectRoute(route: Route) {
-        editor.Pages.select(route.page_id)
-        document.dispatchEvent(new Event("close-pages"))
+        editor?.Pages?.select(route.page_id)
 
         editor.trigger('page:change', { route: route });
 
-        desactivateButton()
+        let selectedRouteMainComponent = editor.Pages.getSelected()?.getMainComponent()
+        if(selectedRouteMainComponent) {
+            editor.LayerManager.setRoot(selectedRouteMainComponent)
+            editor.LayerManager.render()
+        }
+        
+        document.dispatchEvent(new Event("close-pages"))
+
+        setTimeout(() => setRouteNameOnPanel(route.slug), 100)
+
+        deactivateButton()
+        
     }
 
 
     // Desactivate the button from the panel
-    function desactivateButton() {
+    function deactivateButton() {
         const panel = editor.Panels.getPanel("sites-admin"); // Replace 'panel-id' with the actual ID of your panel
         const button = panel?.buttons?.get(opa)
         if(button)

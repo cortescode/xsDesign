@@ -12,8 +12,6 @@ export default (editor: Editor) => {
 
     const { exit, move, clone, remove } = toolbarElements
 
-    console.log("Exit toolbar element: ", exit)
-
     Components.addType("header-nav", {
         isComponent: (el) => el.id == navId,
         model: {
