@@ -33,10 +33,7 @@ const defaultRules = `
     color: white;
     font-size: 18px;
     text-decoration: none;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+    margin: 0;
     width: fit-content;
 }
 

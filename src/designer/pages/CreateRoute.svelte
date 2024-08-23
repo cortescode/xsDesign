@@ -6,10 +6,10 @@
     import { website } from "$lib/stores/website";
     import { opa } from "$designer/consts";
     import { setRouteNameOnPanel } from "$designer/panels";
+    import { sanitizeSlug, selectRoute } from "./common";
 
     export let editor: Editor;
-    let pages;
-    
+
     let route: Route = {
         page_id: $website.id,
         slug: "",
@@ -21,7 +21,6 @@
     let pageCreationError: string = "";
 
     let slugManuallyEdited = false;
-
     
     
     onMount(() => { 
@@ -31,27 +30,12 @@
     })
 
     $: if (!slugManuallyEdited) {
-    route.slug = route.title
-        .toLowerCase()
-        .replace(/ /g, '-') // Replace spaces with hyphens
-        .replace(/[áàäâ]/g, 'a') // Replace 'á', 'à', 'ä', 'â' with 'a'
-        .replace(/[éèëê]/g, 'e') // Replace 'é', 'è', 'ë', 'ê' with 'e'
-        .replace(/[íìïî]/g, 'i') // Replace 'í', 'ì', 'ï', 'î' with 'i'
-        .replace(/[óòöô]/g, 'o') // Replace 'ó', 'ò', 'ö', 'ô' with 'o'
-        .replace(/[úùüû]/g, 'u') // Replace 'ú', 'ù', 'ü', 'û' with 'u'
-        .replace(/[ñ]/g, 'n') // Replace 'ñ' with 'n'
-        .replace(/[ç]/g, 'c') // Replace 'ç' with 'c'
-        .replace(/[<>\"#%{}|\\^~\[\]`;\/?:@=&$+]/g, '') // Remove unsafe characters
-        .replace(/[^a-z0-9-]/g, '') // Remove any other non-allowed characters
-}
-
-
-    function sanitizeSlug() {
-        route.slug = route.slug
-            .toLowerCase()
-            .replace(/ /g, '-') // Replace spaces with hyphens
-            .replace(/[<>\"#%{}|\\^~\[\]`;\/?:@=&$+]/g, '') // Remove unsafe characters // Remove diacritics
+        route.slug = sanitizeSlug(route.title)
+    } else {
+        route.slug = sanitizeSlug(route.slug)
     }
+
+
 
     function openClosePageCreation() {
         creatingRoute = !creatingRoute;
@@ -88,35 +72,13 @@
         })
 
 
-        selectRoute(route);
-
-        pages = editor?.Pages?.getAll();
+        deactivateButton()
+        selectRoute(editor, route);
 
         $website.routes = [route, ...$website.routes]
+        editor.store();
 
         creatingRoute = false;
-
-        editor.store();
-        
-    }
-
-
-    function selectRoute(route: Route) {
-        editor?.Pages?.select(route.page_id)
-
-        editor.trigger('page:change', { route: route });
-
-        let selectedRouteMainComponent = editor.Pages.getSelected()?.getMainComponent()
-        if(selectedRouteMainComponent) {
-            editor.LayerManager.setRoot(selectedRouteMainComponent)
-            editor.LayerManager.render()
-        }
-        
-        document.dispatchEvent(new Event("close-pages"))
-
-        setTimeout(() => setRouteNameOnPanel(route.slug), 100)
-
-        deactivateButton()
         
     }
 
@@ -155,9 +117,8 @@
                 
                 <label for="slug">Slug (url)</label>
                 <input type="text" placeholder="slug" 
-                    bind:value={route["slug"]} 
-                    on:input={() => slugManuallyEdited = true} 
-                    on:input={sanitizeSlug}
+                    bind:value={route.slug} 
+                    on:input={() => slugManuallyEdited = true}
                     >
             
                 <label for="description">Description</label>
