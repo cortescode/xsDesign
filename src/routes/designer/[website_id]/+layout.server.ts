@@ -26,6 +26,7 @@ export async function load({ params, cookies }) {
         description: db_website.description,
         data: db_website.data,
         routes: db_website.routes,
+        sharedComponents: db_website.sharedComponents,
         published: db_website.published || false,
         config: db_website.config || {}
     }

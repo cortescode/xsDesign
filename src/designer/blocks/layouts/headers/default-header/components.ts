@@ -4,41 +4,23 @@ import type { Editor } from 'grapesjs';
 export default (editor: Editor) => {
 	const { Components } = editor;
 
-	const headerWrapper = 'header';
-	const headerContent = `header-content`;
+    const header = `default-header`
+    const headerWrapper = `header-wrapper`
+	const headerContent = `default-header-content`;
 	const headerNav = `header-nav`;
 	const mobileToggle = `mobile-toggle`;
 
-
-
-	Components.addType(headerWrapper, {
-		model: {
-			defaults: {
-				droppable: true,
-				name: 'Header',
-				tagName: "header",
-				components: { type: headerContent },
-				attributes: {
-					class: 'header-wrapper'
-				},
-                styles: `
-
-                    .header-wrapper {
-                        box-sizing: border-box;
-                        width: 100%;
-                        height: 100px;
-                        background-color: white;
-                        display: grid;
-                        place-items: center;
-                        padding: 10px;
-                    }
-
-                `
+    Components.addType(header, {
+        extend: headerWrapper,
+        model: {
+            defaults: {
+                components: {type: headerContent}
             }
         }
     })
 
     Components.addType(headerContent, {
+        isComponent: el => el.parentElement?.tagName == "header",
         model: {
             defaults: {
                 droppable: true,

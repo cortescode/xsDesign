@@ -5,6 +5,7 @@ import loadStyles from "./StylesManager";
 import loadPanels from "./panels";
 import loadCustomTraitsManager from "./traits";
 import loadCssComposer from "./cssComposer";
+import loadAssetsManagerExtension from "./assetsManager";
 
 
 export default function main(editor: Editor) {
@@ -14,4 +15,5 @@ export default function main(editor: Editor) {
     loadStyles(editor)
     loadBlocks(editor)
     loadCustomTraitsManager(editor)
+    loadAssetsManagerExtension(editor)
 }

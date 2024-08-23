@@ -1,5 +1,6 @@
 <script lang="ts">
     import Logo from "$UI/Logo.svelte";
+    import Logout from "$auth/components/Logout.svelte";
     import Dashboard from "$lib/dashboard/Dashboard.svelte";
 
     export let data;
@@ -22,7 +23,9 @@
             You need to access from a computer to manage your websites
         </h2>
 
-        <a href="/auth/logout" class="designer-button">Logout</a>
+        <div class="logout-button-wrapper">
+            <Logout></Logout>
+        </div>
     </div>
 </section>
 
@@ -61,8 +64,10 @@
             margin-top: 40px;
         }
 
-        .mobile-message a {
-            margin-top: 20px;
+        .logout-button-wrapper {
+            margin-top: 40px;
+            border-radius: 24px;
+            overflow: hidden;
         }
     }
 </style>

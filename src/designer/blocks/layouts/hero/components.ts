@@ -56,6 +56,14 @@ export default function loadHeroComponents(editor: Editor) {
                 attributes: {
                     class: "hero"
                 },
+                styles: `
+                .hero {
+                    display: grid;
+                    box-sizing: border-box;
+                    padding: 120px 20px;
+                    place-items: center;
+                }
+                `,
                 editable: true,
                 traits: [
                     "id"

@@ -51,6 +51,7 @@ export async function POST({ request, cookies }) {
                 "slug": "home",
             }
         ],
+        "shared_components": template.shared_components,
         "published": false,
         "config": {}
     }

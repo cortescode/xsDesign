@@ -23,14 +23,6 @@ const defaultRules = `
     font-family: Comfortaa;
 }
 
-.hero {
-    display: grid;
-    box-sizing: border-box;
-    padding: 120px 20px;
-    place-items: center;
-}
-
-
 
 .basic-button-link {
     box-sizing: border-box;
@@ -41,10 +33,7 @@ const defaultRules = `
     color: white;
     font-size: 18px;
     text-decoration: none;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+    margin: 0;
     width: fit-content;
 }
 

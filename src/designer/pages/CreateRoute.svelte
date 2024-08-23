@@ -5,10 +5,11 @@
     import { onMount } from "svelte";
     import { website } from "$lib/stores/website";
     import { opa } from "$designer/consts";
+    import { setRouteNameOnPanel } from "$designer/panels";
+    import { sanitizeSlug, selectRoute } from "./common";
 
     export let editor: Editor;
-    let pages;
-    
+
     let route: Route = {
         page_id: $website.id,
         slug: "",
@@ -20,7 +21,6 @@
     let pageCreationError: string = "";
 
     let slugManuallyEdited = false;
-
     
     
     onMount(() => { 
@@ -30,19 +30,12 @@
     })
 
     $: if (!slugManuallyEdited) {
-        route.slug = route.title
-        .toLowerCase()
-        .replace(/ /g, '-') // Replace spaces with hyphens
-        .replace(/[<>\"#%{}|\\^~\[\]`;\/?:@=&$+]/g, '') // Remove unsafe characters
+        route.slug = sanitizeSlug(route.title)
+    } else {
+        route.slug = sanitizeSlug(route.slug)
     }
 
 
-    function sanitizeSlug() {
-        route.slug = route.slug
-            .toLowerCase()
-            .replace(/ /g, '-') // Replace spaces with hyphens
-            .replace(/[<>\"#%{}|\\^~\[\]`;\/?:@=&$+]/g, '') // Remove unsafe characters // Remove diacritics
-    }
 
     function openClosePageCreation() {
         creatingRoute = !creatingRoute;
@@ -55,44 +48,19 @@
             return
         }
 
+        // Select the
+        const shared_components = $website.sharedComponents?.map(sharedComponentId => {
+            let foundComponent =  editor?.Components?.getWrapper()?.find(`[shared-component="${sharedComponentId}"]`)
+            if(foundComponent) return foundComponent
+        })
+
         const newPage = editor?.Pages?.add({
             id: route.slug,
             styles: `
-.page-container {
-    font-family: Arial, sans-serif;
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 20px;
-}
-
-.page-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.page-content {
-    margin-top: 20px;
-    text-align: left;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
             `,
-            component: `
-<div class="page-container">
-    <header class="page-header">
-        <h1>Welcome to My Page</h1>
-    </header>
-    <main class="page-content">
-        <p>This is a simple page created with GrapesJS.</p>
-    </main>
-</div>
-`,
+            //@ts-ignore 
+            component: shared_components?.length > 0? shared_components: "<p>Hello World</p>"
         });
-
 
 
         await fetch(`/designer/${ $website.id }/pages/create`, {
@@ -104,31 +72,19 @@
         })
 
 
-        selectRoute(route);
-
-        pages = editor?.Pages?.getAll();
+        deactivateButton()
+        selectRoute(editor, route);
 
         $website.routes = [route, ...$website.routes]
+        editor.store();
 
         creatingRoute = false;
-
-        editor.store();
         
     }
 
 
-    function selectRoute(route: Route) {
-        editor.Pages.select(route.page_id)
-        document.dispatchEvent(new Event("close-pages"))
-
-        editor.trigger('page:change', { route: route });
-
-        desactivateButton()
-    }
-
-
     // Desactivate the button from the panel
-    function desactivateButton() {
+    function deactivateButton() {
         const panel = editor.Panels.getPanel("sites-admin"); // Replace 'panel-id' with the actual ID of your panel
         const button = panel?.buttons?.get(opa)
         if(button)
@@ -161,9 +117,8 @@
                 
                 <label for="slug">Slug (url)</label>
                 <input type="text" placeholder="slug" 
-                    bind:value={route["slug"]} 
-                    on:input={() => slugManuallyEdited = true} 
-                    on:input={sanitizeSlug}
+                    bind:value={route.slug} 
+                    on:input={() => slugManuallyEdited = true}
                     >
             
                 <label for="description">Description</label>

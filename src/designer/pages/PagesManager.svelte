@@ -10,6 +10,7 @@
     import DeleteRoute from "./DeleteRoute.svelte";
     import { getAll } from "firebase/remote-config";
     import { setRouteNameOnPanel } from "$designer/panels";
+    import { selectRoute } from "./common";
 
 
     export let editor: Editor;
@@ -37,7 +38,8 @@
                     return route.page_id == selectedPage?.id
                 })
 
-                background.style.display = "block"
+                if(background?.style)
+                    background.style.display = "block"
 
                 setTimeout(() => {
                     if(currentRoute)
@@ -54,7 +56,8 @@
                     return route.page_id == selectedPage?.id
                 })
 
-                background.style.display = "none"
+                if(background?.style)
+                    background.style.display = "none"
                 
                 setTimeout(() => {
                     if(currentRoute)
@@ -63,20 +66,6 @@
             })
     })
 
-    function selectRoute(route: Route) {
-        editor?.Pages?.select(route.page_id)
-
-        editor.trigger('page:change', { route: route });
-
-        let selectedRouteMainComponent = editor.Pages.getSelected()?.getMainComponent()
-        if(selectedRouteMainComponent) {
-            editor.LayerManager.setRoot(selectedRouteMainComponent)
-            editor.LayerManager.render()
-        }
-        openPanel=false
-        deactivatePagesButtons()
-        
-    }
 
 
 
@@ -143,7 +132,7 @@
 
                                 <EditRoute {editor} {route}></EditRoute>
                     
-                                <button on:click={() => selectRoute(route)} class="select-button">
+                                <button on:click={() => selectRoute(editor, route)} class="select-button">
                                     Select page
                                 </button>
                             </div>

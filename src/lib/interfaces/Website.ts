@@ -1,3 +1,4 @@
+import type { Component, ProjectData } from "grapesjs";
 import type { Domain } from "../../publish/domains/interfaces/Domain";
 import type { Route } from "./Route";
 
@@ -19,8 +20,9 @@ export interface Website {
     user_uid: string;
     name: string;
     description: string;
-    data: any;
+    data: ProjectData;
     routes: Route[];
+    sharedComponents?: string[]; // Saves the cid of the components shared across pages
     published: boolean;
     config: WebsiteConfig;
 }
