@@ -35,7 +35,7 @@
         <p>
             Try XsDesign for free and create your website in hours, not weeks.
         </p>
-        <a class="designer-button" href="/signup">Start now</a>
+        <a class="designer-button" href="/auth/signup">Start now</a>
     </div>
 </div>
 
