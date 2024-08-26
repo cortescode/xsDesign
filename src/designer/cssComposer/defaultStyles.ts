@@ -23,33 +23,6 @@ const defaultRules = `
     font-family: Comfortaa;
 }
 
-
-.basic-button-link {
-    box-sizing: border-box;
-    display: block;
-    padding: 10px 20px;
-    border-radius: 8px;
-    background-color: rgb(36, 57, 214);
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
-    margin: 0;
-    width: fit-content;
-}
-
-.basic-button-link:hover {
-  background-color: white;
-  color: rgb(36, 57, 214);
-  outline: 1px solid rgb(36, 57, 214);
-}
-
-
-.basic-link {
-  box-sizing: border-box;
-  font-size: 18px;
-  text-decoration: none;
-}
-
 `
 
 

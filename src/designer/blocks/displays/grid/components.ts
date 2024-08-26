@@ -14,6 +14,7 @@ export default function loadComponents(editor: Editor) {
     const commonModelProperties = {
         unstylable: ['font-size'],
         editable: true,
+        resizable: true,
         traits: [
             "id"
         ],
@@ -45,7 +46,6 @@ export default function loadComponents(editor: Editor) {
             defaults: {
                 name: 'Grid Child',
                 tagName: 'div',
-                resizable: true,
                 style: styleChild,
                 ...commonModelProperties
             },

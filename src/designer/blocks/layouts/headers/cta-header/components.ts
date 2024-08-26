@@ -30,6 +30,7 @@ export default (editor: Editor) => {
                 attributes: {
                     class: 'cta-header-content'
                 },
+                resizable: true,
                 components: [
                     {
                         type: 'link',
@@ -50,7 +51,7 @@ export default (editor: Editor) => {
 
                     .cta-header-content {
                         width: 100%;
-                        max-width: 1050px;
+                        max-width: 1250px;
                         display: flex;
                         flex-direction: row;
                         align-items: center;
