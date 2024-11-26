@@ -15,12 +15,14 @@ const config = {
 		alias: {
 			'$UI': './src/UI',
 			'$UI/*': './src/UI/*',
-			'$designer': './src/designer',
-			'$designer/*': './src/designer/*',
+			'$website': './src/website',
+			'$website/*': './src/website/*',
 			'$auth': './src/auth',
 			'$auth/*': './src/auth/*',
-			'$publish': './src/publish',
-			'$publish/*': './src/publish/*'
+			'$email': './src/email',
+			'$email/*': './src/email/*',
+			'$lib': './src/lib',
+			'$lib/*': './src/lib/*',
 		}
 	},
 };

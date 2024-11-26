@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { user } from "$lib/stores/session";
+    import { user } from "$auth/stores/session";
     import { sendEmailVerification } from "firebase/auth";
 </script>
 

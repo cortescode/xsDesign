@@ -1,8 +1,9 @@
 <!-- ------------------------------------------ TS ------------------------------------------ -->
 <script lang="ts">
-    import { user, isLoggedIn } from "$lib/stores/session";
+    import { goto } from "$app/navigation";
     import { login } from "../auth";
 
+    export let redirect_to: string = "/dashboard";
     let errorMessage = "";
 
     let form = {
@@ -15,26 +16,24 @@
         let email = form.email;
         let password = form.password;
 
-        if(email?.length < 3 || !(email.includes("@"))) {
+        if (email?.length < 3 || !email.includes("@")) {
             errorMessage = "Please introduce a valid email";
             return;
         }
 
-        if(password?.length == 0) {
+        if (password?.length == 0) {
             errorMessage = "Please introduce the password";
             return;
         }
 
-
-        try {
-            await login(email, password);
-        } catch (error) {
+        const logged_in = await login(email, password);
+        if (!logged_in) {
             errorMessage = "Email or password invalid";
+            return;
         }
+        goto(redirect_to, { replaceState: true });
     }
 </script>
-
-
 
 <form class="auth-form" on:submit|preventDefault={submitLogin}>
     <h3 class="gradient-text">We are happy to see you again!</h3>
@@ -59,21 +58,18 @@
     </button>
 
     <span>
-        Don't you already have an account? 
+        Don't you already have an account?
         <a href="/auth/signup">Signup</a>
     </span>
 </form>
 
-
 <style>
-
     .auth-form {
         display: grid;
         grid-template-columns: 1fr;
         text-align: left;
         padding: 0 !important;
     }
-
 
     .auth-form h2 {
         text-align: left;
@@ -106,5 +102,4 @@
         width: 100%;
         margin: 28px 0 0 0;
     }
-
 </style>

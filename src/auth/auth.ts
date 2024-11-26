@@ -1,30 +1,27 @@
 import { redirect } from '@sveltejs/kit';
 import { auth } from './firebaseConn';
-import { 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    GoogleAuthProvider, 
-    signInWithPopup, 
-    signOut, 
-    updateEmail,
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
     deleteUser,
     sendEmailVerification,
-    verifyBeforeUpdateEmail
+    verifyBeforeUpdateEmail,
+    reauthenticateWithCredential,
+    getAdditionalUserInfo
 } from 'firebase/auth';
 import type { UserCredential, User } from 'firebase/auth';
 import { goto } from '$app/navigation';
-import { user } from '../lib/stores/session';
+import { user } from './stores/session';
 
-import { deleteCookie, setCookie } from '../lib/cookies';
+import { deleteCookie, setCookie } from '$lib/cookies';
 import { EmailAuthProvider } from 'firebase/auth';
-import { reauthenticateWithCredential } from 'firebase/auth';
-
 const LOGGED_IN: string = "logged_in"
 const USER_UID: string = "user_uid"
 
 const provider = new GoogleAuthProvider();
-
-
 
 
 
@@ -40,45 +37,69 @@ export function getCurrentUser() {
 
 
 
-export async function signup(email: string, password: string) {
-    let userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
+export async function signup(email: string, password: string): Promise<boolean> {
+
+    try {
+        let userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
+
+        let _user = userCredential.user
     
-    let _user = userCredential.user
-
-    setUserCookiesAndStore(_user)
-
-    await sendEmailVerification(_user)
+        setUserCookiesAndStore(_user)
+        await sendEmailVerification(_user)
+        
+        return true
+    } catch (error) {
+        console.error("Error signing up: ", error)
+        return false
+    }
 }
 
-export async function signinWithGooglePopUp() {
+export async function signinWithGooglePopUp(): Promise<boolean> {
 
-    const userCredential: UserCredential = await signInWithPopup(auth, provider);
+    try {
+        const userCredential: UserCredential = await signInWithPopup(auth, provider);
 
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    // const credential = GoogleAuthProvider.credentialFromResult(result);
-    //const token = credential?.accessToken;
-
-    const _user = userCredential.user
-
-
-    setUserCookiesAndStore(_user)
-}
-
-
-
-export async function login(email: string, password: string) {
-    let userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password)
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        //const token = credential?.accessToken;
     
-    let _user: User = userCredential.user
+        const _user = userCredential.user
+        const userInfo = getAdditionalUserInfo(userCredential)
+    
+        setUserCookiesAndStore(_user)
+        if(userInfo?.isNewUser)
+            await sendEmailVerification(_user)
 
-    setUserCookiesAndStore(_user)
+        return true
+    } catch (error) {
+        console.error("Error signing in with Google: ", error)
+        return false
+    }
 
-    goto("/designer", { replaceState: true });
 }
 
 
 
-export async function logout() {
+export async function login(email: string, password: string): Promise<boolean> {
+    
+    try {
+        let userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password)
+
+        let _user = userCredential.user
+
+        setUserCookiesAndStore(_user)
+
+        return true
+    } catch (error) {
+        console.error("Error logging in: ", error)
+        return false
+    }
+
+}
+
+
+
+export async function logout(): Promise<void> {
     await signOut(auth)
     user.set(null)
     deleteCookie(LOGGED_IN)
@@ -86,8 +107,6 @@ export async function logout() {
 
     goto("/", { replaceState: true })
 }
-
-
 
 
 
@@ -107,7 +126,7 @@ export async function validateAndUpdateUserEmail(newEmail: string, currentPasswo
             }
             const credential = EmailAuthProvider.credential(currentUser.email!, currentPassword);
             let user_credential = await reauthenticateWithCredential(currentUser, credential);
-            
+
             console.log("New user credential: ", user_credential)
         } else if (providers.includes('google.com')) {
             const provider = new GoogleAuthProvider();
@@ -150,6 +169,4 @@ export function setUserCookiesAndStore(_user: User) {
     user.set(_user)
     setCookie(LOGGED_IN, "true", 60)
     setCookie(USER_UID, _user.uid, 60)
-
-    goto("/", { replaceState: true });
 }

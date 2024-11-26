@@ -20,6 +20,7 @@
         <div class="button-container">
             <!-- <a href="/agency">Web Agency</a> -->
             <!-- <a href="/pricing">Made with xsdesign</a> -->
+            <a class="hide-on-mobile" href="/pricing">Pricing</a>
             <a class="hide-on-mobile" href="/blog">Blog</a>
             <a href="/auth/login">Login</a>
             <a href="/auth/signup" class="cta">Access Beta for Free</a>

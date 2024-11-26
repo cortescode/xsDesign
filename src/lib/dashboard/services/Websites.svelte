@@ -1,8 +1,8 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script lang="ts">
-    import { user } from "$lib/stores/session"
+    import { user } from "$auth/stores/session"
     import { onMount } from "svelte";
-    import type { Website } from "$lib/interfaces/Website";
+    import type { Website } from "$website/interfaces/Website";
 
     export let data: any;
 
@@ -18,7 +18,7 @@
     onMount(() => {});
 
     async function deleteWebsite(websiteId: string) {
-        const response = await fetch(`/designer/${websiteId}/delete`, {
+        const response = await fetch(`/api/website/${websiteId}/delete`, {
             method: 'POST', // Assuming POST triggers the deletion as per your initial setup
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@
             return
 
         
-        const response = await fetch(`/designer/${websiteId}/settings/general/edit-website`, {
+        const response = await fetch(`/api/website/${websiteId}/settings/general/`, {
             method: 'POST', // Assuming POST triggers the deletion as per your initial setup
             body: JSON.stringify({
                 "new_name": websiteNewName
@@ -73,10 +73,10 @@
     </a> -->
     {#if websites.length == 0}
         
-        <a class="webcard animate" href="/designer/create">
+        <a class="webcard animate" href="/website/create">
 
             <!-- <img src="/media/assets/images/earth.png" class="rotate" alt="" srcset="/media/assets/landing.avif"> -->
-            <p>You don't still have any website</p>
+            <p>You still don't have any website</p>
             <div class="access">
                 <span>+ Create now
                     <svg class="svg-icon" viewBox="0 0 20 20">
@@ -94,7 +94,7 @@
     {#each websites as website }
     
         <div>
-            <a class="webcard animate" href="/designer/{website.id}">
+            <a class="webcard animate" href="/website/{website.id}/designer">
                 <!-- <img src="/media/assets/images/earth.png" class="rotate" alt="" srcset="/media/assets/landing.avif"> -->
                 <p>{website.name}</p>
                 <div class="access">
@@ -188,7 +188,7 @@
     }
 
     .webcard > * {
-        display: block;;
+        display: block;
     }
 
     .webcard:hover {
@@ -205,8 +205,6 @@
         max-width: 380px;
     }
 
-    .webcard:hover > p {
-    }
 
     .webcard:hover {
         transform: scale(0.98);
@@ -343,11 +341,5 @@
         z-index: 4;
     }
 
-    .actions {
-        margin-top: auto; /* Align buttons to the bottom of the card */
-    }
-    .actions a, .actions button {
-        margin-right: 10px;
-    }
   
 </style>

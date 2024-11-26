@@ -2,7 +2,6 @@
 <script lang="ts">
     import { logout } from "$auth/auth";
 
-
 </script>
 
 
@@ -18,14 +17,15 @@
         width: 100%;
         height: 100%;
         padding: 12px;
-        color: white;
-        background-color: var(--blue);
+        color: var(--dark-blue);
+        background-color: var(--light-blue);
         border: none;
-        border-radius: none;
+        border-radius: 12px;
         text-align: left;
     }
 
     button:hover {
-        background-color: var(--dark);
+        background-color: var(--blue);
+        color: white;
     }
 </style>

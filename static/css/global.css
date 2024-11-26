@@ -2,11 +2,13 @@
 
 
 :root {
-	--dark: rgb(8, 0, 34);
+	--dark: #080022;
 	--light-blue: #EBF4FF;
 	--blue: #4857E0;
 	--purple: #7b48e0;
 	--buttons-blue: rgb(32, 32, 128);
+
+	--light-red: #ffe4e7;
 
 	--page-content-size: 1250px;
 

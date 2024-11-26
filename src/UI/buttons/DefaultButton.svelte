@@ -10,8 +10,8 @@
 </script>
 
 {#if submit_active }
-    <button on:click={action} class="default-button" type="submit" >{text}</button>
+    <button on:click={action} class="designer-button" type="submit" >{text}</button>
 {:else }
-    <button on:click={action} class="default-button">{text}</button>
+    <button on:click={action} class="designer-button">{text}</button>
 {/if}
 

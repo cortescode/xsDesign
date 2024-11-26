@@ -13,7 +13,7 @@
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 <header class="header">
-    <Logo link="/designer/"></Logo>
+    <Logo link="/dashboard/"></Logo>
   
     
     <nav class="links-list">
@@ -25,13 +25,11 @@
     </nav> 
 
     <div class="fast-access">
-        <a href="/account" class="account-link">
+        <a href="/account" class="account-link" title="Manage account">
             <span>Manage account</span>
-            <svg class="svg-icon" viewBox="0 0 20 20">
-                <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
-            </svg>
+            <img src="/media/assets/account-icon.png" alt="Manage account">
         </a>
-        <a href="/designer/create" class="create-button">+ Create Website</a>
+        <a href="/website/create" class="designer-button">+ Create Website</a>
     </div>
     
 </header>
@@ -43,6 +41,7 @@
 <style>
     
     header {
+        box-sizing: border-box;
         grid-row-start: 1;
         grid-column-start: 1;
         grid-column-end: 10;
@@ -53,14 +52,13 @@
         justify-content: space-between;
         justify-items: center;
         background-color: rgb(255, 255, 255);
-        height: 46px;
+        height: 80px;
 
         margin: 0;
         padding: 6px 20px;
-        width: calc(100% - 40px);
+        width: 100%;
 
-        border-bottom: 1px solid var(--blue);
-        box-shadow: rgba(4, 0, 80, 0.1) -10px 2px 20px;
+        box-shadow: rgba(193, 189, 255, 0.1) -10px 2px 20px;
     }
 
     .svg-icon {
@@ -72,37 +70,40 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 20px;
+        gap: 0px;
         margin: 0;
-        padding: 8px 8px 8px 20px;
-        border-radius: 12px;
+        padding: 4px 8px 4px 20px;
         overflow: hidden;
         transition: .2s;
     }
 
-    .account-link:hover {
-        outline: 1px solid var(--dark);
-        background-color: var(--blue);
-    }
-
-    .account-link:hover .svg-icon {
-        fill: white;
+    .account-link:hover span {
+        font-weight: lighter;
+        font-size: 14px;
+        padding: 6px 30px 6px 20px;
+        margin-right: -20px;
+        background-color: var(--dark);
+        border-radius: 8px 0 0 8px;
+        transform: scale(1);
+        display: block;
     }
 
     .account-link span {
         color: white;
+        display: none;
     }
-
+    .account-link:hover img {
+        outline: 2px solid var(--dark);
+        
+    }
 
     .account-link img{
         width: 40px;
         height: 40px;
+        border-radius: 50%;
+        transform: rotate(180deg);
     }
 
-    .account-link:hover img{
-        box-shadow: rgba(66, 57, 241, 0.4) 0px 2px 20px;
-        border-radius: 4px;
-    }
 
     .fast-access {
         display: flex;
@@ -118,7 +119,6 @@
     a {
         margin: 0 14px;
         text-decoration: none;
-        color: var(--dark);
         font-size: 16px;
     }
     a:hover {

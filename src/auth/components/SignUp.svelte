@@ -1,13 +1,9 @@
 <!-- ------------------------------------------ J S ------------------------------------------ -->
 <script lang="ts">
-    import { goto } from "$app/navigation";
-    import { user } from "$lib/stores/session";
     import { signup } from "../auth";
+    import { goto } from "$app/navigation";
 
-
-    if ($user) {
-        goto("/designer/");
-    }
+    export let redirect_to: string = "/dashboard";
 
     let errorMessage = "";
 
@@ -23,30 +19,37 @@
         let password = form.password;
         let confirm_password = form.confirm_password;
 
-        if(email?.length < 3 || !(email.includes("@"))) {
-            errorMessage = "Please introduce a valid email";
+        if(!validateCredentials(email, password, confirm_password)) {
             return;
+        }
+
+        let signed_up = await signup(email, password);
+        if (!signed_up) {
+            errorMessage = "Email already in use or invalid password";
+            return;
+        }
+        
+        goto(redirect_to, { replaceState: true });
+    }
+
+    function validateCredentials(email: string, password: string, confirm_password: string) {
+        if (email?.length < 3 || !email.includes("@")) {
+            errorMessage = "Please introduce a valid email";
+            return false;
         }
 
         if (password != confirm_password) {
             errorMessage = "The two passwords do not match";
-            return;
+            return false;
         }
 
-        try {
-            await signup(email, password);
-        } catch (error) {
-            errorMessage = "Email or password invalid";
-        }
+        return true;
     }
-
 </script>
 
 <!-- ------------------------------------------ H T M L ------------------------------------------ -->
 
-
 <form method="POST" class="auth-form" on:submit|preventDefault={submitSignup}>
-
     <h3 class="gradient-text">Welcome to the beta phase</h3>
 
     {#if errorMessage != ""}
@@ -118,5 +121,4 @@
         width: 100%;
         margin: 28px 0 0 0;
     }
-
 </style>

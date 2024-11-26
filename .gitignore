@@ -1,5 +1,9 @@
 todo.txt
 
+
+xsdesign-firebase.json
+
+
 ### Flask ###
 instance/*
 !instance/.gitignore

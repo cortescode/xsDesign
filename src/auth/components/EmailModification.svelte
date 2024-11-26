@@ -1,6 +1,6 @@
 <script lang="ts">
     import { logout, validateAndUpdateUserEmail } from "$auth/auth";
-    import { user } from "$lib/stores/session";
+    import { user } from "$auth/stores/session";
 
 
     let newEmail = '';

@@ -172,7 +172,8 @@ svg {
 
 
 .designer-button {
-    display: inline-flex;
+    display: block;
+	padding: 8px 16px;
     align-items: center;
     justify-content: center;
     background: var(--blue); /* rgb(67, 28, 225) */
@@ -184,6 +185,7 @@ svg {
     text-decoration: none;
     font-size: 16px;
     transition: .2s;
+	font-size: 18px;
 }
 
 .designer-button:hover {

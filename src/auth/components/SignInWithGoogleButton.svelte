@@ -1,40 +1,27 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import { setUserCookiesAndStore, signinWithGooglePopUp } from "../auth";
-    import { auth } from "../firebaseConn";
+    import { userPlan } from "../stores/session";
     import { GoogleAuthProvider } from "firebase/auth";
     import { getCookie } from "$lib/cookies";
     import { onMount } from "svelte";
 
     let errorMessage: string = "";
+    export let redirect_to: string = "/dashboard";
 
     
     async function popUpSignIn(event: Event) {
-        try {
-            await signinWithGooglePopUp()
-
-            goto("/", { replaceState: true })
-
-        } catch (error) {
+        console.log("Starting signup with pop up");
+        let signedIn = await signinWithGooglePopUp();
+        console.log("2");
+        if (!signedIn) {
+            console.log("error on sign up");
             errorMessage = "Error on google authentication";
+            return;
         }
+        console.log("Redirecting to: ", redirect_to);
+        goto(redirect_to, { replaceState: true });
     }
-
-    const provider = new GoogleAuthProvider();
-        
-    
-    onMount(async () => {
-        try {
-            const result = await getCookie("LOGGED_IN");
-
-            if (result) {
-                goto("/", { replaceState: true })
-            }
-
-        } catch (error) {
-            errorMessage = "Error on google authentication";
-        }
-    });
 </script>
 
 
