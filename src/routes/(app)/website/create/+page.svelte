@@ -116,7 +116,7 @@
         <TemplateSelection {setTemplate}></TemplateSelection>
     {/if}
 
-    <div class="button-wrapper">
+    <div class="buttons-wrapper">
         {#if step == 0}
             <button class="designer-button" on:click={() => step++}>
                 Select Template
@@ -280,14 +280,18 @@
         resize: none;
     }
 
-    .button-wrapper {
+    .buttons-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
         position: fixed;
         inset: auto 20px 10px auto;
         width: fit-content;
         height: fit-content;
     }
 
-    .button-wrapper input {
+    .buttons-wrapper input {
         font-family: "Comfortaa";
         padding: 10px 20px;
         font-size: 22px;

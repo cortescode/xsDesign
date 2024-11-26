@@ -2,11 +2,10 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Logo from '../Logo.svelte';
+    import { user } from '$auth/stores/session';
 
 
-    let y: number;
-
-    $: y;
+    let y: number = $state(0)
 
 </script>
   
@@ -22,8 +21,12 @@
             <!-- <a href="/pricing">Made with xsdesign</a> -->
             <a class="hide-on-mobile" href="/pricing">Pricing</a>
             <a class="hide-on-mobile" href="/blog">Blog</a>
-            <a href="/auth/login">Login</a>
-            <a href="/auth/signup" class="cta">Access Beta for Free</a>
+            {#if $user}
+                <a href="/dashboard" class="cta">Dashboard</a>
+            {:else}
+                <a href="/auth/login">Login</a>
+                <a href="/auth/signup" class="cta">Access Beta for Free</a>
+            {/if}
         </div>
     </div>
 

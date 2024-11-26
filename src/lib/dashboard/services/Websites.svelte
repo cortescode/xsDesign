@@ -109,24 +109,26 @@
                     </span>
                 </div>   
             </a>
-
-            <button class="designer-button animate" 
-                on:click={() => { 
-                    websiteToEdit = website; 
-                    websiteNewName = websiteToEdit?.name
-                    showEditModal = true; 
-                }}>
-                Edit
-            </button>
-
-            <button class="delete-button animate" 
-                on:click={() => { 
-                    websiteToDelete = website; 
-                    showDeleteModal = true; 
-                }}>
-                Delete
-            </button>  
             
+            <div class="buttons-wrapper">
+                <button class="designer-button animate" 
+                    on:click={() => { 
+                        websiteToEdit = website; 
+                        websiteNewName = websiteToEdit?.name
+                        showEditModal = true; 
+                    }}>
+                    Edit
+                </button>
+    
+                <button class="delete-button animate" 
+                    on:click={() => { 
+                        websiteToDelete = website; 
+                        showDeleteModal = true; 
+                    }}>
+                    Delete
+                </button>  
+                
+            </div>
         </div>
         
     {/each}
@@ -262,6 +264,12 @@
         border: 1px solid var(--blue);
     }
 
+    .buttons-wrapper {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
     .delete-button {
         display: inline-flex;
         align-items: center;

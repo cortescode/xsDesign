@@ -7,8 +7,6 @@ import JSZip from "jszip";
 import saveAs from "file-saver";
 import type { User } from "firebase/auth";
 
-
-
 const PUBLISHING_API_URL: string = "https://publish.xsdesign.co/publish-website" 
 
 
@@ -20,16 +18,41 @@ website_store.subscribe(site => website = site)
 user_store.subscribe(_user => user = _user)
 
 
-export async function publishWebsite(editor: Editor): Promise<boolean> {
-    if(!user) return false;
-    try {
-        let content = await getZipContent(editor)
-        return requestPublishing(content)
-    } catch(exeption) {
-        return false
-    }
+// export async function publishWebsite(editor: Editor): Promise<boolean> {
+//     if(!user) return false;
+//     try {
+//         let content = await getZipContent(editor)
+//         return requestPublishing(content)
+//     } catch(exeption) {
+//         return false
+//     }
 
+export async function publishWebsite(editor: Editor): Promise<boolean> {
+    try {
+        const data = editor.getProjectData()
+
+        const jsonContent = JSON.stringify({
+            website_id: website.id,
+            data: data
+        }, null, 2);
+        const response = await fetch("/api/templates/publish", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: jsonContent,
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to save template');
+        }
+        return true;
+    } catch (exception) {
+        console.log(exception);
+        return false;
+    }
 }
+
 
 async function requestPublishing(content: Blob): Promise<boolean> {
     if(!user) return false;
