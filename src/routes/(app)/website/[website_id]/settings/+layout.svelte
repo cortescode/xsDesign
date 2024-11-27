@@ -101,6 +101,7 @@
     header h2 {
         justify-self: center;
         margin: 0;
+        font-size: 1.8rem;
     }
 
     .main {

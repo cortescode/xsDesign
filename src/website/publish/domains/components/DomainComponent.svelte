@@ -18,7 +18,7 @@
     }
 
     function deleteDomain(domain: Domain) {
-        fetch(`/designer/${$website.id}/settings/domains/delete`, {
+        fetch(`/website/${$website.id}/settings/domains/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@
 
     function refreshDomain(domain: Domain) {
         const hostname_id = domain.hostname_id;
-        fetch(`/designer/${$website.id}/settings/domains/validate`, {
+        fetch(`/website/${$website.id}/settings/domains/validate`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
